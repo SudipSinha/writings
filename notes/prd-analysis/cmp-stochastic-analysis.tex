@@ -158,6 +158,19 @@
 	% 	\stopsubsection
 	% \stopsection
 
+	\startsection[title={Itô formula for multidimensional processes}]
+
+		Recall the discussion of Taylor series for multivariate functionals in section \in[sec:taylor].
+
+		Let \m{X_t= (X_t^{(1)}, \dots, X_t^{(d)})} be a \m{d}-dimensional process and \m{f(t, x)} be a functional of \m{(t, X_t)}. Then the Itô formula becomes
+		\startformula
+			\d f(t, X_t)  =  \brnd[{\inn[\d t, \D_t]} f](t, X_t)
+				+ \brnd[{\inn[\d x, \D_x]} f](t, X_t)
+				+ \frac12 \brnd[{\inn[\d x, \D_x]}^2 f](t, X_t) ,
+		\stopformula
+		or in short, \m{\d f  =  \brnd[{\inn[\d t, \D_t]}  +  {\inn[\d x, \D_x]}  +  \frac12 {\inn[\d x, \D_x]}^2] f}.
+	\stopsection
+
 \stopchapter
 
 

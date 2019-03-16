@@ -3,7 +3,7 @@
 \product  prd-analysis
 
 
-\startchapter [title={Convergence of sequences and series}]
+\startchapter [title={Convergence of sequences and series}, reference=chp:convergence]
 
 	\startitemize [1, nowhite, after]
 		\item  We can only talk of \emph{convergence of sequences} in \emph{Hausdorff topological spaces}.
@@ -29,7 +29,7 @@
 \stopchapter
 
 
-\startchapter [title={Differentiation}]
+\startchapter [title={Differentiation}, reference=chp:differentiation]
 	\startsection [title={Differentiation of functions with real powers}]
 		This idea is by Prof Sundar.
 
@@ -53,11 +53,11 @@
 		See also \goto{this Wikipedia article}[url(https://en.wikipedia.org/wiki/Non-analytic_smooth_function)].
 	\stopsection
 
-	\startsection[title={Taylor series for multivariate functionals}]
+	\startsection[title={Taylor series for multivariate functionals}, reference=sec:taylor]
 		Let \m{f: ℝ^n → ℝ} be an infinitely differentiable function at the point \m{a ∈ ℝ^n}. Then the Taylor series of \m{f} around \m{a} is given by
 		\startformula
-			T(a + x)  =  ∑_{n = 0}^∞  \frac{1}{n!} \inn[x, D_x \Big|_a]^n f ,
-			\quad \text{ where }  \inn[x, D_x\Big|_a] = ∑_{j=1}^d x_j \frac{∂}{∂ x_j}\bigg|_a .
+			T(a + x)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[x, \D_x]}^n f](a) ,
+			\quad \text{ where }  \inn[x, \D_x] = ∑_{j=1}^d x_j \frac{∂}{∂ x_j} .
 		\stopformula
 
 		There is another form with multi-indexes. But the above form seems way more natural to me. See more in \goto{this}[url(https://en.wikipedia.org/wiki/Taylor_series\#Taylor_series_in_several_variables)] and \goto{this}[url(https://en.wikipedia.org/wiki/Taylor's_theorem\#Taylor's_theorem_for_multivariate_functions)] Wikipedia articles.

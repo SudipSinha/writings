@@ -4,9 +4,6 @@
 		{
 			"path": "."
 		},
-		// {
-		// 	"path": "environments"
-		// },
 		{
 			"path": "notes",
 			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
@@ -14,6 +11,11 @@
 		},
 		{
 			"path": "talks",
+			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
+			"folder_exclude_patterns": ["*-export"]
+		},
+		{
+			"path": "resume",
 			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
 			"folder_exclude_patterns": ["*-export"]
 		},
