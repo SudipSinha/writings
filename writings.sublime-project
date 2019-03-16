@@ -20,9 +20,10 @@
 			"folder_exclude_patterns": ["*-export"]
 		},
 		{
-			"path": "travelogs",
-			// "file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			// "folder_exclude_patterns": ["*-export"]
+			"path": "random"
+		},
+		{
+			"path": "travelogs"
 		},
 
 	],
