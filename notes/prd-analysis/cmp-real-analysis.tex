@@ -53,6 +53,16 @@
 		See also \goto{this Wikipedia article}[url(https://en.wikipedia.org/wiki/Non-analytic_smooth_function)].
 	\stopsection
 
+	\startsection[title={Taylor series for multivariate functionals}]
+		Let \m{f: ℝ^n → ℝ} be an infinitely differentiable function at the point \m{a ∈ ℝ^n}. Then the Taylor series of \m{f} around \m{a} is given by
+		\startformula
+			T(a + x)  =  ∑_{n = 0}^∞  \frac{1}{n!} {\brnd[{\inn[x, \left. D_x \right|_a]}^n f]} (a) ,
+			\quad \text{ where }  \inn[x, D_x] = ∑_{j=1}^d x_j ∂_{x_j} .
+		\stopformula
+
+		There is another form with multi-indexes. But the above form seems way more natural to me. See more in \goto{this}[url(https://en.wikipedia.org/wiki/Taylor_series\#Taylor_series_in_several_variables)] and \goto{this}[url(https://en.wikipedia.org/wiki/Taylor's_theorem\#Taylor's_theorem_for_multivariate_functions)] Wikipedia articles.
+	\stopsection
+
 \stopchapter
 
 \stopcomponent
