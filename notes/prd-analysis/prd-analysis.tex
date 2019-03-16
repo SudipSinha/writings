@@ -1,0 +1,45 @@
+\startproduct *
+
+\project  prj-notes
+
+
+\startfrontmatter
+	% \component titlepage     %Titlepage for the book
+	\completecontent    % Contents
+\stopfrontmatter
+
+
+\startbodymatter
+
+	\startpart[title={Real analysis}, reference=prt:real-analysis]
+		\component cmp-real-analysis
+	\stoppart
+
+	\startpart[title={Probability theory}, reference=prt:probability-theory]
+		\component cmp-probability-theory
+	\stoppart
+
+	\startpart[title={Stochastic analysis}, reference=prt:stochastic-analysis]
+		\component cmp-stochastic-analysis
+	\stoppart
+
+	% \startpart[title={modules}, reference=prt:modules]
+	% 	\component cmp-modules
+	% \stoppart
+
+\stopbodymatter
+
+
+\startbackmatter
+
+   % \component appendices % Appendix 1
+		 %       % Appendix 2
+		 %       % Impressum
+
+	\startchapter [title=Bibliography]
+		\placelistofpublications
+	\stopchapter
+
+\stopbackmatter
+
+\stopproduct

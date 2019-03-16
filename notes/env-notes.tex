@@ -1,0 +1,233 @@
+\startenvironment *
+
+%%%%%%%%%%%%%
+% Variables %
+%%%%%%%%%%%%%
+
+% Version and mode
+\setvariables[document][version=temporary]    % {final, concept, temporary}
+\setvariables[document][mode=presentation]    % {presentation, manuscript, handout}
+% Colors
+\setvariables[document][color-link-external=royalblue]
+\setvariables[document][color-link-internal=violetred]
+\setvariables[document][color-background=azure]
+\setvariables[document][color-headings=firebrick]
+% Fonts
+\setvariables[document][font=palatino]
+\setvariables[document][fontsize=12pt]
+% Document specific information
+\setvariables[document][title={Solution Manual}]
+\setvariables[document][subtitle={Using \ConTeXt}]
+\setvariables[document][author={Sudip Sinha}]
+\setvariables[document][date={\date}]
+\setvariables[document][keyword={mathematics, solutions}]
+
+
+%%%%%%%%%%%%
+% Preamble %
+%%%%%%%%%%%%
+
+% mode=mkiv
+\mainlanguage [en]
+\version [\getvariable{document}{version}]
+
+% NOTE: export cannot deal with 'part's as of 2019-04-05
+% \setupbackend [export=yes]    % export to other formats
+
+\setupcolors [state=start]       % otherwise you get greyscale
+\usecolors [x11]    % X11 colors, use \showcolor[x11] to get a list
+
+% See wiki/Command/setupinteraction
+\setupinteraction [
+	state=start,  % make hyperlinks active
+	menu=on,
+	click=yes,
+	style=normal,
+	color=\getvariable{document}{color-link-external},   % Seems like this is the only color working
+	contrastcolor=\getvariable{document}{color-link-internal},   % This is not working
+	openaction=FitWidth,    % Make the PDF open in 'fit width' mode
+	focus=standard,    % stop switching to 'fit page' mode when clicking an interdocument hyperlink
+	title=\getvariable{document}{title},
+	subtitle=\getvariable{document}{subtitle},
+	author=\getvariable{document}{author},
+	date=\getvariable{document}{date},
+	keyword=\getvariable{document}{keyword}]
+\setupinteractionscreen [option=bookmark]    % wiki/Command/setupinteractionscreen
+
+\placebookmarks
+	[part,chapter,section,subsection]    % creates bookmarks for the specified headers
+	[chapter]    % but opens only chapter ones by default
+
+% Export
+% \setupexport [
+% 	hyphen=yes,
+% 	% This metadata is used by ConTeXt’s ePub script
+% 	% title, subtitle and author are taken from \setupinteraction, if not set
+% 	% title={Solutions Manual},
+% 	% subtitle={Using ConTeXt},
+% 	% author={Sudip Sinha}]t
+
+% \settaggedmetadata [
+% 	% here you can set as many metadata entries as you like, but you need to process them yourself
+% 	title={Solution Manual},
+% 	subtitle={Using ConTeXt},
+% 	author={Sudip Sinha},
+% 	version={2019-04-05}] % \date doesn’t expand
+
+% For US paper, use [letter][letter]; the sensible default is [A4][A4] (A4 typesetting, printed on A4 paper)
+\setuppapersize[A4][A4]
+% wiki/Layout
+\setuplayout [
+	topspace=4em,
+	backspace=6em,
+	% leftmargin=2em,
+	header=2em,
+	footer=2em,
+	height=middle,
+	width=middle]
+\showframe    % show the layout
+
+% useful urls
+\useURL[author-personal-email][mailto:SudipSinha.Bappa@Gmail.com][][SudipSinha.Bappa@Gmail.com]
+\useURL[author-official-email][mailto:ssinha4@lsu.edu][][ssinha4@lsu.edu]
+\useURL[author-home][https://SudipSinha.GitHub.io][][homepage]
+
+% headers and footers
+% \setupfooter[style=\it]
+% \setupfootertexts[\date\hfill \ConTeXt\ template]
+% \setuppagenumbering[location={header,right}, style=bold]
+
+% Formatting sections
+\setuphead [chapter] [
+	color=\getvariable{document}{color-headings},
+	alternative=margin,
+	style=\tfc\smallcaps]
+
+\setuphead [section] [
+	color=\getvariable{document}{color-headings},
+	alternative=margin,
+	style=\tfb]
+
+\setuphead [subsection] [
+	color=\getvariable{document}{color-headings},
+	alternative=margin,
+	style=\tfa]
+
+% \setuphead[section,chapter,subject][color=headingcolor]
+% \setuphead[section,subject][style={\ss\bfa},
+%   before={\bigskip\bigskip}, after={}]
+% \setuphead[chapter][style={\ss\bfd}]
+% \setuphead[title][style={\ss\bfd},
+%   before={\begingroup\setupbodyfont[14.4pt]},
+%   after={\leftline{\ss\tfa A. U. Thor $\langle$\from[author-email]$\rangle$}
+%          \bigskip\bigskip\endgroup}]
+
+% \setupitemize[inbetween={}, style=bold]
+
+% % set inter-paragraph spacing
+% \setupwhitespace[medium]
+% % comment the next line to not indent paragraphs
+% \setupindenting[medium, yes]
+
+% Contents (https://www.contextgarden.net/Table_of_Contents)
+\setupcombinedlist[content][list={part,chapter,section}]
+
+% Bibliography
+\usebtxdataset[../bib.bib]
+\usebtxdefinitions[apa]
+
+% Diagrams
+\usemodule[tikz]
+\usetikzlibrary[cd]
+
+% Description environment
+\definedescription[dscr][headstyle=bold, style=normal, align=flushleft, alternative=hanging, width=broad, margin=1em]
+
+% Highlighting
+\definehighlight[comment][color=darkgray]
+\definehighlight[good][color=darkgreen]
+\definehighlight[okay][color=darkorange]
+\definehighlight[ugly][color=orangered]
+
+% % Abbreviations
+% \definesynonyms[abbreviation][abbreviations][\infull]
+% % \setupsynonyms[style=cap]
+% \abbreviation{rv}{random variable}
+% \abbreviation{sp}{stochastic process}
+% \abbreviation{wlog}{without loss of generality}
+
+% Math
+\def\delim[#1][#2][#3]{\left#2 #1 \right#3}
+
+\def\intoo[#1]{\delim[#1][(][)]}
+\def\intoc[#1]{\delim[#1][(][]]}
+\def\intco[#1]{\delim[#1][[][]]}
+\def\intcc[#1]{\delim[#1][[][]]}
+
+\def\brnd[#1]{\delim[#1][(][)]}
+\def\bcrl[#1]{\delim[#1][\{][\}]}
+\def\bsqr[#1]{\delim[#1][[][]]}
+
+\def\inn[#1]{\delim[#1][⟨][⟩]}
+\def\norm[#1]{\delim[#1][‖][‖]}
+\def\abs[#1]{\delim[#1][|][|]}
+\def\floor[#1]{\delim[#1][⌊][⌋]}
+\def\ceil[#1]{\delim[#1][⌈][⌉]}
+\def\linspan[#1]{\mfunction{span} \delim[#1][\{][\}]}
+
+\def\inv[#1]{#1^{-1}}
+% \definemathcommand [d] [nolop] {\mfunction{d}}
+\def\d{\text{d}}
+% \def\infinitelyoften{\text{i.o.}}
+% \def\eventually{\text{ev}}
+
+\definemathcommand [ess] [limop] {\mfunction{ess}}
+\definemathcommand [ker] [nolop] {\mfunction{ker}}
+\definemathcommand [im] [nolop] {\mfunction{im}}
+\definemathcommand [gcd] [nolop] {\mfunction{gcd}}
+\definemathcommand [lcm] [nolop] {\mfunction{lcm}}
+\definemathcommand [dim] [limop] {\mfunction{dim}}
+\definemathcommand [infinitelyoften] [nolop] {\mfunction{i.o.}}
+\definemathcommand [eventually] [nolop] {\mfunction{ev}}
+
+% Matrices
+\definemathmatrix
+	[rndmatrix]
+	[left={\,\left(\,},right={\,\right)\,}]
+
+% Mathematical environments
+\defineenumeration
+	[guess]
+	[text=Conjecture,
+	location=left,
+	letter=it]
+\defineenumeration
+	[theorem]
+	[text=Theorem,
+	location=left,
+	letter=it]
+
+% Tables
+\startsetups table
+	\setupTABLE[row][1][style=bold]
+	\setupTABLE[each][each][width=2em, height=2em, align={middle,midddle}, frame=off]
+	\setupTABLE[r][1][topframe=on, rulethickness=2bp]
+	\setupTABLE[r][2][topframe=on, rulethickness=0.5bp]
+	\setupTABLE[r][last][bottomframe=on, rulethickness=2bp]
+\stopsetups
+
+% Fonts
+% https://wiki.contextgarden.net/Protrusion
+% \loadtypescriptfile[mathdesign]
+\usesymbols[fontawesome]    % https://fontawesome.com/icons
+\definefontfeature
+	[default]
+	[default]
+	[protrusion=quality, expansion=quality]
+\usetypescript[\getvariable{document}{font}]
+\setupbodyfont
+	[reset, \getvariable{document}{font}, \getvariable{document}{fontsize}]
+	% alternatives: xitsbidi, euler
+\setupalign [hz, hanging]
+
+\stopenvironment

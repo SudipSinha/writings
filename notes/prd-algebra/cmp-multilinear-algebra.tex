@@ -1,0 +1,58 @@
+\startcomponent *
+
+\product  prd-algebra
+
+
+\startchapter [title={Tensor products}]
+
+	\startsection [title={Examples}]
+
+		\startitemize [n]
+			\item  \m{ℤ_2 ⊗_ℤ ℤ_4 ≃ ℤ_2}, because firstly \m{0 ⊗ b = 0(1 ⊗ b) = 0 = 0(a ⊗ 1) = a ⊗ 0}, and
+				\startitemize [1, nowhite, intro]
+					\item  \m{1 ⊗ 1 = 1 ⊗ 1},
+					\item  \m{1 ⊗ 2 = 2 ⊗ 1 = 0 ⊗ 1 = 0},
+					\item  \m{1 ⊗ 3 = 3 ⊗ 1 = 1 ⊗ 1 + 2 ⊗ 1 = 1 ⊗ 1},
+				\stopitemize
+				so \m{ℤ_2 ⊗_ℤ ℤ_4 = \bcrl[0 ⊗ 0, 1 ⊗ 1] ≃ ℤ_2}.
+
+			\item  \m{ℤ_6 ⊗_ℤ ℤ_4 ≃ ℤ_2}, because
+				\startitemize [1, nowhite, intro]
+					\item  \m{a ⊗ 2 = a ⊗ (4 + 2) = a ⊗ 6 = 6 ⊗ a = 0},
+					\item  \m{2 ⊗ b = (2 + 6) ⊗ b = 8 ⊗ b = b ⊗ 8 = 0},
+					\item  \m{4 ⊗ b = b ⊗ 4 = 0},
+					\item  \m{(2n + 1) ⊗ 1 = 2n ⊗ 1 + 1 ⊗ 1 = 0 + 1 ⊗ 1 = 1 ⊗ 1},
+					\item  \m{(2n + 1) ⊗ 3 = 2n ⊗ 3 + 1 ⊗ (4 + 3) = 0 + 1 ⊗ 7 = 7 ⊗ 1 = 1 ⊗ 1}.
+				\stopitemize
+
+			\item  In general, \m{ℤ_p ⊗_ℤ ℤ_q ≃ ℤ_{\gcd(p, q)}}.
+
+			\item  \m{ℚ ⊗_ℤ ℤ_n = 0}, because \m{∀ \brnd[\frac{p}{q}, b] ∈ ℚ × ℤ_n, \frac{p}{q} ⊗ b = \frac{np}{nq} ⊗ b = \frac{p}{nq} ⊗ (nb) = 0}.
+
+				\comment{Remember that we can only move integers around, not fractions, because the base field is \m{ℤ}.}
+
+			\item  \m{ℚ ⊗_ℤ (ℚ/ℤ) = 0}, because \m{∀ \brnd[\frac{p}{q}, \frac{a}{b}] ∈ ℚ × (ℚ/ℤ), \frac{p}{q} ⊗ \frac{a}{b} = \frac{bp}{bq} ⊗ \frac{a}{b} = \frac{p}{bq} ⊗ \frac{ab}{b} = \frac{p}{bq} ⊗ a = \frac{p}{bq} ⊗ 0 = 0}.
+
+			\item  \m{ℂ ⊗_ℝ ℝ ≃ ℂ}, because \m{(a + b 𝚤) ⊗ r = (ar)(1 ⊗ 1) + (br)(𝚤 ⊗ 1)}, so \m{ℂ ⊗_ℝ ℝ = \linspan[1 ⊗ 1, 𝚤 ⊗ 1] ≃ ℂ}. Moreover \m{2 = \dim_ℝ (ℂ ⊗_ℝ ℝ) = \dim_ℝ ℂ ⋅ \dim_ℝ ℝ = 2 ⋅ 1}.
+
+			\item  \m{ℂ ⊗_ℝ ℂ = \linspan[1 ⊗ 1, 𝚤 ⊗ 1, 1 ⊗ 𝚤, 𝚤 ⊗ 𝚤] ≃ ℂ ⊕ ℂ}, because \m{(a + b 𝚤) ⊗ (c + d 𝚤) = (ac) (1 ⊗ 1) + (ad) (1 ⊗ 𝚤) + (bc) (𝚤 ⊗ 1) + (bd) (𝚤 ⊗ 𝚤)}. Moreover \m{4 = \dim_ℝ (ℂ ⊗_ℝ ℂ) = \dim_ℝ ℂ ⋅ \dim_ℝ ℂ = 2 ⋅ 2}.
+
+			\item  \m{ℂ ⊗_ℂ ℂ = \linspan[1 ⊗ 1] ≃ ℂ}, because \m{(a + b 𝚤) ⊗ (c + d 𝚤) = (a + b 𝚤)(c + d 𝚤)(1 ⊗ 1)}. Moreover \m{1 = \dim_ℂ (ℂ ⊗_ℂ ℂ) = \dim_ℂ ℂ ⋅ \dim_ℂ ℂ = 1 ⋅ 1}.
+
+			\item  \m{ℂ ⊗_ℝ (ℝ ⊕ ℝ) ≃ ℂ ⊗_ℝ ℝ ⊕ ℂ ⊗_ℝ ℝ ≃ ℂ ⊕ ℂ}.
+
+			\item  \m{ℂ ⊗_ℝ ℝ^n ≃ ℂ^n}.
+
+			\item  \m{ℂ ⊗_ℝ M(n, ℝ) ≃ M(n, ℂ)}. This is how \m{GL(n, ℝ) ↪ GL(n, ℂ)}.
+
+			\item  \m{ℂ ⊗_ℝ ℂ^n ≃ ⨁ (ℂ ⊗_ℝ ℂ) ≃ ⨁ (ℂ ⊕ ℂ) ≃ ℂ^{2n}}.
+
+				\comment{This is the beginning of Clifford algebras.}
+		\stopitemize
+
+	\stopsection
+
+
+\stopchapter
+
+\stopcomponent

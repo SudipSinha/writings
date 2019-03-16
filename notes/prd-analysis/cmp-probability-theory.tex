@@ -1,0 +1,78 @@
+\startcomponent *
+
+\product  prd-analysis
+
+\startchapter[title={Elementary ideas}]
+
+	\startsection [title={\m{σ}-algebras}]
+		\startitemize [1, nowhite, after]
+			\item  \m{𝓘 ⊂ 𝓑 ⊂ \overline{𝓑} = 𝓛 ⊂ 2^ℝ}    % TODO: Add counterexamples
+			\item  \m{\abs[𝓘] = \abs[𝓑] = \abs[ℝ] = ℵ_{1}, \ \abs[\overline{𝓑}] = \abs[2^ℝ] = ℵ_{2}}
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Examples}]
+		\startitemize [1, nowhite, after]
+			\item  \m{\brnd[x ↦ \frac{1}{\sqrt{x}} 𝟙_{[0, 1]}(x)] ∈ L^1 ∖ L^2}
+			\item  \m{\brnd[x ↦ \frac{1}{x} 𝟙_{[1, ∞)}(x)] ∈ L^2 ∖ L^1}
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Measurability of \m{\inf, \sup, \liminf, \limsup} TODO}]
+		Let \m{X_n} be a discrete-time stochastic process.
+		Then \m{\bcrl[\inf X_t ≥ c]  =  ⋂_t \bcrl[X_t ≥ c]  }
+	\stopsection
+
+	\startsection [title={Method of substitution}]
+		See Folland - Real Analysis Theorem (2.43).
+	\stopsection
+\stopchapter
+
+\startchapter [title={Borel--Cantelli lemmas}]
+	\dscr{BC1}  Let \m{(E_n) ⊂ ℱ} such that \m{∑ℙ(E_n) < ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 0}.
+
+	Proof.  Since \m{∑ℙ(E_n) < ∞}, for any fixed \m{n ∈ ℕ}, we have
+	\startformula
+		ℙ\brnd[E_n \infinitelyoften]  =  ℙ\brnd[⋂_{n} ⋃_{m ≥ n} E_m]  ≤  ℙ\brnd[⋃_{m ≥ n} E_m]  ≤  ∑_{m ≥ n} ℙ(E_n)  →  0 .
+	\stopformula
+
+	Counterexample of the converse of BC1: Take \m{((0, 1], λ)} as the probability space, and \m{E_n = \brnd[0, \frac{1}{n^2}]}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}, but \m{∑ℙ(E_n) < ∞}.
+
+	\dscr{BC2}  Let \m{(E_n) ⊂ ℱ} be (mutually) independent such that \m{∑ℙ(E_n) = ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}.
+
+	Proof.  Note that \m{ℙ\brnd[{\brnd[E_n \infinitelyoften]}^∁] = ℙ\brnd[E_n^∁ \eventually]}, so it is equivalent to prove that \m{ℙ\brnd[E_n^∁ \eventually] = 0}. Using independence and the fact that \m{1 - x < e^{-x}}, for each fixed \m{n ∈ ℕ}, we have
+	\startformula
+		ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  ∏_{m = n}^N ℙ\brnd[E_n^∁]  =  ∏_{m = n}^N \brnd[1 - ℙ(E_n)]  ≤  ∏_{m = n}^N e^{- ℙ(E_n)}  =  e^{- ∑_{m = n}^N ℙ(E_n)} .
+	\stopformula
+	Taking \m{N → ∞}, we get \m{ℙ\brnd[⋂_{m ≥ n} E_n^∁] → 0}. Therefore
+	\startformula
+		ℙ\brnd[E_n^∁ \eventually]  =  ℙ\brnd[⋃_n ⋂_{m ≥ n} E_n^∁]   ≤  ∑_n ℙ\brnd[⋃_n ⋂_{m = n}^N E_n^∁]  =  0 .
+	\stopformula
+
+\stopchapter
+
+\startchapter [title={Modes of convergence}]
+	Study this part from \goto{Robert L Wolpert - Convergence in \m{ℝ^d} and in metric spaces}[url(https://www2.stat.duke.edu/courses/Fall18/sta711/lec/wk-07.pdf)].
+	% ToDo: Correct this diagram.
+	In this diagram, the top row represents \quote{\emph{point independent}} modes of convergence and the bottom row represents the \quote{\emph{point dependent}} modes of convergence.
+
+	\starttikzcd [row sep=huge, column sep=large]
+		unif \arrow[r] \arrow[d]  \NC  L^∞ \arrow[r] \arrow[d]  \NC  L^p \ ∀ p > 1 \arrow[r]  \NC  L^1 \arrow[r]  \NC  ℙ \arrow[r] \arrow[dlll, "∀ \text{ subseq } ∃ \text{ subsubseq }", dashed, bend left] \arrow[ll, dashed, bend right, swap, "u.i."]  \NC  w^* \arrow[l, dashed, bend right, swap, "constant"] \NR
+		pt   \arrow[r]  \NC  a.s. \arrow[urrr] \arrow[urr, dashed, "LDCT?"]  \NR
+	\stoptikzcd
+
+\stopchapter
+
+\startchapter [title={Conditioning}, reference=sec:conditioning]
+	\startsection [title={Conditional expectation}]
+		\startsubsection [title={Uncorrelated does not imply independence}]
+			See the wikipedia entries on \goto{uncorrelated random variables}[url(https://en.wikipedia.org/wiki/Uncorrelated_random_variables)] and \goto{normally distributed and uncorrelated does not imply independent}[url(https://en.wikipedia.org/wiki/Normally_distributed_and_uncorrelated_does_not_imply_independent)].
+		\stopsubsection
+
+		\startsubsection [title={\m{ϕ_{aX + bY} = ϕ_{aX} ϕ_{bY} \ ∀ (a, b) ∈ ℝ^2} implies independence}]
+			See \goto{MathSx:1802289}[url(https://math.stackexchange.com/questions/1802289)].
+		\stopsubsection
+	\stopsection
+\stopchapter
+
+\stopcomponent

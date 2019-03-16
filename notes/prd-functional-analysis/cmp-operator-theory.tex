@@ -1,0 +1,45 @@
+\startchapter [title={Elementary ideas}]
+
+	\startsection [title={Definitions}]
+		\dscr{Compact}  \m{T ∈ 𝓚 ⟺ λ → 0}
+
+		\dscr{Hilbert-Schmidt}  \m{T ∈ 𝓑^2 ⟺ λ ∈ ℓ^2}
+
+		\dscr{Trace-class}  \m{T ∈ 𝓑^1 ⟺ λ ∈ ℓ^1}
+	\stopsection
+
+	\startsection [title={Inclusions: \m{𝓓 ⊂ 𝓑^1 ⊂ 𝓑^2 ⊂ 𝓚 ⊂ 𝓑^∞}}]
+		\dscr{\m{𝓚 ⊆ 𝓑^∞}}
+			(\cite[authoryear][BMC2009], Proposition 4.6) If \m{T} is unbounded, we can find a sequence of unit vectors \m{(e_n)} such that \m{\norm[T e_n] ↗ ∞}. So \m{T e_n} cannot have a convergent subsequence, for if \m{T e_n → x}, then \m{\norm[T e_n] → \norm[x]}.
+
+		\dscr{\m{𝓚 ≠ 𝓑^∞}}
+			The identity operator \m{I ∈ 𝓑^∞} is not compact because for the bounded sequence of unit vectors \m{(e_n)}, \m{I e_n = e_n} does not converge as \m{\norm[e_n - e_m] = \sqrt2 \ ∀ n ≠ m}.
+
+		\dscr{\m{𝓑^2 ⊆ 𝓚}}  TODO
+
+		\dscr{\m{𝓑^2 ≠ 𝓚}}
+			\m{T: ℓ^2 → ℓ^2, T e_n = \frac{1}{\sqrt{n}} e_n; T ∈ 𝓚 ∖ 𝓑^2}.
+
+		\dscr{\m{𝓑^1 ⊆ 𝓑^2}}  TODO
+
+		\dscr{\m{𝓑^1 ≠ 𝓑^2}}
+			\m{T: ℓ^2 → ℓ^2, T e_n = \frac{1}{n} e_n; T ∈ 𝓑^2 ∖ 𝓑^1}.
+	\stopsection
+
+	\startsection [title={For \m{T ∈ 𝓑^∞}, \m{\norm[T]_∞ = \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}}]
+		\dscr{(≤)}  Since \m{\norm[Tx]  =  \frac{\norm[Tx]^2}{\norm[Tx]}  =  \frac{\inn[Tx, Tx]}{\norm[Tx]}  =  \inn[Tx, \frac{Tx}{\norm[Tx]}]}, we have \m{\norm[T]_∞  =  \sup\bcrl[{\norm[Tx] : \norm[x] = 1}]  ≤  \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}.
+
+		\dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]  ≤  \norm[T]_∞}.
+	\stopsection
+
+	\startsection [title={\m{\norm[P]_∞ ≤ 1}}]
+		Since \m{\norm[Px]^2 = \inn[Px, Px] = \inn[P^* P x, x] = \inn[P P x, x] = \inn[P x, x] ≤ \norm[Px] \norm[x]}, we have \m{\norm[P]_∞ ≤ 1}.
+	\stopsection
+
+	\startsection [title={Projection operator is compact iff its image is finite dimensional}]
+		\dscr{(⟹)}  Let \m{P: H → H} be a projection operator, so that \m{P^2 = P}, or \m{P(P - I) = 0}.
+
+		\dscr{(⟸)}  Since the image is finite dimensional, fix an orthonormal basis \m{e_1, …, e_n} of \m{\im T}.
+	\stopsection
+
+\stopchapter

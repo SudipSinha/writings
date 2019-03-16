@@ -1,0 +1,327 @@
+\startchapter [title={Exercises}]
+
+	\startsection [title={Article II, Exercise 1}]
+		\dscr{(R)}  \m{1_A} is its own inverse.
+
+		\dscr{(S)}  \m{f} is the inverse of \m{g}.
+
+		\dscr{(T)}  \m{\inv[(k f)] = \inv[f] \inv[k]}.
+	\stopsection
+
+	\startsection [title={Article II, Exercise 2}]
+		We have four equations:
+		\startitemize [n, columns, nowhite, after]
+			\item \m{g f = 1_A}
+			\item \m{f g = 1_B}
+			\item \m{k f = 1_A}
+			\item \m{f k = 1_B}
+		\stopitemize
+		From points 2 and 3, we see that
+		\startformula
+			k = k 1_B = k (f g) = (k f) g = 1_A g = g .
+		\stopformula
+	\stopsection
+
+	\startsection [title={Article II, Exercise 3}]
+		\startitemize [a, nowhite, after]
+			\item  Since \m{f} is invertible, \m{f h = f k}, so premultiplying by \m{\inv[f]} and using associativity of composition, we get \m{h = k}.
+			\item  Exact same steps as Part (a).
+			\item  Counterexample:
+				\starttikzcd [cramped, row sep = tiny]
+					\NC  0 \arrow[r, mapsto, "f"]  \NC  \text{true}  \arrow[rd]  \NC  \NR
+					⨀ \arrow[ru, mapsto, "k"]  \NC  \NC  \NC  \text{true}  \NR
+					\NC  1 \arrow[r, mapsto, "f"]  \NC  \text{false}  \arrow[ru]  \NC  \NR
+				\stoptikzcd
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Article II, Exercise 4}]
+		\startitemize [n, nowhite, after]
+			\item  \m{\inv[f]: ℝ → ℝ: x ↦ \frac13(x - 7)}
+			\item  \m{\inv[g]: [0, ∞) → [0, ∞): x ↦ \sqrt{x}}
+			\item  Not injective
+			\item  Not injective
+			\item  \m{\inv[l]: [0, ∞) → [0, ∞): x ↦ \brnd[\frac{1}{x} - 1]}
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Article II, Exercise 5}]
+		0 can be mapped to either b, p, or q. 1 can be mapped to either r, or s. So total number of possibilities = 3 × 2 = 6. In general, the number of sections is given by \m{∏_{b ∈ \im f} \inv[f](b)}, where \m{\inv[f]} represents the preimage of \m{f}.
+	\stopsection
+
+	\startsection [title={Article II, Exercise 6}]
+		\starttikzcd
+			A
+				\arrow[r, "f"]
+				\arrow[rr, leftrightarrow, "1_A", green, dashed, bend left]
+			\NC  B
+				\arrow[r, "r"]
+				\arrow[rr, "t", bend right]
+			\NC  A
+				\arrow[r, "g"]
+			\NC  T
+			\NR
+		\stoptikzcd
+	\stopsection
+
+	\startsection [title={Article II, Exercise 7}]
+		\starttikzcd
+			B \arrow[r, "s"] \arrow[rr, leftrightarrow, "1_B", green, dashed, bend left]
+			\NC  A \arrow[r, "f"]
+			\NC  B \arrow[r, "t_1", red, shift left] \arrow[r, "t_2", swap, blue, shift right]
+			\NC  T
+			\NR
+		\stoptikzcd
+		\startformula
+			t_1 = t_1 1_B = t_1 f s = t_2 f s = t_2 1_B = t_2
+		\stopformula
+	\stopsection
+
+	\startsection [title={Article II, Exercise 8}]
+		Let \m{f: A → B, g: B → C} has sections \m{s_f: B → A, s_g: C → B}, respectively. That is, \m{f s_f = 1_B} and \m{g s_g = 1_C}. Now, \m{(g f) (s_f	 s_g)  =  g (f s_f)	 s_g  =  g 1_B	 s_g  =  g s_g  =  1_C}, so \m{s_f	 s_g} is a section for \m{g f}.
+	\stopsection
+
+	\startsection [title={Article II, Exercise 9}]
+		Since \m{r} is a retraction of \m{f}, we have \m{r f = 1}. Now, since \m{e = f r}, we have
+		\startformula
+			e e  =  (f r) (f r)  =  f (r f) r  =  f (r f) r  =  f 1 r  =  f r  =  e ,
+		\stopformula
+		showing that \m{e} is idempotent.
+
+		If \m{f} is an isomorphism, then \m{r = \inv[f]}, so \m{e = 1}.
+	\stopsection
+
+	\startsection [title={Article II, Exercise 10}]
+		Let \m{f: A → B, g: B → C} has sections \m{\inv[f]: B → A, \inv[g]: C → B}, respectively. So
+		\startformula \startalign[align={left}]
+			\NC  (g f) (\inv[f]	 \inv[g])  =  g (f \inv[f])	 \inv[g]  =  g 1_B	 \inv[g]  =  g \inv[g]  =  1_C ,  \text{ and}  \NR
+			\NC  (\inv[f]	 \inv[g]) (g f)  =  \inv[f]	 (\inv[g] g) f  =  \inv[f] 1_B	 f  =  \inv[f] f  =  1_A .  \NR
+		\stopalign \stopformula
+	\stopsection
+
+	\startsection [title={Article II, Exercise 11}]
+		For the first case, we can define \m{f} such that Fatima ↦ coffee, Omer ↦ tea, and Alysia ↦ cocoa. In the second case, the cardinalities are different, so there does not exist an isomorphism between the two sets.
+	\stopsection
+
+	\startsection [title={Article II, Exercise 12}]
+		Number of isomorphisms = number of automorphisms = n!
+	\stopsection
+
+	\startsection [title={Session 4, Exercise 2}]
+		even ↦ positive, odd ↦	negative.
+	\stopsection
+
+	\startsection [title={Session 4, Exercise 3}]
+		\startitemize [n, nowhite, after]
+			\item  Bijective, but not a morphism
+			\item  Not injective
+			\item  Not injective
+			\item  Isomorphism
+			\item  Bijective, but not a morphism
+			\item  Not a function (\m{-1 ↦ -1 ∉ (0, ∞)})
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Session 5, Exercise 1}]
+		\startitemize [a, nowhite, after]
+			\item  \m{h(a_1) = g(f(a_1)) = g(f(a_2)) = h(a_2)}.
+			\item  Fix \m{c_0 ∈ C}, and define
+				\m{g(b) = \startmathcases
+					\NC h(a),  \NC if \m{b = f(a)} for some \m{a ∈ A}  \NR
+					\NC c_0 ,  \NC otherwise  \NR
+				\stopmathcases}.
+				Then \m{g f = h}. Note that in order to choose an element \m{a ∈ \inv[f](b)}, we have to invoke the axiom of choice.
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Session 5, Exercise 2}]
+		\startitemize [a, nowhite, after]
+			\item  Take \m{b = f(a)}.
+			\item  For each \m{a ∈ A}, using the axiom of choice, choose an element \m{f_a ∈ \inv[g](h(a))}. Now, define \m{f: A → B: a ↦ f_a}.
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Session 9, Exercise 3}]
+		\starttikzcd
+			\NC  A
+				\arrow[rd, "s", red]
+				\arrow[rr, leftrightarrow, "1_A", red, dashed, bend left]
+			\NC
+			\NC  A
+				\arrow[dd, "f", green, bend left]
+			\NR
+			B
+				\arrow[rr, "e"]
+				\arrow[ru, "r", red]
+				\arrow[rd, "r'", blue]
+			\NC
+			\NC  B
+				\arrow[ru, "r", red]
+				\arrow[rd, "r'", blue]
+			\NC
+			\NR
+			\NC  A'
+				\arrow[ru, "s", blue]
+				\arrow[rr, leftrightarrow, "1_{A'}", blue, dashed, bend right]
+			\NC
+			\NC  A'
+			\NR
+		\stoptikzcd
+		Therefore, \m{f = r' s 1_A = r' s}.
+	\stopsection
+
+	\startsection [title={Session 10, Notes}]
+		We have two separate theorems.
+
+		\dscr{(FPT)}  Any continuous endomap of \m{B^{n + 1}} has a fixed point.
+
+		\dscr{(NRT)}  There is not continuous retraction for the inclusion \m{j: S^n → B^{n + 1}}.
+
+		We want to show that (FPT) ⟺ (NRT).
+
+		\dscr{(⟸)}  Equivalently, ¬(FPT) ⟹ ¬(NRT). This is the proof he gives.
+
+		\dscr{(⟹)}  This is Exercise 3.
+
+
+	\stopsection
+
+	\startsection [title={Session 10, Exercise 1}]
+		Use the same idea as what he proves, but use \m{g(x)} instead of \m{x}, and use the fact that \m{gj = j}, so points on the boundary are still mapped to themselves.
+	\stopsection
+
+	\startsection [title={Session 10, Exercise 2}]
+		To show that \m{A} has the fixed point property, we have to show that for any \m{g: A → A}, there exists \m{y: T → A} such that \m{gy = y}. Now, from the diagram, and using the fixed point property of \m{X}, since \m{sgr: X → X}, there is \m{x: T → X} such that \m{(sgr)x = x}. Premultiplying by \m{r} and using \m{rs = 1_A}, we get \m{g(rx) = (rx)}, so \m{y = rx} is the required map.
+
+		\starttikzcd
+			T
+				\arrow[r, "x", orange]
+			\NC  X
+				\arrow[rrr, "sgr", orange, bend left, dashed]
+				\arrow[r, "r", red]
+			\NC  A
+				\arrow[r, "g"]
+			\NC  A
+				\arrow[r, "s", blue]
+			\NC  X
+			\NR
+		\stoptikzcd
+	\stopsection
+
+	\startsection [title={Session 10, Exercise 3}]
+		Assume (FPT) is true. Exercise 2 says that if there is a continuous retraction \m{r: B^{n + 1} → S^n}, then if \m{B^{n + 1}} has the fixed-point property, so does \m{S^n}. But even though the antipodal map \m{a: B^{n + 1} → B^{n + 1}} has a fixed-point, the map \m{a\big|_{S^n}: S^n → S^n} has no fixed-points. So it must be that there is no continuous retraction \m{r: B^{n + 1} → S^n}, which is (NRT).
+	\stopsection
+
+	\startsection [title={Session 10, Exercise 4}]
+		ToDo.
+	\stopsection
+
+	\startsection [title={Article III, Notes}]
+		Say we want an bijection between \m{B^2} and \m{S^1}. We can do it as follows:
+		\startitemize [n, nowhite, after]
+			\item  Use the linear isomorphism \m{T: B^2 → I^2: x ↦ R_{\frac{π}{4}} S_{\sqrt{2}} x}, where \m{R_{\frac{π}{4}} = R, S_{\sqrt{2}} = S} are given by
+				\startformula \startalign[n=4, align={right, middle, left, left}]
+					% The alignment does not work.
+					S  = \NC
+					\startrndmatrix[n=2, align={right, right}]
+						\NC  \sqrt{2}  \NC   0  \NR
+						\NC  0  \NC   \sqrt{2}  \NR
+					\stoprndmatrix
+					= \NC  \sqrt{2} I_2,  \NC  \text{ and}  \NR
+					R  = \NC
+					\startrndmatrix[n=2, align={right, right}]
+						\NC  \cos\frac{π}{4}  \NC  -\sin\frac{π}{4}  \NR
+						\NC  \sin\frac{π}{4}  \NC   \cos\frac{π}{4}  \NR
+					\stoprndmatrix
+					= \NC  \frac{1}{\sqrt{2}}
+					\startrndmatrix[n=2, align={right, right}]
+						\NC  1  \NC  -1  \NR
+						\NC  1  \NC   1  \NR
+					\stoprndmatrix .  \NR
+				\stopalign \stopformula
+			\item  Use the \m{C^∞} bijection \m{f: I^2 → ℝ^2: (x, y) ↦ \brnd[\frac{x}{1 - x^2}, \frac{y}{1 - y^2}]} (or any bijection).
+			\item  Use any bijection from \m{ℝ^2} to \m{ℝ}.
+			\item  Now we need a bijection from \m{ℝ} to \m{S^1}, or equivalently, from \m{S^1} to \m{ℝ}. We construct it as follows. Use \m{u: S^1 → (S^1 + (0, 1)): x ↦ x + (0, 1)} to push the 1-sphere upwards, and then use the stereographic projection to project \m{(S^1 + (0, 1)) ∖ \bcrl[(0, 2)]} onto the real line. We delete the north pole this because both the poles project onto the origin. Now compose this with the shift map
+			\startformula
+				s: ℝ → ℝ: x ↦
+				\startmathcases
+					\NC  x + 1  \MC  x ∈ ℕ  \NR
+					\NC  x  \MC  x ∉ ℕ  \NR
+				\stopmathcases .
+			\stopformula
+			This frees us the origin, so we now map the north pole to the origin to get the required bijection.
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Article III, Exercise 1}]
+		\starttikzcd
+			\NC  X
+				\arrow[d, "α"]
+				\arrow[r, "f", swap]
+				\arrow[rr, "g f", blue, dashed, bend left]
+			\NC  Y
+				\arrow[d, "β"]
+				\arrow[r, "g", swap]
+			\NC  Z
+				\arrow[d, "γ"]
+			\NR
+			\NC  X
+				\arrow[r, "f"]
+				\arrow[rr, "g f", blue, dashed, bend right, swap]
+			\NC  Y
+				\arrow[r, "g"]
+			\NC  Z
+			\NR
+		\stoptikzcd
+	\stopsection
+
+	\startsection [title={Article III, Exercise 2}]
+		The only such idempotent is the identity because
+		\startformula
+			1_A = β α = β (α α) = (β α) α = 1_A α = α .
+		\stopformula
+	\stopsection
+
+	\startsection [title={Article III, Exercise 4 --- 8}]
+		\startitemize [n, nowhite, after][start=4]
+			\item  Involution, 0.
+			\item  Idempotent, \m{[0, ∞)}.
+			\item  Yes, \m{\inv[α](x) = x - 3}.
+			\item  No, because nonmultiples of 5 do not have inverses.
+			\item  Idempotent means \m{α^2 = α}, so \m{α^3 = α α^2 = α α = α}.
+
+				Involution means \m{α^2 = 1_A}, so \m{α^3 = α α^2 = α 1_A = α}.
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Article III, Exercise 11}]
+		\starttikzcd [sep=huge]
+			\NC  X
+				\arrow[d, shift right, swap, magenta, "s"]
+				\arrow[d, shift left, middlegreen, "t"{name=XPt}]
+				\arrow[r, middlecyan, "f_A"]
+				\arrow[rr, "g_A f_A", middlegray, dashed, bend left]
+			\NC  Y
+				\arrow[d, shift right, swap, magenta, "s'"{name=YQs}]
+				\arrow[d, shift left, middlegreen, "t'"{name=YQt}]
+				\arrow[r, middlecyan, "g_A"]
+			\NC  Z
+				\arrow[d, shift right, swap, magenta, "s''"{name=ZRs}]
+				\arrow[d, shift left, middlegreen, "t''"]
+			\NR
+			\NC  P
+				\arrow[r, peru, "f_D"]
+				\arrow[rr, tan, dashed, bend right, swap, "g_D f_D"]
+			\NC  Q
+				\arrow[r, peru, "g_D"]
+			\NC  R
+			\NR
+			\arrow["f", from=XPt, to=YQs]
+			\arrow["g", from=YQt, to=ZRs]
+		\stoptikzcd
+
+		It is interesting to note that even though commutativity of each block implies commutativity of the diagram, commutativity of the diagram does not imply commutativity of the block. In fact, take only the \m{s} arrows and assume commutativity of the whole diagram and the left block. This gives \m{s'' g_A f_A = g_D f_D s} and \m{f_D s = s' f_A}, so premultiplying the second equation by \m{g_D} gives us \m{g_D s' f_A  =  g_D f_D s  =  s'' g_A f_A}. Thus the right block commutes if and only if \m{f_A} is an epimorphism.
+
+	\stopsection
+
+\stopchapter

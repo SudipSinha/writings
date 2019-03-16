@@ -1,0 +1,37 @@
+\startproduct *
+
+\project  prj-notes
+
+
+\startfrontmatter
+	% \component titlepage     %Titlepage for the book
+	\completecontent    % Contents
+\stopfrontmatter
+
+
+\startbodymatter
+
+	\startpart[title={Operator theory}, reference=prt:operator-theory]
+		\component cmp-operator-theory
+	\stoppart
+
+	% \startpart[title={modules}, reference=prt:modules]
+	% 	\component cmp-modules
+	% \stoppart
+
+\stopbodymatter
+
+
+\startbackmatter
+
+   % \component appendices % Appendix 1
+		 %       % Appendix 2
+		 %       % Impressum
+
+	\startchapter [title=Bibliography]
+		\placelistofpublications
+	\stopchapter
+
+\stopbackmatter
+
+\stopproduct
