@@ -1,0 +1,31 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		},
+		// {
+		// 	"path": "environments"
+		// },
+		{
+			"path": "notes",
+			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
+			"folder_exclude_patterns": ["*-export"]
+		},
+		{
+			"path": "talks",
+			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
+			"folder_exclude_patterns": ["*-export"]
+		},
+		{
+			"path": "travelogs",
+			// "file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
+			// "folder_exclude_patterns": ["*-export"]
+		},
+
+	],
+	"settings":
+	{
+		"tab_size": 4
+	}
+}
