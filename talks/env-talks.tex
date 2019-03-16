@@ -1,0 +1,188 @@
+% DISCLAIMER: This template is a modification of Example 1 by Thomas A Schmitz
+% https://www.tug.org/pracjourn/2006-2/schmitz/
+
+
+% This is the variables section. Ideally, these are the only modifications that should be made.
+% Version and mode
+\setvariables[document][version=temporary]    % {final, concept, temporary}
+\setvariables[document][mode=presentation]    % {presentation, manuscript, handout}
+% Colors
+\setvariables[document][color-link-external=royalblue]
+\setvariables[document][color-link-internal=violetred]
+\setvariables[document][color-background-0=white]
+\setvariables[document][color-background-1=mistyrose]
+\setvariables[document][color-background-2=whitesmoke]
+\setvariables[document][color-foreground-0=deepskyblue4]
+\setvariables[document][color-foreground-1=firebrick4]
+\setvariables[document][color-foreground-2=darkslategray]
+% Fonts
+\setvariables[document][font=palatino]
+\setvariables[document][fontsize-presentation=40pt]
+\setvariables[document][fontsize-document=12pt]
+% Information
+\setvariables[document][title={A generalization of stochastic integrals and its applications to large deviations theory}]
+\setvariables[document][subtitle={General examination presentation}]
+\setvariables[document][author={Sudip Sinha}]
+\setvariables[document][date={2019-04-05}]
+\setvariables[document][keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
+
+
+\startenvironment presentation
+
+% mode=mkiv
+\mainlanguage[en]
+
+\version[\getvariable{document}{version}]
+\enablemode[\getvariable{document}{mode}]
+
+\setupcolors[state=start]    % otherwise you get greyscale
+\usecolors[x11]    % X11 colors
+
+% See Wiki/command/setupinteraction
+\setupinteraction [
+	state=start,  % make hyperlinks clickable(active)
+	menu=on,
+	click=yes,
+	style=normal,
+	color=\getvariable{document}{color-link-external},
+	contrastcolor=\getvariable{document}{color-link-internal},
+	% openaction=ToggleViewer,    % Make the PDF open in 'Fit width' mode
+	focus=width,    % Make PDF links open in 'Fit width' mode
+	title=\getvariable{document}{title},
+	subtitle=\getvariable{document}{subtitle},
+	author=\getvariable{document}{author},
+	date=\getvariable{document}{date},
+	keyword=\getvariable{document}{keyword}]
+
+% General font setup
+% https://wiki.contextgarden.net/Protrusion
+% \loadtypescriptfile[mathdesign]
+\usesymbols[fontawesome]    % https://fontawesome.com/icons
+\definefontfeature
+	[default]
+	[default]
+	[protrusion=quality, expansion=quality]
+\setupalign [hz, hanging, lesshyphenation, tolerant]
+\setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]    % alternatives: xitsbidi, euler
+
+% Bibliography
+\usebtxdataset[../bib.bib]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is the markup for the presentation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\startmode [presentation]
+\setuppapersize [HD] [HD]
+% \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
+% \showframe
+
+\setupbodyfont [palatino, \getvariable{document}{fontsize-presentation}]
+
+\setuplayout [
+	width=fit,
+	rightmargin=2em,
+	leftmargin=2em,
+	leftmargindistance=0em,
+	rightmargindistance=0em,
+	height=fit,
+	header=0em,
+	footer=0.25em,
+	topspace=2em,
+	backspace=2em,
+	bottomspace=2em,
+	bottom=0.5em,
+	location=singlesided]
+
+\setupcombinations[distance=0pt]
+
+% wiki/Command/setuphead
+\definehead [slide] [subject] [    % default formatting = subject formatting
+	% number=no,
+	page=yes,
+	style=\tfb,
+	alternative=middle,
+	% style=\framed [width=local, height=16em, autowidth=force] {},
+	aligntitle=yes]
+
+\setuplabeltext[section=§~]
+\setuphead [section] [
+	header=empty,    % wiki/Command/setupheader
+	% before=\page,
+	page=yes,
+	alternative=middle,
+	style=\tfd\bold\smallcaps]
+
+\stopmode
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % This is the markup for the manuscript %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \startmode[manuscript]
+
+% \setupframedtexts[location=middle,
+%                   before={\blank[line]},
+%                   after={\blank[line]}]
+
+% \definehead [slide] [subject] [
+% 	style=\tfb,
+% 	alternative=middle,
+% 	page=yes]
+
+% % \let\startslide\startslidedtext
+% % \let\stopslide\stopslidedtext
+
+% % \define[1]\slidetitle{
+% % 	\startalignment[middle]
+% % 		#1
+% % 	\stopalignment
+% % 	\blank[small]}
+
+% \setupbackgrounds[page][background={backgraphics,foreground}]
+
+% \stopmode
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % This is the markup for the handout %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \startmode [handout]
+% \setuppapersize [A4] [A4]
+
+% \setuplayout [width=fit,
+%               rightmargin=0cm,
+%               leftmargin=0cm,
+%               backspace=2em]
+
+% \setupframedtexts[location=left,
+%                   height=.75\textwidth,
+%                   width=\textwidth,
+%                   before={\blank[line]},
+%                   after={\blank[line]}]
+
+% \definehead [slide] [subject] [
+% 	style=\tfb,
+% 	alternative=middle,
+% 	page=yes]
+
+% % \let\startslide\startslidedtext
+% % \let\stopslide\stopslidedtext
+
+% % \define[1]\slidetitle{
+% % 	\startalignment[middle]
+% % 		#1
+% % 	\stopalignment
+% % 	\blank[small]}
+
+% \setupcolumns[2,distance=2mm]
+
+% \setupbackgrounds [page] [background={backgraphics,foreground}]
+
+% \stopmode
+
+\stopenvironment

@@ -1,0 +1,227 @@
+\environment ../environments/presentation
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is where the document starts.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\starttext
+
+\startfrontmatter
+
+%%%%%%%%%%%%%%%%
+% Front matter %
+%%%%%%%%%%%%%%%%
+
+\setupbackgrounds[page][
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+
+
+% \startmode [handout]
+% \startcolumns
+% \stopmode
+
+
+% Introduction
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+
+\startmode [presentation]
+
+\startslide
+
+\startalign [middle]
+
+	{\tfc
+		\color[\getvariable{document}{color-foreground-1}]{Generalization of stochastic calculus}\\
+		and its applications in\\
+		\color[\getvariable{document}{color-foreground-2}]{large deviations theory}}
+
+	\blank[2*line]
+
+	{\tfb \getvariable{document}{author}}
+
+	\blank[line]
+
+	{\tfa \getvariable{document}{date}}
+
+	\blank[2*line]
+
+	Advisors
+
+	\color[\getvariable{document}{color-foreground-1}]{Prof Hui-Hsiung Kuo}
+
+	\color[\getvariable{document}{color-foreground-2}]{Prof Padmanabhan Sundar}
+\stopalign
+
+\stopslide
+
+
+% Table of contents
+\startslide[title={Outline}]
+	\placecontent
+\stopslide
+\stopmode
+
+% \startmode [manuscript]
+
+% This presentation is going to be on two topics:
+% \startitemize[n,nowhite,after]
+% 	\item  Generalization of stochastic integrals developed primarily by Professor H.-H. Kuo
+% 	\item  Applications of generalization in large deviations theory
+% \stopitemize
+
+% \stopmode
+
+\stopfrontmatter
+
+
+
+\startbodymatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generalization of stochastic calculus %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setupbackgrounds[page][
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-1}]
+\startcolor[\getvariable{document}{color-foreground-1}]    % text color
+
+\startsection[title={Stochastic calculus}, reference=sec:stochastic-calculus]
+
+
+\startmode [presentation]
+
+\startslide [title={Ito integral: \m{f ∈ L^2}}]
+	\input knuth
+\stopslide
+
+% \startmode [manuscript]
+
+% This is the first part and we are going to talk about generalization of stochastic integrals developed primarily by Professor H.-H. Kuo.
+
+% \stopmode
+
+
+\startslide [title={Ito integral: \m{f ∈ 𝓛^2}}]
+
+	This is a citation \cite[HKSZ2016].
+
+	\startitemize[8,columns,two]
+		\item One
+		\item Two
+		\item Three
+		\item Four
+	\stopitemize
+
+\stopslide
+
+
+\startslide [title={Ito isometry: \m{f ∈ L^2}}]
+	bla bla bla
+\stopslide
+
+\startslide [title={Differential formula}]
+	bla bla bla
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Large deviations theory %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setupbackgrounds[page][
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-2}]
+\startcolor[\getvariable{document}{color-foreground-2}]    % text color
+
+\startsection[title={Large deviations theory}, reference=sec:large-deviations-theory]
+
+
+\startmode [presentation]
+
+\startslide [title={Large deviations theory}]
+
+\startcolumns[n=2]
+{\tfb Column 1}
+
+\input ward
+
+\column
+
+{\tfb Column 2}
+
+\input weisman
+\stopcolumns
+
+% \startitemize[8,columns,two]
+% 	\item One
+% 	\item Two
+% 	\item Three
+% \stopitemize
+
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+%%%%%%%%%%%%%%
+% Conclusion %
+%%%%%%%%%%%%%%
+
+\setupbackgrounds[page][
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+
+\startsection[title={Conclusion}, reference=sec:conclusion]
+
+
+\startmode [presentation]
+
+\startslide [title={Possible areas of interest}]
+	\startitemize[3]
+		\item  Extension to SDEs with anticipating coefficients
+		\item  Near-Markov property
+		\item  Girsanov theorem for generalized integration
+		\item  Freidlin-Wintzell type result for SDEs with anticipating initial conditions
+	\stopitemize
+
+	\framed [width=local, height=8em, autowidth=force] {    % wiki/Framed
+		\input ward
+	}
+\stopslide
+
+\stopmode
+
+\stopsection
+
+\stopbodymatter
+
+
+
+
+%%%%%%%%%%%%%%%
+% Back matter %
+%%%%%%%%%%%%%%%
+
+\startbackmatter
+\startmode [presentation]
+\startslide [title={Bibliography}]
+	\placelistofpublications
+\stopslide
+\stopmode
+\stopbackmatter
+
+\stoptext
