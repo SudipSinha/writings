@@ -95,8 +95,27 @@
 
 \startmode [presentation]
 
+\startslide [title={Quick revision}]
+
+	\startitemize[n]
+		\item  Properties of Brownian motion \m{B(t)}
+			\startitemize[1]
+				\item  starts at 0
+				\item  continuous paths
+				\item  independence of increments
+				\item  \m{B(t) - B(s) ∼ N(0, t - s)}
+				\item  infinite linear variation
+				\item  finite quadratic variation \m{[B(t), B(s)] = t ∧ s}.
+				\item  is a martingale
+			\stopitemize
+		\item  Naive stochastic integration w.r.t. \m{B(t)}: not possible
+		% \item  Paley–Wiener integral can handle with
+	\stopitemize
+
+\stopslide
+
 \startslide [title={Itô integral: \m{f ∈ L^2}}]
-	\input knuth
+
 \stopslide
 
 % \startmode [manuscript]
