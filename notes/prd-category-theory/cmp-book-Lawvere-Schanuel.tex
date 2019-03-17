@@ -294,7 +294,7 @@
 		\stopitemize
 	\stopsection
 
-	\startsection [title={Article III, Exercise 11}]
+	\startsection [title={Article III, Exercise 11}, reference=ex-III-11]
 		\starttikzcd [sep=huge]
 			\NC  X
 				\arrow[d, shift right, swap, magenta, "s"]
@@ -322,6 +322,33 @@
 
 		It is interesting to note that even though commutativity of each block implies commutativity of the diagram, commutativity of the diagram does not imply commutativity of the block. In fact, take only the \m{s} arrows and assume commutativity of the whole diagram and the left block. This gives \m{s'' g_A f_A = g_D f_D s} and \m{f_D s = s' f_A}, so premultiplying the second equation by \m{g_D} gives us \m{g_D s' f_A  =  g_D f_D s  =  s'' g_A f_A}. Thus the right block commutes if and only if \m{f_A} is an epimorphism.
 
+	\stopsection
+
+	\startsection [title={Article III, Exercise 12}]
+		The result follows by replacing all the \emph{s}-morphisms in exercise \in[ex-III-11] by their respective identity morphisms.
+	\stopsection
+
+	\startsection [title={Article III, Exercise 13}]
+		This is trivial if we follow the path of the indentity morphisms.
+	\stopsection
+
+	\startsection [title={Article III, Exercise 14}]
+		\starttikzcd [sep=huge]
+			\NC  x_1
+				\arrow[d , "α"   description, mapsto]
+				\arrow[r , "f_A" description, mapsto, red , near start]
+				\arrow[rd, "f_D" description, mapsto, blue, near end  ]
+			\NC  y_1
+				\arrow[d , "β"   description, mapsto]
+			\NR
+			\NC  x_2
+				\arrow[u , "α"   description, mapsto, bend left]
+				\arrow[r , "f_D" description, mapsto, blue, near end  ]
+				\arrow[ru, "f_A" description, mapsto, red , near start, crossing over]
+			\NC  y_2
+				\arrow[u , "β" description, mapsto, bend right]
+			\NR
+		\stoptikzcd
 	\stopsection
 
 \stopchapter
