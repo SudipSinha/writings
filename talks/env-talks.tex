@@ -4,27 +4,27 @@
 
 % This is the variables section. Ideally, these are the only modifications that should be made.
 % Version and mode
-\setvariables[document][version=temporary]    % {final, concept, temporary}
-\setvariables[document][mode=presentation]    % {presentation, manuscript, handout}
+\setvariables [document] [version=temporary]    % {final, concept, temporary}
+\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
 % Colors
-\setvariables[document][color-link-external=royalblue]
-\setvariables[document][color-link-internal=violetred]
-\setvariables[document][color-background-0=white]
-\setvariables[document][color-background-1=mistyrose]
-\setvariables[document][color-background-2=whitesmoke]
-\setvariables[document][color-foreground-0=deepskyblue4]
-\setvariables[document][color-foreground-1=firebrick4]
-\setvariables[document][color-foreground-2=darkslategray]
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+\setvariables [document] [color-background-0=white]
+\setvariables [document] [color-background-1=mistyrose]
+\setvariables [document] [color-background-2=whitesmoke]
+\setvariables [document] [color-foreground-0=deepskyblue4]
+\setvariables [document] [color-foreground-1=firebrick4]
+\setvariables [document] [color-foreground-2=darkslategray]
 % Fonts
-\setvariables[document][font=palatino]
-\setvariables[document][fontsize-presentation=40pt]
-\setvariables[document][fontsize-document=12pt]
+\setvariables [document] [font=palatino]
+\setvariables [document] [fontsize-presentation=40pt]
+\setvariables [document] [fontsize-document=12pt]
 % Information
-\setvariables[document][title={A generalization of stochastic integrals and its applications to large deviations theory}]
-\setvariables[document][subtitle={General examination presentation}]
-\setvariables[document][author={Sudip Sinha}]
-\setvariables[document][date={2019-04-05}]
-\setvariables[document][keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
+\setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
+\setvariables [document] [subtitle={General examination presentation}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={2019-04-05}]
+\setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
 
 
 \startenvironment presentation
@@ -63,10 +63,65 @@
 	[default]
 	[protrusion=quality, expansion=quality]
 \setupalign [hz, hanging, lesshyphenation, tolerant]
-\setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]    % alternatives: xitsbidi, euler
+\setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]
+% alternatives: xitsbidi, euler
 
 % Bibliography
 \usebtxdataset[bib.bib]
+
+
+% Math
+% Caution: spaces do not work between the elements)
+\def \delim[#1][#2][#3]{\left#2 #1 \right#3}
+
+\def \intoo[#1]{\delim[#1][(][)]}
+\def \intoc[#1]{\delim[#1][(][]]}
+\def \intco[#1]{\delim[#1][[][]]}
+\def \intcc[#1]{\delim[#1][[][]]}
+
+\def \brnd[#1]{\delim[#1][(][)]}
+\def \bcrl[#1]{\delim[#1][\{][\}]}
+\def \bsqr[#1]{\delim[#1][[][]]}
+
+\def \inn[#1]{\delim[#1][⟨][⟩]}
+\def \norm[#1]{\delim[#1][‖][‖]}
+\def \abs[#1]{\delim[#1][|][|]}
+
+\def \floor[#1]{\delim[#1][⌊][⌋]}
+\def \ceil[#1]{\delim[#1][⌈][⌉]}
+
+\def \linspan[#1]{\mfunction{span} \delim[#1][\{][\}]}
+\def \inv[#1]{#1^{-1}}
+
+\def \d{\text{d}}
+\def \D{\text{D}}
+
+\definemathcommand [ess] [limop] {\mfunction{ess}}
+\definemathcommand [ker] [nolop] {\mfunction{ker}}
+\definemathcommand [im] [nolop] {\mfunction{im}}
+\definemathcommand [gcd] [nolop] {\mfunction{gcd}}
+\definemathcommand [lcm] [nolop] {\mfunction{lcm}}
+\definemathcommand [dim] [limop] {\mfunction{dim}}
+\definemathcommand [infinitelyoften] [nolop] {\mfunction{i.o.}}
+\definemathcommand [eventually] [nolop] {\mfunction{ev}}
+
+% Matrices
+\definemathmatrix
+	[rndmatrix]
+	[left={\,\left(\,},right={\,\right)\,}]
+
+% Mathematical environments
+\defineenumeration
+	[guess]
+	[text=Conjecture,
+	location=left,
+	letter=it]
+\defineenumeration
+	[theorem]
+	[text=Theorem,
+	location=left,
+	letter=it]
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -95,8 +150,6 @@
 	bottom=0.5em,
 	location=singlesided]
 
-\setupcombinations[distance=0pt]
-
 % wiki/Command/setuphead
 \definehead [slide] [subject] [    % default formatting = subject formatting
 	% number=no,
@@ -106,10 +159,9 @@
 	% style=\framed [width=local, height=16em, autowidth=force] {},
 	aligntitle=yes]
 
-\setuplabeltext[section=§~]
+\setuplabeltext [section=§~]
 \setuphead [section] [
 	header=empty,    % wiki/Command/setupheader
-	% before=\page,
 	page=yes,
 	alternative=middle,
 	style=\tfd\bold\smallcaps]

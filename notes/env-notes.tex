@@ -5,22 +5,22 @@
 %%%%%%%%%%%%%
 
 % Version and mode
-\setvariables[document][version=temporary]    % {final, concept, temporary}
-\setvariables[document][mode=presentation]    % {presentation, manuscript, handout}
+\setvariables [document] [version=temporary]    % {final, concept, temporary}
+\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
 % Colors
-\setvariables[document][color-link-external=royalblue]
-\setvariables[document][color-link-internal=violetred]
-\setvariables[document][color-background=azure]
-\setvariables[document][color-headings=firebrick]
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+\setvariables [document] [color-background=azure]
+\setvariables [document] [color-headings=firebrick]
 % Fonts
-\setvariables[document][font=palatino]
-\setvariables[document][fontsize=12pt]
+\setvariables [document] [font=palatino]
+\setvariables [document] [fontsize=12pt]
 % Document specific information
-\setvariables[document][title={Solution Manual}]
-\setvariables[document][subtitle={Using \ConTeXt}]
-\setvariables[document][author={Sudip Sinha}]
-\setvariables[document][date={\date}]
-\setvariables[document][keyword={mathematics, solutions}]
+\setvariables [document] [title={Solution Manual}]
+\setvariables [document] [subtitle={Using \ConTeXt}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={\date}]
+\setvariables [document] [keyword={mathematics, solutions}]
 
 
 %%%%%%%%%%%%
@@ -75,7 +75,7 @@
 % 	version={2019-04-05}] % \date doesn’t expand
 
 % For US paper, use [letter][letter]; the sensible default is [A4][A4] (A4 typesetting, printed on A4 paper)
-\setuppapersize[A4][A4]
+\setuppapersize [A4] [A4]
 % wiki/Layout
 \setuplayout [
 	topspace=4em,
@@ -130,7 +130,7 @@
 % \setupindenting[medium, yes]
 
 % Contents (https://www.contextgarden.net/Table_of_Contents)
-\setupcombinedlist[content][list={part,chapter,section}]
+\setupcombinedlist [content] [list={part, chapter, section}]
 
 % Bibliography
 \usebtxdataset[../bib.bib]
@@ -141,13 +141,19 @@
 \usetikzlibrary[cd]
 
 % Description environment
-\definedescription[dscr][headstyle=bold, style=normal, align=flushleft, alternative=hanging, width=broad, margin=1em]
+\definedescription [dscr] [
+	headstyle=bold,
+	style=normal,
+	align=flushleft,
+	alternative=hanging,
+	width=broad,
+	margin=1em]
 
 % Highlighting
-\definehighlight[comment][color=darkgray]
-\definehighlight[good][color=darkgreen]
-\definehighlight[okay][color=darkorange]
-\definehighlight[ugly][color=orangered]
+\definehighlight [comment] [color=darkgray]
+\definehighlight [good] [color=darkgreen]
+\definehighlight [okay] [color=darkorange]
+\definehighlight [ugly] [color=orangered]
 
 % % Abbreviations
 % \definesynonyms[abbreviation][abbreviations][\infull]
@@ -156,31 +162,32 @@
 % \abbreviation{sp}{stochastic process}
 % \abbreviation{wlog}{without loss of generality}
 
+
 % Math
-\def\delim[#1][#2][#3]{\left#2 #1 \right#3}
+% Caution: spaces do not work between the elements)
+\def \delim[#1][#2][#3]{\left#2 #1 \right#3}
 
-\def\intoo[#1]{\delim[#1][(][)]}
-\def\intoc[#1]{\delim[#1][(][]]}
-\def\intco[#1]{\delim[#1][[][]]}
-\def\intcc[#1]{\delim[#1][[][]]}
+\def \intoo[#1]{\delim[#1][(][)]}
+\def \intoc[#1]{\delim[#1][(][]]}
+\def \intco[#1]{\delim[#1][[][]]}
+\def \intcc[#1]{\delim[#1][[][]]}
 
-\def\brnd[#1]{\delim[#1][(][)]}
-\def\bcrl[#1]{\delim[#1][\{][\}]}
-\def\bsqr[#1]{\delim[#1][[][]]}
+\def \brnd[#1]{\delim[#1][(][)]}
+\def \bcrl[#1]{\delim[#1][\{][\}]}
+\def \bsqr[#1]{\delim[#1][[][]]}
 
-\def\inn[#1]{\delim[#1][⟨][⟩]}
-\def\norm[#1]{\delim[#1][‖][‖]}
-\def\abs[#1]{\delim[#1][|][|]}
-\def\floor[#1]{\delim[#1][⌊][⌋]}
-\def\ceil[#1]{\delim[#1][⌈][⌉]}
-\def\linspan[#1]{\mfunction{span} \delim[#1][\{][\}]}
+\def \inn[#1]{\delim[#1][⟨][⟩]}
+\def \norm[#1]{\delim[#1][‖][‖]}
+\def \abs[#1]{\delim[#1][|][|]}
 
-\def\inv[#1]{#1^{-1}}
-% \definemathcommand [d] [nolop] {\mfunction{d}}
-\def\d{\text{d}}
-\def\D{\text{D}}
-% \def\infinitelyoften{\text{i.o.}}
-% \def\eventually{\text{ev}}
+\def \floor[#1]{\delim[#1][⌊][⌋]}
+\def \ceil[#1]{\delim[#1][⌈][⌉]}
+
+\def \linspan[#1]{\mfunction{span} \delim[#1][\{][\}]}
+\def \inv[#1]{#1^{-1}}
+
+\def \d{\text{d}}
+\def \D{\text{D}}
 
 \definemathcommand [ess] [limop] {\mfunction{ess}}
 \definemathcommand [ker] [nolop] {\mfunction{ker}}
@@ -208,24 +215,25 @@
 	location=left,
 	letter=it]
 
+
 % Tables
 \startsetups table
-	\setupTABLE[row][1][style=bold]
-	\setupTABLE[each][each][width=2em, height=2em, align={middle,midddle}, frame=off]
-	\setupTABLE[r][1][topframe=on, rulethickness=2bp]
-	\setupTABLE[r][2][topframe=on, rulethickness=0.5bp]
-	\setupTABLE[r][last][bottomframe=on, rulethickness=2bp]
+	\setupTABLE [row] [1] [style=bold]
+	\setupTABLE [each] [each] [width=2em, height=2em, align={middle,midddle}, frame=off]
+	\setupTABLE [r] [1] [topframe=on, rulethickness=2bp]
+	\setupTABLE [r] [2] [topframe=on, rulethickness=0.5bp]
+	\setupTABLE [r] [last] [bottomframe=on, rulethickness=2bp]
 \stopsetups
 
 % Fonts
 % https://wiki.contextgarden.net/Protrusion
 % \loadtypescriptfile[mathdesign]
-\usesymbols[fontawesome]    % https://fontawesome.com/icons
+\usesymbols [fontawesome]    % https://fontawesome.com/icons
 \definefontfeature
 	[default]
 	[default]
 	[protrusion=quality, expansion=quality]
-\usetypescript[\getvariable{document}{font}]
+\usetypescript [\getvariable{document}{font}]
 \setupbodyfont
 	[reset, \getvariable{document}{font}, \getvariable{document}{fontsize}]
 	% alternatives: xitsbidi, euler

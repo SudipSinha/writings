@@ -30,6 +30,7 @@
 
 
 \startchapter [title={Differentiation}, reference=chp:differentiation]
+
 	\startsection [title={Differentiation of functions with real powers}]
 		This idea is by Prof Sundar.
 
@@ -54,10 +55,10 @@
 	\stopsection
 
 	\startsection[title={Taylor series for multivariate functionals}, reference=sec:taylor]
-		Let \m{f: ℝ^n → ℝ} be an infinitely differentiable function at the point \m{a ∈ ℝ^n}. Then the Taylor series of \m{f} around \m{a} is given by
+		Let \m{Ω ⊆ ℝ^d} be an open set and \m{f: Ω → ℝ} be an infinitely differentiable function at the point \m{p ∈ Ω}. Then the Taylor series of \m{f} around \m{p} for \m{v ∈ T_p Ω} is given by
 		\startformula
-			T(a + x)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[x, \D_x]}^n f](a) ,
-			\quad \text{ where }  \inn[x, \D_x] = ∑_{j=1}^d x_j \frac{∂}{∂ x_j} .
+			T(p + v)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[v, \D_v]}^n f](p) ,
+			\quad \text{ where }  \inn[v, \D_v] = ∑_{j=1}^d v_j \frac{∂}{∂ v_j} .
 		\stopformula
 
 		There is another form with multi-indexes. But the above form seems way more natural to me. See more in \goto{this}[url(https://en.wikipedia.org/wiki/Taylor_series\#Taylor_series_in_several_variables)] and \goto{this}[url(https://en.wikipedia.org/wiki/Taylor's_theorem\#Taylor's_theorem_for_multivariate_functions)] Wikipedia articles.
