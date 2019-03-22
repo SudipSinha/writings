@@ -1,5 +1,6 @@
-% DISCLAIMER: This template is a modification of Example 1 by Thomas A Schmitz
+% Significant portions have been stolen from the following sources
 % https://www.tug.org/pracjourn/2006-2/schmitz/
+% https://www.tug.org/pracjourn/2006-4/mahajan/
 
 
 % This is the variables section. Ideally, these are the only modifications that should be made.
@@ -17,7 +18,7 @@
 \setvariables [document] [color-foreground-2=darkslategray]
 % Fonts
 \setvariables [document] [font=palatino]
-\setvariables [document] [fontsize-presentation=40pt]
+\setvariables [document] [fontsize-presentation=36pt]
 \setvariables [document] [fontsize-document=12pt]
 % Information
 \setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
@@ -111,16 +112,43 @@
 	[left={\,\left(\,},right={\,\right)\,}]
 
 % Mathematical environments
-\defineenumeration
-	[guess]
-	[text=Conjecture,
-	location=left,
-	letter=it]
-\defineenumeration
-	[theorem]
-	[text=Theorem,
-	location=left,
-	letter=it]
+\defineenumeration [theorem] [
+	text=Theorem,
+	number=no,    % remove if theorems shoud be numbered
+	headstyle=bold,
+	headcolor=\getvariable{document}{color-foreground-0},
+	width=fit,
+	alternative=hanging,  % location=paragraph
+	hang=fit,
+	style=italic,
+	before=\startmathenv,
+	after=\stopmathenv]
+
+
+% Styling for mathematical environments
+
+%  A randomized frame
+\startuseMPgraphic{background:random}
+	path p;
+	for i = 1 upto nofmultipars :
+		p = (multipars[i] topenlarged 16pt bottomenlarged 16pt) randomized 4pt;
+		fill p withcolor lightgray;
+		draw p withcolor \MPvar{linecolor}
+		withpen pencircle scaled \MPvar{linewidth};
+	endfor;
+\stopuseMPgraphic
+
+% Backgrounds
+\definetextbackground [mathenv] [
+	mp=background:random,
+	location=paragraph,
+	rulethickness=1pt,
+	framecolor=\getvariable{document}{color-foreground-0},
+	width=local,
+	leftoffset=1em,
+	rightoffset=1em,
+	before={\testpage[3]\blank[big]},    % wiki/Command/testpage
+	after={\blank[2*big]}]
 
 
 
@@ -131,7 +159,7 @@
 \startmode [presentation]
 \setuppapersize [HD] [HD]
 % \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
-% \showframe
+\showframe
 
 \setupbodyfont [palatino, \getvariable{document}{fontsize-presentation}]
 
@@ -156,13 +184,14 @@
 	page=yes,
 	style=\tfb,
 	alternative=middle,
-	% style=\framed [width=local, height=16em, autowidth=force] {},
+	before=,    % Negates the effect of setuphead [section].
 	aligntitle=yes]
 
 \setuplabeltext [section=§~]
 \setuphead [section] [
 	header=empty,    % wiki/Command/setupheader
 	page=yes,
+	before={\emptylines[4]},    % wiki/Command/emptylines  % \blank[n*big] did not work
 	alternative=middle,
 	style=\tfd\bold\smallcaps]
 

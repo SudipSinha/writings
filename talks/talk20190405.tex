@@ -209,7 +209,18 @@
 \stopslide
 
 \startslide [title={Cramér theorem}]
+	This is the first one:
+	\theorem All conjectures are interesting.
 
+	This is the second one:
+	\starttheorem
+		Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, e.g. \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
+
+		Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
+		\startformula
+			\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
+		\stopformula
+	\stoptheorem
 \stopslide
 
 \startslide [title={Sanov theorem}]
