@@ -55,11 +55,20 @@
 	\stopsection
 
 	\startsection[title={Taylor series for multivariate functionals}, reference=sec:taylor]
-		Let \m{Ω ⊆ ℝ^d} be an open set and \m{f: Ω → ℝ} be an infinitely differentiable function at the point \m{p ∈ Ω}. Then the Taylor series of \m{f} around \m{p} for \m{v ∈ T_p Ω} is given by
-		\startformula
-			T(p + v)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[v, \D_v]}^n f](p) ,
-			\quad \text{ where }  \inn[v, \D_v] = ∑_{j=1}^d v_j \frac{∂}{∂ v_j} .
-		\stopformula
+
+		\starttheorem[title={Taylor}]
+			Let \m{Ω ⊆ ℝ^d} be an open set and \m{f: Ω → ℝ} be an infinitely differentiable function at the point \m{p ∈ Ω}. Then the Taylor series of \m{f} around \m{p} for \m{v ∈ T_p Ω} is given by
+			\startformula
+				T(p + v)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[v, \D_v]}^n f](p) ,
+				\quad \text{ where }  \inn[v, \D_v] = ∑_{j=1}^d v_j \frac{∂}{∂ v_j} .
+			\stopformula
+		\stoptheorem
+
+		\startproof
+			Is this a \m{ℝ} life, or is this just \m{i}maginary, caught in a landslide, no escape from \m{ℂ}. Open your eyes, look up to the sky and see. I'm trivial come, trivial go, little high, little low.
+
+			ToDo, really!
+		\stopproof
 
 		There is another form with multi-indexes. But the above form seems way more natural to me. See more in \goto{this}[url(https://en.wikipedia.org/wiki/Taylor_series\#Taylor_series_in_several_variables)] and \goto{this}[url(https://en.wikipedia.org/wiki/Taylor's_theorem\#Taylor's_theorem_for_multivariate_functions)] Wikipedia articles.
 	\stopsection

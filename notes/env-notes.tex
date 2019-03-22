@@ -11,6 +11,7 @@
 \setvariables [document] [color-link-external=royalblue]
 \setvariables [document] [color-link-internal=violetred]
 \setvariables [document] [color-background=azure]
+\setvariables [document] [color-foreground=darkslategray]
 \setvariables [document] [color-headings=firebrick]
 % Fonts
 \setvariables [document] [font=palatino]
@@ -241,15 +242,29 @@
 	width=fit,
 	alternative=hanging,  % top
 	hang=fit,
-	textstyle=italic,
-	before=\startmathenv,
-	after=\stopmathenv]
+	style=italic]
+	% before=\startmathenv,
+	% after=\stopmathenv
 
 \defineenumeration [theorem] [mathematicalstatement] [
-	text=Theorem]
+	text=Theorem,
+	list=all,
+	listtext={Theorem }]
 
 \defineenumeration [definition] [mathematicalstatement] [
-	text=Definition]
+	text=Definition,
+	list=all,
+	listtext={Definition }]
+
+\defineenumeration [proof] [mathematicalstatement] [
+	text=Proof,
+	title=no,
+	number=no,
+	headstyle=italic,
+	style=normal,
+	before=,
+	after=,
+	closesymbol={□}]
 
 
 % Tables
@@ -260,6 +275,14 @@
 	\setupTABLE [r] [2] [topframe=on, rulethickness=0.5bp]
 	\setupTABLE [r] [last] [bottomframe=on, rulethickness=2bp]
 \stopsetups
+
+
+% Setup colors
+\setupbackgrounds[page][
+	background={color, backgraphics, foreground},
+	backgroundcolor=\getvariable{document}{color-background}]
+\startcolor[\getvariable{document}{color-foreground}]    % text color
+
 
 % Fonts
 % https://wiki.contextgarden.net/Protrusion

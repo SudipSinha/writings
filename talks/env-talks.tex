@@ -165,10 +165,24 @@
 	after=\stopmathenv]
 
 \defineenumeration [theorem] [mathematicalstatement] [
-	text=Theorem]
+	text=Theorem,
+	list=all,
+	listtext={Theorem }]
 
 \defineenumeration [definition] [mathematicalstatement] [
-	text=Definition]
+	text=Definition,
+	list=all,
+	listtext={Definition }]
+
+\defineenumeration [proof] [mathematicalstatement] [
+	text=Proof,
+	title=no,
+	number=no,
+	headstyle=italic,
+	style=normal,
+	before=,
+	after=,
+	closesymbol={□}]
 
 
 
