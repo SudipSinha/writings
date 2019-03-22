@@ -74,6 +74,23 @@
 \stopchapter
 
 
+\startchapter[title={Markov processes}, reference=sub:Markov]
+
+	\startsubject[title={Equivalent definitions}]
+		Let \m{s ∈ [0, t]}. Then \m{X_⋅} is a Markov process if any of the following are true:
+		\startitemize[1, nowhite, after]
+			\item  \m{∀ E ∈ ℱ, ℙ(X_t ∈ E ∣ ℱ_s) = ℙ(X_t ∈ E ∣ X_s)}, or
+			\item  \m{∀ E ∈ ℱ, ∀ f ∈ L^0 ∩ 𝓑, 𝔼(f(X_t) ∣ ℱ_s) = 𝔼(f(X_t) ∣ X_s)}.
+		\stopitemize
+	\stopsubject
+
+	\startsubject[title={Martingale vs Markov}]
+		See \goto{djalil.chafai.net}[url(http://djalil.chafai.net/blog/2012/01/20/martingales-which-are-not-markov-chains/)] and \goto{MathSx:763645}[url(https://math.stackexchange.com/questions/763645)].
+	\stopsubject
+
+\stopchapter
+
+
 \startchapter [title={Itô calculus}, reference=sub:Itô]
 
 	Notation:

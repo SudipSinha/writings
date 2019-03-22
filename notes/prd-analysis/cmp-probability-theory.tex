@@ -71,16 +71,24 @@
 
 \startchapter [title={Conditioning}, reference=sec:conditioning]
 
-	\startsection [title={Conditional expectation}]
+	\startsection[title={In \m{L^2}, conditional expectation is a projection}]
+		Let \m{(Ω, ℱ, ℙ)} be a probability space, \m{𝓖 ⊆ ℱ} be a sub-σ-algebra, and \m{X ∈ L^2(ℱ)} be a random variable. Let \m{π_{L^2(𝓖)}} denote the projection operator onto \m{L^2(𝓖)}. We know that projection operators are self-adjoint. So \m{∀ E ∈ 𝓖},
+		\startformula \startalign[n=3]
+			\NC  ∫_E 𝔼(X ∣ 𝓖) \d ℙ \big|_𝓖  \NC =  ∫_E X \d ℙ  =  ∫ 𝟙_E X \d ℙ  =  \inn[𝟙_E, X]  \NC  [\text{definitions}]  \NR
+			\NC  \NC =  \inn[π_{L^2(𝓖)} 𝟙_E, X]  \NC  [E ∈ 𝓖 ⟹ 𝟙_E ∈ L^2(𝓖)]  \NR
+			\NC  \NC =  \inn[𝟙_E, π_{L^2(𝓖)}^* X]  =  \inn[𝟙_E, π_{L^2(𝓖)} X]  \NC  [\text{self-adjointness}]  \NR
+			\NC  \NC =  ∫ 𝟙_E π_{L^2(𝓖)} X \d ℙ \big|_𝓖  =  ∫_E π_{L^2(𝓖)} X \d ℙ \big|_𝓖 .  \qquad  \NC  [\text{definitions}]  \NR
+		\stopalign \stopformula
+		Therefore, \m{𝔼(X ∣ 𝓖) = π_{L^2(𝓖)} X} a.s.
 
-		\startsubsection [title={Uncorrelated does not imply independence}]
-			See the wikipedia entries on \goto{uncorrelated random variables}[url(https://en.wikipedia.org/wiki/Uncorrelated_random_variables)] and \goto{normally distributed and uncorrelated does not imply independent}[url(https://en.wikipedia.org/wiki/Normally_distributed_and_uncorrelated_does_not_imply_independent)].
-		\stopsubsection
+	\stopsection
 
-		\startsubsection [title={\m{ϕ_{aX + bY} = ϕ_{aX} ϕ_{bY} \ ∀ (a, b) ∈ ℝ^2} implies independence}]
-			See \goto{MathSx:1802289}[url(https://math.stackexchange.com/questions/1802289)].
-		\stopsubsection
+	\startsection [title={Uncorrelated does not imply independence}]
+		See the wikipedia entries on \goto{uncorrelated random variables}[url(https://en.wikipedia.org/wiki/Uncorrelated_random_variables)] and \goto{normally distributed and uncorrelated does not imply independent}[url(https://en.wikipedia.org/wiki/Normally_distributed_and_uncorrelated_does_not_imply_independent)].
+	\stopsection
 
+	\startsection [title={\m{ϕ_{aX + bY} = ϕ_{aX} ϕ_{bY} \ ∀ (a, b) ∈ ℝ^2} implies independence}]
+		See \goto{MathSx:1802289}[url(https://math.stackexchange.com/questions/1802289)].
 	\stopsection
 
 \stopchapter
