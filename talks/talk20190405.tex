@@ -100,14 +100,14 @@
 
 	\startitemize[n]
 		\item  Properties of Brownian motion \m{B(t)}
-			\startitemize[1]
+			\startitemize[1, columns, two]
 				\item  starts at 0
 				\item  continuous paths
-				\item  independence of increments
+				\item  Markov (independence of increments)
 				\item  \m{B(t) - B(s) ∼ N(0, t - s)}
 				\item  infinite linear variation
-				\item  finite quadratic variation \m{[B(t), B(s)] = t ∧ s}.
-				\item  is a martingale
+				\item  finite quadratic variation
+				\item  martingale
 			\stopitemize
 		\item  Naive stochastic integration w.r.t. \m{B(t)}: not possible
 		% \item  Paley–Wiener integral can handle with
@@ -116,8 +116,10 @@
 \stopslide
 
 \startslide [title={Itô integral: \m{f ∈ L^2}}]
-	Definition
 
+	\startdefinition[title={Itô integral}]
+		\m{f ∈ C[a, b]} is called a continuous function.
+	\stopdefinition
 
 	Properties of the associated process \m{X_t = ∫_0^t f(t) \d B(t)}
 	\startitemize[n]
@@ -155,15 +157,6 @@
 
 
 \startslide [title={Itô integral: \m{f ∈ 𝓛^2}}]
-
-	This is a citation \cite[HKSZ2016].
-
-	\startitemize[8,columns,two]
-		\item One
-		\item Two
-		\item Three
-		\item Four
-	\stopitemize
 
 \stopslide
 
@@ -213,7 +206,7 @@
 	\theorem All conjectures are interesting.
 
 	This is the second one:
-	\starttheorem
+	\starttheorem[title={Cramér, 1938}]
 		Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, e.g. \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
 
 		Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
@@ -232,28 +225,6 @@
 \stopslide
 
 \startslide [title={Freidlin–Wentzell theorem}]
-
-\stopslide
-
-\startslide [title={Freidlin–Wentzell theorem}]
-
-\startcolumns[n=2]
-{\tfb Column 1}
-
-\input ward
-
-\column
-
-{\tfb Column 2}
-
-\input weisman
-\stopcolumns
-
-% \startitemize[8,columns,two]
-% 	\item One
-% 	\item Two
-% 	\item Three
-% \stopitemize
 
 \stopslide
 
@@ -289,6 +260,76 @@
 		\input ward
 	}
 \stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+%%%%%%%%%%%%%%%%%
+% Sample Slides %
+%%%%%%%%%%%%%%%%%
+
+\setupbackgrounds[page][
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+
+\startsection[title={Sample slides}, reference=sec:sample-slides]
+
+
+\startmode [presentation]
+
+\startslide [title={Possible areas of interest}]
+	\startitemize[3]
+		\item  Extension to SDEs with anticipating coefficients
+		\item  Near-Markov property
+		\item  Girsanov theorem for generalized integration
+		\item  Freidlin-Wintzell type result for SDEs with anticipating initial conditions
+	\stopitemize
+
+	\framed [width=local, height=8em, autowidth=force] {    % wiki/Framed
+		\input ward
+	}
+\stopslide
+
+\startslide [title={Freidlin–Wentzell theorem}]
+
+	\startcolumns[n=2]
+	{\tfb Column 1}
+
+		\input ward
+
+	\column
+
+	{\tfb Column 2}
+
+		\input weisman
+
+	\stopcolumns
+
+	% \startitemize[8,columns,two]
+	% 	\item One
+	% 	\item Two
+	% 	\item Three
+	% \stopitemize
+
+\stopslide
+
+\startslide[title={Something}]
+
+	This is a citation \cite[HKSZ2016].
+
+	\startitemize[8, columns, two]
+		\item One
+		\item Two
+		\item Three
+		\item Four
+	\stopitemize
+
+\stopslide
+
 
 \stopmode
 

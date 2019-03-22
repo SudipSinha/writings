@@ -2,11 +2,16 @@
 % https://www.tug.org/pracjourn/2006-2/schmitz/
 % https://www.tug.org/pracjourn/2006-4/mahajan/
 
+% Unit conversion: https://www.joomlasrilanka.com/web-design-development-blog/web-design-font-size-measurements-convert-points-pixelsems-percentages-web-designing/
+
+
 
 % This is the variables section. Ideally, these are the only modifications that should be made.
+
 % Version and mode
 \setvariables [document] [version=temporary]    % {final, concept, temporary}
 \setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
+
 % Colors
 \setvariables [document] [color-link-external=royalblue]
 \setvariables [document] [color-link-internal=violetred]
@@ -16,16 +21,19 @@
 \setvariables [document] [color-foreground-0=deepskyblue4]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
+
 % Fonts
 \setvariables [document] [font=palatino]
 \setvariables [document] [fontsize-presentation=36pt]
 \setvariables [document] [fontsize-document=12pt]
+
 % Information
 \setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
 \setvariables [document] [subtitle={General examination presentation}]
 \setvariables [document] [author={Sudip Sinha}]
 \setvariables [document] [date={2019-04-05}]
 \setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
+
 
 
 \startenvironment presentation
@@ -38,6 +46,7 @@
 
 \setupcolors[state=start]    % otherwise you get greyscale
 \usecolors[x11]    % X11 colors
+
 
 % See Wiki/command/setupinteraction
 \setupinteraction [
@@ -55,6 +64,7 @@
 	date=\getvariable{document}{date},
 	keyword=\getvariable{document}{keyword}]
 
+
 % General font setup
 % https://wiki.contextgarden.net/Protrusion
 % \loadtypescriptfile[mathdesign]
@@ -67,11 +77,13 @@
 \setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]
 % alternatives: xitsbidi, euler
 
+
 % Bibliography
 \usebtxdataset[bib.bib]
 
 
-% Math
+% Mathematics
+
 % Caution: spaces do not work between the elements)
 \def \delim[#1][#2][#3]{\left#2 #1 \right#3}
 
@@ -111,28 +123,15 @@
 	[rndmatrix]
 	[left={\,\left(\,},right={\,\right)\,}]
 
-% Mathematical environments
-\defineenumeration [theorem] [
-	text=Theorem,
-	number=no,    % remove if theorems shoud be numbered
-	headstyle=bold,
-	headcolor=\getvariable{document}{color-foreground-0},
-	width=fit,
-	alternative=hanging,  % location=paragraph
-	hang=fit,
-	style=italic,
-	before=\startmathenv,
-	after=\stopmathenv]
-
 
 % Styling for mathematical environments
 
-%  A randomized frame
+%  Randomized frame
 \startuseMPgraphic{background:random}
 	path p;
 	for i = 1 upto nofmultipars :
 		p = (multipars[i] topenlarged 16pt bottomenlarged 16pt) randomized 4pt;
-		fill p withcolor lightgray;
+		fill p withcolor \getvariable{document}{color-background-0};
 		draw p withcolor \MPvar{linecolor}
 		withpen pencircle scaled \MPvar{linewidth};
 	endfor;
@@ -151,6 +150,28 @@
 	after={\blank[2*big]}]
 
 
+% Mathematical environments
+
+\defineenumeration [mathematicalstatement] [
+	title=yes,    % now we can use title={}
+	number=no,    % remove if definitions shoud be numbered
+	headstyle=bold,
+	headcolor=\getvariable{document}{color-foreground-0},
+	width=fit,
+	alternative=hanging,  % top
+	hang=fit,
+	textstyle=italic,
+	before=\startmathenv,
+	after=\stopmathenv]
+
+\defineenumeration [theorem] [mathematicalstatement] [
+	text=Theorem]
+
+\defineenumeration [definition] [mathematicalstatement] [
+	text=Definition]
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is the markup for the presentation %
@@ -159,7 +180,7 @@
 \startmode [presentation]
 \setuppapersize [HD] [HD]
 % \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
-\showframe
+% \showframe
 
 \setupbodyfont [palatino, \getvariable{document}{fontsize-presentation}]
 

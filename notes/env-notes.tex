@@ -163,7 +163,8 @@
 % \abbreviation{wlog}{without loss of generality}
 
 
-% Math
+% Mathematics
+
 % Caution: spaces do not work between the elements)
 \def \delim[#1][#2][#3]{\left#2 #1 \right#3}
 
@@ -203,17 +204,52 @@
 	[rndmatrix]
 	[left={\,\left(\,},right={\,\right)\,}]
 
+
+% Styling for mathematical environments
+
+%  Randomized frame
+\startuseMPgraphic{background:random}
+	path p;
+	for i = 1 upto nofmultipars :
+		p = (multipars[i] topenlarged 16pt bottomenlarged 16pt) randomized 4pt;
+		fill p withcolor \getvariable{document}{color-background-0};
+		draw p withcolor \MPvar{linecolor}
+		withpen pencircle scaled \MPvar{linewidth};
+	endfor;
+\stopuseMPgraphic
+
+% Backgrounds
+\definetextbackground [mathenv] [
+	mp=background:random,
+	location=paragraph,
+	rulethickness=1pt,
+	framecolor=\getvariable{document}{color-foreground-0},
+	width=local,
+	leftoffset=1em,
+	rightoffset=1em,
+	before={\testpage[3]\blank[big]},    % wiki/Command/testpage
+	after={\blank[2*big]}]
+
+
 % Mathematical environments
-\defineenumeration
-	[guess]
-	[text=Conjecture,
-	location=left,
-	letter=it]
-\defineenumeration
-	[theorem]
-	[text=Theorem,
-	location=left,
-	letter=it]
+
+\defineenumeration [mathematicalstatement] [
+	title=yes,    % now we can use title={}
+	number=no,    % remove if definitions shoud be numbered
+	headstyle=bold,
+	headcolor=\getvariable{document}{color-foreground-0},
+	width=fit,
+	alternative=hanging,  % top
+	hang=fit,
+	textstyle=italic,
+	before=\startmathenv,
+	after=\stopmathenv]
+
+\defineenumeration [theorem] [mathematicalstatement] [
+	text=Theorem]
+
+\defineenumeration [definition] [mathematicalstatement] [
+	text=Definition]
 
 
 % Tables
