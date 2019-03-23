@@ -1,3 +1,5 @@
+% macros=mkvi    % https://wiki.contextgarden.net/MkVI
+
 \startenvironment *
 
 %%%%%%%%%%%%%
@@ -167,26 +169,26 @@
 % Mathematics
 
 % Caution: spaces do not work between the elements)
-\def \delim[#1][#2][#3]{\left#2 #1 \right#3}
+\def \delim[#arguments][#left][#right]{\left#left #arguments \right#right}
 
-\def \intoo[#1]{\delim[#1][(][)]}
-\def \intoc[#1]{\delim[#1][(][]]}
-\def \intco[#1]{\delim[#1][[][]]}
-\def \intcc[#1]{\delim[#1][[][]]}
+\def \intoo[#arguments]{\delim[#arguments][(][)]}
+\def \intoc[#arguments]{\delim[#arguments][(][]]}
+\def \intco[#arguments]{\delim[#arguments][[][]]}
+\def \intcc[#arguments]{\delim[#arguments][[][]]}
 
-\def \brnd[#1]{\delim[#1][(][)]}
-\def \bcrl[#1]{\delim[#1][\{][\}]}
-\def \bsqr[#1]{\delim[#1][[][]]}
+\def \brnd[#arguments]{\delim[#arguments][(][)]}
+\def \bcrl[#arguments]{\delim[#arguments][\{][\}]}
+\def \bsqr[#arguments]{\delim[#arguments][[][]]}
 
-\def \inn[#1]{\delim[#1][⟨][⟩]}
-\def \norm[#1]{\delim[#1][‖][‖]}
-\def \abs[#1]{\delim[#1][|][|]}
+\def \inn[#arguments]{\delim[#arguments][⟨][⟩]}
+\def \norm[#arguments]{\delim[#arguments][‖][‖]}
+\def \abs[#arguments]{\delim[#arguments][|][|]}
 
-\def \floor[#1]{\delim[#1][⌊][⌋]}
-\def \ceil[#1]{\delim[#1][⌈][⌉]}
+\def \floor[#arguments]{\delim[#arguments][⌊][⌋]}
+\def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
 
-\def \linspan[#1]{\mfunction{span} \delim[#1][\{][\}]}
-\def \inv[#1]{#1^{-1}}
+\def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
+\def \inv[#arguments]{#arguments^{-1}}
 
 \def \d{\,\text{d}}
 \def \D{\,\text{D}}
@@ -197,8 +199,8 @@
 \definemathcommand [gcd] [nolop] {\mfunction{gcd}}
 \definemathcommand [lcm] [nolop] {\mfunction{lcm}}
 \definemathcommand [dim] [limop] {\mfunction{dim}}
-\definemathcommand [infinitelyoften] [nolop] {\mfunction{i.o.}}
-\definemathcommand [eventually] [nolop] {\mfunction{ev}}
+\definemathcommand [infinitelyoften] [nolop] {\,\mfunction{i.o.}}
+\definemathcommand [eventually] [nolop] {\,\mfunction{ev}}
 
 % Matrices
 \definemathmatrix

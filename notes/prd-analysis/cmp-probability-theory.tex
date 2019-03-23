@@ -32,25 +32,31 @@
 
 \startchapter [title={Borel--Cantelli lemmas}]
 
-	\dscr{BC1}  Let \m{(E_n) ⊂ ℱ} such that \m{∑ℙ(E_n) < ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 0}.
-
-	Proof.  Since \m{∑ℙ(E_n) < ∞}, for any fixed \m{n ∈ ℕ}, we have
-	\startformula
-		ℙ\brnd[E_n \infinitelyoften]  =  ℙ\brnd[⋂_{n} ⋃_{m ≥ n} E_m]  ≤  ℙ\brnd[⋃_{m ≥ n} E_m]  ≤  ∑_{m ≥ n} ℙ(E_n)  →  0 .
-	\stopformula
+	\starttheorem[title={Borel--Cantelli 1}]
+		Let \m{(E_n) ⊂ ℱ} such that \m{∑ℙ(E_n) < ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 0}.
+	\stoptheorem
+	\startproof
+		Since \m{∑ℙ(E_n) < ∞}, for any fixed \m{n ∈ ℕ}, we have
+		\startformula
+			ℙ\brnd[E_n \infinitelyoften]  =  ℙ\brnd[⋂_{n} ⋃_{m ≥ n} E_m]  ≤  ℙ\brnd[⋃_{m ≥ n} E_m]  ≤  ∑_{m ≥ n} ℙ(E_n)  →  0 .
+		\stopformula
+	\stopproof
 
 	Counterexample of the converse of BC1: Take \m{((0, 1], λ)} as the probability space, and \m{E_n = \brnd[0, \frac{1}{n^2}]}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}, but \m{∑ℙ(E_n) < ∞}.
 
-	\dscr{BC2}  Let \m{(E_n) ⊂ ℱ} be (mutually) independent such that \m{∑ℙ(E_n) = ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}.
-
-	Proof.  Note that \m{ℙ\brnd[{\brnd[E_n \infinitelyoften]}^∁] = ℙ\brnd[E_n^∁ \eventually]}, so it is equivalent to prove that \m{ℙ\brnd[E_n^∁ \eventually] = 0}. Using independence and the fact that \m{1 - x < e^{-x}}, for each fixed \m{n ∈ ℕ}, we have
-	\startformula
-		ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  ∏_{m = n}^N ℙ\brnd[E_n^∁]  =  ∏_{m = n}^N \brnd[1 - ℙ(E_n)]  ≤  ∏_{m = n}^N e^{- ℙ(E_n)}  =  e^{- ∑_{m = n}^N ℙ(E_n)} .
-	\stopformula
-	Taking \m{N → ∞}, we get \m{ℙ\brnd[⋂_{m ≥ n} E_n^∁] → 0}. Therefore
-	\startformula
-		ℙ\brnd[E_n^∁ \eventually]  =  ℙ\brnd[⋃_n ⋂_{m ≥ n} E_n^∁]   ≤  ∑_n ℙ\brnd[⋃_n ⋂_{m = n}^N E_n^∁]  =  0 .
-	\stopformula
+	\starttheorem[title={Borel--Cantelli 2}]
+		Let \m{(E_n) ⊂ ℱ} be (mutually) independent such that \m{∑ℙ(E_n) = ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}.
+	\stoptheorem
+	\startproof
+		Since \m{ℙ\brnd[{\brnd[E_n \infinitelyoften]}^∁] = ℙ\brnd[E_n^∁ \eventually]}, it is equivalent to prove that \m{ℙ\brnd[E_n^∁ \eventually] = 0}. Using independence and the fact that \m{1 - x < e^{-x}}, for each fixed \m{n ∈ ℕ}, we have
+		\startformula
+			ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  ∏_{m = n}^N ℙ\brnd[E_n^∁]  =  ∏_{m = n}^N \brnd[1 - ℙ(E_n)]  ≤  ∏_{m = n}^N e^{- ℙ(E_n)}  =  e^{- ∑_{m = n}^N ℙ(E_n)} .
+		\stopformula
+		Taking \m{N → ∞}, we get \m{ℙ\brnd[⋂_{m ≥ n} E_n^∁] → 0}. Therefore
+		\startformula
+			ℙ\brnd[E_n^∁ \eventually]  =  ℙ\brnd[⋃_n ⋂_{m ≥ n} E_n^∁]   ≤  ∑_n ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  0 .
+		\stopformula
+	\stopproof
 
 \stopchapter
 
