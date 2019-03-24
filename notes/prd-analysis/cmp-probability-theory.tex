@@ -67,10 +67,38 @@
 	% ToDo: Correct this diagram.
 	In this diagram, the top row represents \quote{\emph{point independent}} modes of convergence and the bottom row represents the \quote{\emph{point dependent}} modes of convergence.
 
-	\starttikzcd [row sep=huge, column sep=large]
-		unif \arrow[r] \arrow[d]  \NC  L^∞ \arrow[r] \arrow[d]  \NC  L^p \ ∀ p > 1 \arrow[r]  \NC  L^1 \arrow[r]  \NC  ℙ \arrow[r] \arrow[dlll, "∀ \text{ subseq } ∃ \text{ subsubseq }", dashed, bend left] \arrow[ll, dashed, bend right, swap, "u.i."]  \NC  w^* \arrow[l, dashed, bend right, swap, "constant"] \NR
-		pt   \arrow[r]  \NC  a.s. \arrow[urrr] \arrow[urr, dashed, "LDCT?"]  \NR
+	\blank[line]
+
+	\starttikzcd [row sep=huge, column sep=huge]
+		unif
+				\arrow[r, middlegreen]
+				\arrow[d, middlegreen]
+			\NC  L^∞
+				\arrow[r, middlegreen]
+				\arrow[d, middlegreen]
+			\NC  L^2
+				\arrow[r, middlegreen]
+				\arrow[dl, slategray, swap, "(X_n ⟂) ∧ (𝔼 X_n = 0) ∧ (∑ 𝕍 X_n < ∞)" description]
+			\NC  L^1
+				\arrow[r, middlegreen]
+			\NC  ℙ
+				\arrow[r, middlegreen]
+				\arrow[dlll, bend left, magenta, "∀ \text{ subseq } ∃ \text{ subsubseq }" description]
+				\arrow[l, bend right, darkblue, swap, "\text{u.i. ∨ unif bound}"]
+			\NC  w^*
+				\arrow[l, bend right, swap, darkorange, "const" description]
+		\NR  pt
+				\arrow[r, middlegreen]
+			\NC  a.s.
+				\arrow[urrr, middlegreen]
+				\arrow[urr, dotted, red, near end, "LDCT?" description]  \NR
 	\stoptikzcd
+
+	Legend
+	\startitemize [1, nowhite, after]
+		\item  \color[middlegreen]{green: automatic implication}
+		\item  any other color: depends on the mentioned condition
+	\stopitemize
 
 \stopchapter
 
