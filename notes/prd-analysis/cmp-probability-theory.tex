@@ -146,6 +146,14 @@
 	\stopformula
 	The convergence to \m{m} is given by the law of large numbers, and the convergence to \m{\frac{1}{\sqrt{n}} 𝓝(0, Σ)} is given by the central limit theorem. As \m{n → ∞}, the dependence on \m{𝓝(0, Σ)} goes to zero, so this is consistent with the law of large numbers.
 
+	\startsubsubsubject [title={Central limit theorem: how to remember in \m{1}-dim}]
+		\startformula
+			\frac{\bar{X}_n - 𝔼 \bar{X}_n}{\sqrt{𝕍 \bar{X}_n}}
+			=  \frac{\bar{X}_n - m}{\frac{σ}{\sqrt{n}}}
+			\xrightarrow[small]{w^*}  𝓝(0, 1)
+		\stopformula
+	\stopsubsubsubject
+
 \stopchapter
 
 \stopcomponent
