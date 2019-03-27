@@ -201,12 +201,25 @@
 
 \stopslide
 
-\startslide [title={Cramér theorem}]
-	This is the first one:
-	\theorem All conjectures are interesting.
+\startslide [title={Motivation: An example}]
 
-	This is the second one:
-	\starttheorem[title={Cramér, 1938}]
+	Setup
+	\startitemize [1, nowhite, after]
+		\item  \m{(X_n)}: i.i.d. random variables
+		\item  \m{X_n ∼ μ} and \m{𝔼 X_n = m}
+		\item  \m{\overline{S_n} = \frac1n ∑_{j = 1}^n X_j}
+		\item  \m{B ∈ 𝓑} such that \m{m ∉ \overline{B}}
+		\item  By LLN, we have \m{\overline{S_n} → m} as \m{n → ∞} (a.s.)
+		\item  So \m{ℙ(S_n ∈ B) → 0} as \m{n → ∞}
+		\item  But at what speed?
+		\item  \m{≍}
+	\stopitemize
+
+\stopslide
+
+\startslide [title={Cramér theorem}]
+
+	\starttheorem [title={Cramér, 1938}]
 		Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, e.g. \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
 
 		Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
@@ -214,6 +227,7 @@
 			\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
 		\stopformula
 	\stoptheorem
+
 \stopslide
 
 \startslide [title={Sanov theorem}]
@@ -290,7 +304,14 @@
 	\stopitemize
 
 	\framed [width=local, height=8em, autowidth=force] {    % wiki/Framed
-		\input ward
+		\starttheorem[title={Cramér, 1938}]
+			Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, e.g. \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
+
+			Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
+			\startformula
+				\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
+			\stopformula
+		\stoptheorem
 	}
 \stopslide
 
