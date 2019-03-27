@@ -127,4 +127,25 @@
 
 \stopchapter
 
+\startchapter [title={Limiting behaviour of \m{\bar{X}_n}}]
+
+	A great resource for this chapter is the Wikipedia article on \goto{central limit theorem}[url(https://en.wikipedia.org/wiki/Central_limit_theorem#Relation_to_the_law_of_large_numbers)].
+
+	Let \m{(X_n)} be a sequence of independent and identically distributed random variables with mean \m{m} and distribution \m{μ}, and let \m{\bar{X}_n = \frac1n S_n = \frac1n ∑_{j = 1}^n X_j}.
+
+	There are three scales for which we have three theorems, namely
+	\startitemize[n, nowhite, after]
+		\item  law of large numbers (\m{\bar{X}_n \xrightarrow{a.s.} m}),
+		\item  law of the iterated logarithm (\m{\limsupm \frac{\bar{X}_n}{\sqrt{\frac{2 \log \log n}{n}}} = 1} a.s.), and
+		\item  central limit theorem (\m{\sqrt{n}(\bar{X}_n - m) \xrightarrow{w^*} 𝓝(0, Σ)}).
+	\stopitemize
+
+	The idea is that we have an asymptotic expansion of \m{\bar{X}_n} given (in law) by
+	\startformula
+		\bar{X}_n ∼ m + \frac{1}{\sqrt{n}} 𝓝(0, Σ) , \quad \text{where \m{Σ} is the covariance operator.}
+	\stopformula
+	The convergence to \m{m} is given by the law of large numbers, and the convergence to \m{\frac{1}{\sqrt{n}} 𝓝(0, Σ)} is given by the central limit theorem. As \m{n → ∞}, the dependence on \m{𝓝(0, Σ)} goes to zero, so this is consistent with the law of large numbers.
+
+\stopchapter
+
 \stopcomponent
