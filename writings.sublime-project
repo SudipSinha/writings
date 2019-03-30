@@ -5,12 +5,7 @@
 			"path": "."
 		},
 		{
-			"path": "notes",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
-		},
-		{
-			"path": "talks",
+			"path": "math",
 			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
 			"folder_exclude_patterns": ["*-export"]
 		},

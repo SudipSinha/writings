@@ -25,6 +25,7 @@
 \setvariables [document] [color-foreground-2=darkslategray]
 
 % Fonts
+% Options: palatino, xitsbidi, euler
 \setvariables [document] [font=palatino]
 \setvariables [document] [fontsize-presentation=36pt]
 \setvariables [document] [fontsize-document=12pt]
@@ -75,13 +76,22 @@
 	[default]
 	[default]
 	[protrusion=quality, expansion=quality]
-\setupalign [hz, hanging, lesshyphenation, tolerant]
+\setupalign [hanging, hz, lesshyphenation, tolerant, stretch]
 \setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]
-% alternatives: xitsbidi, euler
 
 
 % Bibliography
 \usebtxdataset[bib.bib]
+\usebtxdefinitions[apa]
+
+
+% Highlighting
+\definehighlight [comment] [color=darkgray]
+\definehighlight [good] [color=middlegreen]
+\definehighlight [okay] [color=indianred]
+\definehighlight [bad] [color=orangered]
+\definehighlight [ugly] [color=lightred]
+\definehighlight [important] [color=slateblue]
 
 
 % Mathematics
@@ -89,39 +99,52 @@
 % Caution: spaces do not work between the elements)
 \def \delim[#arguments][#left][#right]{\left#left #arguments \right#right}
 
+% Intervals
 \def \intoo[#arguments]{\delim[#arguments][(][)]}
 \def \intoc[#arguments]{\delim[#arguments][(][]]}
 \def \intco[#arguments]{\delim[#arguments][[][]]}
 \def \intcc[#arguments]{\delim[#arguments][[][]]}
 
+% Brackets
 \def \brnd[#arguments]{\delim[#arguments][(][)]}
 \def \bcrl[#arguments]{\delim[#arguments][\{][\}]}
 \def \bsqr[#arguments]{\delim[#arguments][[][]]}
 
+% Commonly used delimiters
 \def \inn[#arguments]{\delim[#arguments][⟨][⟩]}
 \def \norm[#arguments]{\delim[#arguments][‖][‖]}
 \def \abs[#arguments]{\delim[#arguments][|][|]}
-
 \def \floor[#arguments]{\delim[#arguments][⌊][⌋]}
 \def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
 
+% Algebra
 \def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
 \def \inv[#arguments]{#arguments^{-1}}
 
+% Differentials
 \def \d{\,\text{d}}
 \def \D{\,\text{D}}
 
+% Topology
+\def \clsr[#set]{\overline{#set}}
+\def \intr[#set]{\mathring{#set}}
+\def \bdy[#set]{∂ #set}
+
+% Limit
 \definemathcommand [ess] [limop] {\mfunction{ess}}
 \definemathcommand [limsupm] [limop] {\overline{\lim}}
 \definemathcommand [liminfm] [limop] {\underline{\lim}}
 
+% Algebra
 \definemathcommand [ker] [nolop] {\mfunction{ker}}
 \definemathcommand [im] [nolop] {\mfunction{im}}
 
+% Arithmetic
 \definemathcommand [gcd] [nolop] {\mfunction{gcd}}
 \definemathcommand [lcm] [nolop] {\mfunction{lcm}}
 \definemathcommand [dim] [limop] {\mfunction{dim}}
 
+% Probabilistic
 \definemathcommand [infinitelyoften] [nolop] {\,\mfunction{i.o.}}
 \definemathcommand [eventually] [nolop] {\,\mfunction{ev}}
 
@@ -203,7 +226,7 @@
 % \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
 % \showframe
 
-\setupbodyfont [palatino, \getvariable{document}{fontsize-presentation}]
+\setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-presentation}]
 
 \setuplayout [
 	width=fit,
