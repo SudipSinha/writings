@@ -197,6 +197,27 @@
 
 		Recall the discussion of Taylor series for multivariate functionals in section \in[sec:taylor].
 
+		This part is from \cite[SundarKallianpur2014], § 5.3, 5.4 and 5.6.
+
+		A (local, continuous) semimartingale is a process \m{X_t} that can be written as \m{X_t = X_0 + M_t + A_t}, where
+		\startitemize [n, joinedup, nowhite, after]
+			\item  \m{M_t} is a mean-zero (local, continuous) martingale, and
+			\item  \m{A_t} is an right-continuous adapted process of locally bounded variation.
+		\stopitemize
+		This is equivalently represented in the differential form as \m{\d X_t = \d M_t + \d A_t}.
+
+		Let \m{X_t} be a \m{d}-dimensional semimartingale, and let \m{Y_t = f(X_t)}, where \m{f ∈ C^2(ℝ)}. Then
+		\startformula
+			\d Y_t
+			=  \d f(X_t)
+			=  f'(X_t) \d A_t
+			 + f'(X_t) \d M_t
+			 + \frac12 f''(X_t) \d \inn[M_t, M_t],
+		\stopformula
+		where we use the rule \m{\d \inn[B^{(j)}, B^{(j)}]_t = \brnd[\d B_t^{(j)}]^2 = \d t}, everything else being 0.
+
+		Alternatively, as from \cite[Kuo2006], we have the following.
+
 		Let \m{X_t= (X_t^{(1)}, \dots, X_t^{(d)})} be a \m{d}-dimensional process and \m{f(t, x)} be a functional of \m{(t, X_t)}. Then the Itô formula becomes
 		\startformula
 			\d f(t, X_t)  =  \brnd[{\inn[\d t, \D_t]} f](t, X_t)
