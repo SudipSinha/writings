@@ -11,7 +11,7 @@
 % This is the variables section. Ideally, these are the only modifications that should be made.
 
 % Version and mode
-\setvariables [document] [version=temporary]    % {final, concept, temporary}
+\setvariables [document] [version=final]    % {final, concept, temporary}
 \setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
 
 % Colors
@@ -27,7 +27,7 @@
 % Fonts
 % Options: palatino, xitsbidi, euler
 \setvariables [document] [font=palatino]
-\setvariables [document] [fontsize-presentation=36pt]
+\setvariables [document] [fontsize-presentation=38pt]
 \setvariables [document] [fontsize-document=12pt]
 
 % Information
@@ -72,6 +72,9 @@
 % https://wiki.contextgarden.net/Protrusion
 % \loadtypescriptfile[mathdesign]
 \usesymbols[fontawesome]    % https://fontawesome.com/icons
+
+% Interesting: https://tex.stackexchange.com/questions/429621/context-how-to-install-and-use-new-opentype-math-fonts
+
 \definefontfeature
 	[default]
 	[default]
@@ -80,9 +83,12 @@
 \setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-document}]
 
 
-% Bibliography
-\usebtxdataset[bib.bib]
-\usebtxdefinitions[apa]
+% Bibliography (https://www.contextgarden.net/Bibliography_mkiv)
+\usebtxdataset[../bib.bib]
+\usebtxdataset[../Itô.bib]
+\usebtxdataset[../Kuo-integral.bib]
+\usebtxdefinitions[apa]    % apa or aps
+% Use \cite[short][#key] to get XXX19 type citations
 
 
 % Highlighting
@@ -224,7 +230,7 @@
 \startmode [presentation]
 \setuppapersize [HD] [HD]
 % \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
-% \showframe
+\showframe
 
 \setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-presentation}]
 
@@ -236,11 +242,11 @@
 	rightmargindistance=0em,
 	height=fit,
 	header=0em,
-	footer=0.25em,
-	topspace=2em,
+	footer=0em,
 	backspace=4em,
-	bottomspace=2em,
-	bottom=0.5em,
+	topspace=1em,
+	bottomspace=1em,
+	% bottom=0.5em,
 	location=singlesided]
 
 % wiki/Command/setuphead

@@ -215,7 +215,7 @@
 
 \startslide [title={Itô formula}]
 
-	\startitemize[1]
+	\startitemize [1]
 
 		% \item  A (local, continuous) \important{semimartingale} is a process \m{X_t} that can be written as \m{X_t = X_0 + M_t + A_t}, where
 		% \startitemize [n, joinedup]
@@ -226,9 +226,12 @@
 
 		\item  An \important{Itô process} is a process of the form \m{X_t = X_0 + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}, equivalently expressed as \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t}.
 
-		Only makes sense when \m{∫_0^T \brnd[{\abs[m(s, X_s)] + \abs[σ(s, X_s)]^2}] \d s < ∞} a.s.
+		[Only makes sense when \m{∫_0^T \brnd[{\abs[m(s, X_s)] + \abs[σ(s, X_s)]^2}] \d s < ∞} a.s.]
 
-		\item  Let \m{X_t} be a \m{d}-dimensional Itô process, and let \m{Y_t = f(X_t)}, where \m{f ∈ C^2(ℝ)}. Then \m{f(X_t)} is also a \m{d}-dimensional Itô process, and
+	\stopitemize
+
+	\starttheorem[title={\cite[short][Itô1944SI]}]
+		Let \m{X_t} be a \m{d}-dimensional Itô process, and let \m{Y_t = f(X_t)}, where \m{f ∈ C^2(ℝ)}. Then \m{f(X_t)} is also a \m{d}-dimensional Itô process, and
 			\startformula
 				\d f(X_t)  =  \inn[(\D f) (X_t), \d X_t] + \frac12 \inn[\d X_t, (D^2 f)(X_t) \, \d X_t] ,
 			\stopformula
@@ -240,6 +243,9 @@
 			% 	 + \frac12 ∑_{j, k = 1}^d  \frac{∂^2 f}{∂x_j ∂x_k} (X_t) \d \inn[M^{(j)}, M^{(k)}]_t ,
 			% \stopformula
 			where we use the rule \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
+	\stoptheorem
+
+	\startitemize [1]
 
 		\item  Example: For \m{σ} constant, \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}, we have \m{\d 𝓔_t = \comment{- \frac12 σ^2 𝓔_t \d t} + σ 𝓔_t \d B_t \comment{+ \frac12 σ^2 𝓔_t (\d B_t)^2}}.
 
@@ -258,31 +264,34 @@
 
 \stopslide
 
-
 \startslide [title={Stochastic differential equations}]
 
-	\startitemize [1, joinedup]
-		\item  Let \m{ξ} be independent of \m{B_⋅}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable with
-			\startitemize[3, joinedup]
-				\item  \m{∀ t}, \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable, and
-				\item  \m{∫_0^T \brnd[{\abs[m(s, X_s)] + \abs[σ(s, X_s)]^2}] \d s < ∞} a.s.
-			\stopitemize
+	\startitemize [1]
+		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_⋅}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
 
-			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the stochastic \emph{integral} equation \m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
+			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the stochastic \emph{integral} equation
+
+			\important{\m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
 		\item  The stochastic differential equation \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t, \ X_0 = ξ} is a symbolic representation of the stochastic integral equation.
 	\stopitemize
 
-	\starttheorem[title={Existence and uniqueness}]
+	\starttheorem[title={Existence and uniqueness, Markov property}]
 		The stochastic differential equation above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
 		\startitemize[3, joinedup]
 			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)] + \abs[σ(t, x) - σ(t, y)]^2 ≤ M (1 + \abs[x]^2)} a.s.
 			\item  (growth condition) \m{\abs[m(t, x)] + \abs[σ(t, y)]^2 ≤ M (1 + \abs[x]^2)} a.s.
 		\stopitemize
+
+		The solution is a Markov process. Moreover if \m{ξ ∈ ℝ}, then the solution is also stationary.
 	\stoptheorem
 
 	\startitemize [1, joinedup]
 		\item  Example: For \m{σ} constant, the solution of \m{\d 𝓔_t = σ 𝓔_t \d B_t, 𝓔_0 = 1} is given by \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}.
 	\stopitemize
+
+\stopslide
+
+\startslide[title={Multiple Wiener–Itô integrals}]
 
 \stopslide
 
@@ -315,11 +324,11 @@
 \startmode [presentation]
 
 
-\startslide [title={Why?}]
+\startslide [title={Motivation}]
 
 	\startitemize [1]
 
-		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t \xequal{?} B_T B_t}}.
+		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t ≟ B_T B_t}}.
 
 		\item  Note that \m{𝔼(B_T B_t) = T ∧ t = \ugly{t ≠ 0}}, so \ugly{no martingale property} \symbol[fontawesome][frown].
 
@@ -356,15 +365,34 @@
 \stopslide
 
 
-\startslide [title={The new integral \cite[AyedKuo2008]}: Idea]
+\startslide [title={The new integral \cite[short][AyedKuo2008, AyedKuo2010]}: Idea]
 
 	\startitemize[1]
 
-		\item  A process \m{Y^⋅} and filtration \m{ℱ_⋅} are called \important{instantly independent} if \m{Y^t} and filtration \m{ℱ_t} are independent for every \m{t}.
+		\item  A process \m{Y^⋅} and filtration \m{ℱ_⋅} are called \important{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
 
-		\item  Decompose the integrand into \good{adapted} and \okay{instantly independent} parts.
+		\item  Ideas
+			\startitemize[n, joinedup]
 
-		\item  Evaluate the \good{adapted} part at the \good{left} endpoint, and the \okay{instantly independent} part at the \okay{right} endpoint.
+				\item  Decompose the integrand into \good{adapted} and \okay{instantly independent} parts.
+
+				\item  Evaluate the \good{adapted} and the \okay{instantly independent} parts at the \good{left} and \okay{right} endpoints.
+
+			\stopitemize
+
+		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_⋅}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
+			\startformula
+				∫_0^T \good{X_t} \okay{Y^t} \d B_t  ≜  \lim_{\norm[Δ_n] → 0}  ∑_{j = 0}^{n - 1} \good{X_{t_{j}}} \okay{Y^{t_{j+1}}} ΔB_j ,
+			\stopformula
+			provided that the limit exists in probability.
+
+		\item  Now, for any stochastic process \m{Z(t) = ∑_{k = 1}^n \good{X_t^{(k)}} \okay{Y^t_{(k)}}} we extend the definition by linearity.
+
+		\item  This is well-defined \cite[short][HwangKuoSaitôZhai2016].
+		%\m{∫_0^T Z(t) \d B_t = ∑_{k = 1}^n ∫_0^T Z(t) X_t^{(k)} Y^t_{(k)} \d B_t}.
+		% \startformula
+		% 	∫_0^T Z(t) \d B_t = ∑_{k = 1}^n ∫_0^T \good{X_t^{(k)}} \okay{Y^t_{(k)}} \d B_t
+		% \stopformula
 
 	\stopitemize
 
@@ -372,29 +400,33 @@
 
 \startslide[title={A simple example}]
 
-	In the following, denote \m{Δ B_j = B_{t_{j+1}} - B_{t_j}} and \m{\lim} is the limit in \m{L^2}.
+	\startitemize [1]
 
-	\startformula \startalign
-		\NC  ∫_0^t B_T \d B_t
-			\NC =  ∫_0^t (\good{B_t} + \okay{(B_T - B_t)}) \d B_t
-			    =  \good{∫_0^t B_t \d B_t}  +  \okay{∫_0^t (B_T - B_t) \d B_t}
-		\NR \NC
-			\NC =  \good{\lim ∑_{j = 0}^{n - 1} B_{t_j} Δ B_j}
-				+  \okay{\lim ∑_{j = 0}^{n - 1} (B_T - B_{t_{j + 1}}) Δ B_j}
-		\NR \NC
-			\NC =  \lim ∑_{j = 0}^{n - 1} \brnd[B_T - Δ B_j] Δ B_j
-		\NR \NC
-			\NC =  B_T \lim ∑_{j = 0}^{n - 1} Δ B_j - \lim ∑_{j = 0}^{n - 1} (Δ B_j)^2
-			    =  B_T B_t - t
-	\stopalign \stopformula
+		\item  	In the following, denote \m{Δ B_j = B_{t_{j+1}} - B_{t_j}} and \m{\lim} is the limit in \m{L^2}.
+			\startformula \startalign
+				\NC  ∫_0^t B_T \d B_t
+					\NC =  ∫_0^t (\good{B_t} + \okay{(B_T - B_t)}) \d B_t
+					    =  \good{∫_0^t B_t \d B_t}  +  \okay{∫_0^t (B_T - B_t) \d B_t}
+				\NR \NC
+					\NC =  \good{\lim ∑_{j = 0}^{n - 1} B_{t_j} Δ B_j}
+						+  \okay{\lim ∑_{j = 0}^{n - 1} (B_T - B_{t_{j + 1}}) Δ B_j}
+				\NR \NC
+					\NC =  \lim ∑_{j = 0}^{n - 1} \brnd[B_T - Δ B_j] Δ B_j
+				\NR \NC
+					\NC =  B_T \lim ∑_{j = 0}^{n - 1} Δ B_j - \lim ∑_{j = 0}^{n - 1} (Δ B_j)^2
+					    =  B_T B_t - t
+			\stopalign \stopformula
 
-	\m{𝔼(B_T B_t - t) = 0} \good{\symbol[fontawesome][smile]}.
+		\item  Note that \m{𝔼(B_T B_t - t) = 0}.
+
+		\item  In general, \m{𝔼 ∫_0^t Z(t) \d B_t = 0}. \good{\symbol[fontawesome][smile]}
+	\stopitemize
 
 \stopslide
 
-\startslide [title={Generalized Itô formula}]
+\startslide [title={Generalized Itô formula \cite[short][HwangKuoSaitôZhai2016]}]
 
-	\startitemize[1]
+	\startitemize [1]
 
 		\item  Let \m{\d X_t = m(t) \d t + σ(t) \d B_t} be an \m{d}-dimensional \good{Itô} process, \m{Y^t = \tilde{m}(t) \d t + \tilde{σ}(t) \d B_t} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process, \m{f(x, y) ∈ C^2(ℝ^2)}. Then
 			\startformula \startalign
@@ -413,8 +445,41 @@
 
 \stopslide
 
-\startslide [title={Differential formula (Itô, 1944 TODO:ref)}]
-	bla bla bla
+\startslide[title={Iterated integrals}]
+
+	\starttheorem[title={\cite[short][Itô1951MWI]}]
+		Let \m{f ∈ L^2([0, T]^n)} and \m{\hat{f}} be its symmetrization. Then
+		\startformula
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n} … \d B_{t_1} ,
+		\stopformula
+	\stoptheorem
+
+	\starttheorem[title={\cite[short][AyedKuo2010]}]
+		Let \m{f ∈ L^2([0, T]^n)}. Then
+		\startformula
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  ∫_0^T ⋯ ∫_0^T f(t_1, …, t_n) \d B_{t_n} … \d B_{t_1} .
+		\stopformula
+	\stoptheorem
+
+\stopslide
+
+\startslide [title={Near-martingale property \cite[short][HwangKuoSaitôZhai2017]}]
+
+	\startitemize [1]
+
+		\item  Question: What are the analogues of the martingale property and the Markov property?
+
+		\item  Partial answer: near-martingales
+
+		\item  Let \m{Z(t)} be a stochastic process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then, with respect to \m{ℱ_⋅}, the process \m{Z(t)} is called a
+			\startitemize[3, joinedup]
+				\item  \important{near-martingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) = 0},
+				\item  \important{near-submartingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) ≥ 0}, and
+				\item  \important{near-supermartingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) ≤ 0}.
+			\stopitemize
+
+	\stopitemize
+
 \stopslide
 
 \stopmode
@@ -510,7 +575,7 @@
 		\item  Let \m{\text{CM} = \bcrl[ω ∈ C_0 : ω ∈ \text{AC}, \text{ and } \dot{ω}_t ∈ L^2[0, T]]}
 	\stopitemize
 
-	\starttheorem [title={Schilder, 1966 \cite{Schilder1966}}]
+	\starttheorem %[title={\cite[short][Schilder1966]}]
 		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
 		\startformula
 			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}(t)]}^2 \d t] 𝟙_{\text{AC}}(ω) + ∞ 𝟙_{\text{AC}^∁}(ω)
@@ -647,8 +712,6 @@
 \stopslide
 
 \startslide[title={Something}]
-
-	This is a citation \cite[HKSZ2016].
 
 	\startitemize[8, columns, two]
 		\item One
