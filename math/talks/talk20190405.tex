@@ -13,10 +13,10 @@
 % Front matter %
 %%%%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
+\setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
 
 % \startmode [handout]
@@ -61,8 +61,9 @@
 
 
 % Table of contents
-\startslide[title={Outline}]
+\startslide [title={Outline}]
 	\placecontent
+
 \stopslide
 \stopmode
 
@@ -86,12 +87,12 @@
 % Introduction %
 %%%%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
+\setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection[title={Introduction and motivation}, reference=sec:introduction]
+\startsection [title={Introduction and motivation}, reference=sec:introduction]
 
 
 \startmode [presentation]
@@ -247,7 +248,7 @@
 
 	\startitemize [1]
 
-		\item  Example: For \m{σ} constant, \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}, we have \m{\d 𝓔_t = \comment{- \frac12 σ^2 𝓔_t \d t} + σ 𝓔_t \d B_t \comment{+ \frac12 σ^2 𝓔_t (\d B_t)^2}}.
+		\item  Example: For \m{σ} constant, \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}, \m{\d 𝓔_t = \comment{- \frac12 σ^2 𝓔_t \d t} + σ 𝓔_t \d B_t \comment{+ \frac12 σ^2 𝓔_t (\d B_t)^2}}.
 
 	\stopitemize
 
@@ -267,31 +268,35 @@
 \startslide [title={Stochastic differential equations}]
 
 	\startitemize [1]
+
 		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_⋅}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
 
-			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the stochastic \emph{integral} equation
+			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the \important{stochastic \emph{integral} equation} \important{\m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
 
-			\important{\m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
-		\item  The stochastic differential equation \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t, \ X_0 = ξ} is a symbolic representation of the stochastic integral equation.
+		\item  The \important{stochastic \emph{differential} equation} \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t, \ X_0 = ξ} is a \emph{symbolic representation} of the stochastic integral equation.
 	\stopitemize
 
-	\starttheorem[title={Existence and uniqueness, Markov property}]
+	\starttheorem [title={Existence and uniqueness, Markov property}]
+
 		The stochastic differential equation above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
 		\startitemize[3, joinedup]
-			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)] + \abs[σ(t, x) - σ(t, y)]^2 ≤ M (1 + \abs[x]^2)} a.s.
-			\item  (growth condition) \m{\abs[m(t, x)] + \abs[σ(t, y)]^2 ≤ M (1 + \abs[x]^2)} a.s.
+			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
+			\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
 		\stopitemize
 
 		The solution is a Markov process. Moreover if \m{ξ ∈ ℝ}, then the solution is also stationary.
+
 	\stoptheorem
 
 	\startitemize [1, joinedup]
-		\item  Example: For \m{σ} constant, the solution of \m{\d 𝓔_t = σ 𝓔_t \d B_t, 𝓔_0 = 1} is given by \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}.
+
+		\item  	Example: For \m{σ} constant, \m{\d 𝓔_t = σ 𝓔_t \d B_t, 𝓔_0 = 1} is solved by \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}.
+
 	\stopitemize
 
 \stopslide
 
-\startslide[title={Multiple Wiener–Itô integrals}]
+\startslide [title={Multiple Wiener–Itô integrals}]
 
 \stopslide
 
@@ -314,12 +319,12 @@
 % Generalization of stochastic calculus %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
+\setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-1}]
-\startcolor[\getvariable{document}{color-foreground-1}]    % text color
+\startcolor  [\getvariable{document}{color-foreground-1}]    % text color
 
-\startsection[title={Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
+\startsection [title={Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
 
 \startmode [presentation]
 
@@ -398,7 +403,7 @@
 
 \stopslide
 
-\startslide[title={A simple example}]
+\startslide [title={A simple example}]
 
 	\startitemize [1]
 
@@ -445,7 +450,7 @@
 
 \stopslide
 
-\startslide[title={Iterated integrals}]
+\startslide [title={Iterated integrals}]
 
 	\starttheorem[title={\cite[short][Itô1951MWI]}]
 		Let \m{f ∈ L^2([0, T]^n)} and \m{\hat{f}} be its symmetrization. Then
@@ -494,12 +499,12 @@
 % Large deviations theory %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
+\setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-2}]
-\startcolor[\getvariable{document}{color-foreground-2}]    % text color
+\startcolor [\getvariable{document}{color-foreground-2}]    % text color
 
-\startsection[title={Large deviations theory}, reference=sec:large-deviations-theory]
+\startsection [title={Large deviations theory}, reference=sec:large-deviations-theory]
 
 
 \startmode [presentation]
@@ -591,6 +596,10 @@
 
 \stopslide
 
+\startslide [title = {Laplace principle}]
+
+\stopslide
+
 \startslide [title={Cramér theorem}]
 
 	\starttheorem [title={\cite[short][Cramér1938]}]
@@ -664,6 +673,14 @@
 
 \stopslide
 
+\startslide [title={Applications}]
+	\startitemize [1]
+
+		\item
+
+	\stopitemize
+\stopslide
+
 \stopmode
 
 \stopsection
@@ -677,9 +694,9 @@
 \setupbackgrounds[page][
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection[title={Conclusion}, reference=sec:conclusion]
+\startsection [title={Conclusion}, reference=sec:conclusion]
 
 
 \startmode [presentation]
@@ -703,84 +720,84 @@
 
 
 
-%%%%%%%%%%%%%%%%%
-% Sample Slides %
-%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%
+% % Sample Slides %
+% %%%%%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
-	background={color,backgraphics,foreground},
-	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor[\getvariable{document}{color-foreground-0}]    % text color
+% \setupbackgrounds [page] [
+% 	background={color,backgraphics,foreground},
+% 	backgroundcolor=\getvariable{document}{color-background-0}]
+% \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection[title={Sample slides}, reference=sec:sample-slides]
+% \startsection[title={Sample slides}, reference=sec:sample-slides]
 
-\startmode [presentation]
+% \startmode [presentation]
 
-\startslide [title={Possible areas of interest}]
-	\startitemize[3]
-		\item  Extension to SDEs with anticipating coefficients
-		\item  Near-Markov property
-		\item  Girsanov theorem for generalized integration
-		\item  Freidlin-Wintzell type result for SDEs with anticipating initial conditions
-	\stopitemize
+% \startslide [title={Possible areas of interest}]
+% 	\startitemize[3]
+% 		\item  Extension to SDEs with anticipating coefficients
+% 		\item  Near-Markov property
+% 		\item  Girsanov theorem for generalized integration
+% 		\item  Freidlin-Wintzell type result for SDEs with anticipating initial conditions
+% 	\stopitemize
 
-	\framed [width=local, height=8em, autowidth=force] {    % wiki/Framed
-		\starttheorem[title={Cramér, 1938}]
-			Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, for example \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
+% 	\framed [width=local, height=8em, autowidth=force] {    % wiki/Framed
+% 		\starttheorem[title={Cramér, 1938}]
+% 			Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, for example \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
 
-			Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
-			\startformula
-				\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
-			\stopformula
-		\stoptheorem
-	}
-\stopslide
+% 			Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
+% 			\startformula
+% 				\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
+% 			\stopformula
+% 		\stoptheorem
+% 	}
+% \stopslide
 
-\startslide [title={Freidlin–Wentzell theorem}]
+% \startslide [title={Freidlin–Wentzell theorem}]
 
-	\startcolumns [n=2]
-	{\tfb Column 1}
+% 	\startcolumns [n=2]
+% 	{\tfb Column 1}
 
-		\input ward
+% 		\input ward
 
-	\column
+% 	\column
 
-	{\tfb Itô table}
+% 	{\tfb Itô table}
 
-		\starttabulate[|M|M|M|]
-			\HL
-			\NC  ×  \NC  \d t  \NC  \good{\d B_t}  \NR
-			\HL
-			\NC  \d t  \NC  0  \NC  0  \NR
-			\NC  \good{\d B_t}  \NC  0  \NC  \good{\d t}  \NR
-			\HL
-		\stoptabulate
+% 		\starttabulate[|M|M|M|]
+% 			\HL
+% 			\NC  ×  \NC  \d t  \NC  \good{\d B_t}  \NR
+% 			\HL
+% 			\NC  \d t  \NC  0  \NC  0  \NR
+% 			\NC  \good{\d B_t}  \NC  0  \NC  \good{\d t}  \NR
+% 			\HL
+% 		\stoptabulate
 
-	\stopcolumns
+% 	\stopcolumns
 
-	% \startitemize[8,columns,two]
-	% 	\item One
-	% 	\item Two
-	% 	\item Three
-	% \stopitemize
+% 	% \startitemize[8,columns,two]
+% 	% 	\item One
+% 	% 	\item Two
+% 	% 	\item Three
+% 	% \stopitemize
 
-\stopslide
+% \stopslide
 
-\startslide[title={Something}]
+% \startslide [title={Something}]
 
-	\startitemize[8, columns, two]
-		\item One
-		\item Two
-		\item Three
-		\item Four
-	\stopitemize
+% 	\startitemize[8, columns, two]
+% 		\item One
+% 		\item Two
+% 		\item Three
+% 		\item Four
+% 	\stopitemize
 
-\stopslide
+% \stopslide
 
 
-\stopmode
+% \stopmode
 
-\stopsection
+% \stopsection
 
 \stopbodymatter
 
