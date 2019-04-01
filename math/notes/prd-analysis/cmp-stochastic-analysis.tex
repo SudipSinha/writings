@@ -230,10 +230,7 @@
 
 	\startsection[title={Adapted and instantly independent implies deterministic}]
 
-		Let \m{f(t, ω)} be both adapted and instantly independent. Then we can decompose \m{f = f 𝟙_{f > 0} - (-f) 𝟙_{f < 0} = f_+ - f_-}, where everything depends on \m{(t, ω)}. So we can assume \m{f ≥ 0} without loss of generality. Now, \m{𝔼f = 𝔼(𝔼(f ∣ 𝓕_t)) = 𝔼(𝔼f)}, so \m{𝔼(f - 𝔼f) = 0}. But when \m{f ≥ 0}, we have \m{𝔼f ≥ 0}. TODO And then?
-		\startformula
-
-		\stopformula
+		Let \m{X_⋅} be both adapted and instantly independent. Then for any fixed \m{t}, we have \m{X_t = 𝔼(X_t ∣ ℱ_t) = 𝔼 X_t}. Therefore, \m{X_t} is constant w.r.t. \m{ω} for each \m{t}. Therefore \m{X_⋅} must be deterministic.
 
 	\stopsection
 

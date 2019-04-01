@@ -15,6 +15,7 @@
 \setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
 
 % Colors
+% https://coolors.co/app
 \setvariables [document] [color-link-external=royalblue]
 \setvariables [document] [color-link-internal=violetred]
 \setvariables [document] [color-background-0=white]
@@ -93,11 +94,15 @@
 
 % Highlighting
 \definehighlight [comment] [color=darkgray]
-\definehighlight [good] [color=palegreen4]
+\definehighlight [good] [color=darkolivegreen4]
 \definehighlight [okay] [color=indianred]
 \definehighlight [bad] [color=orangered]
 \definehighlight [ugly] [color=lightred]
 \definehighlight [important] [color=slateblue]
+
+% Tables
+% https://source.contextgarden.net/tabl-tbl.mkiv TaBlE compatible specifications
+\setuptabulate[rulecolor=\getvariable{document}{color-foreground-0}]
 
 
 % Mathematics
@@ -230,7 +235,7 @@
 \startmode [presentation]
 \setuppapersize [HD] [HD]
 % \setupinteractionscreen[option=max]    % full screen mode (wiki/Command/setupinteractionscreen)
-\showframe
+% \showframe
 
 \setupbodyfont [\getvariable{document}{font}, \getvariable{document}{fontsize-presentation}]
 

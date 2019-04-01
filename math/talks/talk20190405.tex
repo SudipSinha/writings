@@ -504,60 +504,115 @@
 
 \startmode [presentation]
 
-\startslide [title={Introduction}]
+\startslide [title={Motivation: an example}]
 
-\stopslide
+	\startitemize [n]
+		\item  Setup. Let the following hold:
+			\startitemize[1, joinedup]
+				\item  \m{(Ω, ℱ, ℙ)} is a probability space.
+				\item  \m{(X_n)} is a sequence of i.i.d. random variables on \m{(Ω, ℱ, ℙ)} with finite moment generating function \m{M}.
+				\item  \m{𝔼 X_1 = m}, \m{𝕍 X_1 = σ^2}, and \m{X_1 ∼ μ}.
+				\item  \m{\bar{X}_n = \frac1n ∑_{j = 1}^n X_j}.
+			\stopitemize
 
-\startslide [title={Weak convergence of measures}]
+		\item  Asymptotic behavior of \m{\bar{X}_n}:
+			\startitemize[1, joinedup]
+				\item  Weak law of large numbers: \m{\bar{X}_n \xrightarrow{ℙ} m}.
+				\item  Central limit theorem: \m{\sqrt{n} \bar{X}_n \xrightarrow{w^*} \sqrt{n} m + 𝓝(0, σ^2)}.
+			\stopitemize
 
-\stopslide
-
-\startslide [title={Laplace principle}]
-
-\stopslide
-
-\startslide [title={Motivation: towards Cramér theorem}]
-
-	Setup
-	\startitemize [1, joinedup]
-		\item  \m{(X_n)}: i.i.d. random variables
-		\item  \m{X_n ∼ μ} and \m{𝔼 X_n = m}
-		\item  \m{\overline{S_n} = \frac1n ∑_{j = 1}^n X_j}
-		\item  \m{B ∈ 𝓑} such that \m{m ∉ \overline{B}}
-		\item  By LLN, we have \m{\overline{S_n} → m} as \m{n → ∞} (a.s.)
-		\item  So \m{ℙ(S_n ∈ B) → 0} as \m{n → ∞}
 		\item  But at what speed?
-		\item  \m{≍}
+
+		\item  We want to \emph{control large deviations from the mean}.
+
+		% \item  \m{≍}
+
 	\stopitemize
 
 \stopslide
 
-\startslide [title={Motivation: towards Cramér theorem}]
+\startslide [title={Example: large deviation bounds}]
+
+	\startitemize [n]
+		\item  Fixing \m{x > m} and forcing the exponential with a free parameter \m{θ > 0}, we get
+			\startformula
+				ℙ\bcrl[\bar{X}_n ≥ x]
+				=  ℙ\bcrl[e^{θn\bar{X}_n} ≥ e^{θnx}]
+				≤  e^{-θnx} 𝔼\brnd[e^{θn\bar{X}_n}]
+				=  e^{-θnx} M_{X}(θ)^n
+				=  e^{-n(θx - \log M_{X}(θ))}
+			\stopformula
+
+		\item  Since \m{θ} was arbitrary, we have
+			\startformula
+				ℙ\bcrl[\bar{X}_n ≥ x]
+				≤  \inf_θ e^{-n(θx - \log M_{X}(θ))}
+				=  e^{-n \sup_θ (θx - \log M_{X}(θ))}
+				=: e^{-n I(x)} .
+			\stopformula
+
+		\item  Generalizing, we get the \important{large deviation upper bound}
+			\startformula
+				\limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≤  -\inf_{\clsr[E]} I  \qquad  ∀ E ∈ 𝓑 .
+			\stopformula
+
+		\item  We can also obtain a lower bound too using an exponential change of measure
+			\startformula
+				\liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≥  -\inf_{\intr[E]} I  \qquad  ∀ E ∈ 𝓑 .
+			\stopformula
+
+		\item  So informally, we get \m{ℙ\bcrl[\bar{X}_n = x] ≍ e^{-n I(x)}} for \m{x ∈ ℝ}.
+
+	\stopitemize
+
 \stopslide
 
-\startslide [title={Motivation: towards Cramér theorem}]
-\stopslide
+\startslide [title={Definitions}]
 
-\startslide [title={Motivation: towards Cramér theorem}]
+	\startitemize [1]
+
+		\item  The setup: \m{(X_n)} is a stochastic process on \m{(Ω, ℱ, ℙ)} taking values in a Polish space \m{(𝓧, d)}.
+
+		\item  A function \m{I: 𝓧 → [0, ∞]} is called a \important{rate function} if it has compact level sets.
+
+		\item  \m{I} is lower semicontinuous and attains its infimum on a nonempty closed set.
+
+		\item  For any Borel set \m{E}, denote \m{I(E) = \inf_{x ∈ E} I(x)}.
+
+	\stopitemize
+
+	\startdefinition
+		\m{(X_n)} is said to satisfy the \important{large deviation principle on \m{𝓧} with rate function \m{I}} if the following two conditions hold.
+		\startformula \startalign[n=4]
+			\NC  \text{(upper bound)}  \qquad  \NC  \limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ F]  \NC ≤  -I(F)  \NC  \qquad  ∀ F \text{ closed}  \NR
+			\NC  \text{(lower bound)}  \qquad  \NC  \liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  \NC ≥  -I(G)  \NC  \qquad  ∀ G \text{ open}
+		\stopalign \stopformula
+	\stopdefinition
+
 \stopslide
 
 \startslide [title={Cramér theorem}]
 
-	\starttheorem [title={Cramér, 1938}]
-		Let \m{X_{1}, X_{2}, \dots}be a series of i.i.d. real random variables with finite logarithmic moment generating function, for example \m{Λ(t) < ∞ \, ∀ t ∈ ℝ}.
-
-		Then the Legendre transform of \m{Λ}, \m{Λ^* = \sup_{t ∈ ℝ} (t x - Λ(t))} satisfies
-		\startformula
-			\lim_{n → ∞}  \frac{1}{n}  \log ℙ{\brnd[∑_{i=1}^n X_i ≥ n x]}  =  - Λ^*(x)  \quad  ∀ x > 𝔼(X_1)
-		\stopformula
+	\starttheorem [title={\cite[short][Cramér1938]}]
+		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
 	\stoptheorem
 
-\stopslide
+	Rate function for some common distributions for \m{X_⋅}
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate[|M|M|M|]
+		\FL
+		\NC  \text{Distribution}  \NC  M(θ)  \NC  I(x)  \NR
+		\FL
+		\NC  Bern(p)  \NC  1 - p + p e^θ  \NC  x \log \frac{x}{1 - p} + (x - 1) \log \frac{p}{x - 1}  \NR
+		\NC  Pois(λ)  \NC  e^{λ(e^θ - 1)}  \NC  λ - x + x \log \frac{x}{λ}  \NR
+		\NC  Exp(λ)   \NC  \inv[(1 - θ \inv[λ])]  \NC  λx - 1 + x \log(λ x)  \NR
+		\NC  𝓝(m, σ^2)  \NC  e^{m θ + \frac12 σ^2 θ^2}  \NC  \frac{(x - m)^2}{2 σ^2}  \NR
+		\NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]    \NR
+		\BL
+	\stoptabulate}
+	% ToDo: Add more.
+	% ToDo: Add the computation in the appendix.
 
-\startslide [title={Cramér theorem applied to common distributions}]
-\stopslide
-
-\startslide [title={Motivation: towards Cramér theorem}]
 \stopslide
 
 \startslide [title={Sanov theorem}]
@@ -690,14 +745,14 @@
 
 	\column
 
-	{\tfb Column 2}
+	{\tfb Itô table}
 
-		\starttabulate[|c|c|c|]
+		\starttabulate[|M|M|M|]
 			\HL
-			\NC  \m{×}  \NC  \m{\d t}  \NC  \good{\m{\d B_t}}  \NR
+			\NC  ×  \NC  \d t  \NC  \good{\d B_t}  \NR
 			\HL
-			\NC  \m{\d t}  \NC  0  \NC  0  \NR
-			\NC  \good{\m{\d B_t}}  \NC  0  \NC  \good{\m{\d t}}  \NR
+			\NC  \d t  \NC  0  \NC  0  \NR
+			\NC  \good{\d B_t}  \NC  0  \NC  \good{\d t}  \NR
 			\HL
 		\stoptabulate
 
