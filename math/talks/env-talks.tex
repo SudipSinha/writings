@@ -100,6 +100,11 @@
 \definehighlight [ugly] [color=lightred]
 \definehighlight [important] [color=slateblue]
 
+% Emoji
+\def \smile{\symbol[fontawesome][smile]}
+\def \meh{\symbol[fontawesome][meh]}
+\def \frown{\symbol[fontawesome][frown]}
+
 % Tables
 % https://source.contextgarden.net/tabl-tbl.mkiv TaBlE compatible specifications
 \setuptabulate[rulecolor=\getvariable{document}{color-foreground-0}]
@@ -263,7 +268,7 @@
 	before=,    % Negates the effect of setuphead [section].
 	aligntitle=yes]
 
-\setuplabeltext [section=§~]
+\setuplabeltext [section=Section~]
 \setuphead [section] [
 	header=empty,    % wiki/Command/setupheader
 	page=yes,

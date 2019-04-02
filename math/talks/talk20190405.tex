@@ -100,29 +100,29 @@
 
 \startslide [title={Quick revision and notations}]
 
-	\startitemize[1]
+	\startitemize [4]
 
 		\item  Let \m{T ∈ (0, ∞)}, and denote \m{𝕋 = [0, T]} as the index set for \m{t}.
 
-		\item  Let \m{(Ω, ℱ, ℱ_⋅, ℙ)} be a filtered probability space.
+		\item  Let \m{(Ω, ℱ, ℱ_∙, ℙ)} be a filtered probability space.
 
-		\item  \m{B_⋅} is a Brownian motion on \m{(Ω, ℱ, ℱ_⋅, ℙ)}.
+		\item  \m{B_∙} is a Brownian motion on \m{(Ω, ℱ, ℱ_∙, ℙ)}.
 
-		\item  Properties of \m{B_⋅}
-			\startitemize[1, columns, joinedup]
+		\item  Properties of \m{B_∙}
+			\startitemize[9, columns, joinedup]
 				\item  starts at 0
 				\item  has independent increments
 				\item  \m{B_t - B_s ∼ 𝓝(0, t - s)}
 				\item  continuous paths
-				\item  has \bad{unbounded linear variation \symbol[fontawesome][frown]}
-				\item  has \good{bounded quadratic variation \symbol[fontawesome][smile]}
+				\item  has \bad{unbounded linear variation \frown}
+				\item  has \good{bounded quadratic variation \smile}
 				\item  \m{𝔼(B_t B_s) = s ∧ t}
 				\item  martingale
 			\stopitemize
 
 		\item  \bad{Naive stochastic integration w.r.t. \m{B_t}: not possible}.
 
-		\item  A stochastic process \m{X_t} is called \m{\brnd[ℱ_t]}-adapted if \m{∀t}, \m{X_t} is measurable w.r.t. \m{ℱ_t}.
+		\item  A stochastic process \m{X_∙} is called adapted to \m{ℱ_∙} if \m{X_t} is measurable w.r.t. \m{ℱ_t} \m{∀t}.
 
 	\stopitemize
 
@@ -130,7 +130,7 @@
 
 \startslide [title={Wiener integral (\m{f ∈ L^2[0, T]})}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Definition
 			\startitemize [n, joinedup]
@@ -142,14 +142,14 @@
 			\stopitemize
 
 		\item  Properties
-			\startitemize[3, joinedup]
+			\startitemize[9, joinedup]
 				\item  Linear.
 				\item  \good{Gaussian distribution} with mean 0 and variance \m{\norm[f]_{L^2[0, T]}^2} (Itô isometry).
 				\item  Corresponds to the Riemann--Stieltjes integral for \m{f ∈ C[0, T]}.
 			\stopitemize
 
-		\item  The associated process \m{I_t = ∫_0^t X_s \d B_s} has the following properties.
-			\startitemize [3, joinedup]
+		\item  The associated process \m{I_∙ = ∫_0^∙ f(t) \d B_t} has the following properties.
+			\startitemize [9, joinedup]
 				\item  continuity
 				\item  martingale
 			\stopitemize
@@ -163,7 +163,7 @@
 
 \startslide [title={Trying to integrate stochastic processes naively}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  \m{∫_0^T B_t \d B_t ≟}.
 
@@ -176,9 +176,9 @@
 			\starttabulate [|c|m|m|c|c|]
 				\NC  \m{t_j^*}  \NC  ∫_0^t B_s \d B_s  \NC  𝔼  \NC  Martingale?  \NC  Theory  \NR
 				\FL
-				\NC  \good{left}   \NC  \good{\frac12 \brnd[B_t^2 - t]}  \NC  \good{0}  \NC  \good{\symbol[fontawesome][smile]}  \NC  Itô  \NR
-				\NC  mid    \NC  \frac12 \brnd[B_t^2]      \NC  \frac12 t  \NC  \symbol[fontawesome][frown]  \NC  Stratonovich  \NR
-				\NC  \okay{right}  \NC  \okay{\frac12 \brnd[B_t^2 + t]}  \NC  \okay{t}  \NC  \okay{\symbol[fontawesome][frown]}  \NC  \cite[short][AyedKuo2008]  \NR
+				\NC  \good{left}   \NC  \good{\frac12 \brnd[B_t^2 - t]}  \NC  \good{0}  \NC  \good{\smile}  \NC  \good{Itô}  \NR
+				\NC  mid    \NC  \frac12 \brnd[B_t^2]      \NC  \frac12 t  \NC  \frown  \NC  Stratonovich  \NR
+				\NC  \okay{right}  \NC  \okay{\frac12 \brnd[B_t^2 + t]}  \NC  \okay{t}  \NC  \okay{\frown}  \NC    \NR
 				\BL
 			\stoptabulate
 
@@ -189,9 +189,9 @@
 \stopslide
 
 
-\startslide [title={Itô integral (\m{X ∈ L^2_{\text{ad}} ([0, T] × Ω)})}]
+\startslide [title={Itô integral for \m{X_∙ ∈ L^2_{\text{ad}} ([0, T] × Ω)}}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Definition
 			\startitemize [n, joinedup]
@@ -200,22 +200,22 @@
 			\stopitemize
 
 		\item  Properties
-			\startitemize[3, joinedup]
+			\startitemize [9, joinedup]
 				\item  Linear.
 				\item  Mean 0 and variance \m{\norm[f]_{L^2[0, T]}^2} \good{(Itô isometry)}.
-				\item  For \m{X_⋅} continuous,
+				\item  For \m{X_∙} continuous,
 					\m{∫_0^T X_t \d B_t
 						=  \lim ∫_0^T X_{\floor[\frac{t n}{n}]} \d B_t
 						=  \lim ∑_{j = 0}^{n - 1} X_{\floor[\frac{t n}{n}]} Δ B_j}.
 			\stopitemize
 
-		\item  The associated process \m{I_t = ∫_0^t X_s \d B_s} has the following properties.
-			\startitemize [3, joinedup]
+		\item  The associated process \m{I_∙ = ∫_0^∙ X_t \d B_t} has the following properties.
+			\startitemize [9, joinedup]
 				\item  continuity
 				\item  martingale
 			\stopitemize
 
-		\item  Example: \m{∫_0^T B_t \d B_t = \frac12 (B_T^2 - T)}.
+		\item  Example: \m{∫_0^t B_s \d B_s = \frac12 (B_t^2 - t) \quad ∀ t}.
 
 		% \item  Problem: Cannot integrate many continuous functions of \m{B_t}, for example \m{e^{B_t^2}}.
 
@@ -224,20 +224,20 @@
 \stopslide
 
 
-\startslide [title={Itô integral (\m{∫_0^T X_t^2 \d t < ∞} a.s.)}]
+\startslide [title={Itô integral for \m{X_∙} such that \m{∫_0^T X_t^2 \d t < ∞} a.s.}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Definition: Use sequences of processes in \m{L^2_{\text{ad}} ([0, T] × Ω)} approximating \m{X} in probability to extend the integral \important{in probability}.
 
 		\item  Properties
-			\startitemize[3, joinedup]
+			\startitemize [9, joinedup]
 				\item  Linear.
-				\item  Mean 0, \bad{but variance? \symbol[fontawesome][meh]}.
+				\item  \bad{Mean and variance? \frown}
 			\stopitemize
 
-		\item  The associated process \m{I_t = ∫_0^t X_s \d B_s} has the following properties.
-			\startitemize [3, joinedup]
+		\item  The associated process \m{I_∙ = ∫_0^∙ X_t \d B_t} has the following properties.
+			\startitemize [9, joinedup]
 				\item  continuity
 				\item  \okay{local} martingale
 			\stopitemize
@@ -250,7 +250,7 @@
 
 \startslide [title={Itô formula}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		% \item  A (local, continuous) \important{semimartingale} is a process \m{X_t} that can be written as \m{X_t = X_0 + M_t + A_t}, where
 		% \startitemize [n, joinedup]
@@ -280,7 +280,7 @@
 			where we use the rule \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
 	\stoptheorem
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Example: For \m{σ} constant, \m{𝓔_t = \exp\brnd[σ B_t - \frac12 σ^2 t]}, \m{\d 𝓔_t = \comment{- \frac12 σ^2 𝓔_t \d t} + σ 𝓔_t \d B_t \comment{+ \frac12 σ^2 𝓔_t (\d B_t)^2}}.
 
@@ -290,22 +290,22 @@
 
 \startslide [title={Exponential processes and Girsanov theorem}]
 
-	\startitemize [1]
+	\startitemize [4]
 
-		\item  Let \m{h_⋅} be a stochastic process. The \important{associated exponential process} is defined as
+		\item  Let \m{h_∙} be a stochastic process. The \important{associated exponential process} is defined as
 			\startformula
 				𝓔^{(h)}_t = \exp\brnd[∫_0^t h_s \d B_s - \frac12 ∫_0^t h_s^2 \d s] .
 			\stopformula
 
-		\item  The exponential process is a martingale if and only if \m{𝔼 𝓔_t = 1 \ ∀ t}.
+		\item  The exponential process is a martingale if and only if \m{𝔼 𝓔^{(h)}_t = 1 \ ∀ t}.
 
-		\item  (\important{Novikov condition})  The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^t h_s^2 \d s] < ∞ \ ∀ t}.
+		\item  (\important{Novikov condition})  The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^T h_t^2 \d t] < ∞}.
 
 		\item  (\important{Girsanov theorem})
 			The translated stochastic process \m{W_t = B_t - ∫_0^t h(s) \d s} is a Brownian motion under the probability measure \m{\tilde{ℙ}} defined by the Radon-Nikodym derivative
-			\m{\frac{\d \tilde{ℙ}}{\d ℙ} = 𝓔^{h}_T}.
+			\m{\frac{\d \tilde{ℙ}}{\d ℙ} = 𝓔^{(h)}_T}.
 
-			Moreover the process \m{Z_t := 𝔼 \brnd[𝓔^{h}_T ∣ 𝓕_t]} is a martingale.
+			% Moreover the process \m{Z_t := 𝔼 \brnd[𝓔^{h}_T ∣ 𝓕_t]} is a martingale.
 
 	\stopitemize
 
@@ -313,9 +313,9 @@
 
 \startslide [title={Stochastic differential equations}]
 
-	\startitemize [1]
+	\startitemize [4]
 
-		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_⋅}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
+		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_∙}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
 
 			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the \important{stochastic \emph{integral} equation} \important{\m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
 
@@ -325,12 +325,14 @@
 	\starttheorem [title={Existence and uniqueness, Markov property}]
 
 		The stochastic differential equation above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
-		\startitemize[3, joinedup]
+		\startitemize [9, joinedup]
 			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
 			\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
 		\stopitemize
 
-		The solution is a Markov process. Moreover if \m{ξ ∈ ℝ}, then the solution is also stationary.
+		The solution is a Markov process.
+
+		Moreover if \m{ξ ∈ ℝ} and \m{m, σ} are function of only \m{x}, then the solution is also stationary.
 
 	\stoptheorem
 
@@ -344,26 +346,27 @@
 
 \startslide [title={Multiple Wiener–Itô integrals}]
 
-	\startitemize [1]
+	\startitemize [4]
 
-		\item  How to define the double integral?
+		\item  How do we define the double integral?
 
-		\item  \m{∫_0^T ∫_0^T \d B_s \d B_t = ∫_0^T \d B_s ∫_0^T \d B_t = B_T^2}.
+		\item  Naive idea: \m{∫_0^T ∫_0^T \d B_s \d B_t = ∫_0^T \d B_s ∫_0^T \d B_t = B_T^2}.
 
-			But \m{𝔼 ∫_0^t ∫_0^t \d B_u \d B_v = \ugly{t ≠ 0}}, so \ugly{no martingale property}. \symbol[fontawesome][frown]
+			But \m{𝔼 B_T^2 = \ugly{t ≠ 0}}, so \ugly{no martingale property}. \frown
 
-		\item  Itô's idea: remove the diagonal to get \m{∫_0^T ∫_0^T \d B_s \d B_t  =  2 ∫_0^T ∫_0^t \d B_s \d B_t  =  B_T^2 - T}. \symbol[fontawesome][smile]
+		\item  Itô's idea: remove the diagonal to get \m{∫_0^T ∫_0^T \d B_s \d B_t  =  2 ∫_0^T ∫_0^t \d B_s \d B_t  =  B_T^2 - T}. \smile
 
 	\stopitemize
 
 	\starttheorem[title={\cite[short][Itô1951MWI]}]
-		Let \m{f ∈ L^2([0, T]^n)} and \m{\hat{f}} be its symmetrization. Then
+		Let \m{f ∈ L^2([0, T]^n)} and \m{\bad{\hat{f}}} be its symmetrization. Then
 		\startformula
-			I_n(f)  =  ∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n} … \d B_{t_1} ,
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-2}}} \brnd[∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n}] \d B_{t_{n-1}} … \d B_{t_1} .
 		\stopformula
+		% \m{\hat{f}(t_1, …, t_n)  =  \frac{1}{n!} ∑_{σ ∈ S_n} f(t_{σ(1)}, …, t_{σ(n)})}
 	\stoptheorem
 
-	\startitemize [1]
+	\startitemize [4]
 		\item  TODO
 	\stopitemize
 
@@ -400,14 +403,14 @@
 
 \startslide [title={Motivation}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t ≟ B_T B_t}}.
 
-		\item  Note that \m{𝔼(B_T B_t) = T ∧ t = \ugly{t ≠ 0}}, so \ugly{no martingale property} \symbol[fontawesome][frown].
+		\item  Note that \m{𝔼(B_T B_t) = T ∧ t = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
 
 		\item  Stochastic differential equations with anticipation
-			% \startitemize[3, joinedup]
+			% \startitemize [9, joinedup]
 			% 	\item  \m{\d X_t  =  X_t \d B_t, X_0 = B_1}
 			% 	\item  \m{\d Y_t  =  B_T \d B_t, Y_0 = 1}
 			% \stopitemize
@@ -419,10 +422,10 @@
 			\NC  Y_0  \NC =  1
 		\stopalign \stopformula
 
-		\item  Problem: We want to define \m{∫_0^T X_t \d B_t}, where \m{X_⋅} is not adapted (anticipating).
+		\item  Problem: We want to define \m{∫_0^T X_t \d B_t}, where \m{X_∙} is not adapted (anticipating).
 
 		\item  Some approaches
-		\startitemize[3, joinedup]
+		\startitemize [9, joinedup]
 			\item  Itô's decomposition of integrand \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}
 				% \startformula
 				% 	B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{1 - s} \d s] + ∫_0^T \frac{B_T - B_s}{1 - s} \d s
@@ -443,7 +446,9 @@
 
 	\startitemize[1]
 
-		\item  A process \m{Y^⋅} and filtration \m{ℱ_⋅} are called \important{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
+		\item  A process \m{Y^⋅} and filtration \m{ℱ_∙} are called \important{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
+
+			Example: The process \m{(B_T - B_∙)} is instantly independent of the filtration generated by \m{B_∙}.
 
 		\item  Ideas
 			\startitemize[n, joinedup]
@@ -454,7 +459,7 @@
 
 			\stopitemize
 
-		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_⋅}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
+		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_∙}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
 			\startformula
 				∫_0^T \good{X_t} \okay{Y^t} \d B_t  ≜  \lim_{\norm[Δ_n] → 0}  ∑_{j = 0}^{n - 1} \good{X_{t_{j}}} \okay{Y^{t_{j+1}}} ΔB_j ,
 			\stopformula
@@ -474,7 +479,7 @@
 
 \startslide [title={A simple example}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  	In the following, denote \m{Δ B_j = B_{t_{j+1}} - B_{t_j}} and \m{\lim} is the limit in \m{L^2}.
 			\startformula \startalign
@@ -493,35 +498,54 @@
 
 		\item  Note that \m{𝔼(B_T B_t - t) = 0}.
 
-		\item  In general, \m{𝔼 ∫_0^t Z(t) \d B_t = 0}. \good{\symbol[fontawesome][smile]}
+		\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
 	\stopitemize
 
 \stopslide
 
 \startslide [title={Generalized Itô formula \cite[short][HwangKuoSaitôZhai2016]}]
 
-	\startitemize [1]
+	\starttabulate [|c|m|m|]
+		\NC  Process
+		\NC  \text{Definition}
+		\NC  \text{Representation}
 
-		\item  Let \m{\d X_t = m(t) \d t + σ(t) \d B_t} be an \m{d}-dimensional \good{Itô} process, \m{Y^t = \tilde{m}(t) \d t + \tilde{σ}(t) \d B_t} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process, \m{f(x, y) ∈ C^2(ℝ^2)}. Then
-			\startformula \startalign
-					\NC \d f(X_t, Y^t)  =
-					\NC \good{\inn[(\D_x f) (X_t, Y^t), \d X_t]
-						+ \frac12 \inn[\d X_t, (D_x^2 f)(X_t, Y^t) \, \d X_t]}
-				\NR \NC
-					\NC + \okay{\inn[(\D_y f) (X_t, Y^t), \d Y^t]
-						- \frac12 \inn[\d Y^t, (D_y^2 f)(X_t, Y^t) \, \d Y^t]} ,
-			\stopalign \stopformula
-			where we use the rule \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
+		\NR
+		\FL
 
-		\item  Example: TODO
+		\NC  \good{Itô}
+		\NC  X_t = X_0 + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s
+		\NC  \d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t
 
-	\stopitemize
+		\NR
+
+		\NC  \okay{instantly independent}
+		\NC  Y^t = Y^0 + ∫_t^T \tilde{m}(s, Y^s) \d s + ∫_t^T \tilde{σ}(s, Y^s) \d B_s
+		\NC  \d Y^t = \tilde{m}(t, Y^t) \d t + \tilde{σ}(t, Y^t) \d B_t
+
+		\NR
+		\BL
+	\stoptabulate
+
+	\starttheorem[title={\cite[short][HwangKuoSaitôZhai2016]}]
+		Let \good{\m{\d X_t = m \d t + σ \d B_t}} be an \m{d}-dimensional \good{Itô} process, \okay{\m{\d Y^t = \tilde{m} \d t + \tilde{σ} \d B_t}} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process.
+		If \m{f(x, y) ∈ C^2(ℝ^2)}, then
+		\startformula \startalign
+				\NC \d f(X_t, Y^t)  =
+				\NC \good{\inn[(\D_x f) (X_t, Y^t), \d X_t]
+					+ \frac12 \inn[\d X_t, (D_x^2 f)(X_t, Y^t) \, \d X_t]}
+			\NR \NC
+				\NC + \okay{\inn[(\D_y f) (X_t, Y^t), \d Y^t]
+					- \frac12 \inn[\d Y^t, (D_y^2 f)(X_t, Y^t) \, \d Y^t]} ,
+		\stopalign \stopformula
+		where we use the rules \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
+	\stoptheorem
 
 \stopslide
 
 \startslide [title={Exponential processes and generalized Girsanov theorem}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  TODO
 
@@ -533,10 +557,11 @@
 \startslide [title={Iterated integrals}]
 
 	\starttheorem[title={\cite[short][Itô1951MWI]}]
-		Let \m{f ∈ L^2([0, T]^n)} and \m{\hat{f}} be its symmetrization. Then
+		Let \m{f ∈ L^2([0, T]^n)} and \m{\bad{\hat{f}}} be its symmetrization. Then
 		\startformula
-			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n} … \d B_{t_1} ,
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-2}}} \brnd[∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n}] \d B_{t_{n-1}} … \d B_{t_1} .
 		\stopformula
+		% \m{\hat{f}(t_1, …, t_n)  =  \frac{1}{n!} ∑_{σ ∈ S_n} f(t_{σ(1)}, …, t_{σ(n)})}
 	\stoptheorem
 
 	\starttheorem[title={\cite[short][AyedKuo2010]}]
@@ -550,14 +575,14 @@
 
 \startslide [title={Near-martingale property \cite[short][HwangKuoSaitôZhai2017]}]
 
-	\startitemize [1]
+	\startitemize [4]
 
 		\item  Question: What are the analogues of the martingale property and the Markov property?
 
 		\item  Answer for martingales: \quotation{near-martingales}.
 
-		\item  Let \m{Z(t)} be a stochastic process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then, with respect to \m{ℱ_⋅}, the process \m{Z(t)} is called a
-			\startitemize[3, joinedup]
+		\item  Let \m{Z(t)} be a stochastic process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then, with respect to \m{ℱ_∙}, the process \m{Z(t)} is called a
+			\startitemize [9, joinedup]
 				\item  \important{near-martingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) = 0},
 				\item  \important{near-submartingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) ≥ 0}, and
 				\item  \important{near-supermartingale} if \m{𝔼(Z(t) - Z(s) ∣ ℱ_s) ≤ 0}.
@@ -581,191 +606,191 @@
 % Large deviations theory %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \setupbackgrounds [page] [
-% 	background={color,backgraphics,foreground},
-% 	backgroundcolor=\getvariable{document}{color-background-2}]
-% \startcolor [\getvariable{document}{color-foreground-2}]    % text color
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-2}]
+\startcolor [\getvariable{document}{color-foreground-2}]    % text color
 
-% \startsection [title={Large deviations theory}, reference=sec:large-deviations-theory]
+\startsection [title={Large deviations theory}, reference=sec:large-deviations-theory]
 
 
-% \startmode [presentation]
+\startmode [presentation]
 
-% \startslide [title={Motivation: an example}]
+\startslide [title={Motivation: an example}]
 
-% 	\startitemize [n]
-% 		\item  Setup. Let the following hold:
-% 			\startitemize[1, joinedup]
-% 				\item  \m{(Ω, ℱ, ℙ)} is a probability space.
-% 				\item  \m{(X_n)} is a sequence of i.i.d. random variables on \m{(Ω, ℱ, ℙ)} with finite moment generating function \m{M}.
-% 				\item  \m{𝔼 X_1 = m}, \m{𝕍 X_1 = σ^2}, and \m{X_1 ∼ μ}.
-% 				\item  \m{\bar{X}_n = \frac1n ∑_{j = 1}^n X_j}.
-% 			\stopitemize
+	\startitemize [n]
+		\item  Setup. Let the following hold:
+			\startitemize[1, joinedup]
+				\item  \m{(Ω, ℱ, ℙ)} is a probability space.
+				\item  \m{(X_n)} is a sequence of i.i.d. random variables on \m{(Ω, ℱ, ℙ)} with finite moment generating function \m{M}.
+				\item  \m{𝔼 X_1 = m}, \m{𝕍 X_1 = σ^2}, and \m{X_1 ∼ μ}.
+				\item  \m{\bar{X}_n = \frac1n ∑_{j = 1}^n X_j}.
+			\stopitemize
 
-% 		\item  Asymptotic behavior of \m{\bar{X}_n}:
-% 			\startitemize[1, joinedup]
-% 				\item  Weak law of large numbers: \m{\bar{X}_n \xrightarrow{ℙ} m}.
-% 				\item  Central limit theorem: \m{\sqrt{n} \bar{X}_n \xrightarrow{w^*} \sqrt{n} m + 𝓝(0, σ^2)}.
-% 			\stopitemize
+		\item  Asymptotic behavior of \m{\bar{X}_n}:
+			\startitemize[1, joinedup]
+				\item  Weak law of large numbers: \m{\bar{X}_n \xrightarrow{ℙ} m}.
+				\item  Central limit theorem: \m{\sqrt{n} \bar{X}_n \xrightarrow{w^*} \sqrt{n} m + 𝓝(0, σ^2)}.
+			\stopitemize
 
-% 		\item  But at what speed?
+		\item  But at what speed?
 
-% 		\item  We want to \emph{control large deviations from the mean}.
+		\item  We want to \emph{control large deviations from the mean}.
 
-% 		% \item  \m{≍}
+		% \item  \m{≍}
 
-% 	\stopitemize
+	\stopitemize
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Example: large deviation bounds}]
+\startslide [title={Example: large deviation bounds}]
 
-% 	\startitemize [n]
-% 		\item  Fixing \m{x > m} and forcing the exponential with a free parameter \m{θ > 0}, we get
-% 			\startformula
-% 				ℙ\bcrl[\bar{X}_n ≥ x]
-% 				=  ℙ\bcrl[e^{θn\bar{X}_n} ≥ e^{θnx}]
-% 				≤  e^{-θnx} 𝔼\brnd[e^{θn\bar{X}_n}]
-% 				=  e^{-θnx} M_{X}(θ)^n
-% 				=  e^{-n(θx - \log M_{X}(θ))}
-% 			\stopformula
+	\startitemize [n]
+		\item  Fixing \m{x > m} and forcing the exponential with a free parameter \m{θ > 0}, we get
+			\startformula
+				ℙ\bcrl[\bar{X}_n ≥ x]
+				=  ℙ\bcrl[e^{θn\bar{X}_n} ≥ e^{θnx}]
+				≤  e^{-θnx} 𝔼\brnd[e^{θn\bar{X}_n}]
+				=  e^{-θnx} M_{X}(θ)^n
+				=  e^{-n(θx - \log M_{X}(θ))}
+			\stopformula
 
-% 		\item  Since \m{θ} was arbitrary, we have
-% 			\startformula
-% 				ℙ\bcrl[\bar{X}_n ≥ x]
-% 				≤  \inf_θ e^{-n(θx - \log M_{X}(θ))}
-% 				=  e^{-n \sup_θ (θx - \log M_{X}(θ))}
-% 				=: e^{-n I(x)} .
-% 			\stopformula
+		\item  Since \m{θ} was arbitrary, we have
+			\startformula
+				ℙ\bcrl[\bar{X}_n ≥ x]
+				≤  \inf_θ e^{-n(θx - \log M_{X}(θ))}
+				=  e^{-n \sup_θ (θx - \log M_{X}(θ))}
+				=: e^{-n I(x)} .
+			\stopformula
 
-% 		\item  Generalizing, we get the \important{large deviation upper bound}
-% 			\startformula
-% 				\limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≤  -\inf_{\clsr[E]} I  \qquad  ∀ E ∈ 𝓑 .
-% 			\stopformula
+		\item  Generalizing, we get the \important{large deviation upper bound}
+			\startformula
+				\limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≤  -\inf_{\clsr[E]} I  \qquad  ∀ E ∈ 𝓑 .
+			\stopformula
 
-% 		\item  We can also obtain a lower bound too using an exponential change of measure
-% 			\startformula
-% 				\liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≥  -\inf_{\intr[E]} I  \qquad  ∀ E ∈ 𝓑 .
-% 			\stopformula
+		\item  We can also obtain a lower bound too using an exponential change of measure
+			\startformula
+				\liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≥  -\inf_{\intr[E]} I  \qquad  ∀ E ∈ 𝓑 .
+			\stopformula
 
-% 		\item  So informally, we get \m{ℙ\bcrl[\bar{X}_n = x] ≍ e^{-n I(x)}} for \m{x ∈ ℝ}.
+		\item  So informally, we get \m{ℙ\bcrl[\bar{X}_n = x] ≍ e^{-n I(x)}} for \m{x ∈ ℝ}.
 
-% 	\stopitemize
+	\stopitemize
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Definitions}]
+\startslide [title={Definitions}]
 
-% 	\startitemize [1]
+	\startitemize [4]
 
-% 		\item  The setup: \m{(X_n)} is a stochastic process on \m{(Ω, ℱ, ℙ)} taking values in a Polish space \m{(𝓧, d)}.
+		\item  The setup: \m{(X_n)} is a stochastic process on \m{(Ω, ℱ, ℙ)} taking values in a Polish space \m{(𝓧, d)}.
 
-% 		\item  A function \m{I: 𝓧 → [0, ∞]} is called a \important{rate function} if it has compact level sets.
+		\item  A function \m{I: 𝓧 → [0, ∞]} is called a \important{rate function} if it has compact level sets.
 
-% 		\item  \m{I} is lower semicontinuous and attains its infimum on a nonempty closed set.
+		\item  \m{I} is lower semicontinuous and attains its infimum on a nonempty closed set.
 
-% 		\item  For any Borel set \m{E}, denote \m{I(E) = \inf_{x ∈ E} I(x)}.
+		\item  For any Borel set \m{E}, denote \m{I(E) = \inf_{x ∈ E} I(x)}.
 
-% 	\stopitemize
+	\stopitemize
 
-% 	\startdefinition
-% 		\m{(X_n)} is said to satisfy the \important{large deviation principle on \m{𝓧} with rate function \m{I}} if the following two conditions hold.
-% 		\startformula \startalign[n=4]
-% 			\NC  \text{(upper bound)}  \qquad  \NC  \limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ F]  \NC ≤  -I(F)  \NC  \qquad  ∀ F \text{ closed}  \NR
-% 			\NC  \text{(lower bound)}  \qquad  \NC  \liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  \NC ≥  -I(G)  \NC  \qquad  ∀ G \text{ open}
-% 		\stopalign \stopformula
-% 	\stopdefinition
+	\startdefinition
+		\m{(X_n)} is said to satisfy the \important{large deviation principle on \m{𝓧} with rate function \m{I}} if the following two conditions hold.
+		\startformula \startalign[n=4]
+			\NC  \text{(upper bound)}  \qquad  \NC  \limsupm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ F]  \NC ≤  -I(F)  \NC  \qquad  ∀ F \text{ closed}  \NR
+			\NC  \text{(lower bound)}  \qquad  \NC  \liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  \NC ≥  -I(G)  \NC  \qquad  ∀ G \text{ open}
+		\stopalign \stopformula
+	\stopdefinition
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Laplace principle}]
+\startslide [title={Laplace principle}]
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Cramér theorem}]
+\startslide [title={Cramér theorem}]
 
-% 	\starttheorem [title={\cite[short][Cramér1938]}]
-% 		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
-% 	\stoptheorem
+	\starttheorem [title={\cite[short][Cramér1938]}]
+		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
+	\stoptheorem
 
-% 	Rate function for some common distributions for \m{X_⋅}
-% 	\placetable[force,none]{}{%    % This centers the table
-% 	\starttabulate [|M|M|M|]
-% 		\FL
-% 		\NC  \text{Distribution}  \NC  M(θ)  \NC  I(x)  \NR
-% 		\FL
-% 		\NC  Bern(p)  \NC  1 - p + p e^θ  \NC  x \log \frac{x}{1 - p} + (x - 1) \log \frac{p}{x - 1}  \NR
-% 		\NC  Pois(λ)  \NC  e^{λ(e^θ - 1)}  \NC  λ - x + x \log \frac{x}{λ}  \NR
-% 		\NC  Exp(λ)   \NC  \inv[(1 - θ \inv[λ])]  \NC  λx - 1 + x \log(λ x)  \NR
-% 		\NC  𝓝(m, σ^2)  \NC  e^{m θ + \frac12 σ^2 θ^2}  \NC  \frac{(x - m)^2}{2 σ^2}  \NR
-% 		\NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]    \NR
-% 		\BL
-% 	\stoptabulate}
-% 	% ToDo: Add more.
-% 	% ToDo: Add the computation in the appendix.
+	Rate function for some common distributions for \m{X_∙}
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate [|M|M|M|]
+		\FL
+		\NC  \text{Distribution}  \NC  M(θ)  \NC  I(x)  \NR
+		\FL
+		\NC  Bern(p)  \NC  1 - p + p e^θ  \NC  x \log \frac{x}{1 - p} + (x - 1) \log \frac{p}{x - 1}  \NR
+		\NC  Pois(λ)  \NC  e^{λ(e^θ - 1)}  \NC  λ - x + x \log \frac{x}{λ}  \NR
+		\NC  Exp(λ)   \NC  \inv[(1 - θ \inv[λ])]  \NC  λx - 1 + x \log(λ x)  \NR
+		\NC  𝓝(m, σ^2)  \NC  e^{m θ + \frac12 σ^2 θ^2}  \NC  \frac{(x - m)^2}{2 σ^2}  \NR
+		\NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]    \NR
+		\BL
+	\stoptabulate}
+	% ToDo: Add more.
+	% ToDo: Add the computation in the appendix.
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Sanov theorem}]
+\startslide [title={Sanov theorem}]
 
-% \stopslide
+\stopslide
 
-% \startslide [title={LD in ∞-dimensions --- Schilder theorem}]
+\startslide [title={LD in ∞-dimensions --- Schilder theorem}]
 
-% 	\bold{Aim}: Estimate the probability that a scaled-down sample path of a Brownian motion will stray far from the mean path (the \m{0} function).
+	\bold{Aim}: Estimate the probability that a scaled-down sample path of a Brownian motion will stray far from the mean path (the \m{0} function).
 
-% 	\bold{Setup}
-% 	\startitemize [1, joinedup]
-% 		\item  Let \m{B_⋅} be a \m{d}-dimensional Brownian motion, so \m{B_⋅ ∈ C_0 = C_0([0, T]; ℝ^d)}
-% 		\item  \m{∀ ε > 0}, let \m{W_ε} denote the law of \m{\sqrt{ε} B_⋅}
-% 		\item  Let \m{\text{CM} = \bcrl[ω ∈ C_0 : ω ∈ \text{AC}, \text{ and } \dot{ω}_t ∈ L^2[0, T]]}
-% 	\stopitemize
+	\bold{Setup}
+	\startitemize [1, joinedup]
+		\item  Let \m{B_∙} be a \m{d}-dimensional Brownian motion, so \m{B_∙ ∈ C_0 = C_0([0, T]; ℝ^d)}
+		\item  \m{∀ ε > 0}, let \m{W_ε} denote the law of \m{\sqrt{ε} B_∙}
+		\item  Let \m{\text{CM} = \bcrl[ω ∈ C_0 : ω ∈ \text{AC}, \text{ and } \dot{ω}_t ∈ L^2[0, T]]}
+	\stopitemize
 
-% 	\starttheorem %[title={\cite[short][Schilder1966]}]
-% 		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
-% 		\startformula
-% 			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}(t)]}^2 \d t] 𝟙_{\text{AC}}(ω) + ∞ 𝟙_{\text{AC}^∁}(ω)
-% 		\stopformula
-% 	\stoptheorem
+	\starttheorem %[title={\cite[short][Schilder1966]}]
+		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
+		\startformula
+			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}(t)]}^2 \d t] 𝟙_{\text{AC}}(ω) + ∞ 𝟙_{\text{AC}^∁}(ω)
+		\stopformula
+	\stoptheorem
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Freidlin–Wentzell theorem}]
+\startslide [title={Freidlin–Wentzell theorem}]
 
-% 	\bold{Aim}: Estimate the probability that a scaled-down sample path of an Itô diffusion will stray far from the mean path.
+	\bold{Aim}: Estimate the probability that a scaled-down sample path of an Itô diffusion will stray far from the mean path.
 
-% 	% Generalizes the Schilder theorem for Itô diffusions.
+	% Generalizes the Schilder theorem for Itô diffusions.
 
-% 	\bold{Setup}
-% 	\startitemize [1, joinedup]
-% 		\item  Let \m{B_⋅} be a \m{d}-dimensional Brownian motion, so \m{B_⋅ ∈ C_0 = C_0([0, T]; ℝ^d)}
-% 		\item  \m{∀ ε > 0}, let \m{X^{(ε)}} be a \m{ℝ^d}-valued Itô diffusion solving an Itô SDE of the form
-% 			\startformula
-% 				\d X^{(ε)}_t = b(X^{(ε)}_t) \d t + \sigma(X^{(ε)}_t) \sqrt{ε} \d B_t , \quad X^{(ε)}_0 = 0 .
-% 			\stopformula
-% 		\item  \m{∀ ε > 0}, let \m{W_ε} denote the law of \m{X^{(ε)}_⋅}.
-% 	\stopitemize
+	\bold{Setup}
+	\startitemize [1, joinedup]
+		\item  Let \m{B_∙} be a \m{d}-dimensional Brownian motion, so \m{B_∙ ∈ C_0 = C_0([0, T]; ℝ^d)}
+		\item  \m{∀ ε > 0}, let \m{X^{(ε)}} be a \m{ℝ^d}-valued Itô diffusion solving an Itô SDE of the form
+			\startformula
+				\d X^{(ε)}_t = b(X^{(ε)}_t) \d t + \sigma(X^{(ε)}_t) \sqrt{ε} \d B_t , \quad X^{(ε)}_0 = 0 .
+			\stopformula
+		\item  \m{∀ ε > 0}, let \m{W_ε} denote the law of \m{X^{(ε)}_∙}.
+	\stopitemize
 
-% 	\starttheorem [title={Freidlin, Wentzell (year?)}]
-% 		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
-% 		\startformula
-% 			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}_t - b(ω_t)]}^2 \d t] 𝟙_{H^1([0, T]; ℝ^d)}(ω) + ∞ 𝟙_{H^1([0, T]; ℝ^d)^∁}(ω)
-% 		\stopformula
-% 	\stoptheorem
+	\starttheorem [title={Freidlin, Wentzell (year?)}]
+		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
+		\startformula
+			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}_t - b(ω_t)]}^2 \d t] 𝟙_{H^1([0, T]; ℝ^d)}(ω) + ∞ 𝟙_{H^1([0, T]; ℝ^d)^∁}(ω)
+		\stopformula
+	\stoptheorem
 
-% \stopslide
+\stopslide
 
-% \startslide [title={Applications}]
-% 	\startitemize [1]
+\startslide [title={Applications}]
+	\startitemize [4]
 
-% 		\item
+		\item
 
-% 	\stopitemize
-% \stopslide
+	\stopitemize
+\stopslide
 
-% \stopmode
+\stopmode
 
-% \stopsection
+\stopsection
 
 
 
@@ -773,7 +798,7 @@
 % Conclusion %
 %%%%%%%%%%%%%%
 
-\setupbackgrounds[page][
+\setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-0}]
 \startcolor [\getvariable{document}{color-foreground-0}]    % text color
@@ -784,7 +809,7 @@
 \startmode [presentation]
 
 \startslide [title={Open areas for research}]
-	\startitemize [1]
+	\startitemize [4]
 		\item  Extension to SDEs with anticipating coefficients
 		\item  Near-Markov property
 		\item  Girsanov theorem for anticipating integrals
