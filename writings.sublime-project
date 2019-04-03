@@ -5,22 +5,39 @@
 			"path": "."
 		},
 		{
-			"path": "math",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.tuc",
+				"*.pgf",
+				"*~*"
+			],
+			"folder_exclude_patterns":
+			[
+				"*-export"
+			],
+			"path": "math"
 		},
 		{
-			"path": "resume",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.tuc",
+				"*.pgf",
+				"*~*"
+			],
+			"folder_exclude_patterns":
+			[
+				"*-export"
+			],
+			"path": "resume"
 		},
 		{
 			"path": "random"
 		},
 		{
 			"path": "travelogs"
-		},
-
+		}
 	],
 	"settings":
 	{

@@ -112,6 +112,17 @@
 
 % Mathematics
 
+% I have not completely figured out a way to create a dot between \cdot and \bullet
+% The following might provide a way, but is too primitive.
+% The problem is that the scaling is about the bottom of the line.
+\def \argdotsub{\scale[factor=2]{∙}}    % wiki/Command/scale
+\def \argdotmid{\raisebox{0.125em}\vbox{\scale[factor=2]{∙}}}
+\def \argdotsup{\raisebox{0.125em}\vbox{\scale[factor=2]{∙}}}
+% \def \argdot{\raisebox{-0.2em}\vbox{\scale[factor=6]{⋅}}}
+% \def \argdotu{\raisebox{-0em}\vbox{\scale[factor=6]{⋅}}}
+% \def \argdot{\raisebox{-0.2em}\vbox{\scale[factor=6]{⋅}}}
+% \scale[scale=2]{\cdot}} + Z(\scale[sx=3, sy=2]{⋅})
+
 % Caution: spaces do not work between the elements)
 \def \delim[#arguments][#left][#right]{\left#left #arguments \right#right}
 
@@ -143,7 +154,8 @@
 
 % Topology
 \def \clsr[#set]{\overline{#set}}
-\def \intr[#set]{\mathring{#set}}
+\def \intr[#set]{{#set}^°}
+% \def \intr[#set]{\mathring{#set}}
 \def \bdy[#set]{∂ #set}
 
 % Limit
