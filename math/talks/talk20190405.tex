@@ -598,20 +598,20 @@
 
 	\startitemize [4]
 
-		\item  Informally a theory of characterization of rare events by providing exponential bounds on their probability.
+		\item  A theory of characterization of rare events by providing exponential bounds on their probability.
 
-		\item  Started by Swedish actuarials Fredrik Esscher, Harald Cramér, Filip Lundberg
+		\item  Started by Swedish actuarials Fredrik Esscher, Harald Cramér, Filip Lundberg.
 
 		\item  Unified by Varadhan in his 1966 paper \cite[short][Varadhan1966].
 
 		\item  Example: A problem faced by the insurance industry.
 			\startitemize [5, joinedup]
-				\item  Value of claims received on day \m{n}: \m{X_n} \$.
-				\item  Steady income from premium: \m{p} \$/day.
+				\item  Value of claims received on the \m{n}th day: \m{X_n} \$.
+				\item  Steady income from premium: \m{x} \$/day.
 				\item  Planning period: \m{n} days.
 				\item  Average expenditure: \m{\bar{X}_n = \frac1n ∑_{j = 1}^n X_j} \$/day.
-				\item  \emph{Question}: How do we decide on the premium?
-				\item  \emph{Idea}: Choose \m{p} such that the probability of the average expenditure to the company going above \m{p} is exponentially low.
+				\item  \emph{Question}: How should the company decide on the premium?
+				\item  \emph{Idea}: Choose \m{x} such that \m{ℙ\bcrl[\bar{X}_n > x]} is exponentially low.
 			\stopitemize
 	\stopitemize
 \stopslide
@@ -627,7 +627,7 @@
 				\item  \m{\bar{X}_n = \frac1n ∑_{j = 1}^n X_j}.
 			\stopitemize
 
-		\item  Asymptotic behavior of \m{\bar{X}_n} given by
+		\item  Asymptotic behavior of \m{\bar{X}_n}:
 			\startitemize [5, joinedup]
 				\item  Weak law of large numbers: \m{\bar{X}_n \xrightarrow{ℙ} m}.
 				\item  Central limit theorem: \m{\sqrt{n} (\bar{X}_n - m) \xrightarrow{𝓓} 𝓝(0, σ^2)}.
@@ -642,13 +642,13 @@
 \startslide [title={Insurance problem: large deviation bounds}]
 
 	\startitemize [n]
-		\item  Fixing \m{x > m} and forcing the exponential with a free parameter \m{θ > 0}, we get
+		\item  For \m{x > m} and an arbitrary \m{θ > 0}, we get
 			\startformula
 				ℙ\bcrl[\bar{X}_n ≥ x]
 				=  ℙ\bcrl[e^{θn\bar{X}_n} ≥ e^{θnx}]
 				≤  e^{-θnx} 𝔼\brnd[e^{θn\bar{X}_n}]
 				=  e^{-θnx} M_{X}(θ)^n
-				=  e^{-n(θx - \log M_{X}(θ))}
+				=  e^{-n(θx - \log M_{X}(θ))} .
 			\stopformula
 
 		\item  Since \m{θ} was arbitrary, we have
@@ -669,7 +669,7 @@
 				\liminfm \frac1n \log ℙ\bcrl[\bar{X}_n ∈ E]  ≥  -\inf_{\intr[E]} I  \qquad  ∀ E ∈ 𝓑 .
 			\stopformula
 
-		\item  So we \quotation{formally} write \m{ℙ\bcrl[\bar{X}_n ∈ \d x] ≍ e^{-n I(x)} \d x} for \m{x ∈ ℝ}.
+		\item  We formally write \m{ℙ\bcrl[\bar{X}_n ∈ \d x] ≍ e^{-n I(x)} \d x} for \m{x ∈ ℝ}.
 	\stopitemize
 \stopslide
 
@@ -681,7 +681,7 @@
 
 		\item  A function \m{I: 𝓧 → [0, ∞]} is called a \important{rate function} if it has compact level sets.
 
-		\item  \m{I} is lower semicontinuous and attains its infimum on every nonempty closed set.
+		% \item  \m{I} is lower semicontinuous and attains its infimum on every nonempty closed set.
 
 		% \item  For any Borel set \m{E}, denote \m{I(E) = \inf I(x)}.
 	\stopitemize
@@ -700,15 +700,15 @@
 	\startdefinition [title={Laplace principle}]
 		\m{(X_n)} is said to satisfy the \important{Laplace principle on \m{𝓧} with rate function \m{I}} if for all bounded continuous functions \m{h}, we have
 		\startformula
-			\lim  \frac1n \log 𝔼\brnd[\exp(-n h(X_n))]  =  \inf_𝓧 (h + I)
+			\lim  \frac1n \log 𝔼\exp(-n h(X_n))  =  \inf_𝓧 (h + I)
 		\stopformula
 	\stopdefinition
 
 	\starttheorem
-		\m{(X_n)} satisfies the Laplace principle on \m{𝓧} with rate function \m{I} if and only if \m{(X_n)} satisfies the large deviation principle on \m{𝓧} with rate function \m{I}.
+		\m{(X_n)} satisfies LP on \m{𝓧} with rate function \m{I} if and only if \m{(X_n)} satisfies LDP on \m{𝓧} with the same rate function \m{I}.
 	\stoptheorem
 
-	\bold{Some other results}
+	\bold{Some important results}
 	\startitemize [5, nowhite]
 		\item  Uniqueness of the rate function.
 		\item  Continuity principle.
@@ -721,10 +721,10 @@
 \startslide [title={Cramér theorem}]
 
 	\starttheorem [title={\cite[short][Cramér1938]}]
-		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
+		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows LDP with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
 	\stoptheorem
 
-	Rate function for some common distributions for \m{(X_n)}
+	Rate functions for some common distributions
 	\placetable[force,none]{}{%    % This centers the table
 	\starttabulate [|M|M|M|]
 		\FL
@@ -760,14 +760,14 @@
 		\item  Setup
 		\startitemize [5, joinedup]
 			\item  Let \m{B_{\argdotsub}} be a \m{d}-dimensional Brownian motion, so \m{B_{\argdotsub} ∈ C_0 = C_0([0, T]; ℝ^d)}
-			\item  \m{∀ ε > 0}, let \m{\sqrt{ε} B_t ∼ W_ε}. Then \m{W_ε = 𝓝(0, ε t) \xrightarrow{𝓓} δ_0} as \m{ε → 0}.
+			\item  \m{∀ ε > 0}, let \m{\sqrt{ε} B_t ∼ W^{(ε)}}. Then \m{W^{(ε)} = 𝓝(0, ε t) \xrightarrow{𝓓} δ_0} as \m{ε → 0}.
 			% This scales down the variance of the Brownian motion to \m{ε t}.
 			\item  Let \m{\text{CM} = \bcrl[ω ∈ C_0 : ω \text{ is absolutely continuous and } \dot{ω}_t ∈ L^2{[0, T]}]}.
 		\stopitemize
 	\stopitemize
 
 	\starttheorem
-		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W_ε : ε > 0]} satisfy the large deviations principle with the rate function \m{I : C_0 → \clsr[ℝ]} given by
+		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W^{(ε)} : ε > 0]} satisfies LDP with the rate function \m{I : C_0 → \clsr[ℝ]} given by
 		\startformula
 			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[\dot{ω}(t)]}^2 \d t] 𝟙_{\text{CM}}(ω) + ∞ 𝟙_{\text{CM}^∁}(ω)
 		\stopformula
@@ -792,31 +792,29 @@
 
 		\item  Setup
 			\startitemize [5, joinedup]
-				\item  Let \m{B_{\argdotsub}} be a \m{d}-dimensional Brownian motion.
-				\item  \m{∀ ε > 0}, let \m{X^{(ε)}_{\argdotsub}} be the solution of the stochastic differential equation
-
-					\m{\d X^{(ε)}_t = m(X^{(ε)}_t) \d t + σ(X^{(ε)}_t) \sqrt{ε} \d B_t , \ X^{(ε)}_0 = x}, where \m{m, σ} are sufficiently nice. Let \m{A = σ σ^*}.
+				\item  \m{∀ ε > 0}, let \m{X^{(ε)}_{\argdotsub}} be the solution of the SDE \m{\d X^{(ε)}_t = m(X^{(ε)}_t) \d t + σ(X^{(ε)}_t) \sqrt{ε} \d B_t , \ X^{(ε)}_0 = x}, where \m{m, σ} are sufficiently nice.
 				\item  Let \m{W^{(ε)}_x} denote the law of \m{X^{(ε)}_{\argdotsub}} starting at \m{x}.
 
-				\item  As \m{ε → 0}, \m{W^{(ε)}_x \xrightarrow{𝓓} δ_ξ}, where \m{ξ} solves the ordinary differential equation
-
-					\m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
+				\item  As \m{ε → 0}, \m{W^{(ε)}_x \xrightarrow{𝓓} δ_ξ}, where \m{ξ} solves the ODE \m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
 			\stopitemize
 	\stopitemize
 
 	% Generalizes the Schilder theorem for Itô diffusions.
 
 	\starttheorem
-		For \m{x} fixed, the family of probability measures \m{\bcrl[W^{(ε)}_x : ε > 0]} satisfy the large deviations principle with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
+		For \m{x} fixed, the family of probability measures \m{\bcrl[W^{(ε)}_x : ε > 0]} satisfies LDP with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
 		\startformula
-			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[\dot{ω}_t - b(ω_t), {\inv[A](ω_t)}{\brnd[\dot{ω}_t - b(ω_t)]}]} \d t] 𝟙_{\text{CM} ∩ \bcrl[ω_0 = x]}(ω) + ∞ 𝟙_{CM^∁ ∪ {\bcrl[ω_0 ≠ x]}}(ω) .
+			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[\dot{ω}_t - b(ω_t), {\inv[A](ω_t)}{\brnd[\dot{ω}_t - b(ω_t)]}]} \d t] 𝟙_{\text{CM} ∩ \bcrl[ω_0 = x]}(ω) + ∞ 𝟙_{CM^∁ ∪ {\bcrl[ω_0 ≠ x]}}(ω) ,
 		\stopformula
+		where \m{A = σ σ^*}.
 	\stoptheorem
 \stopslide
 
 \stopmode
 
 \stopsection
+
+\page    % Needed for correct color transition
 
 
 
@@ -829,7 +827,7 @@
 	backgroundcolor=\getvariable{document}{color-background-0}]
 \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection [title={Summary}, reference=sec:conclusion]
+\startsection [title={Possible directions}, reference=sec:directions]
 
 
 \startmode [presentation]
@@ -837,11 +835,11 @@
 \startslide [title={Open problems}]
 
 	\startitemize [4]
-		\item  Near-Markov property
-		\item  Extension to stochastic differential equations with anticipating coefficients
-		\item  Freidlin-Wintzell type result for stochastic differential equations with anticipation
-		\item  Identification of class of integrable processes under the generalized integral
-		\item  Girsanov theorem for anticipating integrals
+		\item  Near-Markov property.
+		\item  Extension to stochastic differential equations with anticipating coefficients.
+		\item  Freidlin–Wentzell type results for stochastic differential equations with anticipation.
+		\item  Identification of the class of integrable processes under the new integral.
+		\item  Girsanov theorem for anticipating integrals.
 	\stopitemize
 \stopslide
 
