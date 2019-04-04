@@ -123,6 +123,33 @@
 	\stopitemize
 \stopslide
 
+\startslide[title={Martingales and Markov processes}]
+
+	\startdefinition
+
+		Let \m{X_{\argdotsub}} is a \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process, and let \m{0 ≤ s ≤ t ≤ T}. Then, w.r.t. \m{ℱ_{\argdotsub}}, the process \m{X_{\argdotsub}} is called a
+		\startitemize [5, joinedup]
+			\item  \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s},
+			\item  \important{submartingale} if \m{𝔼(X_t ∣ ℱ_s) ≥ X_s}, and
+			\item  \important{supermartingale} if \m{𝔼(X_t ∣ ℱ_s) ≤ X_s}.
+		\stopitemize
+	\stopdefinition
+
+	\startdefinition
+
+		A stochastic process \m{X_{\argdotsub}} is called \important{Markov} if for any \m{0 ≤ s ≤ t ≤ T}, we have
+		\startformula
+			ℙ(X_t ∈ E ∣ ℱ_s) = ℙ(X_t ∈ E ∣ X_s) .
+		\stopformula
+	\stopdefinition
+
+	\startremark
+
+		If \m{(X_n)} is a discrete-time martingale and \m{(H_n)} is an adapted process, then the process \m{Y_n = ∑_{j = 0}^{n - 1} H_n (X_{n + 1} - X_n) =: (H ∙ X)_n} is itself a martingale and called a \important{martingale transform} of \m{(X_n)}.
+	\stopremark
+
+\stopslide
+
 \startslide [title={Wiener integral for \m{f ∈ L^2[0, T]}}]
 
 	\startitemize [4]
@@ -606,6 +633,15 @@
 	\stoptheorem
 \stopslide
 
+\startslide [title={A generalization of Girsanov theorem}]
+
+	\starttheorem[title={\cite[short][KuoPengSzozda2013b]}]
+		Let \m{X_{\argdotsub}} and \m{Y^{\argdotsup}} be continuous square-integrable stochastic processes such that \m{X_{\argdotsub}} is adapted and \m{Y^{\argdotsup}} is instantly independent.
+
+		Then translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} (X_t + Y^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(X + Y)}_T}.
+	\stoptheorem
+\stopslide
+
 \stopmode
 
 \stopsection
@@ -927,15 +963,6 @@
 % 		\item
 % 	\stopitemize
 % \stopslide
-
-\startslide [title={Exponential processes and a generalized Girsanov theorem}]
-
-	\starttheorem[title={\cite[short][KuoPengSzozda2013b]}]
-		Let \m{X_{\argdotsub}} and \m{Y^{\argdotsup}} be continuous square-integrable stochastic processes such that \m{X_{\argdotsub}} is adapted to \m{𝓕_{\argdotsub}}, and \m{Y^{\argdotsup}} is adapted to the backward Brownian filtration \m{𝓖^{\argdotsup}}.
-
-		The translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} (f_t + g^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(f + g)}_T}.
-	\stoptheorem
-\stopslide
 
 \startslide
 
