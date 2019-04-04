@@ -51,9 +51,9 @@
 
 	Advisors
 
-	\color[\getvariable{document}{color-foreground-1}]{Prof Hui-Hsiung Kuo}
+	\color[\getvariable{document}{color-foreground-1}]{Prof. Hui-Hsiung Kuo}
 
-	\color[\getvariable{document}{color-foreground-2}]{Prof Padmanabhan Sundar}
+	\color[\getvariable{document}{color-foreground-2}]{Prof. Padmanabhan Sundar}
 \stopalign
 \stopslide
 
@@ -109,7 +109,8 @@
 				\item  starts at 0
 				\item  has independent increments
 				\item  \m{B_t - B_s ∼ 𝓝(0, t - s)}
-				\item  continuous paths
+				\item  continuous paths (a.s.)
+				\item  is a.s. nowhere differentiable
 				\item  has \bad{unbounded linear variation \frown}
 				\item  has \good{bounded quadratic variation \smile}
 				\item  \m{𝔼(B_t B_s) = s ∧ t}
@@ -167,7 +168,7 @@
 			\startitemize [5, joinedup]
 				\item  Linear.
 				\item  \good{Gaussian distribution} with mean 0 and variance \m{\norm[f]_{L^2[0, T]}^2} (Itô isometry).
-				\item  Corresponds to the Riemann–Stieltjes integral for continuous functions of bounded variation.
+				\item  Agrees with the Riemann–Stieltjes integral for continuous functions of bounded variation.
 			\stopitemize
 
 		\item  Properties of the associated process \m{I_{\argdotsub} = ∫_0^{\argdotsup} f(t) \d B_t}:
@@ -207,7 +208,7 @@
 	\stopitemize
 \stopslide
 
-\startslide [title={Itô integral for \m{X_{\argdotsub} ∈ L^2_{\text{ad}} ([0, T] × Ω)}}]
+\startslide [title={Itô integral \cite[short][Itô1944SI] for \m{X_{\argdotsub} ∈ L^2_{\text{ad}} ([0, T] × Ω)}}]
 
 	\startitemize [4]
 
@@ -233,7 +234,7 @@
 				\item  martingale.
 			\stopitemize
 
-		\item  Example: \m{∫_0^t B_s \d B_s = \frac12 (B_t^2 - t) \quad ∀ t}.
+		\item  Example: \m{∫_0^t B_u \d B_u = \frac12 (B_t^2 - t) \quad ∀ t}.
 
 		% \item  Problem: Cannot integrate many continuous functions of \m{B_t}, for example \m{e^{B_t^2}}.
 
@@ -274,7 +275,7 @@
 		% \stopitemize
 		% This is equivalently represented in the \important{differential form} as \m{\d X_t = \d M_t + \d A_t}.
 
-		\item  An \important{Itô process} is a process of the form \m{X_t = X_0 + ∫_0^t m_s \d s + ∫_0^t σ_s \d B_s}.
+		\item  An \important{Itô process} is a process of the form \m{X_{\argdotsub} = X_0 + ∫_0^{\argdotsup} m_t \d t + ∫_0^{\argdotsup} σ_t \d B_t}.
 
 		Equivalently expressed as \m{\d X_t = m_t \d t + σ_t \d B_t}.
 
@@ -308,17 +309,17 @@
 
 	\startitemize [4]
 
-		\item  Let \m{h_{\argdotsub}} be a stochastic process. The \important{associated exponential process} is defined as
+		\item  Let \m{h_{\argdotsub}} be a stochastic process. The associated \important{exponential process} is defined as
 			\startformula
-				𝓔^{(h)}_t = \exp\brnd[∫_0^t h_s \d B_s - \frac12 ∫_0^t h_s^2 \d s] .
+				𝓔^{(h)}_{\argdotsub} = \exp\brnd[∫_0^{\argdotsup} h_t \d B_t - \frac12 ∫_0^{\argdotsup} h_t^2 \d t] .
 			\stopformula
 
 		\item  The exponential process is a martingale if and only if \m{𝔼 𝓔^{(h)}_t = 1 \ ∀ t}.
 
-		\item  \important{Novikov condition}:
+		\item  The \important{Novikov condition}:
 			The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^T h_t^2 \d t] < ∞}.
 
-		\item  \important{Girsanov theorem} \cite[short][Girsanov1960]:
+		\item  The \important{Girsanov theorem} \cite[short][Girsanov1960]:
 			The translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} h_t \d t} is a Brownian motion under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative
 			\m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(h)}_T}.
 
@@ -406,16 +407,16 @@
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Generalization of stochastic calculus %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% A Generalization of stochastic calculus %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-1}]
 \startcolor  [\getvariable{document}{color-foreground-1}]    % text color
 
-\startsection [title={Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
+\startsection [title={A Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
 
 \startmode [presentation]
 
@@ -423,7 +424,7 @@
 
 	\startitemize [4]
 
-		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t ≟ B_T B_t}}.
+		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t ≟ B_T^2}}.
 
 		\item  Note that \m{𝔼(B_T B_t) = T ∧ t = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
 
@@ -498,7 +499,7 @@
 
 	\startitemize [4]
 
-		\item  	In the following, denote \m{Δ B_j = B_{t_{j+1}} - B_{t_j}} and \m{\lim} is the limit in \m{L^2}.
+		\item  	In the following, \m{\lim} is the limit in \m{L^2}.
 			\startformula \startalign
 				\NC  ∫_0^t B_T \d B_t
 					\NC =  ∫_0^t (\good{B_t} + \okay{(B_T - B_t)}) \d B_t
@@ -517,6 +518,40 @@
 
 		\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
 	\stopitemize
+\stopslide
+
+\startslide [title={The near-martingale property}]
+
+	\startitemize [4]
+
+		\item  Question: What are the analogues of the martingale property and the Markov property?
+
+		\item  Answer for martingales: \quotation{near-martingales} \cite[short][KuoSaeTangSzozda2012].
+
+		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s}, but \m{𝔼(B_T B_s - s ∣ ℱ_s) = B_s^2 - s}. \smile
+
+		\item  Let \m{Z(t)} be a process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then \m{Z(t)} is called a
+			\startitemize [5, joinedup]
+				\item  \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)},
+				\item  \important{near-submartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≥ 𝔼(Z(s) ∣ ℱ_s)}, and
+				\item  \important{near-supermartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≤ 𝔼(Z(s) ∣ ℱ_s)}.
+			\stopitemize
+
+	\stopitemize
+
+	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
+		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a (\good{sub}/\bad{super})martingale if and only if \m{Z(\argdotmid)} is a near-(\good{sub}/\bad{super})martingale.
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{f, ϕ} be continuous function on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+		% \startformula
+		% 	X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t
+		% 	\qquad \text{ and } \qquad
+		% 	Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t
+		% \stopformula
+		% are near-martingales.
+	\stoptheorem
 \stopslide
 
 \startslide [title={A generalized Itô formula \cite[short][HwangKuoSaitôZhai2016]}]
@@ -580,38 +615,6 @@
 	\stoptheorem
 
 	Example\cite[short][HwangKuoSaitôZhai2016]: For the new integral, \m{∫_0^T \brnd[∫_0^T B_u \d u] \d B_v = ∫_0^T \brnd[∫_0^T B_u \d B_v] \d u}.
-\stopslide
-
-\startslide [title={The near-martingale property}]
-
-	\startitemize [4]
-
-		\item  Question: What are the analogues of the martingale property and the Markov property?
-
-		\item  Answer for martingales: \quotation{near-martingales} \cite[short][KuoSaeTangSzozda2012].
-
-		\item  Let \m{Z(t)} be a stochastic process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then, with respect to \m{ℱ_{\argdotsub}}, the process \m{Z(t)} is called a
-			\startitemize [5, joinedup]
-				\item  \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)},
-				\item  \important{near-submartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≥ 𝔼(Z(s) ∣ ℱ_s)}, and
-				\item  \important{near-supermartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≤ 𝔼(Z(s) ∣ ℱ_s)}.
-			\stopitemize
-
-	\stopitemize
-
-	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
-		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a (\good{sub}/\bad{super})martingale if and only if \m{Z(\argdotmid)} is a near-(\good{sub}/\bad{super})martingale.
-	\stoptheorem
-
-	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
-		Let \m{f, ϕ} be continuous function on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
-		% \startformula
-		% 	X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t
-		% 	\qquad \text{ and } \qquad
-		% 	Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t
-		% \stopformula
-		% are near-martingales.
-	\stoptheorem
 \stopslide
 
 \startslide [title={Generalization of Itô isometry}]
@@ -738,7 +741,7 @@
 				\important{\liminfm \frac1n \log ℙ\bcrl[\overline{X}_n ∈ G]  ≥  -\inf_G I  \qquad  ∀ G \text{ open}} .
 			\stopformula
 
-		\item  We (in)formally write \m{ℙ\bcrl[\overline{X}_n ∈ \d x] ≍ e^{-n I(x)} \d x} for \m{x ∈ ℝ}.
+		\item  We informally write \m{ℙ\bcrl[\overline{X}_n ∈ \d x] ≍ e^{-n I(x)} \d x} for \m{x ∈ ℝ}.
 	\stopitemize
 \stopslide
 
@@ -794,18 +797,21 @@
 
 		\item  Aim: Estimate the probability that a scaled-down sample path of a \important{Brownian motion} will stray far from the mean path.
 
+		\item  Let \m{C_x} denote the set of continuous functions from \m{[0, T]} to \m{ℝ^d} starting at \m{x}, and
+
+			let \m{\text{CM}_x = \bcrl[ω ∈ C_x : ω \text{ is absolutely continuous and } ω_t' ∈ L^2{[0, T]}]}.
+
 		\item  Let \m{B_{\argdotsub}} be a \m{d}-dimensional Brownian motion, so \m{B_{\argdotsub} ∈ C_0 = C_0([0, T]; ℝ^d)}
 
-		\item  \m{∀ ε > 0}, let \m{\sqrt{ε} B_t ∼ W^{(ε)}}. Then \m{W^{(ε)} = 𝓝(0, ε t) \xrightarrow{𝓓} δ_0} as \m{ε → 0}.
+		\item  Let \m{\frac{1}{\sqrt{n}} B_t ∼ W^{(n)}}. Then \m{W^{(n)} = 𝓝\brnd[0, \frac{t}{n}] \xrightarrow{𝓓} δ_0} as \m{n → ∞}.
 		% This scales down the variance of the Brownian motion to \m{ε t}.
 
-		\item  Let \m{\text{CM} = \bcrl[ω ∈ C_0 : ω \text{ is absolutely continuous and } ω_t' ∈ L^2{[0, T]}]}.
 	\stopitemize
 
 	\starttheorem [title={\cite[short][Schilder1966]}]
-		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the family of probability measures \m{\bcrl[W^{(ε)} : ε > 0]} satisfies LDP with the rate function \m{I : C_0 → \clsr[ℝ]} given by
+		On the Banach space \m{\brnd[C_0, {\norm[⋅]}_∞]}, the sequence of probability measures \m{\brnd[W^{(n)}]} satisfies LDP with the rate function \m{I : C_0 → \clsr[ℝ]} given by
 		\startformula
-			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[ω_t']}^2 \d t] 𝟙_{\text{CM}}(ω) + ∞ 𝟙_{\text{CM}^∁}(ω)
+			I(ω)  =  \brnd[\frac12 ∫_0^T {\abs[ω_t']}^2 \d t] 𝟙_{\text{CM}_0}(ω) + ∞ 𝟙_{\text{CM}_0^∁}(ω)
 		\stopformula
 	\stoptheorem
 \stopslide
@@ -816,22 +822,22 @@
 
 		\item  Aim: Estimate the probability that a scaled-down sample path of an \important{Itô diffusion} will stray far from the mean path.
 
-		\item  \m{∀ ε > 0}, let \m{X^{(ε)}_{\argdotsub}} be the solution of the \m{d}-dimensional stochastic differential equation
+		\item  Let \m{X^{(n)}_{\argdotsub}} be the solution of the \m{d}-dimensional stochastic differential equation
 
-			\important{\m{\d X^{(ε)}_t = m(X^{(ε)}_t) \d t + \sqrt{ε} σ(X^{(ε)}_t) \d B_t , \ X^{(ε)}_0 = x}},
+			\important{\m{\d X^{(n)}_t = m(X^{(n)}_t) \d t + \frac{1}{\sqrt{n}} σ(X^{(n)}_t) \d B_t , \ X^{(n)}_0 = x}},
 			where \m{m, σ} are sufficiently nice.
 
-		\item  Let \m{W^{(ε)}_x} denote the law of \m{X^{(ε)}_{\argdotsub}} starting at \m{x}.
+		\item  Let \m{W^{(n)}_x} denote the law of \m{X^{(n)}_{\argdotsub}} starting at \m{x}.
 
-		\item  As \m{ε → 0}, \m{W^{(ε)}_x \xrightarrow{𝓓} δ_ξ}, where \m{ξ} solves the ODE \m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
+		\item  As \m{n → ∞}, \m{W^{(n)}_x \xrightarrow{𝓓} δ_ξ}, where \m{ξ} solves the ODE \m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
 
-		\item  Let \m{\text{CM}_x = \bcrl[ω ∈ C_x : ω \text{ is absolutely continuous and } ω_t' ∈ L^2{[0, T]}]}.
+		% \item  Let \m{\text{CM}_x = \bcrl[ω ∈ C_x : ω \text{ is absolutely continuous and } ω_t' ∈ L^2{[0, T]}]}.
 	\stopitemize
 
 	% Generalizes the Schilder theorem for Itô diffusions.
 
 	\starttheorem
-		For \m{x} fixed, the family of probability measures \m{\bcrl[W^{(ε)}_x : ε > 0]} satisfies LDP with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
+		For any fixed \m{x}, the sequence of probability measures \m{\brnd[W^{(n)}_x]} satisfies LDP with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
 		\startformula
 			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[ω_t' - b(ω_t), {\inv[A](ω_t)}{\brnd[ω_t' - b(ω_t)]}]} \d t] 𝟙_{\text{CM}_x}(ω) + ∞ 𝟙_{\text{CM}_x^∁}(ω) ,
 		\stopformula
@@ -856,7 +862,7 @@
 	backgroundcolor=\getvariable{document}{color-background-0}]
 \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection [title={Futher research}, reference=sec:directions]
+\startsection [title={The way forward}, reference=sec:directions]
 
 \startmode [presentation]
 
