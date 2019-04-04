@@ -98,7 +98,7 @@
 
 	\startitemize [4]
 
-		\item  Let \m{T ∈ (0, ∞)}, and denote \m{[0, T]} as the index set for \m{t}.
+		\item  Let \m{T ∈ (0, ∞)}, and denote \m{t ∈ [0, T]}.
 
 		\item  Let \m{(Ω, ℱ, ℱ_{\argdotsub}, ℙ)} be a filtered probability space.
 
@@ -118,7 +118,7 @@
 
 		\item  \bad{Naive integration w.r.t. \m{B_t}: not possible}.
 
-		\item  A stochastic process \m{X_{\argdotsub}} is called adapted to \m{ℱ_{\argdotsub}} if \m{X_t} is measurable w.r.t. \m{ℱ_t} \m{∀t}.
+		\item  A stochastic process \m{X_{\argdotsub}} is called \important{adapted} to \m{ℱ_{\argdotsub}} if \m{X_t} is measurable w.r.t. \m{ℱ_t} \m{∀t}.
 
 	\stopitemize
 \stopslide
@@ -145,8 +145,8 @@
 
 		\item  Properties of the associated process \m{I_{\argdotsub} = ∫_0^{\argdotsup} f(t) \d B_t}:
 			\startitemize [5, joinedup]
-				\item  continuity
-				\item  martingale
+				\item  continuity.
+				\item  martingale.
 			\stopitemize
 
 		\item  Problem: Cannot integrate stochastic processes.
@@ -202,8 +202,8 @@
 
 		\item  Properties of the associated process \m{I_{\argdotsub} = ∫_0^{\argdotsup} X_t \d B_t}:
 			\startitemize [5, joinedup]
-				\item  continuity
-				\item  martingale
+				\item  continuity.
+				\item  martingale.
 			\stopitemize
 
 		\item  Example: \m{∫_0^t B_s \d B_s = \frac12 (B_t^2 - t) \quad ∀ t}.
@@ -227,11 +227,11 @@
 
 		\item  Properties of the associated process \m{I_{\argdotsub} = ∫_0^{\argdotsup} X_t \d B_t}:
 			\startitemize [5, joinedup]
-				\item  continuity
-				\item  \okay{local} martingale
+				\item  continuity.
+				\item  \okay{local} martingale.
 			\stopitemize
 
-		\item  Example: \m{∫_0^T e^{B_t^2} \d B_t = ∫_0^{B_1} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
+		% \item  TODO  Example: \m{∫_0^T e^{B_t^2} \d B_t = ∫_0^{B_1} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
 
 	\stopitemize
 \stopslide
@@ -288,11 +288,12 @@
 
 		\item  The exponential process is a martingale if and only if \m{𝔼 𝓔^{(h)}_t = 1 \ ∀ t}.
 
-		\item  (\important{Novikov condition})  The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^T h_t^2 \d t] < ∞}.
+		\item  \important{Novikov condition}:
+			The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^T h_t^2 \d t] < ∞}.
 
-		\item  (\important{Girsanov theorem})
-			The translated stochastic process \m{W_t = B_t - ∫_0^t h(s) \d s} is a Brownian motion under the probability measure \m{\tilde{ℙ}} defined by the Radon-Nikodym derivative
-			\m{\frac{\d \tilde{ℙ}}{\d ℙ} = 𝓔^{(h)}_T}.
+		\item  \important{Girsanov theorem} \cite[short][Girsanov1960]:
+			The translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} h_t \d t} is a Brownian motion under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative
+			\m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(h)}_T}.
 
 			% Moreover the process \m{Z_t := 𝔼 \brnd[𝓔^{h}_T ∣ 𝓕_t]} is a martingale.
 
@@ -303,16 +304,17 @@
 
 	\startitemize [4]
 
-		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_{\argdotsub}}, and \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
+		\item  Let \m{ξ ∈ L^2(Ω)} be independent of \m{B_{\argdotsub}}, and \m{m, σ: [0, T] × ℝ → ℝ} have \quote{nice} measurability.
+		% \m{m, σ: [0, T] × ℝ × Ω → ℝ} be \m{𝓑[0, T] × 𝓑(ℝ) × 𝓕} measurable such that \m{m(t, ⋅, ⋅)} and \m{σ(t, ⋅, ⋅)} are \m{𝓑(ℝ) × 𝓕_t} measurable \m{∀ t}.
 
 			Then a \m{𝓕_t}-adapted stochastic process \m{X_t} is called a solution of the \important{stochastic \emph{integral} equation} \important{\m{X_t = ξ + ∫_0^t m(s, X_s) \d s + ∫_0^t σ(s, X_s) \d B_s}} if for each \m{t}, the \m{X_t} satisfies the integral equation a.s.
 
-		\item  The \important{stochastic \emph{differential} equation} \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t, \ X_0 = ξ} is a \emph{symbolic representation} of the stochastic integral equation.
+		\item  \important{Stochastic \emph{differential} equation} \m{\d X_t = m(t, X_t) \d t + σ(t, X_t) \d B_t, \ X_0 = ξ} is a \emph{formal representation}.
 	\stopitemize
 
 	\starttheorem [title={Existence and uniqueness, Markov property}]
 
-		The stochastic differential equation above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
+		The SDE above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
 		\startitemize [5, joinedup]
 			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
 			\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
@@ -341,12 +343,16 @@
 
 			But \m{𝔼 B_t^2 = \ugly{t ≠ 0}}, so \ugly{no martingale property}. \frown
 
-		\item  Itô's idea: remove the diagonal to get \m{∫_0^t ∫_0^t \d B_u \d B_v  =  2 ∫_0^t ∫_0^v \d B_u \d B_v  =  B_t^2 - t}. \smile
+		\item  Itô's idea: remove the diagonal to get
+		\startformula
+			∫_0^t ∫_0^t \d B_u \d B_v  =  2 ∫_0^t ∫_0^v \d B_u \d B_v  =  2 ∫_0^t B_v \d B_v  =  B_t^2 - t .
+		\stopformula
+
 
 	\stopitemize
 
 	\starttheorem[title={\cite[short][Itô1951MWI]}]
-		Let \m{f ∈ L^2([0, T]^n)} and \m{\bad{\hat{f}}} be its symmetrization. Then
+		Let \m{f ∈ L^2\brnd[{[0, T]}^n]} and \m{\bad{\hat{f}}} be its symmetrization. Then
 		\startformula
 			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} ⋯ \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-2}}} \brnd[∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n}] \d B_{t_{n-1}} ⋯ \d B_{t_1} .
 		\stopformula
@@ -407,18 +413,19 @@
 			\NC  Y_0  \NC =  1
 		\stopalign \stopformula
 
-		\item  Problem: We want to define \m{∫_0^T X_t \d B_t}, where \m{X_{\argdotsub}} is not adapted (anticipating).
+		\item  Problem: We want to define \m{∫_0^T Z(\argdotmid) \d B_t}, where \m{Z(\argdotmid)} is not (necessarily) adapted.
 
 		\item  Some approaches:
 		\startitemize [5, joinedup]
-			\item  Itô's decomposition of integrand \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}
+			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ B_1}, with Itô's decomposition of integrand
+
+			\m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
 				% \startformula
 				% 	B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{1 - s} \d s] + ∫_0^T \frac{B_T - B_s}{1 - s} \d s
 				% \stopformula
-			\item  Enlargement of filtration
 			\item  White noise theory
 			\item  Malliavin calculus
-			\item  …
+			% \item  …
 
 				% \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{1 - s} \d s] + ∫_0^T \frac{B_T - B_s}{1 - s} \d s}
 		\stopitemize
@@ -509,8 +516,12 @@
 		\BL
 	\stoptabulate
 
+	Here \m{η^t} and \m{ς^t} are instantly independent such that \m{Y^t} is also instantly independent.
+
 	\starttheorem[title={\cite[short][HwangKuoSaitôZhai2016]}]
-		Let \good{\m{\d X_t = m_t \d t + σ_t \d B_t}} be an \m{d}-dimensional \good{Itô} process, \okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process.
+		Let \good{\m{\d X_t = m_t \d t + σ_t \d B_t}} be an \m{d}-dimensional \good{Itô} process, and
+
+		\okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process.
 		If \m{f(x, y) ∈ C^2(ℝ^2)}, then
 		\startformula \startalign
 				\NC \d f(X_t, Y^t)  =
@@ -523,16 +534,6 @@
 		where we use the rules \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
 	\stoptheorem
 \stopslide
-
-\startslide [title={Exponential processes and a generalized Girsanov theorem}]
-
-	\startitemize [4]
-
-		\item  TODO
-
-	\stopitemize
-\stopslide
-
 
 \startslide [title={Iterated integrals}]
 
@@ -551,16 +552,16 @@
 		\stopformula
 	\stoptheorem
 
-	Example\cite[short][HwangKuoSaitôZhai2016]: In the new integral, \m{∫_0^T ∫_0^T B_s \d B_s \d s = ∫_0^T ∫_0^T B_s \d s \d B_s}.
+	Example\cite[short][HwangKuoSaitôZhai2016]: For the new integral, \m{∫_0^T \brnd[∫_0^T B_u \d u] \d B_v = ∫_0^T \brnd[∫_0^T B_u \d B_v] \d u}.
 \stopslide
 
-\startslide [title={Near-martingale property \cite[short][HwangKuoSaitôZhai2017]}]
+\startslide [title={The near-martingale property}]
 
 	\startitemize [4]
 
 		\item  Question: What are the analogues of the martingale property and the Markov property?
 
-		\item  Answer for martingales: \quotation{near-martingales}.
+		\item  Answer for martingales: \quotation{near-martingales} \cite[short][KuoSaeTangSzozda2012].
 
 		\item  Let \m{Z(t)} be a stochastic process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then, with respect to \m{ℱ_{\argdotsub}}, the process \m{Z(t)} is called a
 			\startitemize [5, joinedup]
@@ -571,10 +572,38 @@
 
 	\stopitemize
 
-	\starttheorem %[title={\cite[short][HwangKuoSaitôZhai2017]}]
+	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
 		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a (\good{sub}/\bad{super})martingale if and only if \m{Z(\argdotmid)} is a near-(\good{sub}/\bad{super})martingale.
 	\stoptheorem
 
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{f, ϕ} be continuous function on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+		% \startformula
+		% 	X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t
+		% 	\qquad \text{ and } \qquad
+		% 	Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t
+		% \stopformula
+		% are near-martingales.
+	\stoptheorem
+\stopslide
+
+\startslide [title={Generalization of Itô isometry}]
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{ϕ} be an analytic function on \m{ℝ}. Then under integrability conditions and for each \m{t},
+		\startformula
+			𝔼\bsqr[{\brnd[∫_0^t ϕ(B_T - B_s) \d B_s]}^2]  =  ∫_0^t 𝔼\bsqr[{\brnd[ϕ(B_T - B_s)]}^2] \d s
+		\stopformula
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2013]}]
+		Let \m{f, ϕ} be \m{C^1} function on \m{ℝ}. Then
+		\startformula \startalign
+			\NC  𝔼\bsqr[{\brnd[∫_0^T f(B_t) ϕ(B_T - B_t) \d B_t]}^2]
+			\NC  =  ∫_0^T 𝔼\bsqr[{\brnd[f(B_t) ϕ(B_T - B_t)]}^2] \d t
+			\NR  \NC  \NC  \quad + 2 ∫_0^T∫_0^{\bad{t}} 𝔼\bsqr[f(B_s) ϕ'(B_T - B_s) f'(B_s) ϕ(B_T - B_s)] \d s \d t .
+		\stopalign \stopformula
+	\stoptheorem
 \stopslide
 
 \stopmode
@@ -714,7 +743,7 @@
 		\FL
 		\NC  \text{Bernoulli}(p)  \NC  1 - p + p e^θ  \NC  \brnd[x \log x + (1-x) \log(1-x) - {\brnd[x \log \frac{1-p}{p} + \log{p}]}] 𝟙_{[0, 1]}(x) + ∞ 𝟙_{[0, 1]^∁}(x)  \NR \NR
 		\NC  \text{Poisson}(λ)  \NC  e^{λ(e^θ - 1)}  \NC  \brnd[λ - x + x \log \frac{x}{λ}] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR \NR
-		\NC  Exp(λ)   \NC  \inv[{\brnd[1 - \frac{θ}{λ}]}]  \NC  \brnd[λx - 1 + x \log(λ x)] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR \NR
+		\NC  \text{Exp}(λ)   \NC  \inv[{\brnd[1 - \frac{θ}{λ}]}]  \NC  \brnd[λx - 1 + x \log(λ x)] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR \NR
 		\NC  𝓝(m, σ^2)  \NC  e^{m θ + \frac12 σ^2 θ^2}  \NC  \frac{(x - m)^2}{2 σ^2}  \NR \NR
 		\NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]  \NR
 		\BL
@@ -793,26 +822,28 @@
 
 \startsection [title={Futher research}, reference=sec:directions]
 
-
 \startmode [presentation]
 
 \startslide [title={Possible research directions}]
 
 	\startcolor [\getvariable{document}{color-foreground-1}]    % text color
 	\startitemize [4]
-		\item  Develop the near-Markov property for the new integral.
-
-		\item  Formulate the extension to stochastic differential equations with anticipating coefficients.
 
 		\item  Identify the class of integrable processes under the new integral.
 
-		\item  Give a broader generalization of the Girsanov theorem.
+		\item  Give a broader generalization of the Itô isometry for the new integral.
+
+		\item  Provide a broader generalization of the Girsanov theorem.
+
+		\item  Formulate the extension to stochastic differential equations with anticipating coefficients.
+
+		\item  Develop the near-Markov property for the new integral.
 	\stopitemize
 
 	\startcolor [\getvariable{document}{color-foreground-2}]    % text color
 	\startitemize [4]
 
-		\item  Prove Freidlin–Wentzell type results for stochastic differential equations with anticipation.
+		\item  Prove Freidlin–Wentzell type results for stochastic differential equations with anticipating initial conditions.
 
 		\item  Study LDP results for SDEs with anticipating coefficients.
 
@@ -822,14 +853,33 @@
 
 \startslide
 
-\startalign [middle]
+	\startalign [middle]
 
-	\blank[4*line]
+		\blank[4*line]
 
-	{\tfd Thank you!}
+		{\tfd Thank you!}
 
-\stopalign
+	\stopalign
 \stopslide
+
+\stopmode
+
+\stopsection
+
+\stopbodymatter
+
+
+
+
+%%%%%%%%%%%%%%%
+% Back matter %
+%%%%%%%%%%%%%%%
+
+\startbackmatter
+
+\startsubject [title={Appendix}, reference=sub:appendix]
+
+\startmode [presentation]
 
 \startslide [title={Laplace principle and equivalence to LDP}]
 
@@ -854,45 +904,52 @@
 	\stopitemize
 \stopslide
 
-\startslide[title={An application of Schilder theorem}]
+% \startslide[title={An application of Schilder theorem}]
 
-	\startitemize [4]
+% 	\startitemize [4]
 
-		\item  \m{W\brnd[C_0 ∖ B_r(0)] = \bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
+% 		\item  \m{W\brnd[C_0 ∖ B_r(0)] = \bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
 
-		\item  \m{\bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
-	\stopitemize
+% 		\item  \m{\bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
+% 	\stopitemize
+% \stopslide
+
+% \startslide[title={Using the continuity principle to extend the Schilder theorem}]
+% 	TODO
+% \stopslide
+
+% \startslide [title={Sanov theorem}]
+
+% 	\startitemize [4]
+
+% 		\item  \bold{Aim}: Provide a bound on the probability of observing an atypical sequence of samples from a given probability distribution.
+
+% 		\item
+% 	\stopitemize
+% \stopslide
+
+\startslide [title={Exponential processes and a generalized Girsanov theorem}]
+
+	\starttheorem[title={\cite[short][KuoPengSzozda2013b]}]
+		Let \m{X_{\argdotsub}} and \m{Y^{\argdotsup}} be continuous square-integrable stochastic processes such that \m{X_{\argdotsub}} is adapted to \m{𝓕_{\argdotsub}}, and \m{Y^{\argdotsup}} is adapted to the backward Brownian filtration \m{𝓖^{\argdotsup}}.
+
+		The translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} (f_t + g^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(f + g)}_T}.
+	\stoptheorem
 \stopslide
 
-\startslide[title={Using the continuity principle to extend the Schilder theorem}]
-	TODO
+\startslide
+
+	\startalign [middle]
+
+		\blank[4*line]
+
+		{\tfd Thank you!}
+
+	\stopalign
 \stopslide
 
-\startslide [title={Sanov theorem}]
+\stopsubject
 
-	\startitemize [4]
-
-		\item  \bold{Aim}: Provide a bound on the probability of observing an atypical sequence of samples from a given probability distribution.
-
-		\item
-	\stopitemize
-\stopslide
-
-\stopmode
-
-\stopsection
-
-\stopbodymatter
-
-
-
-
-%%%%%%%%%%%%%%%
-% Back matter %
-%%%%%%%%%%%%%%%
-
-\startbackmatter
-\startmode [presentation]
 \startslide [title={Bibliography}]
 	\placelistofpublications
 \stopslide
