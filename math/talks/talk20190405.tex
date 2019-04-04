@@ -128,7 +128,7 @@
 
 	\startdefinition
 
-		Let \m{X_{\argdotsub}} is a \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process, and let \m{0 ≤ s ≤ t ≤ T}. Then, w.r.t. \m{ℱ_{\argdotsub}}, the process \m{X_{\argdotsub}} is called a
+		Let \m{X_{\argdotsub}} is a \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process, and let \m{0 ≤ s ≤ t ≤ T}. Then \m{X_{\argdotsub}} is called a
 		\startitemize [5, joinedup]
 			\item  \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s},
 			\item  \important{submartingale} if \m{𝔼(X_t ∣ ℱ_s) ≥ X_s}, and
@@ -836,7 +836,7 @@
 
 	% Generalizes the Schilder theorem for Itô diffusions.
 
-	\starttheorem
+	\starttheorem [title={\cite[short][FreidlinWentzell2012]}]
 		For any fixed \m{x}, the sequence of probability measures \m{\brnd[W^{(n)}_x]} satisfies LDP with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
 		\startformula
 			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[ω_t' - b(ω_t), {\inv[A](ω_t)}{\brnd[ω_t' - b(ω_t)]}]} \d t] 𝟙_{\text{CM}_x}(ω) + ∞ 𝟙_{\text{CM}_x^∁}(ω) ,
