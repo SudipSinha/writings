@@ -133,7 +133,7 @@
 
 	\startdefinition
 
-		Let \m{X_{\argdotsub}} be an \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process and let \m{0 ≤ s ≤ t ≤ T}. Then \m{X_{\argdotsub}} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
+		Let \m{X_{\argdotsub}} be an integrable \m{ℱ_{\argdotsub}}-adapted stochastic process and let \m{0 ≤ s ≤ t ≤ T}. Then \m{X_{\argdotsub}} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
 		% \startitemize [5, joinedup]
 		% 	\item  \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s},
 		% 	\item  \important{submartingale} if \m{𝔼(X_t ∣ ℱ_s) ≥ X_s},
@@ -315,7 +315,7 @@
 
 	\startitemize [4]
 
-		\item  Let \m{h_{\argdotsub}} be a stochastic process. The associated \important{exponential process} is defined as
+		\item  Let \m{h_{\argdotsub}} be an adapted stochastic process. The associated \important{exponential process} is defined as
 			\startformula
 				𝓔^{(h)}_{\argdotsub} = \exp\brnd[∫_0^{\argdotsup} h_t \d B_t - \frac12 ∫_0^{\argdotsup} h_t^2 \d t] .
 			\stopformula
@@ -353,7 +353,7 @@
 		% 	\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
 		% 	\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
 		% \stopitemize
-		The SDE above has a \important{unique} solution if \m{m} and \m{σ} are \important{Lipschitz} and satisfy the \important{growth condition}.
+		The SDE above has a \important{unique} solution if \m{m} and \m{σ} are \important{Lipschitz} and satisfy the \important{linear growth condition}.
 
 		The solution is a Markov process.
 
@@ -452,7 +452,7 @@
 
 		\item  Some approaches:
 		\startitemize [5, joinedup]
-			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ B_T}, with Itô's decomposition of integrand \cite[short][Itô1978] \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
+			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ σ(B_T)}, with Itô's decomposition of integrand \cite[short][Itô1978] \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
 			\item  White noise theory
 			\item  Malliavin calculus
 			% \item  …
@@ -774,7 +774,7 @@
 
 	Example
 	\starttheorem [title={\cite[short][Cramér1938]}]
-		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows the large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
+		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(\overline{X}_n)} follows the large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
 	\stoptheorem
 \stopslide
 
@@ -812,7 +812,7 @@
 
 		\item  Let \m{B_{\argdotsub}} be a \m{d}-dimensional Brownian motion, so \m{B_{\argdotsub} ∈ C_0 = C_0([0, T]; ℝ^d)}
 
-		\item  Let \m{\frac{1}{\sqrt{n}} B_t ∼ W^{(n)}}. Then \m{W^{(n)} = 𝓝\brnd[0, \frac{t}{n}] \xrightarrow{𝓓} δ_0} as \m{n → ∞}.
+		\item  Let \m{\frac{1}{\sqrt{n}} B_t ∼ W^{(n)}}. Then \m{W^{(n)} = 𝓝\brnd[0, \frac{t}{n}] ⟹ δ_0} as \m{n → ∞}.
 		% This scales down the variance of the Brownian motion to \m{ε t}.
 
 	\stopitemize
@@ -838,7 +838,7 @@
 
 		\item  Let \m{W^{(n)}_x} denote the law of \m{X^{(n)}_{\argdotsub}} starting at \m{x}.
 
-		\item  As \m{n → ∞}, \m{W^{(n)}_x \xrightarrow{𝓓} δ_ξ}, where \m{ξ} solves the ODE \m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
+		\item  As \m{n → ∞}, \m{W^{(n)}_x ⟹ δ_ξ}, where \m{ξ} solves the ODE \m{\dot{ξ}(t) = m(ξ(t)), \ ξ(0) = x}.
 
 		% \item  Let \m{\text{CM}_x = \bcrl[ω ∈ C_x : ω \text{ is absolutely continuous and } ω_t' ∈ L^2{[0, T]}]}.
 	\stopitemize
@@ -848,7 +848,7 @@
 	\starttheorem [title={\cite[short][FreidlinWentzell2012]}]
 		For any fixed \m{x}, the sequence of probability measures \m{\brnd[W^{(n)}_x]} satisfies LDP with the rate function \m{I_x : C_0 → \clsr[ℝ]} given by
 		\startformula
-			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[ω_t' - b(ω_t), {\inv[A](ω_t)}{\brnd[ω_t' - b(ω_t)]}]} \d t] 𝟙_{\text{CM}_x}(ω) + ∞ 𝟙_{\text{CM}_x^∁}(ω) ,
+			I_x(ω)  =  \brnd[\frac12 ∫_0^T {\inn[ω_t' - m(ω_t), {\inv[A](ω_t)}{\brnd[ω_t' - m(ω_t)]}]} \d t] 𝟙_{\text{CM}_x}(ω) + ∞ 𝟙_{\text{CM}_x^∁}(ω) ,
 		\stopformula
 		where \m{A = σ σ^*}.
 	\stoptheorem
@@ -886,7 +886,7 @@
 
 		\item  Provide a broader generalization of the Girsanov theorem.
 
-		\item  Formulate the extension to stochastic differential equations with anticipating coefficients.
+		\item  Formulate an extension of the new integral to stochastic differential equations with anticipating coefficients.
 
 		\item  Develop the near-Markov property for the new integral.
 	\stopitemize
@@ -894,9 +894,9 @@
 	\startcolor [\getvariable{document}{color-foreground-2}]    % text color
 	\startitemize [4]
 
-		\item  Prove Freidlin–Wentzell type results for stochastic differential equations with anticipating initial conditions.
+		\item  Prove Freidlin–Wentzell type results for SDEs with anticipating initial conditions.
 
-		\item  Study LDP results for SDEs with anticipating coefficients.
+		\item  Study LDP results for SDEs with anticipating coefficients involving the new integral.
 
 		\item  Analyze LDP for linear SPDEs with anticipating initial conditions.
 	\stopitemize
