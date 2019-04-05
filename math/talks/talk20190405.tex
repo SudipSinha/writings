@@ -283,9 +283,11 @@
 	\stopitemize
 
 	\starttheorem[title={\cite[short][Itô1944SI]}]
-		Let \m{X_t} be a \m{d}-dimensional Itô process, and let \m{Y_t = f(X_t)}, where \m{f ∈ C^2(ℝ)}. Then \m{f(X_t)} is also a \m{d}-dimensional Itô process, and
+		Let \m{X_t} be a \m{d}-dimensional Itô process, and assume \m{f ∈ C^{1, 2}(ℝ × ℝ)}. Then \m{f(t, X_t)} is also a \m{d}-dimensional Itô process given by
 			\startformula
-				\d f(X_t)  =  \inn[(\D f) (X_t), \d X_t] + \frac12 \inn[\d X_t, (D^2 f)(X_t) \, \d X_t] ,
+				\d f(t, X_t)  =  \frac{∂ f}{∂ t} (t, X_t) \d t
+				 +  \inn[(\D f) (t, X_t), \d X_t]
+				 +  \frac12 \inn[\d X_t, (D^2 f)(t, X_t) \, \d X_t] ,
 			\stopformula
 			% \startformula
 			% 	\d Y_t
@@ -580,14 +582,16 @@
 		Let \good{\m{\d X_t = m_t \d t + σ_t \d B_t}} be an \m{d}-dimensional \good{Itô} process, and
 
 		\okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process.
-		If \m{f(x, y) ∈ C^2(ℝ^2)}, then
-		\startformula \startalign
-				\NC \d f(X_t, Y^t)  =
-				\NC \good{\inn[(\D_x f) (X_t, Y^t), \d X_t]
-					+ \frac12 \inn[\d X_t, (D_x^2 f)(X_t, Y^t) \, \d X_t]}
+		If \m{f(t, x, y) ∈ C^{1, 2, 2}(ℝ × ℝ × ℝ)}, then
+		\startformula \startalign[n=3]
+				\NC \d f(t, X_t, Y^t)  =
+				\NC \frac{∂ f}{∂ t}(t, X_t, Y^t) \d t
+				\NC + \good{\inn[(\D_x f) (t, X_t, Y^t), \d X_t]
+					+ \frac12 \inn[\d X_t, (D_x^2 f)(t, X_t, Y^t) \, \d X_t]}
 			\NR \NC
-				\NC + \okay{\inn[(\D_y f) (X_t, Y^t), \d Y^t]
-					- \frac12 \inn[\d Y^t, (D_y^2 f)(X_t, Y^t) \, \d Y^t]} ,
+				\NC \qquad \qquad \qquad
+				\NC + \okay{\inn[(\D_y f) (t, X_t, Y^t), \d Y^t]
+					- \frac12 \inn[\d Y^t, (D_y^2 f)(t, X_t, Y^t) \, \d Y^t]} ,
 		\stopalign \stopformula
 		where we use the rules \important{\m{\d B_t ⊗ \d B_t = I_d \d t}}.
 	\stoptheorem
