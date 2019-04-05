@@ -136,6 +136,11 @@
 		\stopitemize
 	\stopdefinition
 
+	\startremark
+
+		If \m{(X_n)} is a discrete-time martingale and \m{(H_n)} is an adapted process, then the process \m{Y_n = ∑_{j = 0}^{n - 1} H_j (X_{j + 1} - X_j) =: (H ∙ X)_n} is itself a martingale and called a \important{martingale transform} of \m{(X_n)}.
+	\stopremark
+
 	\startdefinition
 
 		A stochastic process \m{X_{\argdotsub}} is called \important{Markov} if for any \m{0 ≤ s ≤ t ≤ T}, we have
@@ -143,12 +148,6 @@
 			ℙ(X_t ∈ E ∣ ℱ_s) = ℙ(X_t ∈ E ∣ X_s) .
 		\stopformula
 	\stopdefinition
-
-	\startremark
-
-		If \m{(X_n)} is a discrete-time martingale and \m{(H_n)} is an adapted process, then the process \m{Y_n = ∑_{j = 0}^{n - 1} H_n (X_{n + 1} - X_n) =: (H ∙ X)_n} is itself a martingale and called a \important{martingale transform} of \m{(X_n)}.
-	\stopremark
-
 \stopslide
 
 \startslide [title={Wiener integral for \m{f ∈ L^2[0, T]}}]
@@ -259,7 +258,7 @@
 				\item  \okay{local} martingale.
 			\stopitemize
 
-		% \item  TODO  Example: \m{∫_0^T e^{B_t^2} \d B_t = ∫_0^{B_1} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
+		% \item  TODO  Example: \m{∫_0^T e^{B_t^2} \d B_t = ∫_0^{B_T} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
 
 	\stopitemize
 \stopslide
@@ -430,14 +429,14 @@
 
 		\item  Stochastic differential equations with anticipation:
 			% \startitemize [5, joinedup]
-			% 	\item  \m{\d X_t  =  X_t \d B_t, X_0 = B_1}
+			% 	\item  \m{\d X_t  =  X_t \d B_t, X_0 = B_T}
 			% 	\item  \m{\d Y_t  =  B_T \d B_t, Y_0 = 1}
 			% \stopitemize
 		\startformula \startalign[m=2, distance=8em, align={right, left, right, left}]
 			\NC  \d X_t  \NC =  X_t \d B_t
 			\NC  \d Y_t  \NC =  B_T \d B_t
 			\NR
-			\NC  X_0  \NC =  B_1
+			\NC  X_0  \NC =  B_T
 			\NC  Y_0  \NC =  1
 		\stopalign \stopformula
 
@@ -445,12 +444,7 @@
 
 		\item  Some approaches:
 		\startitemize [5, joinedup]
-			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ B_1}, with Itô's decomposition of integrand
-
-			\m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
-				% \startformula
-				% 	B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{1 - s} \d s] + ∫_0^T \frac{B_T - B_s}{1 - s} \d s
-				% \stopformula
+			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ B_T}, with Itô's decomposition of integrand \cite[short][Itô1978] \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
 			\item  White noise theory
 			\item  Malliavin calculus
 			% \item  …
@@ -526,7 +520,7 @@
 
 		\item  Question: What are the analogues of the martingale property and the Markov property?
 
-		\item  Answer for martingales: \quotation{near-martingales} \cite[short][KuoSaeTangSzozda2012].
+		\item  Answer for martingales: near-martingales \cite[short][KuoSaeTangSzozda2012].
 
 		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s}, but \m{𝔼(B_T B_s - s ∣ ℱ_s) = B_s^2 - s}. \smile
 
@@ -539,18 +533,18 @@
 
 	\stopitemize
 
-	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
-		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a (\good{sub}/\bad{super})martingale if and only if \m{Z(\argdotmid)} is a near-(\good{sub}/\bad{super})martingale.
-	\stoptheorem
-
 	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
-		Let \m{f, ϕ} be continuous function on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+		Let \m{f, ϕ} be continuous functions on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
 		% \startformula
 		% 	X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t
 		% 	\qquad \text{ and } \qquad
 		% 	Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t
 		% \stopformula
 		% are near-martingales.
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
+		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a (\good{sub}/\bad{super})martingale if and only if \m{Z(\argdotmid)} is a near-(\good{sub}/\bad{super})martingale.
 	\stoptheorem
 \stopslide
 
