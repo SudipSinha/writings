@@ -265,6 +265,12 @@
 
 	\stopsection
 
+	\startsection [title={Calculate \m{∫_0^T e^{B_t^2} \d B_t}.}]
+		Let \m{f(x) = ∫_0^x e^{t^2} \d t}. Then \m{f'(x) = e^{x^2}} and \m{f''(x) = 2 x e^{x^2}}.
+
+		Now, using the Itô formula, we get \m{\d \brnd[∫_0^x e^{t^2} \d t] = e^{B_t^2} \d B_t + B_t e^{B_t^2} \d t}, which gives us \m{∫_0^T e^{B_t^2} \d B_t =  ∫_0^{B_T} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
+	\stopsection
+
 \stopchapter
 
 \stopcomponent
