@@ -1,6 +1,11 @@
 \environment env-talks
 
 % lsu-math-301d
+% Hilbert space er orthonormal basis
+% Vector spacer basis
+% Hermite polynomial
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is where the document starts.
@@ -128,12 +133,12 @@
 
 	\startdefinition
 
-		Let \m{X_{\argdotsub}} is a \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process, and let \m{0 ≤ s ≤ t ≤ T}. Then \m{X_{\argdotsub}} is called a
-		\startitemize [5, joinedup]
-			\item  \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s},
-			\item  \important{submartingale} if \m{𝔼(X_t ∣ ℱ_s) ≥ X_s}, and
-			\item  \important{supermartingale} if \m{𝔼(X_t ∣ ℱ_s) ≤ X_s}.
-		\stopitemize
+		Let \m{X_{\argdotsub}} be an \m{L^1}-bounded \m{ℱ_{\argdotsub}}-adapted stochastic process and let \m{0 ≤ s ≤ t ≤ T}. Then \m{X_{\argdotsub}} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
+		% \startitemize [5, joinedup]
+		% 	\item  \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s},
+		% 	\item  \important{submartingale} if \m{𝔼(X_t ∣ ℱ_s) ≥ X_s},
+		% 	\item  \important{supermartingale} if \m{𝔼(X_t ∣ ℱ_s) ≤ X_s}.
+		% \stopitemize
 	\stopdefinition
 
 	\startremark
@@ -187,7 +192,7 @@
 
 		\item  \m{∫_0^T B_t \d B_t ≟}
 
-			Since \m{B_t} is continuous, let us try Riemann–Stieltjes integral. Consider a sequence of partitions \m{Δ_n} such that \m{\norm[Δ_n] → 0}. Then
+			Since \m{B_t} is continuous, let us try the Riemann–Stieltjes integral. Consider a sequence of partitions \m{Δ_n} such that \m{\norm[Δ_n] → 0}. Then
 			\startformula
 				∫_0^T B_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} B_{t_j^*} Δ B_j .
 			\stopformula
@@ -351,7 +356,7 @@
 
 		The solution is a Markov process.
 
-		Moreover if \m{ξ ∈ ℝ} and \m{m, σ} are function of only \m{x}, then the solution is also stationary.
+		Moreover if \m{ξ ∈ ℝ} and \m{m, σ} are functions of only \m{x}, then the solution is also stationary.
 
 	\stoptheorem
 
@@ -524,21 +529,21 @@
 
 		% \item  Answer for martingales: near-martingales \cite[short][KuoSaeTangSzozda2012].
 
-		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s} \frown
+		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s}. \frown
 
 			But \m{𝔼(B_T B_s - s ∣ ℱ_s) = B_s^2 - s}. \smile
 
-		\item  Let \m{Z(t)} be a process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then \m{Z(t)} is called a
-			\startitemize [5, joinedup]
-				\item  \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)},
-				\item  \important{near-submartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≥ 𝔼(Z(s) ∣ ℱ_s)}, and
-				\item  \important{near-supermartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≤ 𝔼(Z(s) ∣ ℱ_s)}.
-			\stopitemize
+		\item  Let \m{Z(t)} be a process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then \m{Z(t)} is called a \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)}.
+			% \startitemize [5, joinedup]
+			% 	\item  \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)},
+			% 	\item  \important{near-submartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≥ 𝔼(Z(s) ∣ ℱ_s)},
+			% 	\item  \important{near-supermartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≤ 𝔼(Z(s) ∣ ℱ_s)}.
+			% \stopitemize
 
 	\stopitemize
 
 	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
-		Let \m{f, ϕ} be continuous functions on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+		Let \m{f} and \m{ϕ} be continuous functions on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
 		% \startformula
 		% 	X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t
 		% 	\qquad \text{ and } \qquad
@@ -581,7 +586,7 @@
 	\starttheorem[title={\cite[short][HwangKuoSaitôZhai2016]}]
 		Let \good{\m{\d X_t = m_t \d t + σ_t \d B_t}} be an \m{d}-dimensional \good{Itô} process, and
 
-		\okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \m{\tilde{d}}-dimensional \okay{instantly independent} process.
+		\okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \m{k}-dimensional \okay{instantly independent} process.
 		If \m{f(t, x, y) ∈ C^{1, 2, 2}(ℝ × ℝ × ℝ)}, then
 		\startformula \startalign[n=3]
 				\NC \d f(t, X_t, Y^t)  =
@@ -627,7 +632,7 @@
 	\stoptheorem
 
 	\starttheorem [title={\cite[short][KuoSaeTangSzozda2013]}]
-		Let \m{f, ϕ} be \m{C^1} function on \m{ℝ}. Then
+		Let \m{f} and \m{ϕ} be \m{C^1} functions on \m{ℝ}. Then
 		\startformula \startalign
 			\NC  𝔼\bsqr[{\brnd[∫_0^T f(B_t) ϕ(B_T - B_t) \d B_t]}^2]
 			\NC  =  ∫_0^T 𝔼\bsqr[{\brnd[f(B_t) ϕ(B_T - B_t)]}^2] \d t
@@ -641,7 +646,7 @@
 	\starttheorem[title={\cite[short][KuoPengSzozda2013b]}]
 		Let \m{X_{\argdotsub}} and \m{Y^{\argdotsup}} be continuous square-integrable stochastic processes such that \m{X_{\argdotsub}} is adapted and \m{Y^{\argdotsup}} is instantly independent.
 
-		Then translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} (X_t + Y^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(X + Y)}_T}.
+		Then the translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} (X_t + Y^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(X + Y)}_T}.
 	\stoptheorem
 \stopslide
 
@@ -768,7 +773,7 @@
 
 	Example
 	\starttheorem [title={\cite[short][Cramér1938]}]
-		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
+		Let \m{(X_n)} be a sequence of i.i.d. real random variables with finite moment generating function \m{M}. Then \m{(X_n)} follows the large deviation principle with rate function \m{I(x) = \sup_θ \brnd[θ x - \log M(θ)]}.
 	\stoptheorem
 \stopslide
 
@@ -778,13 +783,16 @@
 	% \placetable[force,none]{}{%    % This centers the table
 	\starttabulate [|M|M|M|]
 		\FL
-		\NC  \text{Distribution}  \NC  M(θ)  \NC  I(x)  \NR
+		\NC  \text{Distribution}  \VL  M(θ)  \VL  I(x)  \NR
 		\FL
-		\NC  \text{Bernoulli}(p)  \NC  1 - p + p e^θ  \NC  \brnd[x \log x + (1-x) \log(1-x) - {\brnd[x \log \frac{1-p}{p} + \log{p}]}] 𝟙_{[0, 1]}(x) + ∞ 𝟙_{[0, 1]^∁}(x)  \NR \NR
-		\NC  \text{Poisson}(λ)  \NC  e^{λ(e^θ - 1)}  \NC  \brnd[λ - x + x \log \frac{x}{λ}] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR \NR
-		\NC  \text{Exp}(λ)   \NC  \inv[{\brnd[1 - \frac{θ}{λ}]}]  \NC  \brnd[λx - 1 + x \log(λ x)] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR \NR
-		\NC  𝓝(m, σ^2)  \NC  e^{m θ + \frac12 σ^2 θ^2}  \NC  \frac{(x - m)^2}{2 σ^2}  \NR \NR
-		\NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]  \NR
+		\NC  \text{Bernoulli}(p)  \VL  1 - p + p e^θ  \VL  \brnd[x \log x + (1-x) \log(1-x) - {\brnd[x \log \frac{1-p}{p} + \log{p}]}] 𝟙_{[0, 1]}(x) + ∞ 𝟙_{[0, 1]^∁}(x)  \NR
+		\NC \VL \VL \NR
+		\NC  \text{Poisson}(λ)  \VL  e^{λ(e^θ - 1)}  \VL  \brnd[λ - x + x \log \frac{x}{λ}] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR
+		\NC \VL \VL \NR
+		\NC  \text{Exp}(λ)   \VL  \inv[{\brnd[1 - \frac{θ}{λ}]}]  \VL  \brnd[λx - 1 + x \log(λ x)] 𝟙_{[0, ∞)}(x) + ∞ 𝟙_{(-∞, 0)}(x)  \NR
+		\NC \VL \VL \NR
+		\NC  𝓝(m, σ^2)  \VL  e^{m θ + \frac12 σ^2 θ^2}  \VL  \frac{(x - m)^2}{2 σ^2}  \NR %\NR
+		% \NC  χ^2(k)  \NC  (1 - 2 θ)^{-\frac{k}{2}}  \NC  \frac12 \brnd[x - k + k \log\frac{k}{x}]  \NR
 		\BL
 	\stoptabulate%}
 	% ToDo: Add more.
@@ -825,7 +833,7 @@
 		\item  Let \m{X^{(n)}_{\argdotsub}} be the solution of the \m{d}-dimensional stochastic differential equation
 
 			\important{\m{\d X^{(n)}_t = m(X^{(n)}_t) \d t + \frac{1}{\sqrt{n}} σ(X^{(n)}_t) \d B_t , \ X^{(n)}_0 = x}},
-			where \m{m, σ} are sufficiently nice.
+			where \m{m} and \m{σ} are sufficiently nice.
 
 		\item  Let \m{W^{(n)}_x} denote the law of \m{X^{(n)}_{\argdotsub}} starting at \m{x}.
 
