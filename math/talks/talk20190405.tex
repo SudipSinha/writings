@@ -326,7 +326,7 @@
 			The exponential process is a martingale if \m{𝔼 \exp\brnd[\frac12 ∫_0^T h_t^2 \d t] < ∞}.
 
 		\item  The \important{Girsanov theorem} \cite[short][Girsanov1960]:
-			The translated stochastic process \m{W_{\argdotsub} = B_{\argdotsub} + ∫_0^{\argdotsup} h_t \d t} is a Brownian motion under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative
+			The process \m{W_{\argdotsub} = B_{\argdotsub} - ∫_0^{\argdotsup} h_t \d t} is a Brownian motion under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative
 			\m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(h)}_T}.
 
 			% Moreover the process \m{Z_t := 𝔼 \brnd[𝓔^{h}_T ∣ 𝓕_t]} is a martingale.
@@ -348,11 +348,12 @@
 
 	\starttheorem [title={Existence and uniqueness, Markov property}]
 
-		The SDE above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
-		\startitemize [5, joinedup]
-			\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
-			\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
-		\stopitemize
+		% The SDE above has a unique solution if there exists an \m{M > 0} such that the following two conditions are satisfied:
+		% \startitemize [5, joinedup]
+		% 	\item  (Lipschitz condition) \m{\abs[m(t, x) - m(t, y)]^2 + \abs[σ(t, x) - σ(t, y)]^2 ≤ M \abs[x - y]^2} a.s.
+		% 	\item  (growth condition) \m{\abs[m(t, x)]^2 + \abs[σ(t, y)]^2 ≤ M \brnd[1 + {\abs[x]}^2]} a.s.
+		% \stopitemize
+		The SDE above has a \important{unique} solution if \m{m} and \m{σ} are \important{Lipschitz} and satisfy the \important{growth condition}.
 
 		The solution is a Markov process.
 
@@ -430,9 +431,9 @@
 
 	\startitemize [4]
 
-		\item  Iterated integrals: Consider the iterated integral \m{∫_0^T ∫_0^T \d B_s \d B_t \ugly{= ∫_0^T B_T \d B_t ≟ B_T^2}}.
+		\item  Iterated integrals: Consider the iterated integral \m{∫_0^t ∫_0^t \d B_u \d B_v \ugly{= ∫_0^t B_t \d B_v ≟ B_t^2}}.
 
-		\item  Note that \m{𝔼(B_T B_t) = T ∧ t = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
+		\item  Note that \m{𝔼(B_t^2) = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
 
 		\item  Stochastic differential equations with anticipation:
 			% \startitemize [5, joinedup]
