@@ -1,0 +1,43 @@
+\startchapter [title={Discrete Probability Spaces}]
+
+	\setuptabulate [
+		split=yes,
+		header=text,
+		frame=on,
+		title={\tfa Notations}]
+
+	\starttabulate [|l|l|M|m|]
+		\FL
+		\NC  Term  \NC  Description  \NC  \text{Symbol}  \NC  \text{Coin toss Eg}  \NR
+		\FL
+		\NC  sample space  \NC  set of outcomes  \NC  Ω  \NC  \bcrl[H, T]  \NR \TB[halfline]
+		\NC  outcome  \NC  arbitrary outcome  \NC  ω ∈ Ω  \NC  H  \NR \TB[halfline]
+		\NC  event  \NC  subset of sample space  \NC  E  \NC  ∅, \bcrl[H], \bcrl[T], \bcrl[H, T]  \NR \TB[halfline]
+		\NC  prob mass fn  \NC  weightage of each outcome  \NC  p: Ω → [0, 1], \text{ with}  \NC  p(H) = \frac13, p(T) = \frac23  \NR
+		\NC  \NC  \NC  ∑_ω p(ω) = 1  \NC  \NR \TB[halfline]
+		\NC  probability  \NC  (of an event)  \NC  ℙ(E) = ∑_{ω ∈ Ω} p(ω)  \NC  ℙ(∅) = 0, ℙ(\bcrl[H, T]) = 1  \NR \TB[halfline]
+		% \NC  random variable
+		\BL
+	\stoptabulate
+
+	\startproposition[title={Basic principle of counting}]
+		Suppose two independent experiments are performed, and there are \m{m} possible outcomes of the first experiment and \m{n} possible outcomes of the second experiment. Then the total possible outcomes of of the two experiments combined is \m{m n}.
+	\stopproposition
+	
+	\startproof
+		Let \m{(i, j)} denote the case when the first experiment gives the \m{i}th outcome and the second experiment gives the \m{j}th outcome. Enumerating, we get
+		\startformula  \startmatrix[n=4]
+			\NC  (1, 1)  \NC  (1, 2)  \NC  …  \NC  (1, n)  \NR
+			\NC  (2, 1)  \NC  (2, 2)  \NC  …  \NC  (2, n)  \NR
+			\NC  ⋮       \NC  ⋮       \NC  ⋱  \NC  ⋮       \NR
+			\NC  (m, 1)  \NC  (m, 2)  \NC  …  \NC  (m, n)  \NR
+		\stopmatrix	 \stopformula
+		Since there are \m{m} rows and \m{n} columns, we have total \m{mn} entries.
+	\stopproof
+
+	\startremark
+		This can be generalized to a finite number of experiments.
+	\stopremark
+
+
+\stopchapter

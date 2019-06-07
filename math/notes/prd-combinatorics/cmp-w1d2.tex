@@ -1,0 +1,32 @@
+\startchapter [title={Binomial Theorem}]
+
+	\starttheorem [title={Binomial theorem}]
+		\startformula
+			(x + y)^n = ∑_{k = 0}^n \binom{n}{k} x^k y^{n - k}.
+		\stopformula
+	\stoptheorem
+	
+	\startproof [title={Inductive}]
+		Homework.
+	\stopproof
+
+	\startproof [title={Combinatorial}]
+		Consider the product \m{(x_1 + y_1) (x_2 + y_2) ⋯ (x_n + y_n)}.
+
+		First, note that the expansion consists of \m{2^n} terms, each being a product of \m{n} factors.
+
+		Secondly, each product contains either \m{x_j} xor \m{y_j} for each \m{j ∈ [n]}.
+
+		\comment{For example, \m{(x_1 + y_1) (x_2 + y_2) = x_1 x_2 + x_1 y_2 + y_1 x_2 + y_1 y_2}.}
+
+		Now, we can we choose \m{k} of the \m{x_j}s and \m{n - k} of the \m{y_j}s in \m{\binom{n}{k}} ways, so there are precisely those many terms with m{k} \m{x_j}s and \m{n - k} \m{y_j}s in the expansion.
+
+		Finally, letting \m{x_j = x} and \m{y_j = y} for each \m{j ∈ [n]}, we get the result.
+	\stopproof
+
+	\startremark
+		This can be generalized to a finite number of experiments.
+	\stopremark
+
+
+\stopchapter
