@@ -7,37 +7,77 @@
 		title={\tfa Notations}]
 
 	\starttabulate [|l|l|M|m|]
-		\FL
-		\NC  Term  \NC  Description  \NC  \text{Symbol}  \NC  \text{Coin toss Eg}  \NR
-		\FL
-		\NC  sample space  \NC  set of outcomes  \NC  Ω  \NC  \bcrl[H, T]  \NR \TB[halfline]
-		\NC  outcome  \NC  arbitrary outcome  \NC  ω ∈ Ω  \NC  H  \NR \TB[halfline]
-		\NC  event  \NC  subset of sample space  \NC  E  \NC  ∅, \bcrl[H], \bcrl[T], \bcrl[H, T]  \NR \TB[halfline]
-		\NC  prob mass fn  \NC  weightage of each outcome  \NC  p: Ω → [0, 1], \text{ with}  \NC  p(H) = \frac13, p(T) = \frac23  \NR
-		\NC  \NC  \NC  ∑_ω p(ω) = 1  \NC  \NR \TB[halfline]
-		\NC  probability  \NC  (of an event)  \NC  ℙ(E) = ∑_{ω ∈ Ω} p(ω)  \NC  ℙ(∅) = 0, ℙ(\bcrl[H, T]) = 1  \NR \TB[halfline]
-		% \NC  random variable
+		\FL  \FL
+		\NC  Term  \NC  Description  \NC  \text{Symbol/Idea}  \NC  \text{Coin toss Example}  \NR
+		\ML  \ML
+
+		\NC  sample space  \NC  set of outcomes  \NC  Ω  \NC  \bcrl[H, T]  \NR  \ML
+
+		\NC  outcome  \NC  arbitrary outcome  \NC  ω ∈ Ω  \NC  H  \NR  \ML
+
+		\NC  event  \NC  subset of sample space  \NC  E  \NC  ∅, \bcrl[H], \bcrl[T], \bcrl[H, T]  \NR  \ML
+
+		\NC  mutually exclusive  \NC  events with  \NC  E_1 ∩ E_2 = ∅  \NC  \bcrl[H] and \bcrl[T]  \NR
+		\NC  events  \NC  empty intersection  \NC  \NC  \NR  \ML
+
+		\NC  probability mass  \NC  weightage of  \NC  p: Ω → [0, 1], \text{ with}  \NC  p(H) = \frac13, p(T) = \frac23  \NR
+		\NC  function  \NC   each outcome  \NC  ∑_ω p(ω) = 1  \NC  \NR  \ML
+
+		\NC  probability  \NC  (of an event)  \NC  ℙ: 2^Ω → [0, 1],  \NC  ℙ(∅) = 0, ℙ(\bcrl[H, T]) = 1  \NR
+		\NC  \NC  \NC  ℙ(E) = ∑_{ω ∈ Ω} p(ω)  \NC  \NR  \ML
+
+		\NC  random variable  \NC  a function  \NC  X: Ω → ℝ  \NC  X(H) = 1, X(T) = 0  \NR  \ML
 		\BL
 	\stoptabulate
 
-	\startproposition[title={Basic principle of counting}]
-		Suppose two independent experiments are performed, and there are \m{m} possible outcomes of the first experiment and \m{n} possible outcomes of the second experiment. Then the total possible outcomes of of the two experiments combined is \m{m n}.
-	\stopproposition
 	
+	\startdefinition [title={Probability axioms}]
+		A \emph{non-negative valued} function \m{ℙ} defined on the set of events is called a \emph{probability measure} if the following hold.
+		\startitemize [n, nowhite, after]
+			\item  (null empty set)  \m{ℙ(∅) = 0}.
+			\item[countable-additivity]  (countable additivity)  For any sequence of mutually exclusive events \m{E_1, E_2, ⋯}, we have \m{ℙ\brnd[⨆_{n=1}^∞ E_n] = ∑_{n=1}^∞ ℙ(E_n)}.
+			\item  (probability)  \m{ℙ(Ω) = 1}.
+		\stopitemize
+	\stopdefinition
+
+	
+	\comment{Draw Venn diagrams for all of the following.}
+
+	\startproposition
+		\m{ℙ(E^∁) = 1 - ℙ(E)}.
+	\stopproposition
+
 	\startproof
-		Let \m{(i, j)} denote the case when the first experiment gives the \m{i}th outcome and the second experiment gives the \m{j}th outcome. Enumerating, we get
-		\startformula  \startmatrix[n=4]
-			\NC  (1, 1)  \NC  (1, 2)  \NC  …  \NC  (1, n)  \NR
-			\NC  (2, 1)  \NC  (2, 2)  \NC  …  \NC  (2, n)  \NR
-			\NC  ⋮       \NC  ⋮       \NC  ⋱  \NC  ⋮       \NR
-			\NC  (m, 1)  \NC  (m, 2)  \NC  …  \NC  (m, n)  \NR
-		\stopmatrix	 \stopformula
-		Since there are \m{m} rows and \m{n} columns, we have total \m{mn} entries.
+		Since \m{E ∩ E^∁ = ∅}, by \in{Axiom}[countable-additivity] we have \m{1 = ℙ(Ω) = ℙ(E ⊔ E^∁) = ℙ(E) + ℙ(E^∁)}.
 	\stopproof
 
-	\startremark
-		This can be generalized to a finite number of experiments.
-	\stopremark
+
+	\startproposition
+		If \m{E ⊂ F}, then \m{ℙ(E) ≤ ℙ(F)}.
+	\stopproposition
+
+	\startproof
+		Note that \m{F = E ⊔ (F ∖ E)}. So by \in{Axiom}[countable-additivity] we have \m{ℙ(F) = ℙ(E ⊔ (F ∖ E)) = ℙ(E) + ℙ(F ∖ E)}. Therefore, \m{ℙ(F) - ℙ(E) = ℙ(F ∖ E)}, which is non-negative since probability is a non-negative set function.
+	\stopproof
+
+
+	\startproposition [title={Inclusion-Exclusion}]
+		\m{ℙ(E ∪ F) = ℙ(E) + ℙ(F) - ℙ(E ∩ F) .}.
+	\stopproposition
+
+	\startproof
+		\startitemize [n, nowhite, after]
+			\item  \m{E ∪ F = (E ∖ F) ⊔ (F ∖ E) ⊔ (E ∩ F)}, so \m{ℙ(E ∪ F) = ℙ(E ∖ F) + ℙ(F ∖ E) + ℙ(E ∩ F)}.
+			\item  \m{E = (E ∖ F) ⊔ (E ∩ F)}, so \m{ℙ(E) = ℙ(E ∖ F) + ℙ(E ∩ F)}, and similarly
+			\item  \m{F = (F ∖ E) ⊔ (E ∩ F)}, so \m{ℙ(F) = ℙ(F ∖ E) + ℙ(E ∩ F)}.
+		\stopitemize
+		Combining the above,
+		\startformula  \startalign[n=2]
+			\NC  ℙ(E ∪ F)  \NC =  ℙ(E ∖ F) + ℙ(F ∖ E) + ℙ(E ∩ F)  \NR
+			\NC  \NC =  (ℙ(E) - ℙ(E ∩ F)) + (ℙ(F) - ℙ(E ∩ F)) + ℙ(E ∩ F)  \NR
+			\NC  \NC =  ℙ(E) + ℙ(F) - ℙ(E ∩ F) .
+		\stopalign  \stopformula
+	\stopproof
 
 
 \stopchapter
