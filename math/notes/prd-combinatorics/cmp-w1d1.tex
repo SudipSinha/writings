@@ -50,6 +50,22 @@
 		\stopitemize
 
 		\page
+
+		\startexercise [title={AC Ex 2.7}]
+			How many strings of the form \m{l_1 l_2 d_1 d_2 d_3 l_3 l_4 d_4 l_5 l_6} are there where
+			\startitemize [m, joinedup]
+				\item  for \m{1 ≤ i ≤ 6}, \m{l_i} is an uppercase letter in the English alphabet;
+				\item  for \m{1 ≤ i ≤ 4}, \m{d_i} is a decimal digit;
+				\item  \m{l_2} is not a vowel (i.e., \m{l_2 ∉ \bcrl[A,E,I,O,U]}); and
+				\item  the digits \m{d_1}, \m{d_2}, and \m{d_3} are distinct (i.e., \m{d_1 ≠ d_2 ≠ d_3 ≠ d_1}).
+			\stopitemize
+		\stopexercise
+
+		\startsolution
+			% \m{(26^5 ⋅ (26 - 5)) ⋅ (10 ⋅ (10 ⋅ 9 ⋅ 8))}.
+		\stopsolution
+
+
 		\startexercise [title={AC Ex 2.9}]
 			A database uses 20-character strings as record identifiers. The valid characters in these strings are upper-case letters in the English alphabet and decimal digits. (Recall there are 26 letters in the English alphabet and 10 decimal digits.) How many valid record identifiers are possible if a valid record identifier must meet \emph{all} of the following criteria:
 			\startitemize [m, joinedup]
