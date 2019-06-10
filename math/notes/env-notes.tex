@@ -294,11 +294,27 @@
 	list=all,
 	listtext={Example }]
 
+\defineenumeration [exercise] [mathematicalstatement] [
+	text=Exercise,
+	list=all,
+	listtext={Exercise }]
+
 \defineenumeration [proof] [mathematicalstatement] [
 	text=Proof,
 	% title=no,
 	number=no,
 	headstyle=italic,    % This is for "Proof"
+	titlestyle=italic,    % This is for the title
+	style=normal,
+	before=,
+	after=,
+	closesymbol={□}]
+
+\defineenumeration [solution] [mathematicalstatement] [
+	text=Solution,
+	% title=no,
+	number=no,
+	headstyle=italic,    % This is for "Solution"
 	titlestyle=italic,    % This is for the title
 	style=normal,
 	before=,

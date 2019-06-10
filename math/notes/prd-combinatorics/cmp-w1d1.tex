@@ -8,14 +8,14 @@
 			\item  \emph{algorithms and optimization}: sorting, eulerian circuits, hamiltonian cycles, planarity testing, graph coloring, shortest path, bipartite matching
 		\stopitemize
 
-		We will try to focus on enumerations and discrete structures in this course. The algorithms can be interesting for the projects.
+		We will focus on enumerations and discrete structures in this course. The algorithms can be interesting for the projects.
 
 		\startsubject [title={Why is it interesting?}]
 			\startitemize [1, joinedup]
+				\item  Concerns with counting, which is very fundamental.
 				\item  We live in a finite world, and every problem is essentially combinatorial in a sense.
 				\item  Which means it is ubiquitious in mathematics
 				\item  Gives us fun visual proofs of results that can be proved algebraic.
-				\item  Concerns with counting, which is very fundamental.
 				\item  ⋯
 			\stopitemize
 		\stopsubject
@@ -45,20 +45,23 @@
 
 				Numbers of ways to form a committee of 3 people from a group of 7 employees.
 
-			\item  Exercise: \cite[KT2016], Exercise 9
-
-				A database uses 20-character strings as record identifiers. The valid characters in these strings are upper-case letters in the English alphabet and decimal digits. (Recall there are 26 letters in the English alphabet and 10 decimal digits.) How many valid record identifiers are possible if a valid record identifier must meet \emph{all} of the following criteria:
-				\startitemize [m, joinedup]
-					\item  Letter(s) from the set \m{\bcrl[A, E, I, O, U]} occur in \emph{exactly} three positions of the string.
-					\item  The last three characters in the string are \emph{distinct} decimal digits that do not appear elsewhere in the string.
-					\item  The remaining characters of the string may be filled with any of the remaining letters or decimal digits.
-				\stopitemize
-
-				Solution: \m{(10 ⋅ 9 ⋅ 8) ⋅ \brnd[\binom{17}{3} ⋅ 5^3] ⋅ ((26 - 5) + (10 - 3))^{20 - 3 - 3}}.
-
 			\item  Binomial theorem: \m{(x + y)^n = ∑_{k = 0}^n \binom{n}{k} x^k y^{n - k}}.
-		
+
 		\stopitemize
+
+		\page
+		\startexercise [title={AC Ex 2.9}]
+			A database uses 20-character strings as record identifiers. The valid characters in these strings are upper-case letters in the English alphabet and decimal digits. (Recall there are 26 letters in the English alphabet and 10 decimal digits.) How many valid record identifiers are possible if a valid record identifier must meet \emph{all} of the following criteria:
+			\startitemize [m, joinedup]
+				\item  Letter(s) from the set \m{\bcrl[A, E, I, O, U]} occur in \emph{exactly} three positions of the string.
+				\item  The last three characters in the string are \emph{distinct} decimal digits that do not appear elsewhere in the string.
+				\item  The remaining characters of the string may be filled with any of the remaining letters or decimal digits.
+			\stopitemize
+		\stopexercise
+
+		\startsolution
+			% \m{(10 ⋅ 9 ⋅ 8) ⋅ \brnd[\binom{17}{3} ⋅ 5^3] ⋅ ((26 - 5) + (10 - 3))^{20 - 3 - 3}}.
+		\stopsolution
 	
 	\stopsection
 
