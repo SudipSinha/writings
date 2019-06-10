@@ -136,8 +136,14 @@
 \setupcombinedlist [content] [list={part, chapter, section}]
 
 % Bibliography
+% Bibliography (https://www.contextgarden.net/Bibliography_mkiv)
 \usebtxdataset[../bib.bib]
-\usebtxdefinitions[apa]
+\usebtxdataset[../Itô.bib]
+\usebtxdataset[../Kuo-integral.bib]
+\usebtxdataset[../large-deviations.bib]
+\usebtxdataset[../combinatorics.bib]
+\usebtxdefinitions[apa]    % apa or aps
+% Use \cite[short][#key] to get XXX19 type citations
 
 % Diagrams
 \usemodule[tikz]

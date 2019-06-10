@@ -1,0 +1,128 @@
+\startchapter [title={Combinatorics basics}]
+	
+	\startsection [title={What is combinatorics?}]
+		The study of
+		\startitemize [r, joinedup]
+			\item  \emph{discrete structures}: graphs, strings, distributions, partitions
+			\item  \emph{enumerations}: permutations, combinations, inclusion and exclusion, generating functions, recurrence relations
+			\item  \emph{algorithms and optimization}: sorting, eulerian circuits, hamiltonian cycles, planarity testing, graph coloring, shortest path, bipartite matching
+		\stopitemize
+
+		We will try to focus on enumerations and discrete structures in this course. The algorithms can be interesting for the projects.
+
+		\startsubject [title={Why is it interesting?}]
+			\startitemize [1, joinedup]
+				\item  We live in a finite world, and every problem is essentially combinatorial in a sense.
+				\item  Which means it is ubiquitious in mathematics
+				\item  Gives us fun visual proofs of results that can be proved algebraic.
+				\item  Concerns with counting, which is very fundamental.
+				\item  ⋯
+			\stopitemize
+		\stopsubject
+	\stopsection
+
+	\startsection [title={Enumerations}]
+				
+		\startitemize [1, joinedup]
+		
+			\item  Multiplication rule: if \m{E} and \m{F} are finite sets, then \m{|E × F| = |E| |F|}.
+
+				Number of ways of constructing a 100 character string out of the 26 letters of the English alphabet.
+
+			\item  Addition rule: if \m{E} and \m{F} are finite \emph{disjoint} sets, then \m{|E ⊔ F| = |E| + |F|}.
+
+				If there are two roads from Baton Rouge to New Orleans, and three roads from Baton Rouge to Lafayette, in how many ways can you go from Baton Rouge to either of the places?
+
+			\item  Factorials
+
+				Numbers of ways to arrange 5 people in a row.
+			
+			\item  Permutations
+
+				Numbers of ways to arrange any 4 people in a row when there are 7 people.
+
+			\item  Combinations
+
+				Numbers of ways to form a committee of 3 people from a group of 7 employees.
+
+			\item  Exercise: \cite[KT2016], Exercise 9
+
+				A database uses 20-character strings as record identifiers. The valid characters in these strings are upper-case letters in the English alphabet and decimal digits. (Recall there are 26 letters in the English alphabet and 10 decimal digits.) How many valid record identifiers are possible if a valid record identifier must meet \emph{all} of the following criteria:
+				\startitemize [m, joinedup]
+					\item  Letter(s) from the set \m{\bcrl[A, E, I, O, U]} occur in \emph{exactly} three positions of the string.
+					\item  The last three characters in the string are \emph{distinct} decimal digits that do not appear elsewhere in the string.
+					\item  The remaining characters of the string may be filled with any of the remaining letters or decimal digits.
+				\stopitemize
+
+				Solution: \m{(10 ⋅ 9 ⋅ 8) ⋅ \brnd[\binom{17}{3} ⋅ 5^3] ⋅ ((26 - 5) + (10 - 3))^{20 - 3 - 3}}.
+
+			\item  Binomial theorem: \m{(x + y)^n = ∑_{k = 0}^n \binom{n}{k} x^k y^{n - k}}.
+		
+		\stopitemize
+	
+	\stopsection
+
+	\startsection [title={Combinatorial proofs are fun!}]
+		References: \cite[KT2016] and \cite[Nelsen1993].
+		\startitemize [m, joinedup]
+			\item  sum of first \m{n} natural numbers: x3
+			\item  sum of first \m{n} odd numbers: x2
+			\item  1 + 2 + ⋯ +  (n-1) +   n    +  (n-1) + ⋯ + 2 + 1
+			\item  1 + 3 + ⋯ + (2n-3) + (2n-1) + (2n-3) + ⋯ + 2 + 1
+			\item  sum of binomial coefficients
+		\stopitemize
+	\stopsection
+
+	\startsection [title={Background of basic results}]
+		\startproposition[title={Basic principle of counting}]
+			Suppose two independent experiments are performed, and there are \m{m} possible outcomes of the first experiment and \m{n} possible outcomes of the second experiment. Then the total possible outcomes of of the two experiments combined is \m{m n}.
+		\stopproposition
+		
+		\startproof
+			Let \m{(i, j)} denote the case when the first experiment gives the \m{i}th outcome and the second experiment gives the \m{j}th outcome. Enumerating, we get
+			\startformula  \startmatrix[n=4]
+				\NC  (1, 1)  \NC  (1, 2)  \NC  …  \NC  (1, n)  \NR
+				\NC  (2, 1)  \NC  (2, 2)  \NC  …  \NC  (2, n)  \NR
+				\NC  ⋮       \NC  ⋮       \NC  ⋱  \NC  ⋮       \NR
+				\NC  (m, 1)  \NC  (m, 2)  \NC  …  \NC  (m, n)  \NR
+			\stopmatrix	 \stopformula
+			Since there are \m{m} rows and \m{n} columns, we have total \m{mn} entries.
+		\stopproof
+
+		\startremark
+			This can be generalized to a finite number of experiments.
+		\stopremark
+
+
+		\starttheorem [title={Binomial theorem}]
+			Let \m{x} and \m{y} be real numbers with \m{x}, \m{y} and \m{x + y} nonzero. Then for every non-negative integer \m{n},
+			\startformula
+				(x + y)^n = ∑_{k = 0}^n \binom{n}{k} x^k y^{n - k} .
+			\stopformula
+		\stoptheorem
+		
+		\startproof [title={Inductive}]
+			Homework.
+		\stopproof
+
+		\startproof [title={Combinatorial}]
+			Consider the product \m{(x_1 + y_1) (x_2 + y_2) ⋯ (x_n + y_n)}.
+
+			First, note that the expansion consists of \m{2^n} terms, each being a product of \m{n} factors.
+
+			Secondly, each product contains either \m{x_j} xor \m{y_j} for each \m{j ∈ [n]}.
+
+			\comment{For example, \m{(x_1 + y_1) (x_2 + y_2) = x_1 x_2 + x_1 y_2 + y_1 x_2 + y_1 y_2}.}
+
+			Now, we can we choose \m{k} of the \m{x_j}s and \m{n - k} of the \m{y_j}s in \m{\binom{n}{k}} ways, so there are precisely those many terms with m{k} \m{x_j}s and \m{n - k} \m{y_j}s in the expansion.
+
+			Finally, letting \m{x_j = x} and \m{y_j = y} for each \m{j ∈ [n]}, we get the result.
+		\stopproof
+
+		\startremark
+			This can be generalized to the \emph{multinomial theorem} and \emph{multinomial coefficients}, which we will revise if the need arises.
+		\stopremark
+
+	\stopsection
+
+\stopchapter
