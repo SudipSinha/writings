@@ -1,0 +1,43 @@
+\startchapter [title={Exercises}]
+
+	\startsection [title={2019-06-12}]
+		
+		\startexercise [title={recursion formula for binomial coefficients}]
+			Prove that \m{\binom{n+1}{k+1} = \binom{n}{k+1} + \binom{n}{k}}.
+
+			How does this relate to the Pascal's triangle?
+		\stopexercise
+
+		\startexercise [title={sum of binomial coefficients}]
+			Prove that \m{∑_{i=0}^n \binom{n}{i} = 2^n}.
+		\stopexercise
+		
+		\startexercise [title={variation of the handshake problem}]
+			Each person on campus has 1 secret. Every time two people converse, they exchange secrets. If those two people move on to talk to other people, they will share all the secrets they have learnt in addition to their own. How many conversations must be had for everyone on campus to know everyone elses' secrets if there are \m{n} students?
+
+			What we want is a \emph{formula} for the minimum number of interactions dependent on the number of students. That is, we want to find a function \m{f: ℕ → ℕ} in terms of \m{n}.
+		\stopexercise
+
+		\startexercise [title={Venn diagrams}]
+			Let \m{X} be the set of 63 students in an applied combinatorics course at a large technological university. Suppose there are 47 computer science majors and 51 male students. Also, we know there are 45 male students majoring in computer science. How many students in the class are female students not majoring in computer science?
+		\stopexercise
+
+		\startexercise [title={counting integers}]
+			How many integers in \m{\bcrl[1, ⋯, 100]} are divisible by 2, 3 or 5?
+		\stopexercise
+
+		\startexercise [title={stars and bars problems}]
+			Calculate the number of integer solutions of each the following problems. Note that the problems progress sequentially, and you should be able to use the ideas/results from the previous problem to the next.
+			\startitemize [m, joinedup]
+				\item  \m{x_1 + x_2 + x_3 + x_4 = 64; \qquad  x_1, x_2, x_3, x_4 ≥ 1}.
+				\item  \m{x_1 + x_2 + x_3 + x_4 ≤ 64; \qquad  x_1, x_2, x_3, x_4 ≥ 1}.
+				\item  \m{x_1 + x_2 + x_3 + x_4 ≤ 64; \qquad  x_1, x_2 ≥ 1; \ x_3 ≥ 0; \ x_4 ≥ 16}.
+				\item  \m{x_1 + x_2 + x_3 + x_4 ≤ 64; \qquad  x_1 ≥ 1; \ 1 ≤ x_2 ≤ 8; \ x_3 ≥ 0; \ x_4 ≥ 16}.
+				\item  \m{x_1 + x_2 + x_3 + x_4 ≤ 64; \qquad  1 ≤ x_1 ≤ 8; \ 1 ≤ x_2 ≤ 8; \ x_3 ≥ 0; \ x_4 ≥ 16}.
+			\stopitemize
+		\stopexercise
+
+	\stopsection
+
+
+\stopchapter
