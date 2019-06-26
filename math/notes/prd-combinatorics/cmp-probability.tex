@@ -33,6 +33,37 @@
 \stopchapter
 
 
+\startchapter [title={The algebra of sets}]
+	
+	Suppose \m{Ω} be a set, and \m{E, F, G} are subsets of \m{Ω}. We have the following operators:
+	\startitemize [1, joinedup]
+		\item  complement(\m{E^∁})
+		\item  union (\m{E ∪ F})
+		\item  intersection(\m{E ∩ F})
+		\item  set difference (\m{E ∖ F = E ∩ F^∁})
+	\stopitemize
+
+	Then the following \emph{laws} hold.
+	\startitemize [1, joinedup]
+		\item  Commutativity of union (\m{E ∪ F = F ∪ E}) and intersection (\m{E ∩ F = F ∩ E}).
+		\item  Associativity of union (\m{(E ∪ F) ∪ G = E ∪ (F ∪ G)}) and intersection (\m{(E ∩ F) ∩ G = E ∩ (F ∩ G)}).
+		\item  Distributivity of union over intersection (\m{E ∩ (F ∪ G) = (E ∩ F) ∪ (E ∩ G)}).
+		\item  Distributivity of intersection over union (\m{E ∪ (F ∩ G) = (E ∪ F) ∩ (E ∪ G)}).
+		\item  Idempotence: \m{E ∪ E = E}, \m{E ∩ E = E}.
+		\item  Domination: \m{Ω ∪ E = Ω}, \m{Ω ∩ E = E}.
+		\item  Absorption: \m{E ∪ (E ∩ F) = E}, \m{E ∩ (E ∪ F) = E}.
+		\item  De Morgan: \m{(E ∪ F)^∁ = E^∁ ∩ F^∁}, \m{(E ∩ F)^∁ = E^∁ ∪ F^∁}.
+		\item  Involution: \m{(E^∁)^∁ = E}.
+		\item  ⋯
+	\stopitemize
+	
+	
+
+
+
+\stopchapter
+
+
 \startchapter [title={Axiomatic probability theory}]
 
 	\startdefinition [title={Probability axioms}]

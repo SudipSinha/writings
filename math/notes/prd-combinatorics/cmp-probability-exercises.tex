@@ -1,0 +1,98 @@
+\startchapter [title={Exercises}]
+	
+	\startsection [title={2019-06-19}]
+		
+		\startexercise [title={Monty Hall}]
+			Suppose you’re on a game show, and you’re given the choice of three doors. Behind one door is a car, behind the others, goats. You pick a door, say number 1, and the host, who knows what’s behind the doors, opens another door, say number 3, which has a goat. He says to you, \quotation{Do you want to switch to door number 2?} Is it to your advantage to switch your choice of the door? 
+
+			\qquad  \textasciitilde Marilyn vos Savant, Parade (1990)
+
+			\bold{Choose one}:
+			\startitemize [n, joinedup]
+				\item  no
+				\item  yes
+				\item  switching is irrelevant and does not change anything
+			\stopitemize
+		\stopexercise
+
+		\startexercise [title={strange dice}]
+			There are three dice, \m{A}, \m{B}, and \m{C}. The dice are numbered \emph{strangely}, as shown below:
+			\startitemize [A, joinedup]
+				\item  2, 6, 7
+				\item  1, 5, 9
+				\item  3, 4, 8
+			\stopitemize
+			with the numbers on opposite faces being the same.
+
+			The rules are simple. You pick one of the three dice, and then I pick one of the two remainders. We both roll and the player with the higher number wins. Which die do you choose?
+		\stopexercise
+
+		\startexercise [title={Bertrand's box}]
+			There are three boxes. Each box contains two coins, which can be either gold(\m{G}) or silver(\m{S}). Their composition is as follows:
+			\startitemize [A, joinedup]
+				\item  \m{G}, \m{G}
+				\item  \m{G}, \m{S}
+				\item  \m{S}, \m{S}
+			\stopitemize
+			After choosing a box at random, you pick a coin, and find that it is a \m{G}. What is the probability that the next coin is also a \m{G}?
+			
+			\bold{Choose one}:
+			\startitemize [n, joinedup]
+				\item  \m{\frac13}
+				\item  \m{\frac12}
+				\item  \m{\frac23}
+				\item  none of the above
+			\stopitemize
+		\stopexercise
+
+	\stopsection
+
+
+	\page
+
+
+	\startsection [title={2019-06-26}]
+		
+		\startexercise [title={Bulb factory}]
+			Suppose that two factories supply light bulbs to the market. Factory X's bulbs work for over 5000 hours in 99\% of cases, whereas factory Y's bulbs work for over 5000 hours in 95\% of cases. It is known that factory X supplies 60\% of the total bulbs available and Y supplies 40\% of the total bulbs available. What is the chance that a purchased bulb will work for longer than 5000 hours?
+		\stopexercise
+
+		\startexercise [title={Law of total probability}]
+			Let \m{E_1, E_2, ⋯, E_n} is a mutually exclusive and exhaustive set of events, that is,
+			\startitemize [1, joinedup]
+				\item  (\emph{mutually exclusive})  \m{E_i ∩ E_j = ∅} for every combination of \m{i} and \m{j}, and
+				\item  (\emph{exhaustive})  \m{E_1 ⊔ E_2 ⊔ ⋯ ⊔ E_n = Ω}.
+			\stopitemize
+			If \m{F} is an event, then prove that
+			\startformula
+				ℙ(F)  =  ∑_{i = 1}^n \bsqr[ℙ(F ∣ E_i) ℙ(E_i)] .
+			\stopformula 
+		\stopexercise
+
+		\startexercise [title={Bayes formula}]
+			Use the \emph{law of total probability} to prove the Bayes formula
+			\startformula
+				ℙ(E ∣ F) = \frac{ℙ(F ∣ E) ℙ(E)}{ℙ(F ∣ E) ℙ(E) + ℙ(F ∣ E^∁) ℙ(E^∁)} .
+			\stopformula
+		\stopexercise
+
+		\startexercise [title={Blood test}]
+			A blood test for the HIV virus is developed.
+			When the virus is present, it reports positive with a probability of 99\%.
+			When the virus is absent, it reports negative with a probability of 99\%.
+			By 2017 estimates, 0.5\% of the world population is infected.
+			What is the probability that a person whose test results come out positive is infected?
+		\stopexercise
+
+		\startexercise [title={Mutual and pairwise independence}]
+			Two events \m{A} and \m{B} are called (\emph{pairwise}) indendent if \m{ℙ(A ∩ B) = ℙ(A) ⋅ ℙ(B)}.
+			Two events \m{A}, \m{B}, and \m{C} are called \emph{mutually} indendent if \m{ℙ(A ∩ B ∩ C) = ℙ(A) ⋅ ℙ(B) ⋅ ℙ(C)}.
+
+			If the events \m{A}, \m{B}, and \m{C} are pairwise independent, does it mean that they are mutually independent?
+			If yes, argue why. If no, try to find a counterexample.
+		\stopexercise
+
+	\stopsection
+
+
+\stopchapter
