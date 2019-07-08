@@ -77,7 +77,7 @@
 		\stopexercise
 
 		\startexercise [title={Blood test}]
-			A blood test for the HIV virus is developed.
+			A blood test for the HIV is developed.
 			When the virus is present, it reports positive with a probability of 99\%.
 			When the virus is absent, it reports negative with a probability of 99\%.
 			By 2017 estimates, 0.5\% of the world population is infected.
@@ -85,11 +85,71 @@
 		\stopexercise
 
 		\startexercise [title={Mutual and pairwise independence}]
-			Two events \m{A} and \m{B} are called (\emph{pairwise}) indendent if \m{ℙ(A ∩ B) = ℙ(A) ⋅ ℙ(B)}.
-			Two events \m{A}, \m{B}, and \m{C} are called \emph{mutually} indendent if \m{ℙ(A ∩ B ∩ C) = ℙ(A) ⋅ ℙ(B) ⋅ ℙ(C)}.
+			Two events \m{A} and \m{B} are called independent if \m{ℙ(A ∩ B) = ℙ(A) ⋅ ℙ(B)}.
+			Three events are called \emph{pairwise} independent if every two events are independent.
+			Three events \m{A}, \m{B}, and \m{C} are called \emph{mutually} independent if \m{ℙ(A ∩ B ∩ C) = ℙ(A) ⋅ ℙ(B) ⋅ ℙ(C)}.
 
 			If the events \m{A}, \m{B}, and \m{C} are pairwise independent, does it mean that they are mutually independent?
 			If yes, argue why. If no, try to find a counterexample.
+		\stopexercise
+
+	\stopsection
+
+
+	\page
+
+
+	\startsection [title={2019-06-27}]
+		
+		\startexercise [title={Mutual and pairwise independence}]
+			We throw two dice. Let \m{A} be the event “the sum of the points is 7”, \m{B} the event “first die came up 3”, and \m{C} the event “second die came up 4”.
+			\startitemize [m, joinedup]
+				\item  Calculate \m{ℙ(A)}, \m{ℙ(B)}, and \m{ℙ(C)}.
+				\item  Calculate \m{ℙ(A ∩ B)}, \m{ℙ(B ∩ C)}, and \m{ℙ(C ∩ A)}. Are the three events pairwise independent?
+				\item  Calculate \m{ℙ(A ∩ B ∩ C)}. Are the three events mutually independent?
+				\item  What is the moral of the story?
+			\stopitemize
+		\stopexercise
+
+		\startexercise [title={Betting}]
+			Three balls are selected randomly without replacement from an urn containing 20 balls numbered 1 through 20. I bet that I win if if the maximum number is at least 17 (or more). What is the probability that I win?
+
+			\comment{Hint}: Let \m{X} denote the maximum number among the drawn balls. What is \m{ℙ\bcrl[X ≥ 17]}?
+		\stopexercise
+
+		\startexercise [title={\emph{Binomial} random variables}]
+			Jonathan tosses 7 \emph{unfair} coins simultaneously. He know that each coin turns up heads two out of three times on average. He wants to know the probability of getting \m{k} heads for different values of \m{k}. He expresses the problem as follows:
+
+			Let \m{p} be the probability of turning up heads for each coin, so \m{p = \frac23}.
+
+			Let \m{X} be the number of heads in the experiment. Then \m{X} can vary from 0 to 7. We want to compute \m{ℙ\bcrl[X = k]} for each value of k.
+
+			Help Jonathan fill up the table.
+			\startitemize [1, joinedup, columns]
+				\item  \m{ℙ\bcrl[X = 0] = }
+				\item  \m{ℙ\bcrl[X = 1] = }
+				\item  \m{ℙ\bcrl[X = 2] = }
+				\item  \m{ℙ\bcrl[X = 3] = }
+				\item  \m{ℙ\bcrl[X = 4] = }
+				\item  \m{ℙ\bcrl[X = 5] = }
+				\item  \m{ℙ\bcrl[X = 6] = }
+				\item  \m{ℙ\bcrl[X = 7] = }
+			\stopitemize
+
+			Having done all this work, Jonathan now wants to calculate the \emph{mean} of \m{X}. How can he do it?
+
+			\comment{Hint}: The mean is the weighted average of the values attained by \m{X}, where the weights are now the probabilities.
+			
+			\blank[4*big]
+
+			Now, he asks himself if he could have done this without resorting to so much work. Could he?
+		\stopexercise
+
+		\startexercise [title={Markov inequality}]
+			Let \m{X} be a random variable taking only non-negative values. Prove that
+			\startformula
+				ℙ\bcrl[X ≥ k] ≤ \frac1k 𝔼(X) .
+			\stopformula
 		\stopexercise
 
 	\stopsection

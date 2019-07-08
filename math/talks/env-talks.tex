@@ -38,6 +38,8 @@
 \setvariables [document] [date={2019-04-05}]
 \setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
 
+% Logo
+\setvariables [document] [logo=MC_Logo_Symbol_672x668.png]
 
 
 \startenvironment presentation
@@ -248,6 +250,21 @@
 	after=,
 	closesymbol={□}]
 
+
+% Graphics
+\setupexternalfigures [directory={img}]
+
+% % Logo: Does not work (https://www.contextgarden.net/Layers)
+% \definelayer [Logo] [
+% 	location={right, top},
+% 	x=\paperwidth,
+% 	y=0mm,
+% 	hoffset=-5mm,
+% 	voffset=5mm]
+ 
+% \setlayer [Logo] {\framed[width=3cm, height=1cm, background=color,backgroundcolor=lightgray]{Logo}}
+
+% \setupbackgrounds[page][background=Logo]
 
 
 

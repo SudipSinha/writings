@@ -1,0 +1,511 @@
+\environment env-talks
+
+% lsu-math-301d
+% Hilbert space er orthonormal basis
+% Vector spacer basis
+% Hermite polynomial
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is where the document starts.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\starttext
+
+\startfrontmatter
+
+%%%%%%%%%%%%%%%%
+% Front matter %
+%%%%%%%%%%%%%%%%
+
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+
+% \startmode [handout]
+% \startcolumns
+% \stopmode
+
+
+% Introduction
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+\startmode [presentation]
+
+\startslide
+
+\startalign [middle]
+
+	{\tfd Number Theory}
+
+	\blank[2*line]
+
+	{\tfb \getvariable{document}{author}}
+
+	\blank[line]
+
+	{\tfa \getvariable{document}{date}}
+
+	\blank[2*line]
+
+	\color[\getvariable{document}{color-foreground-0}]{Math Circle @ QTM}
+
+\stopslide
+
+
+% Table of contents
+\startslide [title={Outline}]
+	\placecontent
+\stopslide
+
+\stopmode
+
+% \startmode [manuscript]
+
+% This presentation is going to be on two topics:
+% \startitemize[n,nowhite,after]
+% 	\item  Generalization of stochastic integrals developed primarily by Professor H.-H. Kuo
+% 	\item  Applications of generalization in large deviations theory
+% \stopitemize
+
+% \stopmode
+
+\stopfrontmatter
+
+
+
+\startbodymatter
+
+%%%%%%%%%%%%%%%%
+% Introduction %
+%%%%%%%%%%%%%%%%
+
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+\startsection [title={Introduction and Logic}, reference=sec:introduction-logic]
+
+\startmode [presentation]
+
+\startslide [title={Introduction and motivation}]
+
+	\startitemize [m]
+
+		\item  What is number theory?
+
+		\item  Why do we study number theory?
+
+		\item  Why do we want to \emph{prove} ideas?
+
+		\item  More importantly, what constitutes a \emph{proof}?
+
+		\item  Inductive vs deductive reasoning.
+	\stopitemize
+\stopslide
+
+\startslide[title={Inductive reasoning}]
+
+	\startitemize [4]
+
+		\item  \bold{Inductive reasoning} derives general propositions from specific examples.
+		
+		\item  \bold{Caution}: \emph{We can never be sure, our conclusion(s) can be wrong!} \frown
+
+		\item  \emph{Example} 1:
+			\startitemize [n, joinedup]
+				\item  We throw lots of things, very often.
+				\item  In all our experiments, the things fell down and not up.
+				\item  So we conclude that likely, things always fall down.
+			\stopitemize
+
+			\blank[big]
+			How we may be wrong:
+			\startitemize [n, joinedup]
+				\item  An iron nail under a big magnet moves up (given that it is sufficiently close).
+				\item  A helium balloon goes up. 
+			\stopitemize
+
+	\stopitemize
+\stopslide
+
+\startslide[title={Inductive reasoning: problems}]
+
+	\startitemize [4]
+
+		\item  \emph{Example} 2:  You ask your parent for a candy and (s)he buys it for you. You ask for a fancy shoe, and (s)he buys it. Now you ask for a Lamborghini ⋯.
+
+		\item  \emph{Example} 3 (\emph{Black swan}):  In the 16th century, it was believed (in Europe) that swans are always white. But in 1697, Dutch explorers led by Willem de Vlamingh became the first Europeans to see black swans, in Western Australia.
+
+		\item  \emph{Example} 4:  \m{\frac11 = 1, \frac22 = 1, \frac33 = 1, ⋯}; so clearly \m{\frac{n}{n} = 1} for every integer \m{n}.
+
+		\item  \emph{Example} 5:  Illusions, e.g. drawings by \emph{M. C. Escher}.
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Problems with inductive reasoning: Illusion \#1}]
+
+	\placefigure[fit]{Ascending and Descending, M. C. Escher}{\externalfigure[Escher_Ascending_and_Descending.jpg][height=0.7\textheight]}
+\stopslide
+
+\startslide [title={Problems with inductive reasoning: Illusion \#2}]
+
+	\placefigure[fit]{Waterfall, M. C. Escher}{\externalfigure[Escher_Waterfall.jpg][height=0.7\textheight]}
+\stopslide
+
+\startslide[title={Deductive reasoning}]
+
+	\startitemize [4]
+
+		\item  \bold{Deductive reasoning} is deriving a logically certain conclusion from one or more premises.
+
+		\item  We do \emph{NOT} question the premises. But \emph{if the premises are correct, then all conclusions are correct.} \smile
+
+		\item  \emph{Example}: Question: Do \m{\bf{Q_1}} and \m{\bf{Q_2}} \emph{imply} \m{\bf{Q_3}}?
+			\startitemize [5, joinedup]
+				\item  (\m{\bf{Q_1}})  All men are mortal. (First premise)
+				\item  (\m{\bf{Q_2}})  Socrates is a man. (Second premise)
+				\item  (\m{\bf{Q_3}})  Therefore, Socrates is mortal. (Conclusion)
+			\stopitemize
+
+		\item  \emph{Example}: Question: Does \m{\bf{P_1}} and \m{\bf{P_2}} \emph{imply} \m{\bf{P_3}}?
+			\startitemize [5, joinedup]
+				\item  (\m{\bf{P_1}})  Borogoves are mimsy whenever it is brillig.
+				\item  (\m{\bf{P_2}})  It is not brillig, and this thing is a borogove.
+				\item  (\m{\bf{P_3}})  Hence this thing is mimsy.
+			\stopitemize
+
+		\item  We do not \emph{need} an inherent \emph{meaning} of the terms.
+
+	\stopitemize
+\stopslide
+
+\startslide[title={Inductive vs deductive reasoning}]
+
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate [|l|l|l|]
+		\FL
+		\NC  Criteria  \VL  Inductive reasoning  \VL  Deductive reasoning  \NR
+		\FL
+		\NC  Basis  \VL  evidence  \VL  logic  \NR
+		\NC  Questions  \VL  everything (arguments and premises)  \VL  only the arguments, not premises  \NR
+		\NC  Direction  \VL  \emph{bottom-up}  \VL  \emph{top-down}  \NR
+		\NC  Natural to humans?  \VL  yes  \VL  no  \NR
+		\NC  Requires \emph{meaning}s of terms?  \VL  yes  \VL  no  \NR
+		\NC  Applicability  \VL  good in practice  \VL  good for theory  \NR
+		\NC  Examples  \VL  science, statistics and machine learning  \VL  logic, mathematics  \NR
+		\BL
+	\stoptabulate
+	}
+\stopslide
+
+\startslide [title={Logic}]
+
+	\startitemize [4]
+		
+		\item  \emph{Logic} is a \emph{language} to formalize deductive reasoning.
+
+		\item  Logic comprises of the following elements.
+		\startitemize [4]
+			\item  propositions
+			\item  connectives (not, and, or, implies, iff)
+			\item  quantifications (for all, there exists)
+			\item  values (true, false)
+			\item  a way to assign propositions to a value
+		\stopitemize
+
+		\item  \bold{Important}: \bad{The propositions in the following section are not necessarily true. Please be mindful.}
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Logic: elementary \emph{proposition}s}]
+
+	\startitemize [4]
+
+		\item  Elementary \emph{proposition}s, represented by \m{P, Q}, etc, are statements saying something.
+
+		\item  Examples:
+			\startitemize [5]
+				\item  \m{P_1} ≡ \m{n} is an integer
+				\item  \m{P_2} ≡ \m{n} is \emph{not} an integer
+				\item  \m{P_3} ≡ \m{2 n} is even
+				\item  \m{P_4} ≡ \m{n = \frac12}
+				\item  \m{Q_1} ≡ Socrates is a man
+				\item  \m{Q_2} ≡ Socrates is smart
+			\stopitemize
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Logic: compound \emph{proposition}s}]
+	
+	\startitemize [4]
+		\item  Compound \emph{proposition}s are elementary propositions connected by connectives.
+
+		\item  \emph{Connectives}: 
+		\startitemize [4, columns, joinedup]
+			\item  not (¬, or ∼): \comment{\m{¬ P} is called the negation of \m{P}.}
+			\item  and (∧)
+			\item  or (∨)
+			\item  implies (→, or ⟹)
+			\item  iff (↔, or ⟺, or ≡)
+		\stopitemize
+
+		\item  Examples:
+			\startitemize [m, joinedup]
+				\item  \m{(¬ P_1)}  ≡  not (\m{n} is an integer)  ≡  \m{n} is \emph{not} an integer
+				\item  \m{(P_1 ∨ P_2)}  ≡  (\m{n} is an integer) or (\m{n} is \emph{not} an integer)
+				\item  \m{(Q_1 ∧ Q_2)}  ≡  (Socrates is a man and) and (Socrates is smart)
+				\item  \m{((¬ P_1) ↔ P_2)}  ≡  not (\m{n} is an integer)  if and only if (\m{n} is \emph{not} an integer)
+				\item  \m{(P_1 → P_3)}  ≡  (\m{n} is an integer) implies (\m{2 n} is even)
+				\item  \m{(P_4 → P_3)}  ≡  (\m{n = \frac12}) implies (\m{2 n} is even)
+			\stopitemize
+	\stopitemize
+\stopslide
+
+\startslide [title={Truth tables}]
+	
+	\startitemize [4]
+		\item  Question: How do we find the value of a compound propositions?
+		\item  Exercise: Fill up the table. Think carefully about what the \quote{?}s should be.
+	\stopitemize
+
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate [|c|c|c|c|c|c|c|c|c|c|]
+		\FL
+		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
+		\FL
+		\NC  T  \NC  T  \VL    \NC    \NC    \NC     \NC     \NC    \NC    \NR
+		\NC  T  \NC  F  \VL    \NC    \NC    \NC     \NC  ?  \NC    \NC    \NR
+		\NC  F  \NC  T  \VL    \NC    \NC    \NC  ?  \NC     \NC    \NC    \NR
+		\NC  F  \NC  F  \VL    \NC    \NC    \NC  ?  \NC  ?  \NC    \NC    \NR
+		\BL
+	\stoptabulate
+	}
+
+\stopslide
+
+\startslide [title={Truth tables}]
+	
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate [|c|c|c|c|c|c|c|c|c|c|]
+		\FL
+		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
+		\FL
+		\NC  T  \NC  T  \VL  F  \NC  T  \NC  T  \NC  T  \NC  T  \NC  T  \NC  T  \NR
+		\NC  T  \NC  F  \VL  F  \NC  F  \NC  T  \NC  F  \NC  T  \NC  F  \NC  F  \NR
+		\NC  F  \NC  T  \VL  T  \NC  F  \NC  T  \NC  T  \NC  F  \NC  F  \NC  F  \NR
+		\NC  F  \NC  F  \VL  T  \NC  F  \NC  F  \NC  T  \NC  T  \NC  T  \NC  T  \NR
+		\BL
+	\stoptabulate
+	}
+
+	\startitemize [4]
+		\item  Such tables are called truth tables. They evaluate the expression for all values of the elementary propositions.
+		\item  Two propositions are equivalent if their truth table values are the same. Can you find if any of the above expressions are equivalent?
+	\stopitemize
+
+\stopslide
+
+\startslide [title={Thinking \emph{logic}ally about mathematical statements}]
+
+	\startitemize [4]
+		
+		\item  Every mathematical statement can be broken down into their constituent propositions.
+
+		\item  Example
+			\startitemize [m]
+				\item  Original statement: if the product of two integers is even, then each of them is even.
+				\item  Analysis: if \color[darkgreen]{the product of two integers \m{n} and \m{m} is even}, then \color[blue]{\m{m} is even} and \color[orange]{\m{n} is even}.
+				\item  Writing this down logically.
+				\startitemize [5, joinedup]
+					\item  \m{P_1}  ≡  \color[darkgreen]{the product of two integers \m{n} and \m{m} is even}
+					\item  \m{P_2}  ≡  \color[blue]{\m{m} is even}
+					\item  \m{P_3}  ≡  \color[orange]{\m{n} is even}
+					\item  Statement ≡ \m{(P_1 → (P_2 ∧ P_3))}
+				\stopitemize
+				\item  Question: is the above statement true or false? How can you prove it?
+				\item  \comment{Note}:  The part before the implication is called the \important{antecedent}, and the part after is called the \important{consequent}. In this example, \m{P_1} is the antecedent and \m{(P_2 ∧ P_3)} is the consequent.
+			\stopitemize
+
+		\item  Exercise
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Quantifiers}]
+	
+	There are two quantifiers.
+
+	\startitemize [4]
+		
+		\item  Universal quantifier a.k.a. for every (∀).
+
+			Example 1: Every man has a head.
+
+			Example 2: Every natural number is even.
+
+		\item  Existential quantifier a.k.a. there exists (∃).
+
+			Example 1: There is a man who can survive without breathing for an hour.
+
+			Example 2: There exists a natural number which is the sum of its factors (except itself).
+
+	\stopitemize
+
+	Exercise: Analyze the following statements logically.
+
+	\startitemize[m]
+		
+		\item  Every odd number has a odd factor.
+
+		\item  (Fermat's last theorem)  No three positive integers \m{a}, \m{b}, and \m{c} satisfy the equation \m{a^n + b^n = c^n} for any integer value of \m{n} greater than 2.
+	\stopitemize
+\stopslide
+
+\startslide [title={Tautologies}]
+	
+	Let \m{P}, \m{Q}, and \m{R} be propositions. Verify the following using truth tables.
+	\startitemize [4, joinedup]		
+		\item  (idempotence)  \m{(P ↔ (P ∧ P))}, and \m{(P ↔ (P ∨ P))}.
+		\item  (commutativity)  \m{((P ∧ Q) ↔ (Q ∧ P))}, and \m{((P ∨ Q) ↔ (Q ∨ P))}.
+		\item  (associativity)  \m{(((P ∧ Q) ∧ R) ↔ (P ∧ (Q ∧ R)))}, and \m{(((P ∨ Q) ∨ R) ↔ (P ∨ (Q ∨ R)))}.
+		\item  (distributivity)  \m{((P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R)))}, and \m{((P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R)))}.
+		\item  (identity)  \m{((P ∧ T) ↔ P)}, \m{((P ∨ F) ↔ P)}; \m{((P ∧ F) ↔ F)}, \m{((P ∨ T) ↔ T)}.
+		\item  (involution)  \m{((¬(¬P)) ↔ P)}.
+		\item  (implication)  \m{((P → Q) ↔ ((¬ P) ∨ Q))}.
+		\item  \important{(de Morgan's laws)  \m{((¬(P ∧ Q)) ↔ ((¬ P) ∨ (¬ Q)))}, and \m{((¬(P ∨ Q)) ↔ ((¬ P) ∧ (¬ Q)))}.}
+		\item  \important{(contrapositive)  \m{((P → Q) ↔ ((¬ Q) → (¬ P)))}.}
+	\stopitemize
+
+	\blank[big]
+	\important{The \emph{converse} of \m{(P → Q)} is \m{(Q → P)}, and they have no relation to each other}.
+
+	Exercise: Find an example for which the proposition is true but its converse is not.
+\stopslide
+
+\startslide [title={Proof methods}]
+
+	\startitemize [4]
+		\item  Direct proof of \m{P → Q}: Start with \m{P} and logically arrive at \m{Q}.
+		\item  Proof by contrapositive of \m{P → Q}: Direct proof of \m{((¬ P) → (¬ Q))}.
+		\item  Proof by contradition of a general proposition \m{P}: Consider that \m{P} is false. Logically show that this leads to an absurdity.
+		\item  Proof by induction \comment{(more on this later)}.
+		\item  Proof by construction.
+		\item  Proof by exhaustion.
+		\item  Probabilistic proof
+		\item  Combinatorial proof.
+		\item  Nonconstructive proof.
+	\stopitemize
+\stopslide
+
+\startslide [title={Guidelines for proofs}]
+
+	\comment{Note}: Proving a proposition is an art. There is no algorithms, only rules of thumb.
+	
+	\startitemize [4]
+		
+		\item  To prove an existential proposition \important{true}, we need to find just one instance (\emph{example}) for which the proposition is \important{true}.
+
+		\item  To prove an universal proposition \important{false}, we need to find just one instance (\emph{counterexample}) for which the statement is \important{false}.
+
+		\item  It is sometimes easier to prove the contrapositive of a proposition.
+
+		\item  To prove a uniqueness proposition, proofs by contradiction is usually more convenient.
+
+		\item  Sometimes it is pragmatic to break down a proof into two or more cases.
+	\stopitemize
+\stopslide
+
+\stopmode
+
+\stopsection
+
+\stopbodymatter
+
+
+
+
+%%%%%%%%%%%%%%%
+% Back matter %
+%%%%%%%%%%%%%%%
+
+\startbackmatter
+
+\startsubject [title={Appendix}, reference=sub:appendix]
+
+\startmode [presentation]
+
+\startslide [title={Laplace principle and equivalence to LDP}]
+
+	\startdefinition [title={Laplace principle}]
+		\m{(X_n)} is said to satisfy the \important{Laplace principle on \m{𝓧} with rate function \m{I}} if for all bounded continuous functions \m{h}, we have
+		\startformula
+			\lim  \frac1n \log 𝔼\exp(-n h(X_n))  =  \inf_𝓧 (h + I)
+		\stopformula
+	\stopdefinition
+
+	\starttheorem
+		\m{(X_n)} satisfies LP on \m{𝓧} with rate function \m{I} if and only if \m{(X_n)} satisfies LDP on \m{𝓧} with the same rate function \m{I}.
+	\stoptheorem
+
+	\bold{Some important results}
+	\startitemize [5, nowhite]
+		\item  Uniqueness of the rate function.
+		\item  Continuity principle.
+			% Let \m{f:𝓧 → 𝓨} be a continuous map of Polish spaces. Then \m{(f(X_n))} satisfies Laplace principle with rate function \m{J(y) = \inf \bcrl[I(x): x ∈ {\inv[f]}(y)]}.
+		\item  Superexponential approximation preserves Laplace principle.
+		  % If \m{(Y_n)} is superexponentially close to \m{(X_n)}, then \m{(Y_n)} satisfies Laplace principle with the same rate function \m{I}.
+	\stopitemize
+\stopslide
+
+% \startslide[title={An application of Schilder theorem}]
+
+% 	\startitemize [4]
+
+% 		\item  \m{W\brnd[C_0 ∖ B_r(0)] = \bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
+
+% 		\item  \m{\bcrl[{\norm[B_{\argdotsub}]}_∞ > r]}
+% 	\stopitemize
+% \stopslide
+
+% \startslide[title={Using the continuity principle to extend the Schilder theorem}]
+% 	TODO
+% \stopslide
+
+% \startslide [title={Sanov theorem}]
+
+% 	\startitemize [4]
+
+% 		\item  \bold{Aim}: Provide a bound on the probability of observing an atypical sequence of samples from a given probability distribution.
+
+% 		\item
+% 	\stopitemize
+% \stopslide
+
+\startslide
+
+	\startalign [middle]
+
+		\blank[4*line]
+
+		{\tfd Thank you!}
+
+	\stopalign
+\stopslide
+
+\stopsubject
+
+\startslide [title={Bibliography}]
+	\placelistofpublications
+\stopslide
+\stopmode
+\stopbackmatter
+
+\stoptext
