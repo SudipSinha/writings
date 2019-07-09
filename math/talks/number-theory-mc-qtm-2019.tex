@@ -176,7 +176,7 @@
 		\item  \emph{Example}: Question: Does \m{\bf{P_1}} and \m{\bf{P_2}} \emph{imply} \m{\bf{P_3}}?
 			\startitemize [5, joinedup]
 				\item  (\m{\bf{P_1}})  Borogoves are mimsy whenever it is brillig.
-				\item  (\m{\bf{P_2}})  It is not brillig, and this thing is a borogove.
+				\item  (\m{\bf{P_2}})  It is now brillig, and this thing is a borogove.
 				\item  (\m{\bf{P_3}})  Hence this thing is mimsy.
 			\stopitemize
 
@@ -259,9 +259,9 @@
 
 		\item  Examples:
 			\startitemize [m, joinedup]
-				\item  \m{(¬ P_1)}  ≡  not (\m{n} is an integer)  ≡  \m{n} is \emph{not} an integer
+				\item  \m{(¬ P_1)}  ≡  not (\m{n} is an integer)  ≡  (\m{n} is \emph{not} an integer)
 				\item  \m{(P_1 ∨ P_2)}  ≡  (\m{n} is an integer) or (\m{n} is \emph{not} an integer)
-				\item  \m{(Q_1 ∧ Q_2)}  ≡  (Socrates is a man and) and (Socrates is smart)
+				\item  \m{(Q_1 ∧ Q_2)}  ≡  (Socrates is a man) and (Socrates is smart)
 				\item  \m{((¬ P_1) ↔ P_2)}  ≡  not (\m{n} is an integer)  if and only if (\m{n} is \emph{not} an integer)
 				\item  \m{(P_1 → P_3)}  ≡  (\m{n} is an integer) implies (\m{2 n} is even)
 				\item  \m{(P_4 → P_3)}  ≡  (\m{n = \frac12}) implies (\m{2 n} is even)
@@ -277,14 +277,14 @@
 	\stopitemize
 
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|c|c|c|c|c|c|c|c|c|c|]
+	\starttabulate [|c|c|c|c|c|c|c|]
 		\FL
-		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
+		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (P ↔ Q)  \NR
 		\FL
-		\NC  T  \NC  T  \VL    \NC    \NC    \NC     \NC     \NC    \NC    \NR
-		\NC  T  \NC  F  \VL    \NC    \NC    \NC     \NC  ?  \NC    \NC    \NR
-		\NC  F  \NC  T  \VL    \NC    \NC    \NC  ?  \NC     \NC    \NC    \NR
-		\NC  F  \NC  F  \VL    \NC    \NC    \NC  ?  \NC  ?  \NC    \NC    \NR
+		\NC  T  \NC  T  \VL    \NC    \NC    \NC     \NC    \NR
+		\NC  T  \NC  F  \VL    \NC    \NC    \NC     \NC    \NR
+		\NC  F  \NC  T  \VL    \NC    \NC    \NC  ?  \NC    \NR
+		\NC  F  \NC  F  \VL    \NC    \NC    \NC  ?  \NC    \NR
 		\BL
 	\stoptabulate
 	}
@@ -294,21 +294,34 @@
 \startslide [title={Truth tables}]
 	
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|c|c|c|c|c|c|c|c|c|c|]
+	\starttabulate [|c|c|c|c|c|c|c|c|]
 		\FL
-		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
+		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (¬ Q)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  ((¬ Q) → (¬ P))  \NR
 		\FL
-		\NC  T  \NC  T  \VL  F  \NC  T  \NC  T  \NC  T  \NC  T  \NC  T  \NC  T  \NR
-		\NC  T  \NC  F  \VL  F  \NC  F  \NC  T  \NC  F  \NC  T  \NC  F  \NC  F  \NR
-		\NC  F  \NC  T  \VL  T  \NC  F  \NC  T  \NC  T  \NC  F  \NC  F  \NC  F  \NR
-		\NC  F  \NC  F  \VL  T  \NC  F  \NC  F  \NC  T  \NC  T  \NC  T  \NC  T  \NR
+		\NC  T  \NC  T  \VL  F  \NC   F  \NC  T  \NC  T  \NC  T  \NC  T  \NR
+		\NC  T  \NC  F  \VL  F  \NC   T  \NC  F  \NC  T  \NC  F  \NC  F  \NR
+		\NC  F  \NC  T  \VL  T  \NC   F  \NC  F  \NC  T  \NC  T  \NC  T  \NR
+		\NC  F  \NC  F  \VL  T  \NC   T  \NC  F  \NC  F  \NC  T  \NC  T  \NR
+		\BL
+	\stoptabulate
+	}
+
+	\placetable[force,none]{}{%    % This centers the table
+	\starttabulate [|c|c|c|c|c|c|]
+		\FL
+		\NC  P  \NC  Q  \VL  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
+		\FL
+		\NC  T  \NC  T  \VL  T  \NC  T  \NC  T  \NC  T  \NR
+		\NC  T  \NC  F  \VL  F  \NC  T  \NC  F  \NC  F  \NR
+		\NC  F  \NC  T  \VL  T  \NC  F  \NC  F  \NC  F  \NR
+		\NC  F  \NC  F  \VL  T  \NC  T  \NC  T  \NC  T  \NR
 		\BL
 	\stoptabulate
 	}
 
 	\startitemize [4]
-		\item  Such tables are called truth tables. They evaluate the expression for all values of the elementary propositions.
-		\item  Two propositions are equivalent if their truth table values are the same. Can you find if any of the above expressions are equivalent?
+		\item  Truth tables evaluate the values of the expression for each values of the elementary propositions.
+		\item  Two propositions are equivalent if their truth table outputs are the same.
 	\stopitemize
 
 \stopslide
@@ -333,8 +346,6 @@
 				\item  Question: is the above statement true or false? How can you prove it?
 				\item  \comment{Note}:  The part before the implication is called the \important{antecedent}, and the part after is called the \important{consequent}. In this example, \m{P_1} is the antecedent and \m{(P_2 ∧ P_3)} is the consequent.
 			\stopitemize
-
-		\item  Exercise
 
 	\stopitemize
 \stopslide
@@ -393,13 +404,13 @@
 \startslide [title={Proof methods}]
 
 	\startitemize [4]
-		\item  Direct proof of \m{P → Q}: Start with \m{P} and logically arrive at \m{Q}.
-		\item  Proof by contrapositive of \m{P → Q}: Direct proof of \m{((¬ P) → (¬ Q))}.
-		\item  Proof by contradition of a general proposition \m{P}: Consider that \m{P} is false. Logically show that this leads to an absurdity.
-		\item  Proof by induction \comment{(more on this later)}.
+		\item  \important{Direct proof} of \m{P → Q}: Start with \m{P} and logically arrive at \m{Q}.
+		\item  \important{Proof by contrapositive} of \m{P → Q}: Direct proof of \m{((¬ P) → (¬ Q))}.
+		\item  \important{Proof by contradition} of a general proposition \m{P}: Consider that \m{P} is false. Logically show that this leads to an absurdity.
+		\item  \important{Proof by induction} \comment{(more on this later)}.
 		\item  Proof by construction.
 		\item  Proof by exhaustion.
-		\item  Probabilistic proof
+		\item  Probabilistic proof.
 		\item  Combinatorial proof.
 		\item  Nonconstructive proof.
 	\stopitemize
@@ -421,6 +432,217 @@
 
 		\item  Sometimes it is pragmatic to break down a proof into two or more cases.
 	\stopitemize
+\stopslide
+
+\startslide [title={Product of odd numbers}]
+	
+	Before we use a term in mathematics, we try to define it as clearly as possible.
+
+	\startdefinition [title={Even and odd numbers}]
+		\color[\getvariable{document}{color-background-0}]{This is to introduce a blank line.}
+
+		An integer \m{n} is called \important{even} if there exists an integer \m{k} such that \m{n = 2k}.
+
+		An integer \m{n} is called \important{odd} if there exists an integer \m{k} such that \m{n = 2k + 1}.
+	\stopdefinition
+	
+	\startitemize [m]
+		\item  What can we say about the product of two odd numbers?
+
+			Prove your claim.
+		\item  If the product of two numbers is odd, can we say anything about the numbers?
+
+			Prove your claim.
+	\stopitemize
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+\startsection [title={Number systems}, reference=number-systems]
+
+\startmode [presentation]
+
+\startslide [title={Natural numbers and integers}]
+
+	\startitemize [m]
+		
+		\item  From ancient times, humans have been able to identify the natural numbers.
+			
+			In modern mathematics, the \emph{set} of natural numbers is represented by \m{ℕ = \bcrl[1, 2, 3, ⋯]}.
+
+		\item  We can add/subtract, and multiply/divide any two natural numbers.
+
+		\item  Are these all the numbers there can be?
+
+		\item  Question: Are the natural numbers \important{closed} under addition/subtraction?
+
+			\comment{(Being closed with respect to an operation means that the result is also in the given set.)}
+			\startitemize [a, joinedup]				
+				\item  I had 4 objects, and I gave 4 objects to Luci. How many objects do I now have?
+				\item  I owed Luci 20 \$, but I have 4 \$ with me. How much do I have?
+			\stopitemize
+
+		\item  This gives rise to the integers, \m{ℤ = \bcrl[⋯, -2, -1, 0, 1, 2, ⋯]}, which are \important{closed} under addition/subtraction.
+
+		\item  From now on, we shall forget about subtraction, because subtracting an integer is essentially adding the negative of that integer. 
+	\stopitemize
+\stopslide
+
+\startslide [title={Rational numbers}]
+	
+	\startitemize [m]
+
+		\item  Note that the set of natural numbers is contained within the set of integers.
+
+			In set theory, we say \quotation{\m{ℕ} is a \important{subset} of \m{ℤ}}, and denote this by \m{ℕ ⊂ ℤ}.
+		
+		\item  Are the integers closed with respect to multiplication/division?
+
+		\item  This gives rise to the set of rational numbers, \m{ℚ = \bcrl[\frac{p}{q} : p, q ∈ ℤ, q ≠ 0]}.
+
+		\item  Is that all we have?
+
+		\item  Let's go on a journey.
+	\stopitemize
+\stopslide
+
+\startslide [title={Time Travel adventures: Part 1}]
+
+	Date: around 550 BC
+
+	Place: Pythagoras's office in Samos, Greece
+
+	Stage: Pythagoras has recently claimed that he has proved a major equality about the sides of right-angled triangles. We go there to investigate his claims.
+
+	\blank[big]
+
+	Unfortunately, a lot of people have been trying do the same, so he has a filtering mechanism in place. We need to answer the following question to get in:
+	
+	\startitemize [m]
+	
+		\item  What is the area of a rectangle of dimensions \m{a × b}?
+		
+		\item  What is the area of a right angled triangle of base \m{b} and height \m{h}?
+
+			But of course, now he wants a proof of that fact.
+
+			\comment{(Remember that Pythagoras is a geometer, so he is very happy with a geometric proof.)}
+		
+		\item  What is the sum of angles of a triangle?
+	\stopitemize
+
+	Once we answer these question, we get to see Pythagoras's proof.
+\stopslide
+
+\startslide [title={Time Travel adventures: Part 1}]
+
+	Unfortunately, he believes that those who want to understand his work must themselves discover it. All he gives us is the following picture.
+
+	\important{On the other side is scribbled \m{a^2 + b^2 = c^2}.}
+
+	\placefigure[fit]{Pythagoras's art}{\externalfigure[Pythagoras_theorem.png][height=0.3\textwidth]}
+
+\stopslide
+
+\startslide [title={Length of hypotenuse of a right-angled triangle}]
+	
+	\startitemize [m]
+		
+		\item  Using the Pythagoras formula, Find the length of the hypotenuse of a right-angled triangle of base and height equaling 1.
+
+		\item  Is the above length rational?
+			
+			How can you be sure?
+	\stopitemize
+\stopslide
+
+\startslide [title={We start with a lemma}]
+	
+	\startlemma
+		Let \m{n} be an integer. The \m{n^2} is even iff \m{n} is even.
+	\stoplemma
+
+	\startproof
+		\comment{Note that this is a ⟺ statement. So we can break it into two parts.}
+
+		Before we look at the individual directions, let us note that when \m{p} is an integer, so are \m{p^2}, \m{2 p}, \m{2 p^2}, and \m{2 p^2 + 2p}.
+
+		\bold{(⟸)}
+		\comment{We use a direct proof for this direction.}
+
+		Since \m{n} is even, there is an integer \m{p} such that \m{n = 2p}. Now, \m{n^2 = (2 p)^2 = 4 p^2 = 2 (2 p^2)}, so \m{n^2} is even.
+
+		\bold{(⟹)}
+		\comment{We prove this by proving the contrapositive.}
+
+		Suppose \m{n} is \emph{not} even, that is, \m{n} is odd. Then we can write \m{n = 2 p + 1} for some integer \m{p}. Then \m{n^2 = (2 p + 1)^2 = 4 p^2 + 4 p + 1 = 2 (2 p^2 + 2 p) + 1}, so \m{n^2} is also odd.
+	
+	\stopproof
+
+	\comment{Remark: A \emph{lemma} is a proposition that leads to a bigger result, which are usually called \emph{theorems}. \emph{Corollaries} are applications or minor modifications of theorems that are themselves quite important. From a \emph{logic}al viewpoint, there is no difference between lemmas, propositions, theorems, or corollaries.}
+
+\stopslide
+
+\startslide [title={Rationality of \m{\sqrt2}}]
+	
+	\starttheorem
+		\m{\sqrt2} is not rational.
+	\stoptheorem
+
+	\startproof
+		\comment{We prove this by contradiction.}
+
+		Suppose \m{\sqrt2} is rational. Then it can be written in the form \m{\frac{p}{q}}, where \m{p, q} are integers with \m{q ≠ 0}. Assume that \m{p} and \m{q} have no common factors, for if they do, we can reduce the fraction to its lowest terms and then call the numerator \m{p} and the denominator \m{q}.
+
+		Squaring and simplifying, we get
+		\placeformula[sqrt2-notin-Q-eq1]  \startformula
+			p^2 = 2 q^2 .
+		\stopformula
+		This means \m{p^2} is even. By the previous lemma, \m{p} is also even. Therefore, there exists an integer \m{r} such that \m{p = 2 r}, and so \m{p^2 = 4 r^2}.
+
+		Putting this in equation \eqref[sqrt2-notin-Q-eq1], we get \m{4 r^2 = 2 q^2}, which is the same as \m{2 r^2 = q^2}. This means that \m{q^2}, and thus \m{q}, is even.
+
+		But we had assumed that \m{p} and \m{q} have no common factors. Thus we have a contradiction. Therefore, our supposition must be wrong, and it must be that \m{\sqrt{2}} is not rational.
+	\stopproof
+\stopslide
+
+\startslide [title={Real numbers}]
+	
+	\startitemize [m]
+		
+		\item  We showed that if we desire closure with respect to solutions of algebraic equations, we end up with numbers which may not be rational.
+
+		\item  \emph{Algebraic} numbers are numbers that are solutions of algebraic equations. For example, \m{\sqrt{2}} is the solution of the algebraic equation \m{x^2 = 2}, and is thus algebraic.
+
+		\item  It can be shown that there are numbers that are not solutions of any algebraic equation. Such numbers are called \emph{transcendental} numbers. Example: \m{π}.
+
+		\item  All rational numbers are algebraic. But the converse is not true.
+
+		\item  The set of all algebraic and transcendental numbers is called the set of \emph{real} numbers.
+
+		\item  The set of real numbers that are not rational is called the set of \emph{irrational} numbers.
+
+		\item  Closure with respect to square roots of negative number gives us an even bigger set, called the \emph{complex} numbers.
+
+	\stopitemize
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+\startsection [title={Mathematical Induction}, reference=induction]
+
+\startmode [presentation]
+
+\startslide [title={Proving a fact for all natural numbers}]
+  
 \stopslide
 
 \stopmode

@@ -213,6 +213,8 @@
 
 % Mathematical environments
 
+\definereferenceformat [eqref] [left=(, right=)]    % Referencing formulas
+
 \defineenumeration [mathematicalstatement] [
 	title=yes,    % now we can use title={}
 	number=no,    % remove if definitions shoud be numbered
@@ -221,30 +223,67 @@
 	width=fit,
 	alternative=hanging,  % top
 	hang=fit,
-	textstyle=italic,
-	before=\startmathenv,
-	after=\stopmathenv]
-
-\defineenumeration [theorem] [mathematicalstatement] [
-	text=Theorem,
-	list=all,
-	listtext={Theorem }]
+	style=italic]
+	% before=\startmathenv,
+	% after=\stopmathenv
 
 \defineenumeration [definition] [mathematicalstatement] [
 	text=Definition,
 	list=all,
 	listtext={Definition }]
 
+\defineenumeration [lemma] [mathematicalstatement] [
+	text=Lemma,
+	list=all,
+	listtext={Lemma }]
+
+\defineenumeration [theorem] [mathematicalstatement] [
+	text=Theorem,
+	list=all,
+	listtext={Theorem }]
+
+\defineenumeration [corollary] [mathematicalstatement] [
+	text=Corollary,
+	list=all,
+	listtext={Corollary }]
+
+\defineenumeration [proposition] [mathematicalstatement] [
+	text=Proposition,
+	list=all,
+	listtext={Proposition }]
+
 \defineenumeration [remark] [mathematicalstatement] [
 	text=Remark,
 	list=all,
 	listtext={Remark }]
 
+\defineenumeration [example] [mathematicalstatement] [
+	text=Example,
+	list=all,
+	listtext={Example }]
+
+\defineenumeration [exercise] [mathematicalstatement] [
+	text=Exercise,
+	list=all,
+	listtext={Exercise }]
+
 \defineenumeration [proof] [mathematicalstatement] [
 	text=Proof,
-	title=no,
+	% title=no,
 	number=no,
-	headstyle=italic,
+	headstyle=italic,    % This is for "Proof"
+	titlestyle=italic,    % This is for the title
+	style=normal,
+	before=,
+	after=,
+	closesymbol={□}]
+
+\defineenumeration [solution] [mathematicalstatement] [
+	text=Solution,
+	% title=no,
+	number=no,
+	headstyle=italic,    % This is for "Solution"
+	titlestyle=italic,    % This is for the title
 	style=normal,
 	before=,
 	after=,
