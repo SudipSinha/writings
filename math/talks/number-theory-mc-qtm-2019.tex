@@ -405,7 +405,7 @@
 
 	\startitemize [4]
 		\item  \important{Direct proof} of \m{P → Q}: Start with \m{P} and logically arrive at \m{Q}.
-		\item  \important{Proof by contrapositive} of \m{P → Q}: Direct proof of \m{((¬ P) → (¬ Q))}.
+		\item  \important{Proof by contrapositive} of \m{P → Q}: Direct proof of \m{((¬ Q) → (¬ P))}.
 		\item  \important{Proof by contradition} of a general proposition \m{P}: Consider that \m{P} is false. Logically show that this leads to an absurdity.
 		\item  \important{Proof by induction} \comment{(more on this later)}.
 		\item  Proof by construction.
@@ -413,6 +413,7 @@
 		\item  Probabilistic proof.
 		\item  Combinatorial proof.
 		\item  Nonconstructive proof.
+		% \item  \comment{Proof by intimidation. (Do NOT try this at your home!)}
 	\stopitemize
 \stopslide
 
@@ -503,6 +504,8 @@
 		\item  Are the integers closed with respect to multiplication/division?
 
 		\item  This gives rise to the set of rational numbers, \m{ℚ = \bcrl[\frac{p}{q} : p, q ∈ ℤ, q ≠ 0]}.
+
+		\item  And now we can forget about division since it is simply multiplication with the inverse of the number.
 
 		\item  Is that all we have?
 
@@ -620,7 +623,7 @@
 
 		\item  It can be shown that there are numbers that are not solutions of any algebraic equation. Such numbers are called \emph{transcendental} numbers. Example: \m{π}.
 
-		\item  All rational numbers are algebraic. But the converse is not true.
+		\item  All rational numbers are algebraic. But the converse is not true, e.g. \m{\sqrt{2}}.
 
 		\item  The set of all algebraic and transcendental numbers is called the set of \emph{real} numbers.
 
@@ -628,6 +631,30 @@
 
 		\item  Closure with respect to square roots of negative number gives us an even bigger set, called the \emph{complex} numbers.
 
+	\stopitemize
+\stopslide
+
+\startslide [title={Exercises}]
+	
+	\startitemize [m]
+
+		\item  Prove that there exist positive integers \m{n} and \m{m} such that \m{n^2 + m^2 = 100}.
+		
+		\item  Assume that we have a rectangular box of dimensions \m{l × b × h}.
+			\startitemize [a, joinedup]
+				\item  What is the length of the diagonal?
+				\item  By what factor must each factor be scaled so that the length of the diagonal is doubled?
+			\stopitemize
+
+		\item  Use the following formula for the sum of an infinite geometric series:
+			\startformula
+				a + a r + a r^2 + ⋯ = \frac{a}{1-r}, \qquad if \abs[r] < 1
+			\stopformula
+			\startitemize [a, joinedup]
+				\item  Represent the repeating decimal \m{0.2222⋯} as a ratio of two integers.
+				\item  Represent the repeating decimal \m{42.2888⋯} as a ratio of two integers.
+				\item  Prove that \m{0.9999⋯ = 1}.
+			\stopitemize
 	\stopitemize
 \stopslide
 
@@ -641,13 +668,148 @@
 
 \startmode [presentation]
 
+\startslide [title={Motivation}]
+	
+	Try to find expression for the following for an arbitrary natural number \m{n}.
+	\startitemize [m]
+		\item  \m{1 + 2 + 3 + ⋯ + n}
+		\item  \m{1 + 3 + 5 + ⋯ + (2n - 1)}
+	\stopitemize
+
+	I claim that \m{2^n > n} for every natural number \m{n}. Is it true? How can we prove it?
+\stopslide
+
 \startslide [title={Proving a fact for all natural numbers}]
-  
+	
+	\startitemize [m]
+
+		\item  Mathematical induction is a proof method of deductive reasoning.
+
+			\important{Do not confuse it with inductive reasoning.}
+		
+		\item  Principle of mathematical induction. Suppose \m{P(n)} is a statement about the natural number \m{n}. Assume that we can establish both of the following
+			\startitemize [n, joinedup]
+				\item  (\important{base case})  prove \m{P(1)} is true, and
+				\item  (\important{inductive step}) for an arbitrary natural number \m{k}, if \m{P(k)} is true, then \m{P(k + 1)} is also true.
+			\stopitemize
+			Then \m{P(n)} is true for all natural numbers \m{n}.
+	\stopitemize
+\stopslide
+
+\startslide [title={Proof of \m{2^n > n} using mathematical induction}]
+	
+	\startproposition
+		\m{2^n > n} for every natural number \m{n}. 
+	\stopproposition
+
+	\startproof
+		\comment{This is a proof by mathematical induction.}
+
+		Let \m{P(n) ≡ 2^n > n}.
+		
+		\bold{Base case}  \m{P(1) ≡ 2^1 > 1} is true.
+
+		\bold{Inductive step}  Suppose \m{P(k)} is true for some \m{k ∈ ℕ}. That is, suppose \m{2^k > k}.
+
+		We have to prove that \m{P(k + 1)} is true (\comment{using the supposition}).
+
+		From our supposition, multiplying both sides by 2, we get \m{2^{k + 1} > 2k}.
+
+		\comment{All we need to do now is to show that \m{2k > k + 1}.}
+
+		Since \m{k > 1}, \m{k + k > k + 1}. Therefore \m{2^{k + 1} > k + 1}.
+
+		We have shown that \m{P(k + 1)} is true. The concludes the inductive step.
+
+		By the principle of mathematical induction, \m{2^n > n} is true for every postive integer \m{n}.
+
+	\stopproof
+
+\stopslide
+
+\startslide [title={Exercises}]
+	
+	\startitemize [m]
+		
+		\item  Try to prove the motivating examples by mathematical induction.
+
+		\item  Simplify each of the following sums to express it as a simple fraction:
+			\startitemize [a, joinedup]
+				\item  \m{\frac{1}{1 ⋅ 2}}
+				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3}}
+				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4}}
+				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4} + ⋯ + \frac{1}{n (n + 1)}}
+			\stopitemize
+			Prove your result.
+
+		\item  Prove that the sum of the geometric series is given by the formula
+			\startformula
+				a + a r + a r^2 + ⋯ + a r^n = \frac{a (1 - r^{n + 1})}{1-r}.
+			\stopformula
+			
+	\stopitemize
 \stopslide
 
 \stopmode
 
 \stopsection
+
+
+
+\startsection [title={Divisibility}, reference=divisibility]
+
+\startmode [presentation]
+
+\startslide [title={Basics}]
+
+	\startdefinition [title={divisibility}]
+		Let \m{a, d ∈ ℤ}. We say that \m{d} divides \m{a} if there exists \m{q ∈ ℤ} such that \m{a = q d}.
+
+		We write \m{d ∣ a} and read it as \emph{\m{d} divides \m{a}}.
+	\stopdefinition
+	
+	Exercises
+	\startitemize [m]
+		
+		\item  Is it true that \m{13|52}?
+
+		\item  Is it true that \m{27|9}?
+
+		\item  Let \m{a} be an integer. Is the following true? Prove your claim.
+			\startitemize [a, joinedup]
+				\item  \m{a | a}
+				\item  \m{1 | a}
+				\item  \m{a | 0}
+			\stopitemize
+
+		\item  Let \m{a, b, c, d} be integers. Prove that if \m{a | b} and \m{c | d}, then \m{a c | b d}.
+
+		\item  (transitive property of \m{|})  Let \m{a, b, c} be integers. Prove that if \m{a | b} and \m{b | c}, then \m{a | c}.
+	\stopitemize
+\stopslide
+
+\startslide [title={Primes}]
+	
+	\startdefinition [title={prime, composite}]
+		Let \m{p ∈ ℕ, p > 1}. Then \m{p} is called \emph{prime} if its only positive factors are \m{1} and \m{p}.
+
+		A natural number \m{n > 1} is called composite if it is \emph{not} prime.
+	\stopdefinition
+
+	Exercises
+	\startitemize [m]
+		
+		\item  Let \m{p} and \m{q} be prime numbers. If \m{p | q}, then \m{p = q}.
+
+		\item  (Linear combination lemma)  Let \m{d, m, n, x, y ∈ ℤ}. If \m{d | x} and \m{d | y}, then \m{d | (m x + n y)}.
+	\stopitemize
+
+\stopslide
+
+\stopmode
+
+\stopsection
+
 
 \stopbodymatter
 
