@@ -10,38 +10,6 @@
 
 % This is the variables section. Ideally, these are the only modifications that should be made.
 
-% Version and mode
-\setvariables [document] [version=final]    % {final, concept, temporary}
-\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
-
-% Colors
-% https://coolors.co/app
-\setvariables [document] [color-link-external=royalblue]
-\setvariables [document] [color-link-internal=violetred]
-\setvariables [document] [color-background-0=white]
-\setvariables [document] [color-background-1=mistyrose]
-\setvariables [document] [color-background-2=whitesmoke]
-\setvariables [document] [color-foreground-0=deepskyblue4]
-\setvariables [document] [color-foreground-1=firebrick4]
-\setvariables [document] [color-foreground-2=darkslategray]
-
-% Fonts
-% Options: palatino, xitsbidi, euler
-\setvariables [document] [font=palatino]
-\setvariables [document] [fontsize-presentation=38pt]
-\setvariables [document] [fontsize-document=12pt]
-
-% Information
-\setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
-\setvariables [document] [subtitle={General examination presentation}]
-\setvariables [document] [author={Sudip Sinha}]
-\setvariables [document] [date={2019-04-05}]
-\setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
-
-% Logo
-\setvariables [document] [logo=MC_Logo_Symbol_672x668.png]
-
-
 \startenvironment presentation
 
 
@@ -87,10 +55,12 @@
 
 
 % Bibliography (https://www.contextgarden.net/Bibliography_mkiv)
-\usebtxdataset[../bib.bib]
-\usebtxdataset[../Itô.bib]
-\usebtxdataset[../Kuo-integral.bib]
-\usebtxdataset[../large-deviations.bib]
+\usebtxdataset[../bibliographies/default.bib]
+\usebtxdataset[../bibliographies/number-theory.bib]
+\usebtxdataset[../bibliographies/combinatorics.bib]
+\usebtxdataset[../bibliographies/Itô.bib]
+\usebtxdataset[../bibliographies/Kuo-integral.bib]
+\usebtxdataset[../bibliographies/large-deviations.bib]
 \usebtxdefinitions[apa]    % apa or aps
 % Use \cite[short][#key] to get XXX19 type citations
 

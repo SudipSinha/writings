@@ -1,11 +1,37 @@
+% Version and mode
+\setvariables [document] [version=final]    % {final, concept, temporary}
+\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
+
+% Colors
+% https://coolors.co/app
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+\setvariables [document] [color-background-0=white]
+\setvariables [document] [color-background-1=mistyrose]
+\setvariables [document] [color-background-2=whitesmoke]
+\setvariables [document] [color-foreground-0=deepskyblue4]
+\setvariables [document] [color-foreground-1=firebrick4]
+\setvariables [document] [color-foreground-2=darkslategray]
+
+% Fonts
+% Options: palatino, xitsbidi, euler
+\setvariables [document] [font=palatino]
+\setvariables [document] [fontsize-presentation=38pt]
+\setvariables [document] [fontsize-document=12pt]
+
+% Information
+\setvariables [document] [title={Number Theory notes}]
+\setvariables [document] [subtitle={Math Circle @ QTM in Emory University}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={2019-07-27}]
+\setvariables [document] [keyword={mathematics, number theory, notes}]
+
+% Logo
+\setvariables [document] [logo=MC_Logo_Symbol_672x668.png]
+
+
+% Environment
 \environment env-talks
-
-% lsu-math-301d
-% Hilbert space er orthonormal basis
-% Vector spacer basis
-% Hermite polynomial
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is where the document starts.
@@ -188,7 +214,7 @@
 \startslide[title={Inductive vs deductive reasoning}]
 
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|l|l|l|]
+	\starttabulate [∣l∣l∣l∣]
 		\FL
 		\NC  Criteria  \VL  Inductive reasoning  \VL  Deductive reasoning  \NR
 		\FL
@@ -277,7 +303,7 @@
 	\stopitemize
 
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|c|c|c|c|c|c|c|]
+	\starttabulate [∣c∣c∣c∣c∣c∣c∣c∣]
 		\FL
 		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (P ↔ Q)  \NR
 		\FL
@@ -294,7 +320,7 @@
 \startslide [title={Truth tables}]
 	
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|c|c|c|c|c|c|c|c|]
+	\starttabulate [∣c∣c∣c∣c∣c∣c∣c∣c∣]
 		\FL
 		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (¬ Q)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  ((¬ Q) → (¬ P))  \NR
 		\FL
@@ -307,7 +333,7 @@
 	}
 
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [|c|c|c|c|c|c|]
+	\starttabulate [∣c∣c∣c∣c∣c∣c∣]
 		\FL
 		\NC  P  \NC  Q  \VL  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
 		\FL
@@ -643,12 +669,12 @@
 		\item  Assume that we have a rectangular box of dimensions \m{l × b × h}.
 			\startitemize [a, joinedup]
 				\item  What is the length of the diagonal?
-				\item  By what factor must each factor be scaled so that the length of the diagonal is doubled?
+				\item  By what factor must each side be scaled so that the length of the diagonal is doubled?
 			\stopitemize
 
 		\item  Use the following formula for the sum of an infinite geometric series:
 			\startformula
-				a + a r + a r^2 + ⋯ = \frac{a}{1-r}, \qquad if \abs[r] < 1
+				a + a r + a r^2 + ⋯ = \frac{a}{1-r} \quad, \qquad if \abs[r] < 1
 			\stopformula
 			\startitemize [a, joinedup]
 				\item  Represent the repeating decimal \m{0.2222⋯} as a ratio of two integers.
@@ -715,9 +741,9 @@
 
 		From our supposition, multiplying both sides by 2, we get \m{2^{k + 1} > 2k}.
 
-		\comment{All we need to do now is to show that \m{2k > k + 1}.}
+		\comment{All we need to do now is to show that \m{2k ≥ k + 1}.}
 
-		Since \m{k > 1}, \m{k + k > k + 1}. Therefore \m{2^{k + 1} > k + 1}.
+		Since \m{k ≥ 1}, \m{k + k ≥pp k + 1}. Therefore \m{2^{k + 1} > k + 1}.
 
 		We have shown that \m{P(k + 1)} is true. The concludes the inductive step.
 
@@ -733,7 +759,7 @@
 		
 		\item  Try to prove the motivating examples by mathematical induction.
 
-		\item  Simplify each of the following sums to express it as a simple fraction:
+		\item  (telescoping series)  Simplify each of the following sums to express it as a simple fraction:
 			\startitemize [a, joinedup]
 				\item  \m{\frac{1}{1 ⋅ 2}}
 				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3}}
@@ -756,53 +782,168 @@
 
 
 
+% \startsection [title={Probability}, reference=probability]
+
+% \startmode [presentation]
+
+% \startslide [title={Basics}]
+
+% 	\startitemize [m]
+		
+% 		\item  The sample space \m{S} is an enumeration of all possibilities.
+
+% 		\item  To each outcome in the sample space, we assign a probability.
+
+% 			If all the events are equally likely, the probability is \m{\frac{1}{\abs[S]}}.
+
+% 		\item  Expectation is the \emph{probability-weighted average} of the quantity we are interested in.
+
+% 		\item  Exercise: A game consists of tossing an unfair coins twice. The tails side weighs twice the heads side.
+% 			The payoffs are as in the following table
+% 			\starttabulate [∣c∣r∣]
+% 				\FL
+% 				\NC  Outcome  \NC  Payoff (USD)  \NR
+% 				\FL
+% 				\NC  (H, H)  \NC  27  \NR
+% 				\NC  (H, T)  \NC   9  \NR
+% 				\NC  (T, H)  \NC   0  \NR
+% 				\NC  (T, T)  \NC  -9  \NR
+% 				\BL
+% 			\stoptabulate
+% 			Draw a \emph{tree diagram} to represent the process and calculate the \emph{expected payoff} for the player.
+
+% 	\stopitemize
+% \stopslide
+
+% \startslide [title={Exercises}]
+	
+% 	\startitemize [m]
+		
+% 		\item  An experiment consist of tossing a fair coin three times. The number of heads is represented by \m{X}. What is the expectation of \m{X}?
+
+% 		\item  A new test for tuberculosis (TB) has been developed by MathCircle Pharma. A certain Mr. Sinha is wondering if he should get tested (his doctor feels that he has TB). Mr. Sinha cares only about money and wants to decide if he should get tested.
+
+% 		TB is relatively rare these days, so let’s say only 1\% of the population has the disease.  Also, the test for the disease is 99\% accurate. This means that if you have TB, there is a 99\% probability you will have a positive test, and if you do not have TB then there is a 99\% probability you will have a negative test.
+
+% 		\startitemize [a, joinedup]
+% 			\item  If he has TB and the test is positive, he will have to shell out 5000 USD for treatment.
+% 			\item  If he has TB and the test is negative, he will sue MathCircle Pharma for 100000 USD for misleading results.
+% 			\item  If he does not have TB and the test is positive, he will sue MathCircle Pharma for 10000 USD for misleading results.
+% 			\item  If he does not have TB and the test is negative, he will have to pay 100 USD to his doctor.
+% 		\stopitemize
+
+% 	\stopitemize
+
+% \stopslide
+
+% \stopmode
+
+% \stopsection
+
+
+
 \startsection [title={Divisibility}, reference=divisibility]
 
 \startmode [presentation]
 
-\startslide [title={Basics}]
+\startslide [title={Divisibility}]
 
-	\startdefinition [title={divisibility}]
-		Let \m{a, d ∈ ℤ}. We say that \m{d} divides \m{a} if there exists \m{q ∈ ℤ} such that \m{a = q d}.
+	\startdefinition
+		Let \m{a, d ∈ ℤ}. We say that \important{\m{d} divides \m{a}} if there exists \m{q ∈ ℤ} such that \m{a = q d}.
 
-		We write \m{d ∣ a} and read it as \emph{\m{d} divides \m{a}}.
+		We write this as \important{\m{d ∣ a}}. If \m{d} does not divide \m{a}, we write \important{\m{d ∤ a}}.
+		
+		All integers that divide \m{a ∈ ℤ} are called \important{factor}s of \m{a}.
 	\stopdefinition
 	
 	Exercises
 	\startitemize [m]
 		
-		\item  Is it true that \m{13|52}?
-
-		\item  Is it true that \m{27|9}?
-
-		\item  Let \m{a} be an integer. Is the following true? Prove your claim.
-			\startitemize [a, joinedup]
-				\item  \m{a | a}
-				\item  \m{1 | a}
-				\item  \m{a | 0}
+		\item  Which of the following is/are true? Give reasons.
+			\startitemize[a, columns, three, joinedup]
+				\item  \m{13 ∣ 52}
+				\item  \m{27 ∣ 9}
+				\item  \m{-3 ∣ 9}
 			\stopitemize
 
-		\item  Let \m{a, b, c, d} be integers. Prove that if \m{a | b} and \m{c | d}, then \m{a c | b d}.
+		\item  Let \m{a} be an integer. Is the following true? Prove your claim.
+			\startitemize [a, columns, three, joinedup]
+				\item  \m{a ∣ a}
+				\item  \m{1 ∣ a}
+				\item  \m{a ∣ 0}
+			\stopitemize
 
-		\item  (transitive property of \m{|})  Let \m{a, b, c} be integers. Prove that if \m{a | b} and \m{b | c}, then \m{a | c}.
+		\item  (Properties of \m{∣})  Let \m{a, b, c, d, m, n, ∈ ℤ}. Check if the following are true. Prove your claim.
+			\startitemize[a, columns, joinedup]
+				\item  \important{If \m{a ∣ b} and \m{a ∣ (b + c)}, then \m{a ∣ c}.}
+				\item  If \m{a ∣ b} and \m{c ∣ d}, then \m{a c ∣ b d}.
+				\item  If \m{a ∣ b c}, then \m{a ∣ b} or \m{a ∣ c}.
+				\item  If \m{a ∣ b^2}, then \m{a ∣ b}.
+				\item  \important{(Transitivity)  If \m{a ∣ b} and \m{b ∣ c}, then \m{a ∣ c}.}
+				\item  \important{(Linear combination)  If \m{d ∣ a} and \m{d ∣ b}, then \m{d ∣ (m a + n b)}.}
+			\stopitemize
 	\stopitemize
 \stopslide
 
 \startslide [title={Primes}]
 	
-	\startdefinition [title={prime, composite}]
-		Let \m{p ∈ ℕ, p > 1}. Then \m{p} is called \emph{prime} if its only positive factors are \m{1} and \m{p}.
+	\startdefinition
+		Let \m{p ∈ ℕ, p > 1}. Then \m{p} is called \important{prime} if its only positive factors are \m{1} and \m{p}.
 
-		A natural number \m{n > 1} is called composite if it is \emph{not} prime.
+		A natural number \m{n > 1} is called \important{composite} if it is \emph{not} prime.
 	\stopdefinition
+
+	\starttheorem [title={prime factorization}]
+		Let \m{n > 1} be a natural number. Then \m{n} can be written as a product of one or more prime numbers.
+	\stoptheorem
 
 	Exercises
 	\startitemize [m]
 		
-		\item  Let \m{p} and \m{q} be prime numbers. If \m{p | q}, then \m{p = q}.
+		% \item  Let \m{p} and \m{q} be prime numbers. If \m{p ∣ q}, then \m{p = q}.
 
-		\item  (Linear combination lemma)  Let \m{d, m, n, x, y ∈ ℤ}. If \m{d | x} and \m{d | y}, then \m{d | (m x + n y)}.
+		\item  \emph{Consecutive} integers are integers that differ by 1, such as 17 and 18.
+
+			\startitemize [a, joinedup]
+				\item  Find a pair of consecutive integers that are both prime. How many such pairs are there?
+				\item  Find a pair of consecutive integers that are both composite. How many such pairs are there?
+			\stopitemize
+		
+		\item  Prove that for all \m{n ∈ ℕ}, \m{n^3 + 1} is \emph{not} prime.
+
+		\item  Prove that every integer greater than 11 can be written as the sum of two composite numbers.
+
+		\item  Given \m{f(n) = n^2 + n + 41}. Show that \m{f(40)} and \m{f(41)} are both composite.
 	\stopitemize
+\stopslide
+
+\startslide [title={Counting primes}]
+	
+	\starttheorem [title={Euclid, ∼ 300 \sc{bc}}]
+		There are infinitely many primes.
+	\stoptheorem
+
+	\startproof
+		Suppose that \m{ℙ = \bcrl[p_1, p_2, ⋯, p_n]} is a set of primes for some \m{n ∈ ℕ}.
+
+		Let \m{m = p_1 ⋅ p_2 ⋅ p_3 ⋅ ⋯ ⋅ p_n} and \m{q = m + 1}. Now, \m{q} is either a prime or it is not.
+
+		If it is a prime, we have one more prime than our original set.
+
+		If it is not a prime, it must be divisible by some prime \m{p}. If \m{p ∈ ℙ}, then it would divide both \m{m} and \m{m + 1}. Therefore it would divide the difference, that is, \m{p ∣ 1}, which is impossible. Therefore \m{p ∉ ℙ}.
+
+		Therefore a new prime can always be found to any given (finite) set of primes.
+	\stopproof
+
+	\startremark
+		It is a common misconception that \m{q} is prime. For example, let \m{p_1 = 3} and \m{p_2 = 5}. Then \m{p_1 ⋅ p_2 + 1 = 16}, which is composite.
+
+		Even if one considers \m{n} smallest primes, it is not true. For example, \m{2 ⋅ 3 ⋅ 5 ⋅ 7 ⋅ 11 ⋅ 13 + 1 = 30031 = 59 ⋅ 509}.
+	\stopremark
+
+	\startremark
+		This is not a proof by contradiction. For more details, see \cite{HardyWoodgold2009}.
+	\stopremark
 
 \stopslide
 
@@ -826,28 +967,28 @@
 
 \startmode [presentation]
 
-\startslide [title={Laplace principle and equivalence to LDP}]
+% \startslide [title={Laplace principle and equivalence to LDP}]
 
-	\startdefinition [title={Laplace principle}]
-		\m{(X_n)} is said to satisfy the \important{Laplace principle on \m{𝓧} with rate function \m{I}} if for all bounded continuous functions \m{h}, we have
-		\startformula
-			\lim  \frac1n \log 𝔼\exp(-n h(X_n))  =  \inf_𝓧 (h + I)
-		\stopformula
-	\stopdefinition
+% 	\startdefinition [title={Laplace principle}]
+% 		\m{(X_n)} is said to satisfy the \important{Laplace principle on \m{𝓧} with rate function \m{I}} if for all bounded continuous functions \m{h}, we have
+% 		\startformula
+% 			\lim  \frac1n \log 𝔼\exp(-n h(X_n))  =  \inf_𝓧 (h + I)
+% 		\stopformula
+% 	\stopdefinition
 
-	\starttheorem
-		\m{(X_n)} satisfies LP on \m{𝓧} with rate function \m{I} if and only if \m{(X_n)} satisfies LDP on \m{𝓧} with the same rate function \m{I}.
-	\stoptheorem
+% 	\starttheorem
+% 		\m{(X_n)} satisfies LP on \m{𝓧} with rate function \m{I} if and only if \m{(X_n)} satisfies LDP on \m{𝓧} with the same rate function \m{I}.
+% 	\stoptheorem
 
-	\bold{Some important results}
-	\startitemize [5, nowhite]
-		\item  Uniqueness of the rate function.
-		\item  Continuity principle.
-			% Let \m{f:𝓧 → 𝓨} be a continuous map of Polish spaces. Then \m{(f(X_n))} satisfies Laplace principle with rate function \m{J(y) = \inf \bcrl[I(x): x ∈ {\inv[f]}(y)]}.
-		\item  Superexponential approximation preserves Laplace principle.
-		  % If \m{(Y_n)} is superexponentially close to \m{(X_n)}, then \m{(Y_n)} satisfies Laplace principle with the same rate function \m{I}.
-	\stopitemize
-\stopslide
+% 	\bold{Some important results}
+% 	\startitemize [5, nowhite]
+% 		\item  Uniqueness of the rate function.
+% 		\item  Continuity principle.
+% 			% Let \m{f:𝓧 → 𝓨} be a continuous map of Polish spaces. Then \m{(f(X_n))} satisfies Laplace principle with rate function \m{J(y) = \inf \bcrl[I(x): x ∈ {\inv[f]}(y)]}.
+% 		\item  Superexponential approximation preserves Laplace principle.
+% 		  % If \m{(Y_n)} is superexponentially close to \m{(X_n)}, then \m{(Y_n)} satisfies Laplace principle with the same rate function \m{I}.
+% 	\stopitemize
+% \stopslide
 
 % \startslide[title={An application of Schilder theorem}]
 
