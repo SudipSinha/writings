@@ -12,6 +12,7 @@
 \setvariables [document] [color-foreground-0=deepskyblue4]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
+\setvariables [document] [color-solution=ivory]    % Change to pink to see
 
 % Fonts
 % Options: palatino, xitsbidi, euler
@@ -213,7 +214,7 @@
 
 \startslide[title={Inductive vs deductive reasoning}]
 
-	\placetable[force,none]{}{%    % This centers the table
+	\placetable[force, none]{}{%    % This centers the table
 	\starttabulate [∣l∣l∣l∣]
 		\FL
 		\NC  Criteria  \VL  Inductive reasoning  \VL  Deductive reasoning  \NR
@@ -618,7 +619,7 @@
 
 \startslide [title={Rationality of \m{\sqrt2}}]
 	
-	\starttheorem
+	\starttheorem [title={Euclid}]
 		\m{\sqrt2} is not rational.
 	\stoptheorem
 
@@ -660,26 +661,55 @@
 	\stopitemize
 \stopslide
 
+\startslide [title={Geometric series}]
+	
+	\startproposition [title={Finite geometric series}]
+		The sum of the finite geometric series is given by the formula
+		\startformula
+			1 + r + r^2 + ⋯ + r^{n - 1} = \frac{1 - r^n}{1 - r}.
+		\stopformula
+	\stopproposition
+		
+	\startproof
+		\startformula \startalign[n=4, align={left, right, right, left}]
+			\NC  \text{Let }          \NC          S  = \NC  1 +  \NC  r + r^2 + ⋯ + r^{n - 1} ,  \NR
+			\NC  \text{so }           \NC         rS  = \NC       \NC  r + r^2 + ⋯ + r^{n - 1}  +  r^n . \NR
+			\NC  \text{Subtracting},  \NC  (1 - r) S  = \NC  1 - r^n .
+		\stopalign \stopformula
+	\stopproof
+
+	\startproposition [title={Infinite geometric series}]
+		For \m{\abs[r] < 1}, the sum of the infinite geometric series is given
+		\startformula
+			1 + r + r^2 + ⋯  = \frac{1}{1 - r}.
+		\stopformula
+	\stopproposition
+\stopslide
+
 \startslide [title={Exercises}]
 	
 	\startitemize [m]
 
 		\item  Prove that there exist positive integers \m{n} and \m{m} such that \m{n^2 + m^2 = 100}.
+			\soln{Hint: \m{3^2 + 4^2 = 5^2}.}
 		
 		\item  Assume that we have a rectangular box of dimensions \m{l × b × h}.
 			\startitemize [a, joinedup]
 				\item  What is the length of the diagonal?
+					\soln{\m{\sqrt{l^2 + b^2 + h^2}}.}
 				\item  By what factor must each side be scaled so that the length of the diagonal is doubled?
+					\soln{\m{2}.}
 			\stopitemize
 
-		\item  Use the following formula for the sum of an infinite geometric series:
-			\startformula
-				a + a r + a r^2 + ⋯ = \frac{a}{1-r} \quad, \qquad if \abs[r] < 1
-			\stopformula
+		\item  Represent the repeating decimals as rational numbers.
 			\startitemize [a, joinedup]
-				\item  Represent the repeating decimal \m{0.2222⋯} as a ratio of two integers.
-				\item  Represent the repeating decimal \m{42.2888⋯} as a ratio of two integers.
-				\item  Prove that \m{0.9999⋯ = 1}.
+				\item  \m{0.2222⋯}
+				\item  \m{42.2888⋯}
+				\item  \m{0.9999⋯}
+
+					\soln{Method 1: \m{n = 0.9 + 0.09 + 0.009 + ⋯ = 0.9(1 + 10^{-1} + 10^{-2} + ⋯) = 0.9 ⋅ \frac{1}{1 - 0.1} = 1}.}
+
+					\soln{Method 2: Let \m{n = 0.9999⋯}. Then \m{10 n = 9.9999⋯}. Subtracting, \m{9 n = 9}, so \m{n = 1}.}
 			\stopitemize
 	\stopitemize
 \stopslide
@@ -751,29 +781,33 @@
 
 	\stopproof
 
+	\startexercise
+		Try to prove the motivating examples by mathematical induction.
+	\stopexercise
+
 \stopslide
 
-\startslide [title={Exercises}]
+\startslide [title={Telescoping series}]
 	
-	\startitemize [m]
-		
-		\item  Try to prove the motivating examples by mathematical induction.
+	\startexercise
+		Simplify each of the following sums to express it as a simple fraction:
+		\startitemize [i, joinedup]
+			\item  \m{\frac{1}{1 ⋅ 2} \soln{= \frac12}}
+			\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} \soln{= \frac23}}
+			\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4} \soln{= \frac34}}
+			\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4} + ⋯ + \frac{1}{n (n + 1)} \soln{= \frac{n}{n + 1}}}
+		\stopitemize
+		Prove your result.
+	\stopexercise
 
-		\item  (telescoping series)  Simplify each of the following sums to express it as a simple fraction:
-			\startitemize [a, joinedup]
-				\item  \m{\frac{1}{1 ⋅ 2}}
-				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3}}
-				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4}}
-				\item  \m{\frac{1}{1 ⋅ 2} + \frac{1}{2 ⋅ 3} + \frac{1}{3 ⋅ 4} + ⋯ + \frac{1}{n (n + 1)}}
-			\stopitemize
-			Prove your result.
-
-		\item  Prove that the sum of the geometric series is given by the formula
-			\startformula
-				a + a r + a r^2 + ⋯ + a r^n = \frac{a (1 - r^{n + 1})}{1-r}.
-			\stopformula
-			
-	\stopitemize
+	\startsolution
+		\startformula \startalign[n=7]
+			\NC  S  \NC  =  \NC  \frac{1}{1 ⋅ 2}  \NC  + \frac{1}{2 ⋅ 3}  \NC  + \frac{1}{3 ⋅ 4}  \NC  + ⋯  \NC  + \frac{1}{n (n + 1)}  \NR
+			\NC    \NC  =  \NC  \frac{2 - 1}{1 ⋅ 2}  \NC  + \frac{3 - 2}{2 ⋅ 3}  \NC  + \frac{4 - 3}{3 ⋅ 4}  \NC  + ⋯  \NC  + \frac{(n + 1) - n}{n (n + 1)}  \NR
+			\NC    \NC  =  \NC  \brnd[\frac11 - \frac12]  \NC  + \brnd[\frac12 - \frac13]  \NC  + \brnd[\frac13 - \frac14]  \NC  + ⋯  \NC  + \brnd[\frac1n - \frac{1}{n+1}]  \NR
+			\NC    \NC  =  \NC  1  -  \frac{1}{n+1}  \NC  =  \frac{n}{n + 1}
+		\stopalign \stopformula
+	\stopsolution
 \stopslide
 
 \stopmode
@@ -860,28 +894,53 @@
 	\startitemize [m]
 		
 		\item  Which of the following is/are true? Give reasons.
-			\startitemize[a, columns, three, joinedup]
-				\item  \m{13 ∣ 52}
-				\item  \m{27 ∣ 9}
-				\item  \m{-3 ∣ 9}
+			\startitemize[i, columns, three, joinedup]
+				\item  \m{13 ∣ 52}.  \soln{T (\m{52 = 4 ⋅ 13}).}
+				\item  \m{27 ∣ 9}.  \soln{F (\m{9 < 27}).}
+				\item  \m{-3 ∣ 9}.  \soln{T (\m{9 = (-3) ⋅ (-3)}).}
 			\stopitemize
 
 		\item  Let \m{a} be an integer. Is the following true? Prove your claim.
-			\startitemize [a, columns, three, joinedup]
-				\item  \m{a ∣ a}
-				\item  \m{1 ∣ a}
-				\item  \m{a ∣ 0}
+			\startitemize [i, columns, three, joinedup]
+				\item  \m{a ∣ a}.  \soln{T (\m{a = 1 ⋅ a}).}
+				\item  \m{1 ∣ a}.  \soln{T (\m{a = a ⋅ 1}).}
+				\item  \m{a ∣ 0}.  \soln{T (\m{0 = 0 ⋅ a}).}
 			\stopitemize
+	\stopitemize
+\stopslide
 
-		\item  (Properties of \m{∣})  Let \m{a, b, c, d, m, n, ∈ ℤ}. Check if the following are true. Prove your claim.
-			\startitemize[a, columns, joinedup]
-				\item  \important{If \m{a ∣ b} and \m{a ∣ (b + c)}, then \m{a ∣ c}.}
-				\item  If \m{a ∣ b} and \m{c ∣ d}, then \m{a c ∣ b d}.
-				\item  If \m{a ∣ b c}, then \m{a ∣ b} or \m{a ∣ c}.
-				\item  If \m{a ∣ b^2}, then \m{a ∣ b}.
-				\item  \important{(Transitivity)  If \m{a ∣ b} and \m{b ∣ c}, then \m{a ∣ c}.}
-				\item  \important{(Linear combination)  If \m{d ∣ a} and \m{d ∣ b}, then \m{d ∣ (m a + n b)}.}
-			\stopitemize
+\startslide [title={Properties of \m{∣}}]
+	Let \m{a, b, c, d, m, n, ∈ ℤ}. Check if the following are true. Prove your claim.
+	\startitemize[m, joinedup]
+		
+		\item  If \m{a ∣ b} and \m{a ∣ (b + c)}, then \m{a ∣ c}.
+			
+			\soln{T (\m{b = q_1 a} and \m{b + c = q_2 a}, so \m{c = (q_2 - q_1) a}).}
+		
+		\item  If \m{a ∣ b} and \m{c ∣ d}, then \m{a c ∣ b d}.
+			
+			\soln{T (\m{b = q_1 a} and \m{d = q_2 c}, so \m{b d = (q_1 q_2) (a b)}).}
+		
+		\item  If \m{a ∣ c} and \m{b ∣ c}, then \m{a b ∣ c}.
+			
+			\soln{F (\m{a = 2, b = 6, c = 6}).}
+		
+		\item  If \m{a ∣ b c}, then \m{a ∣ b} or \m{a ∣ c}.
+			
+			\soln{F (\m{a = 6, b = 3, c = 2}).}
+		
+		\item  If \m{a ∣ b^2}, then \m{a ∣ b}.
+			
+			\soln{F (\m{a = 4, b = 2}).}
+		
+		\item  (Transitivity)  If \m{a ∣ b} and \m{b ∣ c}, then \m{a ∣ c}.
+			
+			\soln{T (\m{b = q_1 a} and \m{c = q_2 b}, so \m{c = (q_2 q_1) a}).}
+		
+		\item  (Linear combination)  If \m{d ∣ a} and \m{d ∣ b}, then \m{d ∣ (m a + n b)}.
+
+			\soln{T (\m{a = q_1 d} and \m{b = q_2 d}, so \m{m a + n b = (m q_1 + n q_2) d}).}
+	
 	\stopitemize
 \stopslide
 
@@ -911,9 +970,7 @@
 		
 		\item  Prove that for all \m{n ∈ ℕ}, \m{n^3 + 1} is \emph{not} prime.
 
-		\item  Prove that every integer greater than 11 can be written as the sum of two composite numbers.
-
-		\item  Given \m{f(n) = n^2 + n + 41}. Show that \m{f(40)} and \m{f(41)} are both composite.
+		\item  Prove that every integer greater than \m{11} can be written as the sum of two composite numbers.
 	\stopitemize
 \stopslide
 
@@ -935,6 +992,10 @@
 		Therefore a new prime can always be found to any given (finite) set of primes.
 	\stopproof
 
+	\startcorollary
+		Any two consecutive integers are coprime.
+	\stopcorollary
+
 	\startremark
 		It is a common misconception that \m{q} is prime. For example, let \m{p_1 = 3} and \m{p_2 = 5}. Then \m{p_1 ⋅ p_2 + 1 = 16}, which is composite.
 
@@ -947,9 +1008,215 @@
 
 \stopslide
 
+\startslide [title={Exercises}]
+	
+	\startitemize [m]
+		
+		\item  Let \m{n} be a natural number. Prove that every factor of \m{n! + 1} other than \m{1} is strictly greater than \m{n}.
+
+		\item  Let \m{n > 2}. Prove that there exists a prime p such that \m{n < p < n!}.
+
+		\item  Find a million consecutive composite numbers. Explain your reasoning.
+
+			\comment{Think about \m{1000001! + j}, where \m{j = 2, 3, ⋯, 1000002}.}
+	
+	\stopitemize
+\stopslide
+
+\startslide [title={The prime number theorem}]
+	
+	\startdefinition
+		For every natural number \m{n}, define \m{π(n)} to be the number of primes less than or equal to \m{n}.
+	\stopdefinition
+
+	\startexample
+		\m{π(7) = 4}, because there are 4 primes less than or equal to \m{7}, namely \m{2, 3, 5, 7}.
+	\stopexample
+	
+	\starttheorem
+		\m{π(n) → \frac{n}{\log(n)}} as \m{n → ∞}.
+
+		\comment{Here \m{\log} is the natural logarithm function.}
+	\stoptheorem
+
+	\startremark
+		The prime number theorem tell us how the primes are distributed on a grand scale, but it does not tell us precisely which numbers will be prime and which will not.
+	\stopremark
+\stopslide
+
+\startslide [title={Landau's problems, 1912}]
+	
+	\startitemize [m]
+		
+		\item  \important{Goldbach's conjecture} states that every even integer greater than 2 can be expressed as the sum of two primes.
+
+		\item  A \emph{twin prime} is a prime number that is either 2 less or 2 more than another prime number — for example, either member of the \emph{twin prime pair} (41, 43). The \important{twin prime conjecture} states that there are infinitely many primes \m{p} such that \m{p + 2} is also prime.
+
+		\item  \important{Legendre's conjecture} states that there is a prime number between \m{n^2} and \m{(n + 1)^2} for every natural number \m{n}.
+
+		\item  The \important{near-square primes conjecture} states that there are infinitely many primes of the form \m{n^2 + 1}.		
+	\stopitemize  
+\stopslide
+
+\startslide [title={More conjectures}]
+	
+	\startitemize [m]
+		\item  A \emph{Mersenne prime} is a prime of the form \m{2^n − 1}, e.g. 
+			\startitemize[i, joinedup]
+				\item  Show that if \m{2^n - 1} is prime, then \m{n} has to be prime.
+				\item  Give a counterexample to show that the converse is not true.
+			\stopitemize
+			The \important{Mersenne prime conjecture} states that there are infinitely many Mersenne primes.
+
+		\item  A \emph{perfect number} is a positive integer that is equal to the sum of its proper positive divisors, e.g. 6, 28, 496. There are two questions.
+			\startitemize [i, joinedup]
+				\item  Are there infinitely many perfect numbers?
+				\item  Are there any odd perfect numbers?
+			\stopitemize
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Generating primes — some attempts}]
+	
+	\startitemize [m]
+		
+		\item  Trying to find a function.
+			\startitemize [i, joinedup]
+
+				\item  Fermat numbers: \m{F(n) = 2^{2^n} + 1}.
+
+					Euler showed that \m{F(5)} is composite after a century.
+
+				\item  Euler: \m{f(n) = n^2 + n + 41}.
+
+					Show that \m{f(40)} and \m{f(41)} are both composite.
+			\stopitemize
+
+		\item  Trying to find a sequence which gives infinitely many primes.
+			\startitemize [i, joinedup]
+				
+				\item  \important{Near-square prime conjecture}: \m{g(n) = n^2 + 1}
+
+				\item  \important{Dirichlet prime number theorem}:  The sequence given by \m{D(n) = a n + b} has infinitely many prime numbers if \m{a} and \m{b} are coprime.
+			\stopitemize
+	\stopitemize
+\stopslide
+
+\startslide [title={Status of research for primes}]
+	
+	\startitemize[m]
+		\item  Identifying primes: solved — AKS primality test \cite{AgrawalKayalSaxena2004}
+		\item  Constructing primes: open
+		\item  Fast factorization: open
+		\item  Twin primes: substantial progress by Yitang Zhang in 2013, as well as by James Maynard, Terence Tao
+	\stopitemize
+\stopslide
+
+\startslide [title={GCD and LCM}]
+
+	\startdefinition
+		Let \m{a, b ∈ ℤ, a ≠ 0 ≠ b}. The \important{greatest common divisor} (gcd) of \m{a} and \m{b} is the largest \m{d ∈ ℕ} for which \m{d ∣ a} and \m{d ∣ b}. We write \m{d = \gcd(a, b)}.
+
+		Numbers whose gcd is 1 are called \important{coprime}.
+	\stopdefinition
+	
+	Exercises	
+	\startitemize [m]
+		
+		\item  Calculate the gcd and lcm of the following sets of numbers:
+			\startitemize [i, columns, joinedup]
+				\item  \m{\bcrl[1331, 2431]}
+				\item  \m{\bcrl[-60, 207]}
+				\item  \m{\bcrl[15, 20, 48]}
+				\item  \m{\bcrl[2^2 ⋅ 3^2 ⋅ 5^2, \ 5^3 ⋅ 11 ⋅ 17^2, \ 2 ⋅ 5^2 ⋅ 17]}
+			\stopitemize
+
+		\item  Let n > 1 be an integer. Calculate the gcd and lcm of the following sets of numbers:
+			\startitemize [i, columns, joinedup]
+				\item  \m{\bcrl[n, 3 n]}.
+				\item  \m{\bcrl[n, n + 1]}.
+				\item  \m{\bcrl[n^2 - 1, n + 1]}
+				\item  \m{\bcrl[n - 1, n + 1]} for \m{n} even.
+				\item  \m{\bcrl[n - 1, n + 1]} for \m{n} odd.
+			\stopitemize
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Exercises}]
+
+	\startitemize [m]
+		
+		\item  Let \m{x, y ∈ ℤ} and let \m{a ∈ ℕ}. Prove that \m{\gcd(ax, ay) = a · \gcd(x, y)}.
+
+		\item  Consider the following numbers of the form \m{p^2 - 1}, where \m{p} is prime.
+
+			For example, \m{5^2 - 1 = 24, 7^2 - 1 = 48, 11^2 - 1 = 120}.
+
+			Each of these numbers is divisible by \m{12}.
+
+			Prove or provide a counterexample to the following statement:
+
+			If \m{p > 3} is prime, then \m{12 ∣ (p^2 − 1)}.
+
+		\item  You have to fill a room of size \m{175 × 65} with square tiles. What is the largest size of tiles you can use?
+
+		\item  You have tiles of size \m{4 × 6}. What is the smallest square room you can fill with these tiles?
+
+	\stopitemize
+\stopslide
+
+\startslide [title={The Euclidean algorithm}]
+
+\stopslide
+
 \stopmode
 
 \stopsection
+
+
+
+\startsection [title={Linear Diophantine equations}, reference=sec:linear-diophantine-eqns]
+
+\startmode [presentation]
+
+\startslide [title={Linear Diophantine equations}]
+
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+\startsection [title={Modular arithmetic}, reference=sec:modular-arithmetic]
+
+\startmode [presentation]
+
+\startslide [title={Modular arithmetic}]
+
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+\startsection [title={Modular number systems}, reference=sec:modular-number-systems]
+
+\startmode [presentation]
+
+\startslide [title={Modular number systems: \m{ℤ_n}}]
+  
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
 
 
 \stopbodymatter
