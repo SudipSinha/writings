@@ -1,23 +1,24 @@
+#  Summary
+
 ##  About me
 
 I am a graduate student in the Department of Mathematics at Louisiana State University.
 
-
-##  Philosophy
+<!-- ##  Philosophy
 
 None
-
+ -->
 
 ##  Contact me
 
-*  :e-mail: \<firstname>\<lastname>.\<nickname> at Gmail dot com, where nickname="Bappa"
+*  :e-mail: \<firstname>\<lastname>.\<nickname> at Gmail dot com, where (firstname, lastname, nickname) = ("Sudip", "Sinha", "Bappa").
 <!-- *  :envelope: 4066 Burbank Dr, Apt 1, Baton Rouge, LA 70808-4419 :us: -->
 *  For any other detail, email me.
 
 
-###  Expertise and interests
+##  Expertise and interests
 
-Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numerical Analysis, Differential Equations
+Mathematical Finance, Probability Theory and Stochastic Analysis, Machine Learning, Optimization, Numerical Analysis, Differential Equations
 
 
 #  Experience
@@ -37,7 +38,8 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 ##  Instructor
 
 *  :school: [Math Circle](https://www.mathcircle.us)
-*  :calendar: 2019-06-09 to 2019-06-29 (LSU) and 2019-07-07 to 2019-07-27 ([QTM](http://quantitative.emory.edu) in [Emory](http://www.emory.edu))
+*  :calendar: 2019-06-09 to 2019-06-29 ([LSU](https://www.lsu.edu))
+*  :calendar: 2019-07-07 to 2019-07-27 ([QTM](http://quantitative.emory.edu) in [Emory](http://www.emory.edu))
 *  :round_pushpin: [Baton Rouge, LA :us:](https://www.google.com/maps/place/Louisiana+State+University) and [Atlanta, GA :us:](https://www.google.com/maps/place/Emory+University)
 *  Math Circle hosts three-week summer programs for talented high school students. At LSU, I taught Combinatorics 2 and Coding. At QTM, I taught Number Theory 1 and Coding. As the instructor, I was directly responsible for my classes of approximately 15 students each.
 *  Responsibilities:
@@ -79,31 +81,32 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 
 #  Education
 
-##  Ph.D. student in Mathematics
+##  Doctor of Philosophy student in Mathematics
 
 *  :school: [Louisiana State University](https://www.lsu.edu), [Department of Mathematics](https://www.math.lsu.edu)
 *  :calendar: 2016-09-15 onwards
 *  :round_pushpin: [Baton Rouge, LA :us:](https://www.google.com/maps/place/Louisiana+State+University)
 *  ㎬ 4.152 (as of 2019-05)
 *  Specialization: Probability theory and stochastic analysis
+*  Advisors: [Prof. Hui-Hsiung Kuo](https://www.math.lsu.edu/~kuo) and [Prof. Padmanabhan Sundar](https://www.math.lsu.edu/~sundar)
 
 
-##  M.Sc. in Mathematical Modelling
+##  Master of Science in Mathematical Modelling
 
 *  :school: [MathMods](http://www.mathmods.eu) ([Università degli Studi dell'Aquila :it:](http://www.univaq.it) and [Universität Hamburg :de:](http://www.uni-hamburg.de))
 *  :calendar: 2013-09-09 to 2015-10-23
 *  :round_pushpin: [L’Aquila :it:](https://www.google.com/maps/place/67100+L'Aquila,+Province+of+L'Aquila,+Italy) and [Hamburg :de:](https://www.google.com/maps/place/University+of+Hamburg)
-*  Graduated with 110/110 cum laude ([Details](https://en.wikipedia.org/wiki/Academic_grading_in_Italy#University))
+*  [110/110 cum laude](https://en.wikipedia.org/wiki/Academic_grading_in_Italy#University)
 *  ㎬ 3.5/4
-*  Thesis: Studied the Singular Points method for pricing exotic path-dependent options under [Prof. Fabio Antonelli](http://www.disim.univaq.it/main/home.php?users_username=fabio.antonelli)
-*  Studied the coupon collector’s problem and its generalizations under [Prof. Dr. Ingenuin Gasser](https://www.math.uni-hamburg.de/home/gasser)
-*  Worked on “[Decoding the Human Brain](https://www.kaggle.com/c/decoding-the-human-brain)” (Kaggle) under [Morteza Alamgir](http://is.tuebingen.mpg.de/person/morteza)
+*  Thesis: Studied the Singular Points method for pricing exotic path-dependent options under [Prof. Fabio Antonelli](http://www.disim.univaq.it/main/home.php?users_username=fabio.antonelli).
+*  Studied the coupon collector’s problem and its generalizations under [Prof. Dr. Ingenuin Gasser](https://www.math.uni-hamburg.de/home/gasser).
+*  Worked on “[Decoding the Human Brain](https://www.kaggle.com/c/decoding-the-human-brain)” (Kaggle) under [Morteza Alamgir](http://is.tuebingen.mpg.de/person/morteza).
 
 
-##  B.E. in Chemical Engineering
+##  Bachelor of Engineering in Chemical Engineering
 
 *  :school: [BITS, Pilani](http://www.bits-pilani.ac.in/goa/index.aspx)
-*  :calendar: 2008-01-04 to 2011-12=14
+*  :calendar: 2008-01-04 to 2011-12-14
 *  :round_pushpin: [Goa, India](https://www.google.com/maps/place/BITS+Pilani+K+K+Birla+Goa+Campus)
 *  ㎬ 8.53/10
 *  Thesis: Studied the Modeling and Simulation of Savonius Turbines under [Prof. Srinivas Krishnaswamy](http://universe.bits-pilani.ac.in/goa/srinivas/profile). This was a computational fluid dynamic study on the efficiency and viability of Savonius wind turbines as small power generation systems (< 1 kW). Parameters considered were the angular position, radius and the number of blades, and tip-speed ratio. We performed the simulation and analysis using [COMSOL Multiphysics 3.5](https://www.comsol.com/).
@@ -114,7 +117,7 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 ##  [Math Consultation Clinic](https://www.math.lsu.edu/courses/capstone_course)
 
 *  :school: [Louisiana State University](https://www.lsu.edu), [Department of Mathematics](https://www.math.lsu.edu)
-*  :calendar: 2018 Summer
+*  :calendar: 2018-05-07 to 2018-07-27
 *  :round_pushpin: [Baton Rouge, LA :us:](https://www.google.com/maps/place/Louisiana+State+University)
 *  Projects: managed a team of around 8 undergraduate computer science students to build a dashboard for easy visualization of data and automated report generation.
 
@@ -149,7 +152,7 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 *  mathematical finance
 *  algorithms
 
-##  Computing
+##  Computing and documentation
 
 *  [Python](https://www.python.org)
 *  [R](https://www.r-project.org)
@@ -157,13 +160,14 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 *  [C](https://en.wikipedia.org/wiki/C_(programming_language))
 *  [SQL](https://en.wikipedia.org/wiki/SQL)
 *  [MATLAB](https://www.mathworks.com/products/matlab.html)
-*  [Git](https://git-scm.com/)
-*  [LaTeX](https://www.latex-project.org)
 *  [big data](https://en.wikipedia.org/wiki/Big_data)
 *  [Hadoop](http://hadoop.apache.org)
 *  [MapReduce](http://static.googleusercontent.com/media/research.google.com/es/us/archive/mapreduce-osdi04.pdf)
 *  [Linux](https://en.wikipedia.org/wiki/Linux)
 *  [AMPL](https://ampl.com)
+*  [Git](https://git-scm.com/)
+*  [ConTeXt](https://wiki.contextgarden.net)
+*  [LaTeX](https://www.latex-project.org)
 
 ##  Languages
 
@@ -179,27 +183,27 @@ Mathematical Finance, Stochastic Analysis, Machine Learning, Optimization, Numer
 ##  Hobbies
 
 *  running
-*  trekking
+*  hiking and trekking
+*  dancing Argentine tango
+*  classical guitar
 *  reading
-*  roller-blading
 *  cycling
 *  traveling
-*  classical guitar
+*  roller-blading
 
 ##  Qualities
 
+*  logical
 *  rigorous
-*  quick learner
 *  persevering
 *  eye for detail
-*  logical
 *  good interpersonal skills
 
 ##  Most Proud of
 
-*  Receiving the [GSSI scholarship](http://www.gssi.infn.it/) for excellence in academic performance during M.Sc.
-*  Being promoted to *Senior Business Analyst*  (by Mu Sigma) within one year of joining
+*  Receiving the [GSSI scholarship](http://www.gssi.infn.it/) for excellence in academic performance during my masters.
+*  Being promoted to *Senior Business Analyst*  (by Mu Sigma) within one year of joining.
 *  Receiving two *Spot Award*s by Mu Sigma	
-	 *  Nov 2012: For GLM package
-	 *  May 2012: individual contribution to Allstate’s big data project
-*  Undertaking the Gaumukh Tapovan Trek -- A moderately difficult 150 km trek in the Himalayas (Jun 2012)
+	 *  Nov 2012: For the *Generalized Linear Modeling* package.
+	 *  May 2012: individual contribution to Allstate’s big data project.
+*  Undertaking the Gaumukh Tapovan Trek — A moderately difficult 150 km trek in the Himalayas (Jun 2012).
