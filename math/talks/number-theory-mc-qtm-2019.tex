@@ -12,7 +12,7 @@
 \setvariables [document] [color-foreground-0=deepskyblue4]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
-\setvariables [document] [color-solution=ivory]    % Change to pink to see
+\setvariables [document] [color-solution=pink]    % Change to pink to see
 
 % Fonts
 % Options: palatino, xitsbidi, euler
@@ -876,7 +876,7 @@
 
 
 
-\startsection [title={Divisibility}, reference=divisibility]
+\startsection [title={Primes}, reference=primes]
 
 \startmode [presentation]
 
@@ -968,7 +968,7 @@
 				\item  Find a pair of consecutive integers that are both composite. How many such pairs are there?
 			\stopitemize
 		
-		\item  Prove that for all \m{n ∈ ℕ}, \m{n^3 + 1} is \emph{not} prime.
+		\item  Prove that for all \m{n ≥ 2}, \m{n^3 + 1} is \emph{not} prime.
 
 		\item  Prove that every integer greater than \m{11} can be written as the sum of two composite numbers.
 	\stopitemize
@@ -976,7 +976,7 @@
 
 \startslide [title={Counting primes}]
 	
-	\starttheorem [title={Euclid, ∼ 300 \sc{bc}}]
+	\starttheorem [title={Euclid, ∼ 300 {\sc bc}}]
 		There are infinitely many primes.
 	\stoptheorem
 
@@ -993,7 +993,7 @@
 	\stopproof
 
 	\startcorollary
-		Any two consecutive integers are coprime.
+		Any two consecutive integers are coprime (have no common factor except 1).
 	\stopcorollary
 
 	\startremark
@@ -1012,14 +1012,26 @@
 	
 	\startitemize [m]
 		
-		\item  Let \m{n} be a natural number. Prove that every factor of \m{n! + 1} other than \m{1} is strictly greater than \m{n}.
+		\item  Let \m{n} be a natural number. Prove that every factor of \m{(n! + 1)} other than \m{1} is strictly greater than \m{n}.
 
-		\item  Let \m{n > 2}. Prove that there exists a prime p such that \m{n < p < n!}.
+		\item  Let \m{n ≥ 3}. Prove that there exists a prime \m{p} such that \m{n < p < n!}.
 
 		\item  Find a million consecutive composite numbers. Explain your reasoning.
 
 			\comment{Think about \m{1000001! + j}, where \m{j = 2, 3, ⋯, 1000002}.}
 	
+		\item  Consider the following numbers of the form \m{p^2 - 1}, where \m{p} is prime.
+
+			For example, \m{5^2 - 1 = 24, 7^2 - 1 = 48, 11^2 - 1 = 120}.
+
+			Each of these numbers is divisible by \m{12}.
+
+			Prove or provide a counterexample to the following statement:
+
+			If \m{p > 3} is prime, then \m{24 ∣ (p^2 − 1)}.
+
+			\soln{Firstly, \m{p^2 - 1 = (p - 1)(p + 1)}. Now, \m{p - 1, p, p + 1} are consecutive numbers, so one of them must be divisible by 3, and it cannot be \m{p}. So \m{3} is a factor of \m{p^2 - 1}. Moreover, \m{p - 1} and \m{p + 1} are consecutive even numbers, so one of them must be divisible by \m{4} and the other by \m{2}. Therefore \m{p^2 - 1} must be divisible by \m{2 ⋅ 3 ⋅ 4 = 24}.}
+
 	\stopitemize
 \stopslide
 
@@ -1091,6 +1103,10 @@
 				\item  Euler: \m{f(n) = n^2 + n + 41}.
 
 					Show that \m{f(40)} and \m{f(41)} are both composite.
+
+				\item  Mersenne numbers: For \m{p} prime, define \m{M(p) = 2^p - 1}.
+
+					Counterexample: \m{M(11)} is composite.
 			\stopitemize
 
 		\item  Trying to find a sequence which gives infinitely many primes.
@@ -1106,25 +1122,38 @@
 \startslide [title={Status of research for primes}]
 	
 	\startitemize[m]
-		\item  Identifying primes: solved — AKS primality test \cite{AgrawalKayalSaxena2004}
-		\item  Constructing primes: open
-		\item  Fast factorization: open
-		\item  Twin primes: substantial progress by Yitang Zhang in 2013, as well as by James Maynard, Terence Tao
+		\item  Identifying primes: solved — AKS primality test \cite{AgrawalKayalSaxena2004}.
+		\item  Constructing primes: open.
+		\item  Fast factorization: open.
+		\item  Twin primes: substantial progress by Yitang Zhang in 2013, as well as by James Maynard, Terence Tao.
 	\stopitemize
 \stopslide
+
+\stopmode
+
+\stopsection
+
+
+
+\startsection [title={The Euclidean algorithm}, reference=sec:linear-diophantine-eqns]
+
+\startmode [presentation]
 
 \startslide [title={GCD and LCM}]
 
 	\startdefinition
-		Let \m{a, b ∈ ℤ, a ≠ 0 ≠ b}. The \important{greatest common divisor} (gcd) of \m{a} and \m{b} is the largest \m{d ∈ ℕ} for which \m{d ∣ a} and \m{d ∣ b}. We write \m{d = \gcd(a, b)}.
+		Let \m{a, b ∈ ℤ, a ≠ 0 ≠ b}. The \important{greatest common divisor} (\m{\gcd}) of \m{a} and \m{b} is the largest \m{d ∈ ℕ} for which \m{d ∣ a} and \m{d ∣ b}. We write \m{d = \gcd(a, b)}.
 
-		Numbers whose gcd is 1 are called \important{coprime}.
+		Numbers whose \m{\gcd} is 1 are called \important{coprime}.
+
+		Let \m{a, b ∈ ℤ, a ≠ 0 ≠ b}. The \important{least common multiple} (\m{\lcm}) of \m{a} and \m{b} is the smallest \m{m ∈ ℕ} for which \m{a ∣ m} and \m{b ∣ m}. We write \m{m = \lcm(a, b)}.
+
 	\stopdefinition
 	
 	Exercises	
 	\startitemize [m]
 		
-		\item  Calculate the gcd and lcm of the following sets of numbers:
+		\item  Calculate the \m{\gcd} and \m{\lcm} of the following sets of numbers:
 			\startitemize [i, columns, joinedup]
 				\item  \m{\bcrl[1331, 2431]}
 				\item  \m{\bcrl[-60, 207]}
@@ -1132,7 +1161,7 @@
 				\item  \m{\bcrl[2^2 ⋅ 3^2 ⋅ 5^2, \ 5^3 ⋅ 11 ⋅ 17^2, \ 2 ⋅ 5^2 ⋅ 17]}
 			\stopitemize
 
-		\item  Let n > 1 be an integer. Calculate the gcd and lcm of the following sets of numbers:
+		\item  Let \m{n > 1} be an natural number. Calculate the \m{\gcd} and \m{\lcm} of the following sets of numbers:
 			\startitemize [i, columns, joinedup]
 				\item  \m{\bcrl[n, 3 n]}.
 				\item  \m{\bcrl[n, n + 1]}.
@@ -1150,18 +1179,16 @@
 		
 		\item  Let \m{x, y ∈ ℤ} and let \m{a ∈ ℕ}. Prove that \m{\gcd(ax, ay) = a · \gcd(x, y)}.
 
-		\item  Consider the following numbers of the form \m{p^2 - 1}, where \m{p} is prime.
+		\item  Reason why \m{\lcm(a, b) ⋅ \gcd(a,b) = a · b}.
 
-			For example, \m{5^2 - 1 = 24, 7^2 - 1 = 48, 11^2 - 1 = 120}.
+		\item  You have to fill a \m{16 × 7} floor with square tiles. What is the largest size of tiles you can use?
 
-			Each of these numbers is divisible by \m{12}.
+			Can you express your answer as a linear combination of \m{16} and \m{7}?
 
-			Prove or provide a counterexample to the following statement:
+			Can you draw a diagram of what you did?  \important{Please do this!}
 
-			If \m{p > 3} is prime, then \m{12 ∣ (p^2 − 1)}.
-
-		\item  You have to fill a room of size \m{175 × 65} with square tiles. What is the largest size of tiles you can use?
-
+		\item  You have to fill a \m{64 × 28} floor with square tiles. What is the largest size of tiles you can use?
+		
 		\item  You have tiles of size \m{4 × 6}. What is the smallest square room you can fill with these tiles?
 
 	\stopitemize
@@ -1169,20 +1196,120 @@
 
 \startslide [title={The Euclidean algorithm}]
 
+	\startdefinition [title={Euclidean algorithm}]
+		\startitemize [m, joinedup]
+			\item  Use Division Theorem to find \m{q_1} and \m{r_1} such that \m{a = q_1 b + r_1}.
+			\item[Euclidean-algo-iteration]  Let \m{a = b} and \m{b = r_1} and use the Division Theorem again to find \m{q_2} and \m{r_2} such that \m{b = q_2 r_1 + r_2}.
+			\item  Repeat Step \in[Euclidean-algo-iteration] until we get \m{r_k = 0}. Then the \m{\gcd} is \m{q_k}.
+		\stopitemize
+	\stopdefinition
+	
+	Exercises: Use the Euclidean algorithm to find the \m{\gcd} of the following
+	\startitemize [m]
+
+		\item  \m{\bcrl[42823, 6409]}
+
+		\item  \m{\bcrl[2 k + 1, k]}
+		
+		\item  \m{\bcrl[7 k + 14, 3 k + 6]}
+		
+		\item  \m{\bcrl[n! + 1, (n + 1)! + 1]}
+	\stopitemize
 \stopslide
 
-\stopmode
+\startslide [title={Some key points about the Euclidean algorithm}]
+	
+	\startitemize [m]
+		
+		\item  It is fast. The number of steps required are at most \m{\log_2(ab)} to find \m{\gcd(a, b)}.
 
-\stopsection
+			\comment{See code here: \goto{https://repl.it/@SudipSinha/GCDEuclid}[url(https://repl.it/@SudipSinha/GCDEuclid)].}
 
+		\item  The order of the arguments do not matter. \comment{(Why?)}
 
+		\item  We can express the \m{\gcd} as a linear combination of the arguments. \comment{(How?)}
 
-\startsection [title={Linear Diophantine equations}, reference=sec:linear-diophantine-eqns]
+			This is very useful (we will soon see why).
 
-\startmode [presentation]
+	\stopitemize
+\stopslide
+
+\startslide [title={Solutions of equations}]
+
+	Do the following equations have a solution? If so, how many?
+	
+	\startitemize [m]
+		
+		\item  \m{2 x + 2 y = 1}.
+
+		\item  \m{x + y = 1}.
+
+		\item  \m{x + y = 1, x - y = 1}.
+
+		\item  \m{x + y = 1, x - y = 1, 3 x + 2 y = 1}.
+
+		\item  \m{a x + b y = 1}.
+
+		\item  \m{x^2 + y^2 = 1}.
+
+		\item  \m{x^2 + y^2 = 1, x + y = 1}.
+
+		\item  \m{x^3 + y^3 + z^3 = 33}.
+
+			See \goto{this}[url(https://arxiv.org/abs/1903.04284)] and \goto{this}[url(http://www.ams.org/journals/mcom/2007-76-259/S0025-5718-07-01947-3/)].
+	
+	\stopitemize
+\stopslide
 
 \startslide [title={Linear Diophantine equations}]
+	
+	\startitemize [m]
+		
+		\item  René Descartes' unified geometry and algebra into what is known as \important{analytical geometry}.
 
+		\item  In 2D analytical geometry, equations of the form \m{a x + b y = c}, where \m{a, b, c ∈ ℝ} is given and \m{x, y ∈ ℝ} has to be found, represent a straight line in the \emph{Cartesian plane}. 
+
+			Every point that lies on the line satisfies the equation.
+
+			This equation has infinitely many solutions.
+
+		\item  What can we now say about the same equation if we have \m{a, b, c ∈ ℤ} and need \m{x, y ∈ ℤ}? This is called a \important{linear Diophantine equations} in two variables.
+
+		\item  In general, a \important{Diophantine equation} is a polynomial equation, usually in two or more unknowns, such that only integer solutions are sought or studied. These are named after the Greek mathematician/philosopher Diophantus of Alexandria (∼ 200 - 300 {\sc ad}).
+	\stopitemize
+\stopslide
+
+\startslide [title={Which linear Diophantine equations have solutions?}]
+	
+	\starttheorem
+		Let \m{a, b ∈ ℤ}. The equation \m{a x + b y = 1} has integral solutions iff \m{\gcd(a, b) = 1}.
+	\stoptheorem
+
+	\startproof
+
+		\bold{(⟹)} \comment{By contradiction.}
+
+		Let \m{d = \gcd(a, b) > 1}. Suppose there exists a solution. This mean there exists \m{m, n ∈ ℤ} such that \m{a x + b y = 1}. Now, since \m{d ∣ a} and \m{d ∣ b}, by the linear combination lemma, \m{d ∣ (a m + b n)}, so \m{d ∣ 1}. But \m{d > 1}, so this gives a contradiction.
+
+		\bold{(⟸)} \comment{Will fill in later.}
+	\stopproof
+\stopslide
+
+\startslide [title={A simple problem}]
+	
+	For the first sixth of his life, Diophantus was a boy. After another twelfth of his life, Diophantus grew beard. One-seventh of this life after this, Diophantus married. Five years after his marriage, Diophantus’s son was born. Diophantus’s son died at a relatively young age. Four years after his son died, Diophantus himself died. The total number of years the son lived is one-half the total number of years Diophantus lived.
+
+	\blank
+
+	Write one or more equations that express the information in the riddle algebraically. Then solve the equation(s) to determine the following:
+	\startitemize [i, joinedup]
+		\item  The total number of years Diophantus lived.
+		\item  The number of years Diophantus spent as a boy.
+		\item  The age at which Diophantus grew a beard.
+		\item  The age at which Diophantus got married.
+		\item  Diophantus’s age when his son was born.
+		\item  Diophantus’s age when his son died.
+	\stopitemize
 \stopslide
 
 \stopmode
