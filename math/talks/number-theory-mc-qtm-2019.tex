@@ -12,7 +12,7 @@
 \setvariables [document] [color-foreground-0=deepskyblue4]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
-\setvariables [document] [color-solution=pink]    % Change to pink to see
+\setvariables [document] [color-solution=ivory]    % Change to pink to see
 
 % Fonts
 % Options: palatino, xitsbidi, euler
@@ -911,34 +911,31 @@
 
 \startslide [title={Properties of \m{∣}}]
 	Let \m{a, b, c, d, m, n, ∈ ℤ}. Check if the following are true. Prove your claim.
-	\startitemize[m, joinedup]
+	\startitemize[m]
 		
 		\item  If \m{a ∣ b} and \m{a ∣ (b + c)}, then \m{a ∣ c}.
-			
 			\soln{T (\m{b = q_1 a} and \m{b + c = q_2 a}, so \m{c = (q_2 - q_1) a}).}
 		
 		\item  If \m{a ∣ b} and \m{c ∣ d}, then \m{a c ∣ b d}.
-			
 			\soln{T (\m{b = q_1 a} and \m{d = q_2 c}, so \m{b d = (q_1 q_2) (a b)}).}
 		
+		\item  If \m{a b ∣ c}, then \m{a ∣ c} and \m{b ∣ c}.
+			\soln{T (\m{c = q a b}, so \m{c = (q b) a} and \m{c = (q a) b}).}
+		
 		\item  If \m{a ∣ c} and \m{b ∣ c}, then \m{a b ∣ c}.
-			
 			\soln{F (\m{a = 2, b = 6, c = 6}).}
 		
 		\item  If \m{a ∣ b c}, then \m{a ∣ b} or \m{a ∣ c}.
-			
 			\soln{F (\m{a = 6, b = 3, c = 2}).}
 		
 		\item  If \m{a ∣ b^2}, then \m{a ∣ b}.
-			
 			\soln{F (\m{a = 4, b = 2}).}
 		
 		\item  (Transitivity)  If \m{a ∣ b} and \m{b ∣ c}, then \m{a ∣ c}.
-			
 			\soln{T (\m{b = q_1 a} and \m{c = q_2 b}, so \m{c = (q_2 q_1) a}).}
 		
 		\item  (Linear combination)  If \m{d ∣ a} and \m{d ∣ b}, then \m{d ∣ (m a + n b)}.
-
+			
 			\soln{T (\m{a = q_1 d} and \m{b = q_2 d}, so \m{m a + n b = (m q_1 + n q_2) d}).}
 	
 	\stopitemize
@@ -1229,16 +1226,24 @@
 
 		\item  We can express the \m{\gcd} as a linear combination of the arguments. \comment{(How?)}
 
-			This is very useful (we will soon see why).
+			This is called Bézout's identity and very useful (we will soon see why).
 
 	\stopitemize
+
+	\startlemma [title={Bézout's identity}]
+		Let \m{a, b ∈ ℤ} and \m{d = \gcd(a, b)}. Then there exists \m{m, n ∈ ℤ} such that \m{m a + n b = d}.
+	\stoplemma
+
+	\startproof
+		Follows from extended Euclidean algorithm.
+	\stopproof
 \stopslide
 
 \startslide [title={Solutions of equations}]
 
 	Do the following equations have a solution? If so, how many?
 	
-	\startitemize [m]
+	\startitemize [m, columns]
 		
 		\item  \m{2 x + 2 y = 1}.
 
@@ -1281,18 +1286,43 @@
 
 \startslide [title={Which linear Diophantine equations have solutions?}]
 	
+	\startlemma [title={Euclid's lemma}]
+		Let \m{a, b, d ∈ ℤ}. If \m{d ∣ a b} and \m{\gcd(d, a) = 1}, then \m{d ∣ b}.
+	\stoplemma
+
+	\startproof
+		Since \m{\gcd(d, a) = 1}, by Bézout's identity we can find \m{m, n ∈ ℤ} such that \m{1 = m d + n a}. This implies \m{b = m d b + n a b = (m b) d + n (a b)}. Since \m{d} divides both terms on the right hand side, \m{d} must divide \m{b}.
+	\stopproof
+
 	\starttheorem
-		Let \m{a, b ∈ ℤ}. The equation \m{a x + b y = 1} has integral solutions iff \m{\gcd(a, b) = 1}.
+		Let \m{a, b, c ∈ ℤ}. Then the equation \m{a x + b y = c} has integral solutions iff \m{\gcd(a, b) ∣ c}.
 	\stoptheorem
 
 	\startproof
+		Let \m{d = \gcd(a, b)}. So \m{d ∣ a} and \m{d ∣ b}. That is, there exists \m{q_1, q_2 ∈ ℤ} such that \m{a = q_1 d} and \m{b = q_2 d}.
 
-		\bold{(⟹)} \comment{By contradiction.}
+		\bold{(⟹)}
+		Let \m{(x_0, y_0)} be a solution. Then \m{c = a x_0 + b y_0 = q_1 d x_0 + q_2 d y_0 = (q_1 x_0 + q_2 y_0) d}.
 
-		Let \m{d = \gcd(a, b) > 1}. Suppose there exists a solution. This mean there exists \m{m, n ∈ ℤ} such that \m{a x + b y = 1}. Now, since \m{d ∣ a} and \m{d ∣ b}, by the linear combination lemma, \m{d ∣ (a m + b n)}, so \m{d ∣ 1}. But \m{d > 1}, so this gives a contradiction.
-
-		\bold{(⟸)} \comment{Will fill in later.}
+		\bold{(⟸)}
+		Since \m{d ∣ c}, there exists \m{q_0 ∈ ℤ} such that \m{c = q_0 d}. Moreover, by Bézout's identity, there exists \m{m, n ∈ ℤ} such that \m{m a + n b = d}. Multiplying by \m{q_0}, we have \m{(q_0 m) a + (q_0 n) b = q_0 d = c}, so \m{(x, y) = (q_0 m, q_0 n)} is a solution.
 	\stopproof
+\stopslide
+
+\startslide [title={Towards a general solution}]
+	
+	\starttheorem [title={General solution from particular solution}]
+		Let \m{a, b, c ∈ ℤ}. If \m{(x_0, y_0)} be a particular solution to the linear Diophantine equation \m{a x + b y = c}, then the general solution is given by \m{\bcrl[{\brnd[x_0 + \frac{b}{d} k, y_0 - \frac{a}{d} k]}: k ∈ ℤ]}.
+	\stoptheorem
+
+	\startproof
+		Since \m{(x_0, y_0)} is a particular solution, \m{a x_0 + b y_0 = c}. If \m{(x, y)} is a general solution, we have
+		\m{a x + b y = c = a x_0 + b y_0}, which gives \m{a (x - x_0) = -b (y - y_0)}.
+
+		TODO
+	\stopproof
+
+
 \stopslide
 
 \startslide [title={A simple problem}]
@@ -1302,14 +1332,22 @@
 	\blank
 
 	Write one or more equations that express the information in the riddle algebraically. Then solve the equation(s) to determine the following:
-	\startitemize [i, joinedup]
+	\startitemize [i, columns, joinedup]
 		\item  The total number of years Diophantus lived.
-		\item  The number of years Diophantus spent as a boy.
+		\item  The number of years Diophantus was a boy.
 		\item  The age at which Diophantus grew a beard.
 		\item  The age at which Diophantus got married.
 		\item  Diophantus’s age when his son was born.
 		\item  Diophantus’s age when his son died.
 	\stopitemize
+
+	\startexercise
+		Find the general solution of the Diophantine equation \m{42823 x + 6409 y = 17}.
+	\stopexercise
+
+	\startexercise
+		Find a solution of the Diophantine equation \m{6 x + 10 y + 45 z = 1}.
+	\stopexercise
 \stopslide
 
 \stopmode
@@ -1324,11 +1362,194 @@
 
 \startslide [title={Modular arithmetic}]
 
+	Modular arithmetic was developed by Carl Friedrich Gauss in his book Disquisitiones Arithmeticae, written in 1798 when he was 21 and first published in 1801 when he was 24 years old.
+
+	\startdefinition
+		Let \m{n ∈ ℕ} and \m{a, b ∈ ℤ}. If \m{n ∣ (a - b)}, then \m{a} and \m{b} are said to be \important{congruent modulo \m{n}}, symbolized by \m{a ≡ b \ (\mod n)} or \m{a ≡_n b}.
+
+		To \important{reduce \m{a} modulo \m{n}} means to find the remainder when \m{a} is divided by \m{n}.
+	\stopdefinition
+
+	\bold{Exercises}
+	\startitemize [m, joinedup]
+		
+		\item  Is \m{22 ≡_{12} 10}? Is \m{321 ≡_{12} 7}?
+
+		\item  Reduce \m{41} and \m{-39} modulo \m{10}.
+
+		\item  Find particular solutions (both positive and negative) of the congruence equations.
+
+			Can you also give general solutions?
+			\startitemize[i, columns, three, joinedup]
+				\item  \m{x ≡_{20} 15}  \soln{\m{\bcrl[15 + 20 k : k ∈ ℤ]}.}
+				\item  \m{x ≡_9 0}  \soln{\m{\bcrl[9 k : k ∈ ℤ]}.}
+				\item  \m{x ≡_{35} 37}  \soln{\m{\bcrl[2 + 35 k : k ∈ ℤ]}.}
+			\stopitemize
+	\stopitemize
+
+	\blank
+	\bold{Question}: How many ways can you write \m{37} in the form \m{q ⋅ 8 + r}, where \m{q, r ∈ ℤ}?
+
+	\bold{Revision}: Division theorem.
+\stopslide
+
+\startslide [title={Equivalent definitions}]
+	
+	\starttheorem
+		The following are equivalent.
+		\startitemize [i, joinedup]
+			\item[cong:definition]  \m{a ≡_n b}.
+			\item[cong:divisibility]  \m{n ∣ (a - b)}.
+			\item[cong:multiplication]  \m{∃ k ∈ ℤ} such that \m{a = b + k n}.
+			\item[cong:remainder]  \m{a} and \m{b} leave the same remainder when divided by \m{n}.
+		\stopitemize
+	\stoptheorem
+
+	\startproof
+		\bold{\in[cong:definition] ⟺ \in[cong:divisibility]}:\qquad
+			By definition.
+
+		\bold{\in[cong:divisibility] ⟺ \in[cong:multiplication]}:\qquad
+			\m{n ∣ (a - b)} mean \m{∃ k ∈ ℤ} such that \m{a - b = k n}, so \m{a = b + k n}. The other direction can be shown by going backward instead of forward.
+
+		\bold{\in[cong:multiplication] ⟺ \in[cong:remainder]}:\qquad
+			Let \m{∃ k ∈ ℤ} such that \m{a = b + k n}, and division theorem gives \m{b = q n + r} (\m{0 ≤ r < n}). Then \m{a = b + k n = (q n + r) + k n = (q + k) n + r}.
+
+			On the other hand, suppose we can write \m{a = q_1 n + r} and \m{b = q_2 n + r}, with the same remainder \m{r} (\m{0 ≤ r < n}). Then \m{a - b = (q_1 n + r) - (q_2 n + r) = (q_1 - q_2) n}, whence \m{n ∣ (a - b)}.
+	\stopproof
+\stopslide
+
+\startslide [title={Can the congruence relation be seen as equality?}]
+	
+	Let \m{n, k ∈ ℕ} and \m{a, b, c, d ∈ ℤ}.
+	Which of the following are true? Prove or give a counterexample.
+	\startitemize [m, joinedup]
+		
+		\item  (reflexivity)  \m{a ≡_n a}.
+			
+			\soln{T (\m{n ∣ 0}).}
+
+		\item  (symmetry)  If \m{a ≡_n b}, then \m{b ≡_n a}.
+
+			\soln{T (\m{a = b + k n ⟹ b = a + (-k) n}).}
+
+		\item  (transitivity)  If \m{a ≡_n b} and \m{b ≡_n c}, then \m{a ≡_n c}.
+
+			\soln{T (\m{a = b + k n} and \m{b = c + l n} ⟹ \m{a = c + (l + k) n}).}
+
+		\item  (addition)  If \m{a ≡_n b} and \m{c ≡_n d}, then \m{a + c ≡_n b + d}.
+
+			\soln{T (\m{a = b + k n} and \m{c = d + l n} ⟹ \m{a + c = (b + d) + (l + k) n}).}
+
+		\item  (multiplication)  If \m{a ≡_n b} and \m{c ≡_n d}, then \m{a c ≡_n b d}.
+
+			\soln{T (\m{a = b + k n} and \m{c = d + l n} ⟹ \m{ac - bd = ac - ad + ad - bd = a(c - d) + d(a - b)}).}
+
+		\item  (addition)  If \m{a ≡_n b}, then \m{a + c ≡_n b + d}.
+			\soln{T (\m{c ≡ c \ (\mod n ).})}
+
+		\item  (multiplication)  If \m{a ≡_n b}, then \m{a c ≡_n b d}.
+			\soln{T (\m{c ≡ c \ (\mod n ).})}
+
+		\item  (division)  If \m{a c ≡_n b c}, then \m{a ≡_n b}.
+			\soln{F (\m{2 · 4 ≡_6 2 · 1}, but \m{4 ≢_6 1}).}
+		
+		\item  (exponentiation)  If \m{a ≡_n b}, then \m{a^k ≡_n b^k}.
+			\soln{T (Induction on \m{k}.)}
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Finding remainders}]
+	
+	\bold{Lesson}: Congruences \bad{cannot} be seen as equality relation.
+
+	Exercises
+	\startitemize [m]
+		
+		\item  Find the remainders when \m{2^{50}} and \m{41^{65}} are divided by \m{7}.
+			\comment{Hint: \m{2^3 = 8 ≡_7 1} and \m{41 ≡_7 -1}.}
+
+		\item  What is the remainder when the following sum is divided by \m{4}?
+			\startformula
+				1^5 + 2^5 + 3^5 + ⋯ + 99^5 + 100^5 .
+			\stopformula
+
+		\item  Prove the following.
+			\startitemize [i, columns, joinedup]
+				\item  \m{39 ∣ \brnd[53^{103} + 103^{53}]}.
+				\item  \m{7 ∣ \brnd[111^{333} + 333^{111}]}.
+			\stopitemize
+
+		\item  For \m{n ∈ ℕ}, use congruence theory to establish each of the following divisibility statements:
+			\startitemize [i, columns, joinedup]
+				\item  \m{13 ∣ \brnd[3^{n + 2} + 4^{2 n + 1}]}.
+				\item  \m{7 ∣ \brnd[5^{2 n} + 3 ⋅ 2^{5 n - 2}]}.
+			\stopitemize
+
+		\item  Find all values of \m{x} (in the range \m{0, 1, ⋯ , 9}) that make the following congruences true.
+			\startitemize [i, columns, joinedup]
+				\item  \m{x + 8 ≡_{10} 0}.
+				\item  \m{7 + 3 x ≡_{10} 0}.
+				\item  \m{4 x + 6 ≡_{10} 0}.
+				\item  \m{1 + 8 x ≡_{10} 0}.
+			\stopitemize
+
+	\stopitemize
+
+	
+\stopslide
+
+\startslide [title={Equivalence relations}]
+	
+	\startdefinition
+		Any relation which is reflexive, symmetric, and transitive is called an \important{equivalence relation}.
+	\stopdefinition
+
+	\startexample
+		Congruence relation is an equivalence relation.
+	\stopexample
+
+	\startexercise
+		Give other examples and non-examples of equivalence relations.
+	\stopexercise
+
+	\startdefinition
+		A \important{partition} of a set is a grouping of the set's elements into non-empty, disjoint subsets.
+	\stopdefinition
+
+	\startexample
+		\startitemize[i, joinedup]
+			\item  Even and odd numbers partition the set of integers. It corresponds to the relation \m{≡_2}.
+			\item  The sets \m{\bcrl[3 k : k ∈ ℤ], \bcrl[3 k + 1: k ∈ ℤ], \bcrl[3 k + 2: k ∈ ℤ]} partition the set of integers. It corresponds to the relation \m{≡_3}.
+		\stopitemize
+	\stopexample
+
+	\starttheorem
+		There is a one-to-one correspondence between equivalence relations and set partitions.
+	\stoptheorem
+
+	\startproof
+		Skip for now.
+	\stopproof
+\stopslide
+
+\startslide [title={Tests of divisibility: \m{9}}]
+
+\stopslide
+
+\startslide [title={Linear congruences}]
+
+\stopslide
+
+\startslide [title={The Chinese remainder theorem}]
+
 \stopslide
 
 \stopmode
 
 \stopsection
+
 
 
 \startsection [title={Modular number systems}, reference=sec:modular-number-systems]
