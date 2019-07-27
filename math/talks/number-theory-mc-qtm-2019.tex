@@ -12,7 +12,7 @@
 \setvariables [document] [color-foreground-0=deepskyblue4]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
-\setvariables [document] [color-solution=ivory]    % Change to pink to see
+\setvariables [document] [color-solution=pink]    % Change to pink to see
 
 % Fonts
 % Options: palatino, xitsbidi, euler
@@ -213,9 +213,8 @@
 \stopslide
 
 \startslide[title={Inductive vs deductive reasoning}]
-
 	\placetable[force, none]{}{%    % This centers the table
-	\starttabulate [∣l∣l∣l∣]
+	\starttabulate[|l|l|l|] 
 		\FL
 		\NC  Criteria  \VL  Inductive reasoning  \VL  Deductive reasoning  \NR
 		\FL
@@ -300,11 +299,13 @@
 	
 	\startitemize [4]
 		\item  Question: How do we find the value of a compound propositions?
-		\item  Exercise: Fill up the table. Think carefully about what the \quote{?}s should be.
+		\item  Exercise: Fill up the table. Think carefully about what the \quote{?}s should be. 
+		
+			\comment{For example, think about the statement: \quotation{If \m{2} is odd, then Sudip is can fly.}}
 	\stopitemize
 
-	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [∣c∣c∣c∣c∣c∣c∣c∣]
+	\placetable[force, none]{}{%    % This centers the table
+	\starttabulate [|c|c|c|c|c|c|c|]
 		\FL
 		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  (P ↔ Q)  \NR
 		\FL
@@ -316,12 +317,14 @@
 	\stoptabulate
 	}
 
+	\soln{If \m{P} is false, then the implication is automatically true.}
+
 \stopslide
 
 \startslide [title={Truth tables}]
 	
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [∣c∣c∣c∣c∣c∣c∣c∣c∣]
+	\starttabulate [|c|c|c|c|c|c|c|c|]
 		\FL
 		\NC  P  \NC  Q  \VL  (¬ P)  \NC  (¬ Q)  \NC  (P ∧ Q)  \NC  (P ∨ Q)  \NC  (P → Q)  \NC  ((¬ Q) → (¬ P))  \NR
 		\FL
@@ -334,7 +337,7 @@
 	}
 
 	\placetable[force,none]{}{%    % This centers the table
-	\starttabulate [∣c∣c∣c∣c∣c∣c∣]
+	\starttabulate [|c|c|c|c|c|c|]
 		\FL
 		\NC  P  \NC  Q  \VL  (P → Q)  \NC  (Q → P)  \NC  ((P → Q) ∧ (Q → P))  \NC  (P ↔ Q)  \NR
 		\FL
@@ -346,7 +349,7 @@
 	\stoptabulate
 	}
 
-	\startitemize [4]
+	\startitemize [4, joinedup]
 		\item  Truth tables evaluate the values of the expression for each values of the elementary propositions.
 		\item  Two propositions are equivalent if their truth table outputs are the same.
 	\stopitemize
@@ -629,12 +632,12 @@
 		Suppose \m{\sqrt2} is rational. Then it can be written in the form \m{\frac{p}{q}}, where \m{p, q} are integers with \m{q ≠ 0}. Assume that \m{p} and \m{q} have no common factors, for if they do, we can reduce the fraction to its lowest terms and then call the numerator \m{p} and the denominator \m{q}.
 
 		Squaring and simplifying, we get
-		\placeformula[sqrt2-notin-Q-eq1]  \startformula
+		\placeformula[sqrt2-notin-Q]  \startformula
 			p^2 = 2 q^2 .
 		\stopformula
 		This means \m{p^2} is even. By the previous lemma, \m{p} is also even. Therefore, there exists an integer \m{r} such that \m{p = 2 r}, and so \m{p^2 = 4 r^2}.
 
-		Putting this in equation \eqref[sqrt2-notin-Q-eq1], we get \m{4 r^2 = 2 q^2}, which is the same as \m{2 r^2 = q^2}. This means that \m{q^2}, and thus \m{q}, is even.
+		Putting this in equation \eqref[sqrt2-notin-Q], we get \m{4 r^2 = 2 q^2}, which is the same as \m{2 r^2 = q^2}. This means that \m{q^2}, and thus \m{q}, is even.
 
 		But we had assumed that \m{p} and \m{q} have no common factors. Thus we have a contradiction. Therefore, our supposition must be wrong, and it must be that \m{\sqrt{2}} is not rational.
 	\stopproof
@@ -1201,13 +1204,64 @@
 		\stopitemize
 	\stopdefinition
 	
-	Exercises: Use the Euclidean algorithm to find the \m{\gcd} of the following sets.
-	\startitemize [i, joinedup]
-		\item  \m{\bcrl[42823, 6409]}.
+	Exercise: Use the Euclidean algorithm to find the \m{\gcd} of \m{42823} and \m{6409}.
+	\soln{
+		\startformula  \startalign[n=4, align={right, right, right, right}]
+			\NC 42823 =  \NC  6 ⋅  \NC 6409 +  \NC 4369  \NR
+			\NC  6409 =  \NC  1 ⋅  \NC 4369 +  \NC 2040  \NR
+			\NC  4369 =  \NC  2 ⋅  \NC 2040 +  \NC  289  \NR
+			\NC  2040 =  \NC  7 ⋅  \NC  289 +  \NC   17  \NR
+			\NC   289 =  \NC 17 ⋅  \NC   17 +  \NC    0  \NR
+		\stopalign  \stopformula			  
+	}
+	Exercise: Use the Euclidean algorithm to find the \m{\gcd} of the following.
+	\startitemize [i, columns, three, joinedup]
 		\item  \m{\bcrl[2 k + 1, k]}.
 		\item  \m{\bcrl[7 k + 14, 3 k + 6]}.
 		\item  \m{\bcrl[n! + 1, (n + 1)! + 1]}.
 	\stopitemize
+\stopslide
+
+\startslide [title={Expressing \m{\gcd} as linear combination}]
+	
+	\startexercise
+		Express \m{\gcd(42823, 6409)} as a linear combination of \m{42823} and \m{6409}.
+	\stopexercise
+
+	\startdefinition [title={Extended Euclidean algorithm}]
+		\startitemize[m, joinedup]
+			\item  Use the Euclidean algorithm to find the \m{\gcd}.
+			\item  For each line of the Euclidean algorithm, expresses the remainder as a linear combination.
+			\item  Using the right hand column, work backwards from the \m{\gcd} to successively express the \m{\gcd} as a linear combination of the starting integers.
+		\stopitemize
+	\stopdefinition
+
+	\bold{Steps 1 and 2}:
+	\startformula  \startalign[n=8, align={right, right, right, right, right, right, right, right}]
+		\NC 42823 =  \NC  6 ⋅  \NC 6409 +  \NC 4369  \qquad ⟺ \qquad  \NC 4369 =  \NC 42823  \NC - 6 ⋅  \NC 6409  \NR
+		\NC  6409 =  \NC  1 ⋅  \NC 4369 +  \NC 2040  \qquad ⟺ \qquad  \NC 2040 =  \NC  6409  \NC - 1 ⋅  \NC 4369  \NR
+		\NC  4369 =  \NC  2 ⋅  \NC 2040 +  \NC  289  \qquad ⟺ \qquad  \NC  289 =  \NC  4369  \NC - 2 ⋅  \NC 2040  \NR
+		\NC  2040 =  \NC  7 ⋅  \NC  289 +  \NC   17  \qquad ⟺ \qquad  \NC   17 =  \NC  2040  \NC - 7 ⋅  \NC  289  \NR
+		\NC   289 =  \NC 17 ⋅  \NC   17 +  \NC    0  \qquad ⟺ \qquad  \NC    0 =  \NC   289  \NC -17 ⋅  \NC   17  \NR
+	\stopalign  \stopformula
+\stopslide
+
+\startslide [title={Expressing \m{\gcd} as linear combination}]
+	\bold{Steps 3}:
+	\startformula  \startalign[n=8, align={right, right, right, right, right, right, right, right}]
+		\NC   17 =  \NC (+ 1)  \NC  2040 +  \NC (- 7)  \NC  289 =  \NC (+1) 2040 +  \NC (- 7)  \NC ((+1)  4369 + (-2) 2040)  \NR
+		\NC      =  \NC (- 7)  \NC  4369 +  \NC ( 15)  \NC 2040 =  \NC (-7) 4369 +  \NC ( 15)  \NC ((+1)  6409 + (-1) 4369)  \NR
+		\NC      =  \NC ( 15)  \NC  6409 +  \NC (-22)  \NC 4369 =  \NC (15) 6409 +  \NC (-22)  \NC ((+1) 42823 + (-6) 6409)  \NR
+		\NC      =  \NC (-22)  \NC 42823 +  \NC (147)  \NC 6409 . \quad \NC    \NC    \NC    \NR
+	\stopalign  \stopformula
+
+	\startlemma [title={Bézout's identity}]
+		Let \m{a, b ∈ ℤ} and \m{d = \gcd(a, b)}. Then there exists \m{m, n ∈ ℤ} such that \m{m a + n b = d}.
+	\stoplemma
+
+	\startproof
+		Follows directly from the extended Euclidean algorithm.
+	\stopproof
 \stopslide
 
 \startslide [title={Some key points about the Euclidean algorithm}]
@@ -1220,19 +1274,11 @@
 
 		\item  The order of the arguments do not matter. \comment{(Why?)}
 
-		\item  We can express the \m{\gcd} as a linear combination of the arguments. \comment{(How?)}
+		\item  We can express the \m{\gcd} as a linear combination of the arguments (Bézout's identity).
 
-			This is called Bézout's identity and very useful (we will soon see why).
+			\comment{This is very useful (we will soon see why).}
 
 	\stopitemize
-
-	\startlemma [title={Bézout's identity}]
-		Let \m{a, b ∈ ℤ} and \m{d = \gcd(a, b)}. Then there exists \m{m, n ∈ ℤ} such that \m{m a + n b = d}.
-	\stoplemma
-
-	\startproof
-		Follows from extended Euclidean algorithm.
-	\stopproof
 \stopslide
 
 \startslide [title={Solutions of equations}]
@@ -1314,8 +1360,16 @@
 	\startproof
 		Since \m{(x_0, y_0)} is a particular solution, \m{a x_0 + b y_0 = c}. If \m{(x, y)} is a general solution, we have
 		\m{a x + b y = c = a x_0 + b y_0}, which gives \m{a (x - x_0) = -b (y - y_0)}.
+		
+		Now, there exist coprime integers \m{r} and \m{s} such that \m{a = d r, b = d s}. Substituting these values into the last-written equation and canceling the common factor \m{d}, we find that %\m{r (x - x_0) = - s (y - y_0)}.
+		\placeformula[Diophantine-eqn-general-solution]  \startformula
+			r (x - x_0) = s (y_0 - y) .
+		\stopformula
 
-		TODO
+		Therefore, \m{r ∣ s (y_0 - y)}. Since \m{r} and \m{s} are coprime, Euclid's lemma gives us \m{r ∣ (y_0 - y)}, that is, \m{y = y_0 - r k} for some \m{k ∈ ℤ}. Substituting this in \eqref[Diophantine-eqn-general-solution], we get \m{x = x_0 + s k}. Now, we substitite \m{r = \frac{a}{d}} and \m{s = \frac{b}{d}} to get the general solution
+		\startformula
+			(x, y) ∈ \bcrl[{\brnd[x_0 + \frac{b}{d} k, y_0 - \frac{a}{d} k]}: k ∈ ℤ] .
+		\stopformula
 	\stopproof
 
 
@@ -1451,7 +1505,7 @@
 			\soln{F (\m{2 · 4 ≡_6 2 · 1}, but \m{4 ≢_6 1}).}
 		
 		\item  (exponentiation)  If \m{a ≡_n b}, then \m{a^k ≡_n b^k}.
-			\soln{T (Induction on \m{k} or use the identity: \m{a^k - b^k = (a - b) (a^{k - 1} + a^{k - 2} b + a^{k - 3} b^2 + ⋯ + b^{k - 1})}.)}
+			\soln{T (Induction on \m{k}, or use the identity: \m{a^k - b^k = (a - b) (a^{k - 1} + a^{k - 2} b + a^{k - 3} b^2 + ⋯ + b^{k - 1})}.)}
 
 	\stopitemize
 \stopslide
@@ -1490,10 +1544,36 @@
 				\item  \m{13 ∣ \brnd[3^{n + 2} + 4^{2 n + 1}]}.
 				\item  \m{7 ∣ \brnd[5^{2 n} + 3 ⋅ 2^{5 n - 2}]}.
 			\stopitemize
-
 	\stopitemize
+\stopslide
 
-	
+\startslide [title={Division}]
+
+	\starttheorem
+		If \m{c a ≡_n c b}, then \m{a ≡_{\frac{n}{d}} b}, where \m{d = \gcd(c, n)}. 
+	\stoptheorem
+
+	\startproof
+		By hypothesis, we can write \m{c(a - b) = ca - cb = kn} for some integer \m{k}. Knowing that \m{\gcd(c, n) = d}, there exist coprime integers \m{r} and \m{s} satisfying \m{c = dr, n = ds}. When these values are substituted in the displayed equation and the common factor \m{d} canceled, the net result is \m{r (a - b) = k s}. Hence, \m{s ∣ r (a - b)} and \m{gcd(r, s) = 1}. Euclid's lemma yields \m{s ∣ (a - b)}, which may be recast as \m{a ≡_s b}; in other words, \m{a ≡_{\frac{n}{d}} b}. 
+	\stopproof
+
+	\startcorollary
+		If \m{c a ≡_n c b} and \m{\gcd(c, n) = 1}, then \m{a ≡_n b}. 
+	\stopcorollary
+
+	\startdefinition
+		Let \m{n ∈ ℕ} and \m{a ∈ ℤ}. Then the \important{multiplicative inverse} of \m{a} modulo \m{n} is an integer \m{x} such that \m{a x ≡_n 1}.
+	\stopdefinition
+
+	Solve the following congruences equations.
+	\startitemize [i, columns, three, joinedup]
+		\item  \m{x + 8 ≡_{10} 0}.
+		\item  \m{3 x ≡_{12} 0}.
+		\item  \m{7 + 3 x ≡_{10} 0}.
+		\item  \m{4 x + 6 ≡_{10} 0}.
+		\item  \m{1 + 8 x ≡_{10} 0}.
+		\item  \m{3 x ≡_5 1}.
+	\stopitemize
 \stopslide
 
 \startslide [title={Equivalence relations}]
@@ -1525,53 +1605,36 @@
 	\starttheorem
 		There is a one-to-one correspondence between equivalence relations and set partitions.
 	\stoptheorem
-
 \stopslide
 
 \startslide [title={Congruence classes}]
-	
-	\startitemize [m]
-		\item  Representation
-		\item  Arithmetic
-	\stopitemize
-
-	% TODO
-\stopslide
-
-\startslide [title={Division}]
-
-	\starttheorem
-		If \m{c a ≡_n c b}, then \m{a ≡_{\frac{n}{d}} b}, where \m{d = \gcd(c, n)}. 
-	\stoptheorem
-
-	\startproof
-		By hypothesis, we can write \m{c(a - b) = ca - cb = kn} for some integer \m{k}. Knowing that \m{\gcd(c, n) = d}, there exist coprime integers \m{r} and \m{s} satisfying \m{c = dr, n = ds}. When these values are substituted in the displayed equation and the common factor \m{d} canceled, the net result is \m{r (a - b) = k s}. Hence, \m{s ∣ r (a - b)} and \m{gcd(r, s) = 1}. Euclid's lemma yields \m{s ∣ (a - b)}, which may be recast as \m{a ≡_s b}; in other words, \m{a ≡_{\frac{n}{d}} b}. 
-	\stopproof
-
-	\startcorollary
-		If \m{c a ≡_n c b} and \m{\gcd(c, n) = 1}, then \m{a ≡_n b}. 
-	\stopcorollary
 
 	\startdefinition
-		Let \m{n ∈ ℕ} and \m{a ∈ ℤ}. Then the \important{multiplicative inverse} of \m{a} modulo \m{n} is an integer \m{x} such that \m{a x ≡_n 1}.
+		Let \m{n ∈ ℕ}. The \important{congruence classes modulo \m{n}} are the sets \m{[0]_n, [1]_n, [2]_n, …, [n - 1]_n}, where \m{[i]_n} represents all integers which when divided by \m{n} gives a remainder of \m{i}.
+
+		The set of all congruence classes for \m{n} is called the \important{ring of integers modulo \m{n}}, denoted by \m{ℤ/nℤ} or \m{ℤ_n}. That is, \m{ℤ/nℤ = ℤ_n = \bcrl[{[i]_n}: i ∈ \bcrl[0, …, {n - 1}]]}.
 	\stopdefinition
 
-	Solve the following congruences equations.
-	\startitemize [i, columns, three, joinedup]
-		\item  \m{x + 8 ≡_{10} 0}.
-		\item  \m{3 x ≡_{12} 0}.
-		\item  \m{7 + 3 x ≡_{10} 0}.
-		\item  \m{4 x + 6 ≡_{10} 0}.
-		\item  \m{1 + 8 x ≡_{10} 0}.
-	\stopitemize
+	If \m{n} is obvious from the context, we will hide the subscript.
 
+	\blank
+
+	Using the results we proved in the third slide of this topic, we define the following \important{modular arithmetic relations}. \comment{Here \m{±} means that the relation holds both for addition and subtraction.}
+	
+	\startitemize [m, joinedup]
+		\item  \m{[a]_n ± [b]_n := [a ± b]_n}.
+		\item  \m{[a]_n ⋅ [b]_n := [a ⋅ b]_n}.
+		\item  \m{[a]_n ± b := [a ± b]_n}.
+		\item  \m{[a]_n ⋅ b := [a ⋅ b]_n}.
+		\item  \m{[a]_n^k := [a^k]_n}.
+	\stopitemize
 \stopslide
 
 \startslide [title={Positional representations of numbers}]
 	
 	Numbers can be represented in various \important{positional} systems. These usually change the base from \m{10} to another number. Following is a list of commonly used bases. For more information \goto{see the Wikipedia article on positional notation}[url(https://en.wikipedia.org/wiki/Positional_notation)].
 
-	\startitemize [m]
+	\startitemize [4]
 		
 		\item  Base \m{10} (\goto{decimal}[url(https://en.wikipedia.org/wiki/Decimal_notation)]): Used almost universally by humans (with exceptions).
 
@@ -1595,7 +1658,7 @@
 
 \startslide [title={Tests of divisibility for \emph{decimal} numbers}]
 	
-	\startitemize [m]
+	\startitemize [4]
 		
 		\item  \important{Test for \m{2}}: The number \m{n} must have \m{0, 2, 4, 6, 8} as the units digit.
 
@@ -1606,7 +1669,7 @@
 		\item  \important{Test for \m{5}}: The number \m{n} must have \m{0, 5} as the units digit.
 
 			\startproof
-				\m{n = d_n ⋯ d_1 d_0 = 10^n d_n + ⋯ + 10 d_1 + d_0 ≡_{5} d_0}, so \m{5 ∣ n ⟺ 5 ∣ d_0}..
+				\m{n = d_n ⋯ d_1 d_0 = 10^n d_n + ⋯ + 10 d_1 + d_0 ≡_{5} d_0}, so \m{5 ∣ n ⟺ 5 ∣ d_0}.
 			\stopproof
 
 		\item  \important{Test for \m{3}} (similar for \m{9}): The number \m{n} must have its sum of digits divisbile by \m{3}.
@@ -1622,20 +1685,19 @@
 			\stopproof
 
 		\item  \important{Tests for \m{2^n} and \m{5^n}}: The number \m{n} must have its last \m{n} digits divisible by \m{2^n} and \m{5^n}, respectively. \comment{Key idea: \m{10^n = 2^n 5^n}.}
-
-		\item  \important{Test for \m{11}}: The number \m{n} must have its alternating sum of digits divisible by \m{11}.
-
-			\startproof
-				\m{n = d_n ⋯ d_2 d_1 d_0 = 10^n d_n + ⋯ + 10 d_1 + d_0 ≡_{11} (-1)^n d_n + ⋯ + d_2 - d_1 + d_0}.
-			\stopproof
-
 	\stopitemize
 \stopslide
 
 \startslide [title={Tests of divisibility for \emph{decimal} numbers}]
 	
-	\startitemize [m]
+	\startitemize [4]
 		
+		\item  \important{Test for \m{11}}: The number \m{n} must have the difference of the sum of digits of even positions and odd positions divisible \m{11}.
+
+			\startproof
+				\m{n = d_n ⋯ d_2 d_1 d_0 = 10^n d_n + ⋯ + 10 d_1 + d_0 ≡_{11} (-1)^n d_n + ⋯ + d_2 - d_1 + d_0}.
+			\stopproof
+
 		\item  \important{Test for \m{7}}: The difference between twice the units digit of the number \m{n} and the number formed by the rest of the digits is divisible by 7. Repeat to get only one digit left.
 
 			\startproof
@@ -1673,7 +1735,6 @@
 		\item  \m{x ≡_5 1, x ≡_7 2, x ≡_9 3, x ≡_{11} 4}.
 		\item  \m{x^3 ≡_{55} 3}. \comment{This can be broken down into \m{x^3 ≡_5 3, x^3 ≡_{11} 3}.}
 	\stopitemize
-
 \stopslide
 
 \stopmode
