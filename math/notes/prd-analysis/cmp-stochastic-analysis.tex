@@ -28,11 +28,11 @@
 		\item  If \m{𝕋 = ℤ, Ξ = ℝ}, then \m{X} is a \emph{two-sided random variable} or \emph{two-sided discrete-time stochastic process}.
 		\item  If \m{𝕋 = ℤ^d, Ξ = ℝ}, then \m{X} is a \emph{spatial random variable}.
 		\item  If \m{𝕋 = ℝ, Ξ = ℝ}, then \m{X} is a \emph{continuous-time random variable}.
-		\item  If \m{𝕋 = 𝓑, Ξ = [0, ∞]}, then \m{X} is a \emph{random set function on the reals}.
-		\item  If \m{𝕋 = 𝓑 × ℕ, Ξ = [0, ∞]}, then \m{X} is a \emph{one-sided random sequence of set function on the reals}.
-		\item  \emph{Emperical measures.}  Let \m{(Z_n)} be an i.i.d. random sequence and define \m{\hat{ℙ}_n : 𝓑 × Ω  \NC  →  𝓟: (B, ω)  ↦  \hat{ℙ}_n(B, ω)  =  \frac{1}{n} ∑_{j = 1}^n 𝟙_B(Z_j(ω))}. Then \m{\hat{ℙ}_n} is a \emph{one-sided random sequence of set function on the reals}, which are in fact \emph{probability measures}. \comment{[\m{𝓟} is the space of probability measures on \m{ℝ}.]}
-		\item  If \m{𝕋 = 𝓑^d, Ξ = [0, ∞]}, then \m{X} is the class of set functions on \m{ℝ^d}. Let \m{𝓜} be the subclass of measures. Then a random set function with realizations in \m{𝓜} is called a \emph{random measure}.
-		\item  If \m{𝕋 = 𝓑^d, \abs[Ξ] < ∞}, then \m{X} is a \emph{point process}.
+		\item  If \m{𝕋 = \mathcal{B}, Ξ = [0, ∞]}, then \m{X} is a \emph{random set function on the reals}.
+		\item  If \m{𝕋 = \mathcal{B} × ℕ, Ξ = [0, ∞]}, then \m{X} is a \emph{one-sided random sequence of set function on the reals}.
+		\item  \emph{Emperical measures.}  Let \m{(Z_n)} be an i.i.d. random sequence and define \m{\hat{ℙ}_n : \mathcal{B} × Ω  \NC  →  𝓟: (B, ω)  ↦  \hat{ℙ}_n(B, ω)  =  \frac{1}{n} ∑_{j = 1}^n 𝟙_B(Z_j(ω))}. Then \m{\hat{ℙ}_n} is a \emph{one-sided random sequence of set function on the reals}, which are in fact \emph{probability measures}. \comment{[\m{𝓟} is the space of probability measures on \m{ℝ}.]}
+		\item  If \m{𝕋 = \mathcal{B}^d, Ξ = [0, ∞]}, then \m{X} is the class of set functions on \m{ℝ^d}. Let \m{𝓜} be the subclass of measures. Then a random set function with realizations in \m{𝓜} is called a \emph{random measure}.
+		\item  If \m{𝕋 = \mathcal{B}^d, \abs[Ξ] < ∞}, then \m{X} is a \emph{point process}.
 		\item  If \m{𝕋 = [0, ∞), Ξ = ℝ^d < ∞}. A \m{Ξ}-valued random process on \m{𝕋} with paths in \m{C(𝕋)} is a \emph{continuous random process}. E.g. Wiener process.
 	\stopitemize
 
@@ -80,7 +80,7 @@
 		Let \m{s ∈ [0, t]}. Then \m{X_⋅} is a Markov process if any of the following are true:
 		\startitemize[1, nowhite, after]
 			\item  \m{∀ E ∈ ℱ, ℙ(X_t ∈ E ∣ ℱ_s) = ℙ(X_t ∈ E ∣ X_s)}, or
-			\item  \m{∀ E ∈ ℱ, ∀ f ∈ L^0 ∩ 𝓑, 𝔼(f(X_t) ∣ ℱ_s) = 𝔼(f(X_t) ∣ X_s)}.
+			\item  \m{∀ E ∈ ℱ, ∀ f ∈ L^0 ∩ \mathcal{B}, 𝔼(f(X_t) ∣ ℱ_s) = 𝔼(f(X_t) ∣ X_s)}.
 		\stopitemize
 	\stopsubject
 
@@ -95,42 +95,42 @@
 
 	Notation:
 
-	In what follows, \m{T = [0, ∞)}, \m{𝓐} means adapted, \m{𝓑} means bounded, \m{𝓒} means continuous, and \m{\norm[⋅]} denotes the \m{L^2}-norm.
+	In what follows, \m{T = [0, ∞)}, \m{\mathcal{A}} means adapted, \m{\mathcal{B}} means bounded, \m{\mathcal{C}} means continuous, and \m{\norm[⋅]} denotes the \m{L^2}-norm.
 
 	Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.
 
-	\startsection [title={Step 1: \m{X ∈ 𝓐 ∩ 𝓢} a.s.}]
+	\startsection [title={Step 1: \m{X ∈ \mathcal{A} ∩ \mathcal{S}} a.s.}]
 
 		Let \m{X(t, ω) = ∑_{j ≥ 0} ξ_j(ω) 𝟙_{[t_j, t_{j+1})}(t)}, where \m{ξ_j ∈ L^0(ℱ_{t_j})}.
 
 	\stopsection
 
-	\startsection [title={Step 2: \m{X ∈ 𝓐 ∩ 𝓑 ∩ 𝓒} a.s.}]
+	\startsection [title={Step 2: \m{X ∈ \mathcal{A} ∩ \mathcal{B} ∩ \mathcal{C}} a.s.}]
 
-		Define \m{X_n(t, ω) = X\brnd[\frac{\floor[nt]}{n}, ω], \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ 𝓐 ∩ 𝓢}, and since \m{X ∈ 𝓒}, \m{\abs[X_n(t, ω) - X(t, ω)] → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs[X_n(t, ω) - X(t, ω)] < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs[X_n(t, ω) - X(t, ω)]^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm[X_n - X] → 0}.
+		Define \m{X_n(t, ω) = X\brnd[\frac{\floor[nt]}{n}, ω], \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ \mathcal{A} ∩ \mathcal{S}}, and since \m{X ∈ \mathcal{C}}, \m{\abs[X_n(t, ω) - X(t, ω)] → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs[X_n(t, ω) - X(t, ω)] < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs[X_n(t, ω) - X(t, ω)]^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm[X_n - X] → 0}.
 
 		Therefore, \m{(X_n)} is Cauchy in \m{L^2(T × Ω)}, that is, \m{\norm[X_n - X_m] → 0}. Now, by linearity and Itô isometry for the Itô integral for simple processes, \m{\norm[𝓘(X_n) - 𝓘(X_m)] = \norm[𝓘(X_n - X_m)] = \norm[X_n - X_m] → 0}. Therefore, for \m{t ∈ T} fixed, \m{(𝓘(X_n))} is Cauchy in \m{L^2(Ω)}. Since \m{L^2(Ω)} is complete, the sequence converges. Denote the limit by \m{𝓘(X)}, that is, \m{\norm[𝓘(X_n) - 𝓘(X)] → 0}.
 
 	\stopsection
 
-	\startsection [title={Step 3: \m{X ∈ 𝓐 ∩ 𝓑 ∩ L^0(T × Ω)}}]
+	\startsection [title={Step 3: \m{X ∈ \mathcal{A} ∩ \mathcal{B} ∩ L^0(T × Ω)}}]
 
 	\stopsection
 
-	\startsection [title={Step 4: \m{X ∈ 𝓐 ∩ L^2(T × Ω)}}]
+	\startsection [title={Step 4: \m{X ∈ \mathcal{A} ∩ L^2(T × Ω)}}]
 
 	\stopsection
 
-	\startsection [title={Step 5: \m{X ∈ 𝓐 ∩ \bcrl[X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞] a.s.}}]
+	\startsection [title={Step 5: \m{X ∈ \mathcal{A} ∩ \bcrl[X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞] a.s.}}]
 
 	\stopsection
 
 	\startsection [title={Properties of the Itô integral}]
 
-		In what follows, assume the following. Let \m{X, Y ∈ 𝓐 ∩ L^2(T × Ω); (X_n), (Y_n) ⊂ 𝓐 ∩ 𝓢} such that \m{\norm[X_n - X] → 0} and \m{\norm[Y_n - Y] → 0}. Let \m{z ∈ ℂ}.
+		In what follows, assume the following. Let \m{X, Y ∈ \mathcal{A} ∩ L^2(T × Ω); (X_n), (Y_n) ⊂ \mathcal{A} ∩ \mathcal{S}} such that \m{\norm[X_n - X] → 0} and \m{\norm[Y_n - Y] → 0}. Let \m{z ∈ ℂ}.
 
 		\startsubsection [title={Linearity: \m{\norm[z 𝓘(X) + 𝓘(Y) - 𝓘(zX+Y)] = 0}}]
-			First, note that \m{\norm[(z X_n + Y_n) - (z X + Y)] ≤ \abs[z] \norm[X_n - X] + \norm[Y_n - Y] → 0}. Now, by the linearity of the integral \m{𝓘:𝓐 ∩ 𝓢 → L^2(Ω)}, we have
+			First, note that \m{\norm[(z X_n + Y_n) - (z X + Y)] ≤ \abs[z] \norm[X_n - X] + \norm[Y_n - Y] → 0}. Now, by the linearity of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)}, we have
 			\startformula \startalign[align={left}]
 				\NC  \norm[z 𝓘(X) + 𝓘(Y) - 𝓘(z X + Y)]  \NR
 				\NC  =  \norm[z 𝓘(X) + 𝓘(Y) - z 𝓘(X_n) - 𝓘(Y_n) + 𝓘(z X_n + Y_n) - 𝓘(z X + Y)]  \NR
@@ -139,7 +139,7 @@
 		\stopsubsection
 
 		\startsubsection [title={Itô isometry: \m{\norm[𝓘(X)] = \norm[X]}}]
-			Using the isometry of the integral \m{𝓘:𝓐 ∩ 𝓢 → L^2(Ω)}, we have
+			Using the isometry of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)}, we have
 			\startformula \startalign[align={left,left}]
 				\NC  \norm[𝓘(X)]  \NC  ≤  \norm[𝓘(X) - 𝓘(X_n)] + \norm[𝓘(X_n)]  \NR
 				\NC  \NC  =  \norm[𝓘(X) - 𝓘(X_n)] + \norm[X_n]  \NR
@@ -149,7 +149,7 @@
 		\stopsubsection
 
 		\startsubsection [title={Martingale property: \m{𝔼\brnd[𝓘_t(X) ∣ ℱ_s] = 𝓘_s(X)} a.s.}]
-			The martingale property of the integral \m{𝓘:𝓐 ∩ 𝓢 → L^2(Ω)} gives \m{𝔼\brnd[𝓘_t(X_n) - 𝓘_s(X_n) ∣ ℱ_s] = 0}. Using this and the unitariness of the Itô isometry, we get
+			The martingale property of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)} gives \m{𝔼\brnd[𝓘_t(X_n) - 𝓘_s(X_n) ∣ ℱ_s] = 0}. Using this and the unitariness of the Itô isometry, we get
 			\startformula \startalign[align={left,left}]
 				\NC  \norm[𝔼{\brnd[𝓘_t(X) - 𝓘_s(X) ∣ ℱ_s]}]^2  \NR
 				\NC  =  𝔼\abs[𝔼{\brnd[𝓘_t(X) - 𝓘_t(X_n) + 𝓘_s(X_n) - 𝓘_s(X) ∣ ℱ_s]} + 𝔼{\brnd[𝓘_t(X_n) - 𝓘_s(X_n) ∣ ℱ_s]}]^2  \NR
@@ -164,10 +164,10 @@
 
 	\stopsection
 
-	% In what follows, \m{T = [0, t], \ t ∈ [0, ∞)}, \m{X: T × Ω → ℝ}, and \m{𝓢} represent the class of simple processes.
+	% In what follows, \m{T = [0, t], \ t ∈ [0, ∞)}, \m{X: T × Ω → ℝ}, and \m{\mathcal{S}} represent the class of simple processes.
 
-	% \startsection [title={Approximation of \m{𝓢 ∋ X_n → X ∈ L^2(T × Ω)}}]
-	% 	\startsubsection [title={Step 1: \m{𝓢 ∋ X_n → X ∈ C ∩ B}}]
+	% \startsection [title={Approximation of \m{\mathcal{S} ∋ X_n → X ∈ L^2(T × Ω)}}]
+	% 	\startsubsection [title={Step 1: \m{\mathcal{S} ∋ X_n → X ∈ C ∩ B}}]
 	% 		Suppose \m{X} is a progressive, adapted, \emph{bounded on \m{I}} \m{t}-a.s., and has \emph{continuous sample paths} \m{t}-a.s. Then there exist a sequence of bounded simple processes \m{(X_n)} such that \m{X_n → X} in \m{L^2(T × Ω)}.
 
 	% 		Proof.

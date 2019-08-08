@@ -2,37 +2,12 @@
 
 \startenvironment *
 
-%%%%%%%%%%%%%
-% Variables %
-%%%%%%%%%%%%%
-
-% Version and mode
-\setvariables [document] [version=temporary]    % {final, concept, temporary}
-\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
-% Colors
-\setvariables [document] [color-link-external=royalblue]
-\setvariables [document] [color-link-internal=violetred]
-% \setvariables [document] [color-background=azure]
-\setvariables [document] [color-background=white]
-\setvariables [document] [color-foreground=darkslategray]
-\setvariables [document] [color-headings=firebrick]
-% Fonts
-\setvariables [document] [font=palatino]
-\setvariables [document] [fontsize=12pt]
-% Document specific information
-\setvariables [document] [title={Solution Manual}]
-\setvariables [document] [subtitle={Using \ConTeXt}]
-\setvariables [document] [author={Sudip Sinha}]
-\setvariables [document] [date={\date}]
-\setvariables [document] [keyword={mathematics, solutions}]
-
-
 %%%%%%%%%%%%
 % Preamble %
 %%%%%%%%%%%%
 
 % mode=mkiv
-\mainlanguage [en]
+\mainlanguage[\getvariable{document}{language}]
 \version [\getvariable{document}{version}]
 
 % NOTE: export cannot deal with 'part's as of 2019-04-05
@@ -62,24 +37,7 @@
 	[part,chapter,section,subsection]    % creates bookmarks for the specified headers
 	[chapter]    % but opens only chapter ones by default
 
-% Export
-% \setupexport [
-% 	hyphen=yes,
-% 	% This metadata is used by ConTeXt’s ePub script
-% 	% title, subtitle and author are taken from \setupinteraction, if not set
-% 	% title={Solutions Manual},
-% 	% subtitle={Using ConTeXt},
-% 	% author={Sudip Sinha}]t
-
-% \settaggedmetadata [
-% 	% here you can set as many metadata entries as you like, but you need to process them yourself
-% 	title={Solution Manual},
-% 	subtitle={Using ConTeXt},
-% 	author={Sudip Sinha},
-% 	version={2019-04-05}] % \date doesn’t expand
-
-% For US paper, use [letter][letter]; the sensible default is [A4][A4] (A4 typesetting, printed on A4 paper)
-\setuppapersize [A4] [A4]
+\setuppapersize [A4] [A4]    % For US paper, use [letter][letter]
 % wiki/Layout
 \setuplayout [
 	topspace=4em,
@@ -96,12 +54,24 @@
 \useURL[author-official-email][mailto:ssinha4@lsu.edu][][ssinha4@lsu.edu]
 \useURL[author-home][https://SudipSinha.GitHub.io][][homepage]
 
-% headers and footers
+% Headers and footers (wiki/Headers_and_Footers)
 % \setupfooter[style=\it]
 % \setupfootertexts[\date\hfill \ConTeXt\ template]
-% \setuppagenumbering[location={header,right}, style=bold]
+\setuppagenumbering[location={header, right}, style=\bold]
+% TODO: Put section titles/numbers in headers
+
 
 % Formatting sections
+\setuphead [part] [
+	placehead=yes,    % This is needed to show the header
+	alternative=middle,    % Aligns the title at the horizontal center
+	before={\emptylines[16]},
+	numbercommand=\groupedcommand{}{\emptylines[2]},    % Puts space between the part label and the title.
+	color=\getvariable{document}{color-headings},
+	bodypartlabel=part,    % Puts the word "part" in the table of contents
+	style=\tfd\smallcaps,
+	header=empty, footer=empty]    % Empty headers and footers for part pages
+
 \setuphead [chapter] [
 	color=\getvariable{document}{color-headings},
 	alternative=margin,
@@ -117,16 +87,6 @@
 	alternative=margin,
 	style=\tfa]
 
-% \setuphead[section,chapter,subject][color=headingcolor]
-% \setuphead[section,subject][style={\ss\bfa},
-%   before={\bigskip\bigskip}, after={}]
-% \setuphead[chapter][style={\ss\bfd}]
-% \setuphead[title][style={\ss\bfd},
-%   before={\begingroup\setupbodyfont[14.4pt]},
-%   after={\leftline{\ss\tfa A. U. Thor $\langle$\from[author-email]$\rangle$}
-%          \bigskip\bigskip\endgroup}]
-
-% \setupitemize[inbetween={}, style=bold]
 
 % % set inter-paragraph spacing
 % \setupwhitespace[medium]
@@ -371,16 +331,43 @@
 
 % Fonts
 % https://wiki.contextgarden.net/Protrusion
-% \loadtypescriptfile[mathdesign]
+\enableregime[utf]    % Enable Unicode fonts. Necessary for a lot of fonts.
+\setupcapitals[sc=yes]    % Enable Capital Letter use
+
 \usesymbols [fontawesome]    % https://fontawesome.com/icons
 \definefontfeature
 	[default]
 	[default]
 	[protrusion=quality, expansion=quality]
 \usetypescript [\getvariable{document}{font}]
-\setupbodyfont
-	[reset, \getvariable{document}{font}, \getvariable{document}{fontsize}]
-	% alternatives: xitsbidi, euler
+\setupbodyfont [reset, \getvariable{document}{font}, \getvariable{document}{fontsize}]
+
 \setupalign [hanging, hz, lesshyphenation, tolerant, stretch]
+
+
+% Page numbering (TeXSE/108676)
+% Roman numerals for front matter page numbering
+\definestructureconversionset [frontpart:pagenumber] [] [romannumerals]
+
+% Arabic numerals for body matter page numbering
+\startsectionblockenvironment [bodypart]
+  \setcounter [userpage] [1]
+\stopsectionblockenvironment
+
+
+% Title page
+\def \title {
+	\startalignment [center]
+	\emptylines[4]
+		{\tfd \getvariable{document}{title}}
+	\emptylines[2]
+		{\tfc \getvariable{document}{subtitle}}
+	\emptylines[4]
+		{\tfa \getvariable{document}{author}}
+	\emptylines[2]
+		{\tfa \getvariable{document}{date}}
+	\emptylines[4]
+	\stopalignment
+}
 
 \stopenvironment

@@ -1,10 +1,47 @@
+% Variables
+
+% Language
+\setvariables [document] [language=en]
+
+% Version and mode
+\setvariables [document] [version=temporary]    % {final, concept, temporary}
+\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
+
+% Colors
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+
+% \setvariables [document] [color-background=azure]
+\setvariables [document] [color-background=white]
+\setvariables [document] [color-foreground=darkslategray]
+\setvariables [document] [color-headings=firebrick]
+
+% Fonts
+% No  (increasing order of yes): hvmath, mathtimes, iwona, asana, informal, charter, garamond, utopia, cambria
+% Yes (decreasing order of yes): palatino, xits, xitsbidi, euler, pagellaovereuler, schola, times, modern, antykwa-torunska, bonum
+\setvariables [document] [font=palatino]
+\setvariables [document] [fontsize=12pt]
+
+% Document specific information
+\setvariables [document] [title={Functional analysis}]
+\setvariables [document] [subtitle={Mostly operator theory for now}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={\date}]
+\setvariables [document] [keyword={mathematics, solutions, notes, functional analysis, operator theory}]
+
+
+
 \startproduct *
 
 \project  prj-notes
 
 
+\startstandardmakeup
+	\title    %Titlepage for the book
+\stopstandardmakeup
+ 
+
 \startfrontmatter
-	% \component titlepage     %Titlepage for the book
 	\completecontent    % Contents
 \stopfrontmatter
 

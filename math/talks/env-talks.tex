@@ -8,12 +8,10 @@
 
 
 
-% This is the variables section. Ideally, these are the only modifications that should be made.
-
 \startenvironment presentation
 
 
-\mainlanguage[en]
+\mainlanguage[\getvariable{document}{language}]
 
 \version[\getvariable{document}{version}]
 \enablemode[\getvariable{document}{mode}]
