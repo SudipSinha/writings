@@ -351,4 +351,29 @@
 		\stoptikzcd
 	\stopsection
 
+	\startsection [title={Article III, Fullness of a subcategory}]
+		% TODO: Put this in its appropriate place.
+		We use the following notation. Mor denotes set morphisms and Iso denotes set isomorphisms.
+		\startitemize [4, joinedup]
+			\item  \m{𝒞_0 = \brnd[{\bcrl[ℕ, ℤ]}, \text{Iso}{\bcrl[ℕ, ℤ]}]}.
+			\item  \m{𝒞_1 = \brnd[{\bcrl[ℕ]}, \text{Mor}{\bcrl[ℕ]}]}.
+			\item  \m{𝒞_2 = \brnd[{\bcrl[ℕ]}, \text{Iso}{\bcrl[ℕ]}]}.
+			\item  \m{𝒞_3 = \brnd[{\bcrl[ℕ]}, {\bcrl[𝟙_ℕ]}]}.
+		\stopitemize
+		Note that \m{𝒞_3 ⊂ 𝒞_2 ⊂ 𝒞_1}. Moreover, the following table holds.
+
+		\placetable[force, none]{}{%    % This centers the table
+		\starttabulate[|c|c|c|] 
+			\FL
+			\NC  Category  \VL  Subcategory of \m{𝒞_0}  \VL  Full in \m{𝒞_0}  \NR
+			\FL
+			\NC  \m{𝒞_1}  \VL  ×  \VL  -  \NR
+			\NC  \m{𝒞_2}  \VL  ✓  \VL  ✓  \NR
+			\NC  \m{𝒞_3}  \VL  ✓  \VL  ×  \NR
+			\BL
+		\stoptabulate
+		}
+
+	\stopsection
+
 \stopchapter
