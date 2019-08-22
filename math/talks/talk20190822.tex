@@ -1,0 +1,503 @@
+%%%%%%%%%%%%%
+% Variables %
+%%%%%%%%%%%%%
+
+% Language
+\setvariables [document] [language=en]
+
+% Version and mode
+\setvariables [document] [version=final]    % {final, concept, temporary}
+\setvariables [document] [mode=presentation]    % {presentation, manuscript, handout}
+
+% Colors
+% https://coolors.co/app
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+\setvariables [document] [color-background-0=white]
+\setvariables [document] [color-background-1=mistyrose]
+\setvariables [document] [color-background-2=whitesmoke]
+\setvariables [document] [color-foreground-0=deepskyblue4]
+\setvariables [document] [color-foreground-1=firebrick4]
+\setvariables [document] [color-foreground-2=darkslategray]
+
+% Fonts
+% Options: palatino, xitsbidi, euler
+\setvariables [document] [font=palatino]
+\setvariables [document] [fontsize-presentation=38pt]
+\setvariables [document] [fontsize-document=12pt]
+
+% Information
+\setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
+\setvariables [document] [subtitle={General examination presentation}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={2019-04-05}]
+\setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
+
+% Logo
+\setvariables [document] [logo=MC_Logo_Symbol_672x668.png]
+
+% Environment
+\environment env-talks
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is where the document starts.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\starttext
+
+\startfrontmatter
+
+%%%%%%%%%%%%%%%%
+% Front matter %
+%%%%%%%%%%%%%%%%
+
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+
+% \startmode [handout]
+% \startcolumns
+% \stopmode
+
+
+% Introduction
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+\startmode [presentation]
+
+\startslide
+
+\startalign [middle]
+
+	{\tfd
+		\color[\getvariable{document}{color-foreground-1}]{A generalization of Itô calculus}\\
+		and\\
+		\color[\getvariable{document}{color-foreground-2}]{large deviations theory}}
+
+	\blank[2*line]
+
+	{\tfb \getvariable{document}{author}}
+
+	\blank[line]
+
+	{\tfa \getvariable{document}{date}}
+
+	\blank[2*line]
+
+	Advisors
+
+	\color[\getvariable{document}{color-foreground-1}]{Prof. Hui-Hsiung Kuo}
+
+	\color[\getvariable{document}{color-foreground-2}]{Prof. Padmanabhan Sundar}
+\stopalign
+\stopslide
+
+
+% Table of contents
+\startslide [title={Outline}]
+	\placecontent
+
+\stopslide
+\stopmode
+
+% \startmode [manuscript]
+
+% This presentation is going to be on two topics:
+% \startitemize[n,nowhite,after]
+% 	\item  Generalization of stochastic integrals developed primarily by Professor H.-H. Kuo
+% 	\item  Applications of generalization in large deviations theory
+% \stopitemize
+
+% \stopmode
+
+\stopfrontmatter
+
+
+
+\startbodymatter
+
+%%%%%%%%%%%%%%%%
+% Introduction %
+%%%%%%%%%%%%%%%%
+
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
+\startsection [title={History of probability theory}, reference=sec:history]
+\startmode [presentation]
+
+\startslide [title={History: The classical interpretation of probability theory}]
+	
+	\startitemize [m]
+		
+		\item  1564: Gerolamo Cardano published \emph{Liber de ludo aleae} (Book on Games of Chance).
+
+			% Before then, there were many aspects of chance phenomena noted, but not dealt with systematically.
+		
+		\item  1654: Pascal and Fermat corresponded about the \emph{problem of points} floated by the gambler Chevalier de Méré.
+
+			This is understood to be the origin of systematic study of probability.
+
+		\item  1657: Christiaan Huygens published a book.
+
+		\item  1800s: Pierre Laplace completed what is today considered the classic interpretation.
+		
+		\item  Applications in annuities, statistics of mortality, life insurance, models for assessing evidence, etc.
+
+		% \item  Classical interpretation: Initial considerations were discrete (combinatorial), but later analytical was taken into accont.
+
+	\stopitemize
+\stopslide
+
+\startslide [title={History: Brownian motion and axiomatization}]
+	
+	\startitemize [m]
+		
+		\item  1827: Discovered by the biologist Robert Brown while studying pollen particles floating in water in the microscope.
+
+		\item  1900: Louis Bachelier used Brownian motion to model financial markets in his PhD thesis \emph{The theory of speculation}.
+
+		\item  1904: Henri Lebesgue published what is now knows as the Lebesgue integral. The idea was generalized into abstract integrals (over arbitrary spaces).
+
+		\item  1905: Albert Einstein tried to explain Brownian motion using a probabilistic model for diffusion transport.
+
+		\item  1923: Norbert Wiener constructed the Brownian motion, proving its existence.
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Brownian motions in one dimension}]
+	\placefigure[fit]{}{\externalfigure[Brownian_motion.png][height=0.7\textheight]}
+\stopslide
+
+\startslide [title={History: Modern probability theory and stochastic analysis}]
+
+	\startitemize [m]
+
+		\item  1933: Andrey Kolmogorov published \emph{Foundations of the Theory of Probability}, an axiomatic approach which unified the dichotomous theories of discrete and continuous probability (and other cases).
+
+			This established probability theory as a field of study within mathematics, in particular, analysis.
+
+		\item  1944: Kiyosi Itô published his integral w.r.t. a Brownian motion \cite[short][Itô1944SI].
+
+		\item  1973: Black and Scholes used Brownian motion and the Itô integral to model the stock market.
+	\stopitemize
+\stopslide
+\stopmode
+\stopsection
+
+
+
+\startsection [title={Introduction and motivation}, reference=sec:introduction]
+
+\startmode [presentation]
+
+\startslide [title={Axiomatic probability theory}]
+	
+	\startdefinition
+		A \important{probability space} is a triple \m{(Ω, ℱ, ℙ)}, where
+		\startitemize [4, joinedup]
+			\item  \m{Ω} is a set containing the elementary outcomes.
+			\item  \m{ℱ ⊆ 2^Ω} is a σ-algebra on \m{Ω}, i.e.
+				\startitemize [5, joinedup]
+					\item  \m{∅ ∈ ℱ},
+					\item  \m{E ∈ ℱ} ⟹ \m{E^∁ ∈ ℱ}, and
+					\item  \m{(E_n)_{n ∈ ℕ} ⊂ ℱ} ⟹ \m{⋃ E_n ∈ ℱ}.
+				\stopitemize
+
+			\item  \m{ℙ: ℱ → [0, 1]} is the probability measure on the measurable space \m{(Ω, ℱ)}, i.e.
+				\startitemize [5, joinedup]
+					\item  \m{ℙ(∅) = 0},
+					\item  (σ-additivity) If \m{(E_n)_{n ∈ ℕ} ⊂ ℱ} are a disjoint sequence of sets in \m{ℱ}, then \m{ℙ(⨆ E_n) = ∑ P(E_n)}, and
+					\item  (\emph{probability} measure) \m{ℙ(Ω) = 1}.
+				\stopitemize
+		\stopitemize
+	\stopdefinition
+
+	\bold{Remarks}
+	\startitemize [m, joinedup]
+		Elements of \m{ℱ} (sets) are the \emph{events} to which we can assign a \emph{probability} in a meaningful way.
+		
+		Thus, the σ-algebra represents \quotation{information} in the system.
+	
+		The finer the σ-algebra, the more information we have.
+	\stopitemize
+\stopslide
+
+\startslide [title={Martingales}]
+	
+	\startitemize [4]
+		
+		\item  A \important{random variable} is a \m{ℱ}-\emph{measurable} function \m{X: Ω → ℝ}.
+		
+		\item  A \important{stochastic process} is a \emph{parameterized family} of random variables \m{(X_t)_{t ∈ [0, T]}} defined on a probability space \m{(Ω, ℱ, ℙ)} and assuming values in \m{ℝ}.
+
+			\comment{We usually think of \m{t} as time and \m{(X_t)} as the process evolving in time.}
+
+		\item  A \important{filtration} is an increasing \emph{parameterized family} \m{(ℱ_t)_{t ∈ [0, T]}} of σ-algebras.
+
+			\comment{We think of the system evolving in time, so it has more information as time passes.}
+
+		\item  Let \m{0 ≤ s ≤ t ≤ T}. Then a stochastic process \m{(X_t)_t} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
+
+			\comment{Martingales represent \emph{fair games}.}
+
+			Example: A fair coin is tossed at each unit of time. I win 1\$ if heads turn up and lose 1\$ when tails turn up. Then my wealth is a martingale, because at any point in time my conditional expected fortune after the next trial, given the history, is equal to their present fortune.
+
+		\item  A stochastic process \m{(X_t)_t} is called \important{adapted} to the filtration \m{(ℱ_t)_t} if \m{X_t} is \m{ℱ_t}-measurable \m{∀t}.
+	\stopitemize
+\stopslide
+
+\startslide [title={Brownian motion}]
+	
+	\startitemize [m]
+	
+		\item  A \important{Brownian motion} \m{(B_t)_{t ∈ [0, T]}} is a stochastic process which has the following properties:
+			\startitemize [m, joinedup]
+				\item  Starts at 0 (a.s.)
+				\item  Has independent increments
+				\item  \m{B_t - B_s ∼ 𝓝(0, t - s)}
+				\item  Has continuous sample paths (a.s.)
+			\stopitemize
+
+		\item  Other properties of Brownian motion \m{(B_t)}
+			\startitemize [m, joinedup]
+				\item  It is a.s. nowhere differentiable
+				\item  \bad{It has unbounded linear variation \frown, so naive integration w.r.t. \m{B_t} is not possible}
+				\item  \good{It has bounded quadratic variation \smile}
+				% \item  \m{𝔼(B_t B_s) = s ∧ t}
+				\item  \m{(B_t)} a martingale
+				\item  \m{(B_t^2 - t)} is a martingale
+				% \item  Is a Markov process
+			\stopitemize
+	\stopitemize
+\stopslide
+
+\startslide [title={Trying to integrate stochastic processes}]
+
+	\startitemize [4]
+
+		\item  Question: \m{∫_0^T B_t \d B_t ≟}
+
+			Since \m{B_t} is continuous, let us try the Riemann–Stieltjes integral. Consider a sequence of partitions \m{Δ_n} such that \m{\norm[Δ_n] → 0}. Then
+			\startformula
+				∫_0^T B_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} B_{t_j^*} Δ B_j .
+			\stopformula
+
+		\item  Choosing different endpoints for \m{t_j^*} gives us different results.
+			\starttabulate [|c|m|c|m|c|c|]
+				\NC  \m{t_j^*}  \NC  ∫_0^t B_s \d B_s  \NC  Intuitive?  \NC  𝔼  \NC  Martingale?  \NC  Theory  \NR
+				\FL
+				\NC  \good{left}   \NC  \good{\frac12 \brnd[B_t^2 - t]}  \NC  \good{\frown}  \NC  \good{0}  \NC  \good{\smile}  \NC  \good{Itô}  \NR
+				\NC  mid    \NC  \frac12 \brnd[B_t^2]  \NC  \smile  \NC  \frac12 t  \NC  \frown  \NC  Stratonovich  \NR
+				\NC  \bad{right}  \NC  \bad{\frac12 \brnd[B_t^2 + t]}  \NC  \bad{\frown}  \NC  \bad{t}  \NC  \bad{\frown}  \NC    \NR
+				\BL
+			\stoptabulate
+
+		\item  Which one do we choose?
+	\stopitemize
+\stopslide
+
+\startslide [title={Itô integral \cite[short][Itô1944SI] for \m{(X_t)} with continuous paths}]
+
+	\startitemize [4]
+
+		\item  Definition of the integral: \m{∫_0^T X_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} X_{t_j} Δ B_j}, where \m{Δ B_j = B_{t_{j + 1}} - B_{t_j}}.
+
+		\item  Properties of the integral:
+			\startitemize [5, joinedup]
+				\item  Linear.
+				\item  Mean 0 and variance \m{\norm[f]_{L^2[0, T]}^2} \good{(Itô isometry)}.
+			\stopitemize
+
+		\item  Properties of the associated process \m{I_{\argdotsub} = ∫_0^{\argdotsup} X_t \d B_t}:
+			\startitemize [5, joinedup]
+				\item  continuity
+				\item  martingale
+			\stopitemize
+
+		\item  Example: \m{∫_0^t B_u \d B_u = \frac12 (B_t^2 - t) \quad ∀ t}.
+
+		\item  Remark: We can only integrate over processes which are adapted.
+
+	\stopitemize
+\stopslide
+
+\startslide [title={Multiple integrals}]
+
+	\startitemize [4]
+
+		\item  Question: How do we define the double integral?
+
+		\item  Naive idea: \m{∫_0^t ∫_0^t \d B_u \d B_v = ∫_0^t \d B_u ∫_0^t \d B_v = B_t^2}.
+
+			But \m{𝔼 B_t^2 = \ugly{t ≠ 0}}, so \ugly{no martingale property}. \frown
+
+		\item  Itô's idea: remove the diagonal to get
+		\startformula
+			∫_0^t ∫_0^t \d B_u \d B_v  =  2 ∫_0^t ∫_0^v \d B_u \d B_v  =  2 ∫_0^t B_v \d B_v  =  B_t^2 - t .
+		\stopformula
+	\stopitemize
+
+	\starttheorem[title={\cite[short][Itô1951MWI]}]
+		Let \m{f ∈ L^2\brnd[{[0, T]}^n]} and \m{\bad{\hat{f}}} be its symmetrization. Then
+		\startformula
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} ⋯ \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-2}}} \brnd[∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n}] \d B_{t_{n-1}} ⋯ \d B_{t_1} .
+		\stopformula
+		% \m{\hat{f}(t_1, …, t_n)  =  \frac{1}{n!} ∑_{σ ∈ S_n} f(t_{σ(1)}, …, t_{σ(n)})}
+	\stoptheorem
+
+	\startitemize [4]
+		\item  Feels non-intuitive \frown.
+	\stopitemize
+\stopslide
+
+\stopmode
+
+\stopsection
+
+
+\startsection [title={A Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
+
+\startmode [presentation]
+
+\startslide [title={Motivation}]
+
+	\startitemize [4]
+
+		\item  Iterated integrals: Consider the iterated integral \m{∫_0^t ∫_0^t \d B_u \d B_v \ugly{= ∫_0^t B_t \d B_v ≟ B_t^2}}.
+
+		\item  Note that \m{𝔼(B_t^2) = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
+
+		% \item  Stochastic differential equations with anticipation:
+		% 	% \startitemize [5, joinedup]
+		% 	% 	\item  \m{\d X_t  =  X_t \d B_t, X_0 = B_T}
+		% 	% 	\item  \m{\d Y_t  =  B_T \d B_t, Y_0 = 1}
+		% 	% \stopitemize
+		% \startformula \startalign[m=2, distance=8em, align={right, left, right, left}]
+		% 	\NC  \d X_t  \NC =  X_t \d B_t
+		% 	\NC  \d Y_t  \NC =  B_T \d B_t
+		% 	\NR
+		% 	\NC  X_0  \NC =  B_T
+		% 	\NC  Y_0  \NC =  1
+		% \stopalign \stopformula
+
+		\item  Problem: We want to define \m{∫_0^T Z(\argdotmid) \d B_t}, where \m{Z(\argdotmid)} is not (necessarily) adapted.
+
+		\item  Some approaches:
+		\startitemize [5, joinedup]
+			\item  Enlargement of filtration \m{𝓖_{\argdotsub} = 𝓕_{\argdotsub} ∨ σ(B_T)}, with Itô's decomposition of integrand \cite[short][Itô1978] \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{T - s} \d s] + ∫_0^t \frac{B_T - B_s}{T - s} \d s}.
+			\item  White noise theory
+			\item  Malliavin calculus
+			% \item  …
+
+				% \m{B_t = \brnd[B_t - ∫_0^t \frac{B_T - B_s}{1 - s} \d s] + ∫_0^T \frac{B_T - B_s}{1 - s} \d s}
+		\stopitemize
+
+	\stopitemize
+\stopslide
+
+\startslide [title={The new integral \cite[short][AyedKuo2008, AyedKuo2010]}: Idea]
+
+	\startitemize[1]
+
+		\item  A process \m{Y^{\argdotsup}} and filtration \m{ℱ_{\argdotsub}} are called \important{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
+
+			Example: The process \m{(B_T - B_{\argdotsub})} is instantly independent of the filtration generated by \m{B_{\argdotsub}}.
+
+		\item  Idea
+			\startitemize[n, joinedup]
+
+				\item  Decompose the integrand into \good{adapted} and \okay{instantly independent} parts.
+
+				\item  Evaluate the \good{adapted} and the \okay{instantly independent} parts at the \good{left} and \okay{right} endpoints.
+
+			\stopitemize
+
+		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_{\argdotsub}}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
+			\startformula
+				∫_0^T \good{X_t} \okay{Y^t} \d B_t  ≜  \lim_{\norm[Δ_n] → 0}  ∑_{j = 0}^{n - 1} \good{X_{t_{j}}} \okay{Y^{t_{j+1}}} ΔB_j ,
+			\stopformula
+			provided that the limit exists in probability.
+
+		% \item  Now, for any stochastic process \m{Z(t) = ∑_{k = 1}^n \good{X_t^{(k)}} \okay{Y^t_{(k)}}} we extend the definition by linearity.
+
+		% \item  This is well-defined \cite[short][HwangKuoSaitôZhai2016].
+		%\m{∫_0^T Z(t) \d B_t = ∑_{k = 1}^n ∫_0^T Z(t) X_t^{(k)} Y^t_{(k)} \d B_t}.
+		% \startformula
+		% 	∫_0^T Z(t) \d B_t = ∑_{k = 1}^n ∫_0^T \good{X_t^{(k)}} \okay{Y^t_{(k)}} \d B_t
+		% \stopformula
+
+	\stopitemize
+\stopslide
+
+\startslide [title={A simple example}]
+
+	\startitemize [4]
+
+		\item  	In the following, \m{\lim} is the limit in \m{L^2}.
+			\startformula \startalign
+				\NC  ∫_0^t B_T \d B_t
+					\NC =  ∫_0^t (\good{B_t} + \okay{(B_T - B_t)}) \d B_t
+					    =  \good{∫_0^t B_t \d B_t}  +  \okay{∫_0^t (B_T - B_t) \d B_t}
+				\NR \NC
+					\NC =  \good{\lim ∑_{j = 0}^{n - 1} B_{t_j} Δ B_j}
+						+  \okay{\lim ∑_{j = 0}^{n - 1} (B_T - B_{t_{j + 1}}) Δ B_j}
+				\NR \NC
+					\NC =  \lim ∑_{j = 0}^{n - 1} \brnd[B_T - Δ B_j] Δ B_j
+				\NR \NC
+					\NC =  B_T \lim ∑_{j = 0}^{n - 1} Δ B_j - \lim ∑_{j = 0}^{n - 1} (Δ B_j)^2
+					    =  B_T B_t - t
+			\stopalign \stopformula
+
+		% \item  Note that \m{𝔼(B_T B_t - t) = 0}.
+
+		\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
+
+		\item  This motivates the definition of the \emph{near-martingale} property, which we shall not cover.
+	\stopitemize
+\stopslide
+
+\stopmode
+
+\stopsection
+
+\stopbodymatter
+
+
+
+%%%%%%%%%%%%%%%
+% Back matter %
+%%%%%%%%%%%%%%%
+
+\startbackmatter
+
+\startsubject [title={Appendix}, reference=sub:appendix]
+
+\startmode [presentation]
+
+\startslide
+
+	\startalign [middle]
+
+		\blank[4*line]
+
+		{\tfd Thank you!}
+
+	\stopalign
+\stopslide
+
+\stopsubject
+
+\startslide [title={Bibliography}]
+	\placelistofpublications
+\stopslide
+\stopmode
+\stopbackmatter
+
+\stoptext
