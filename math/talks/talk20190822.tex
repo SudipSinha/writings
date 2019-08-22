@@ -30,7 +30,7 @@
 \setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
 \setvariables [document] [subtitle={General examination presentation}]
 \setvariables [document] [author={Sudip Sinha}]
-\setvariables [document] [date={2019-04-05}]
+\setvariables [document] [date={2019-08-22}]
 \setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
 
 % Logo
@@ -73,9 +73,8 @@
 \startalign [middle]
 
 	{\tfd
-		\color[\getvariable{document}{color-foreground-1}]{A generalization of Itô calculus}\\
-		and\\
-		\color[\getvariable{document}{color-foreground-2}]{large deviations theory}}
+		An introduction to Itô calculus\\
+		and anticipating integrals}
 
 	\blank[2*line]
 
@@ -89,9 +88,9 @@
 
 	Advisors
 
-	\color[\getvariable{document}{color-foreground-1}]{Prof. Hui-Hsiung Kuo}
+	Prof. Hui-Hsiung Kuo
 
-	\color[\getvariable{document}{color-foreground-2}]{Prof. Padmanabhan Sundar}
+	Prof. Padmanabhan Sundar
 \stopalign
 \stopslide
 
@@ -128,10 +127,10 @@
 	backgroundcolor=\getvariable{document}{color-background-0}]
 \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection [title={History of probability theory}, reference=sec:history]
+\startsection [title={History of Probability Theory}, reference=sec:history]
 \startmode [presentation]
 
-\startslide [title={History: The classical interpretation of probability theory}]
+\startslide [title={History: Probability theory}]
 	
 	\startitemize [m]
 		
@@ -139,22 +138,30 @@
 
 			% Before then, there were many aspects of chance phenomena noted, but not dealt with systematically.
 		
-		\item  1654: Pascal and Fermat corresponded about the \emph{problem of points} floated by the gambler Chevalier de Méré.
-
-			This is understood to be the origin of systematic study of probability.
+		\item  1654: Pascal and Fermat corresponded about the \emph{problem of points} floated by the gambler Chevalier de Méré. This is understood to be the origin of systematic study of probability.
 
 		\item  1657: Christiaan Huygens published a book.
 
 		\item  1800s: Pierre Laplace completed what is today considered the classic interpretation.
 		
-		\item  Applications in annuities, statistics of mortality, life insurance, models for assessing evidence, etc.
+		\item  Applications in annuities, statistics of mortality, life insurance, assessing evidence, etc.
 
 		% \item  Classical interpretation: Initial considerations were discrete (combinatorial), but later analytical was taken into accont.
+
+		\item  1904: Henri Lebesgue published what is now knows as the Lebesgue integral.
+
+			The idea was generalized into abstract integrals (over arbitrary spaces).
+
+		\item  1933: Andrey Kolmogorov published \emph{Foundations of the Theory of Probability}.
+
+			This axiomatic approach unified the theories of discrete and continuous probability.
+
+			% This established probability theory as a field of study within mathematics, in particular, analysis.
 
 	\stopitemize
 \stopslide
 
-\startslide [title={History: Brownian motion and axiomatization}]
+\startslide [title={History: Brownian motion}]
 	
 	\startitemize [m]
 		
@@ -162,12 +169,13 @@
 
 		\item  1900: Louis Bachelier used Brownian motion to model financial markets in his PhD thesis \emph{The theory of speculation}.
 
-		\item  1904: Henri Lebesgue published what is now knows as the Lebesgue integral. The idea was generalized into abstract integrals (over arbitrary spaces).
-
 		\item  1905: Albert Einstein tried to explain Brownian motion using a probabilistic model for diffusion transport.
 
-		\item  1923: Norbert Wiener constructed the Brownian motion, proving its existence.
+		\item  1923: Norbert Wiener rigorously constructed the Brownian motion, proving its existence.
 
+		\item  1944: Kiyosi Itô published his integral w.r.t. a Brownian motion.
+
+		\item  1973: Black and Scholes used Brownian motion and the Itô integral to model the stock market.
 	\stopitemize
 \stopslide
 
@@ -175,25 +183,12 @@
 	\placefigure[fit]{}{\externalfigure[Brownian_motion.png][height=0.7\textheight]}
 \stopslide
 
-\startslide [title={History: Modern probability theory and stochastic analysis}]
-
-	\startitemize [m]
-
-		\item  1933: Andrey Kolmogorov published \emph{Foundations of the Theory of Probability}, an axiomatic approach which unified the dichotomous theories of discrete and continuous probability (and other cases).
-
-			This established probability theory as a field of study within mathematics, in particular, analysis.
-
-		\item  1944: Kiyosi Itô published his integral w.r.t. a Brownian motion \cite[short][Itô1944SI].
-
-		\item  1973: Black and Scholes used Brownian motion and the Itô integral to model the stock market.
-	\stopitemize
-\stopslide
 \stopmode
 \stopsection
 
 
 
-\startsection [title={Introduction and motivation}, reference=sec:introduction]
+\startsection [title={Introduction to the Theory}, reference=sec:introduction]
 
 \startmode [presentation]
 
@@ -277,6 +272,11 @@
 			\stopitemize
 	\stopitemize
 \stopslide
+
+
+
+\startsection [title={Itô calculus}, reference=sec:Itô]
+\startmode [presentation]
 
 \startslide [title={Trying to integrate stochastic processes}]
 
@@ -362,7 +362,7 @@
 \stopsection
 
 
-\startsection [title={A Generalization of Itô calculus}, reference=sec:generalization-Itô-calculus]
+\startsection [title={A Generalization of Itô calculus}, reference=sec:beyond-Itô]
 
 \startmode [presentation]
 
