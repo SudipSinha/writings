@@ -27,8 +27,8 @@
 \setvariables [document] [fontsize-document=12pt]
 
 % Information
-\setvariables [document] [title={A generalization of stochastic integrals and its applications to large deviations theory}]
-\setvariables [document] [subtitle={General examination presentation}]
+\setvariables [document] [title={An introduction to Itô calculus and anticipating integrals}]
+\setvariables [document] [subtitle={GEAUX presentation}]
 \setvariables [document] [author={Sudip Sinha}]
 \setvariables [document] [date={2019-08-22}]
 \setvariables [document] [keyword={mathematics, probability, stochastic, integral, calculus, large deviations, applications}]
@@ -64,8 +64,6 @@
 
 
 % Introduction
-\startcolor [\getvariable{document}{color-foreground-0}]    % text color
-
 \startmode [presentation]
 
 \startslide
@@ -118,77 +116,12 @@
 
 \startbodymatter
 
-%%%%%%%%%%%%%%%%
-% Introduction %
-%%%%%%%%%%%%%%%%
-
 \setupbackgrounds [page] [
 	background={color,backgraphics,foreground},
 	backgroundcolor=\getvariable{document}{color-background-0}]
 \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
-\startsection [title={History of Probability Theory}, reference=sec:history]
-\startmode [presentation]
-
-\startslide [title={History: Probability theory}]
-	
-	\startitemize [m]
-		
-		\item  1564: Gerolamo Cardano published \emph{Liber de ludo aleae} (Book on Games of Chance).
-
-			% Before then, there were many aspects of chance phenomena noted, but not dealt with systematically.
-		
-		\item  1654: Pascal and Fermat corresponded about the \emph{problem of points} floated by the gambler Chevalier de Méré. This is understood to be the origin of systematic study of probability.
-
-		\item  1657: Christiaan Huygens published a book.
-
-		\item  1800s: Pierre Laplace completed what is today considered the classic interpretation.
-		
-		\item  Applications in annuities, statistics of mortality, life insurance, assessing evidence, etc.
-
-		% \item  Classical interpretation: Initial considerations were discrete (combinatorial), but later analytical was taken into accont.
-
-		\item  1904: Henri Lebesgue published what is now knows as the Lebesgue integral.
-
-			The idea was generalized into abstract integrals (over arbitrary spaces).
-
-		\item  1933: Andrey Kolmogorov published \emph{Foundations of the Theory of Probability}.
-
-			This axiomatic approach unified the theories of discrete and continuous probability.
-
-			% This established probability theory as a field of study within mathematics, in particular, analysis.
-
-	\stopitemize
-\stopslide
-
-\startslide [title={History: Brownian motion}]
-	
-	\startitemize [m]
-		
-		\item  1827: Discovered by the biologist Robert Brown while studying pollen particles floating in water in the microscope.
-
-		\item  1900: Louis Bachelier used Brownian motion to model financial markets in his PhD thesis \emph{The theory of speculation}.
-
-		\item  1905: Albert Einstein tried to explain Brownian motion using a probabilistic model for diffusion transport.
-
-		\item  1923: Norbert Wiener rigorously constructed the Brownian motion, proving its existence.
-
-		\item  1944: Kiyosi Itô published his integral w.r.t. a Brownian motion.
-
-		\item  1973: Black and Scholes used Brownian motion and the Itô integral to model the stock market.
-	\stopitemize
-\stopslide
-
-\startslide [title={Brownian motions in one dimension}]
-	\placefigure[fit]{}{\externalfigure[Brownian_motion.png][height=0.7\textheight]}
-\stopslide
-
-\stopmode
-\stopsection
-
-
-
-\startsection [title={Introduction to the Theory}, reference=sec:introduction]
+\startsection [title={Introduction to the Theory}, reference=sec:theory]
 
 \startmode [presentation]
 
@@ -208,7 +141,7 @@
 			\item  \m{ℙ: ℱ → [0, 1]} is the probability measure on the measurable space \m{(Ω, ℱ)}, i.e.
 				\startitemize [5, joinedup]
 					\item  \m{ℙ(∅) = 0},
-					\item  (σ-additivity) If \m{(E_n)_{n ∈ ℕ} ⊂ ℱ} are a disjoint sequence of sets in \m{ℱ}, then \m{ℙ(⨆ E_n) = ∑ P(E_n)}, and
+					\item  (σ-additivity) For every disjoint sequence of sets \m{(E_n)_{n ∈ ℕ} ⊂ ℱ}, \m{ℙ(⨆ E_n) = ∑ P(E_n)}, and
 					\item  (\emph{probability} measure) \m{ℙ(Ω) = 1}.
 				\stopitemize
 		\stopitemize
@@ -238,14 +171,18 @@
 
 			\comment{We think of the system evolving in time, so it has more information as time passes.}
 
-		\item  Let \m{0 ≤ s ≤ t ≤ T}. Then a stochastic process \m{(X_t)_t} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
+		\item  Let \m{0 ≤ s ≤ t ≤ T}. Then a stochastic process \m{(X_t)} is called a \important{martingale} if \m{𝔼(X_t ∣ ℱ_s) = X_s}.
 
 			\comment{Martingales represent \emph{fair games}.}
 
 			Example: A fair coin is tossed at each unit of time. I win 1\$ if heads turn up and lose 1\$ when tails turn up. Then my wealth is a martingale, because at any point in time my conditional expected fortune after the next trial, given the history, is equal to their present fortune.
 
-		\item  A stochastic process \m{(X_t)_t} is called \important{adapted} to the filtration \m{(ℱ_t)_t} if \m{X_t} is \m{ℱ_t}-measurable \m{∀t}.
+		\item  A stochastic process \m{(X_t)} is called \important{adapted} to the filtration \m{(ℱ_t)_t} if \m{X_t} is \m{ℱ_t}-measurable \m{∀t}.
 	\stopitemize
+\stopslide
+
+\startslide [title={Brownian motions in one dimension}]
+	\placefigure[fit]{}{\externalfigure[Brownian_motion.png][height=0.7\textheight]}
 \stopslide
 
 \startslide [title={Brownian motion}]
@@ -284,7 +221,7 @@
 
 		\item  Question: \m{∫_0^T B_t \d B_t ≟}
 
-			Since \m{B_t} is continuous, let us try the Riemann–Stieltjes integral. Consider a sequence of partitions \m{Δ_n} such that \m{\norm[Δ_n] → 0}. Then
+			Since \m{B_t} is continuous, let us try the Riemann–Stieltjes integral. Consider a sequence of partitions \m{Δ_n} such that \m{\norm[Δ_n] → 0}. We denote \m{Δ B_j = B_{t_{j + 1}} - B_{t_j}}. Then
 			\startformula
 				∫_0^T B_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} B_{t_j^*} Δ B_j .
 			\stopformula
@@ -307,7 +244,7 @@
 
 	\startitemize [4]
 
-		\item  Definition of the integral: \m{∫_0^T X_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} X_{t_j} Δ B_j}, where \m{Δ B_j = B_{t_{j + 1}} - B_{t_j}}.
+		\item  Definition of the integral: \m{∫_0^T X_t \d B_t  =  \lim ∑_{j = 0}^{n - 1} X_{t_j} Δ B_j}.
 
 		\item  Properties of the integral:
 			\startitemize [5, joinedup]
@@ -455,12 +392,35 @@
 					    =  B_T B_t - t
 			\stopalign \stopformula
 
-		% \item  Note that \m{𝔼(B_T B_t - t) = 0}.
+		\item  Note that \m{𝔼(B_T B_t - t) = 0}.
 
 		\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
-
-		\item  This motivates the definition of the \emph{near-martingale} property, which we shall not cover.
 	\stopitemize
+\stopslide
+
+\startslide [title={The near-martingale property}]
+
+	\startitemize [4]
+
+		\item  Question: What are the analogues of the martingale property and the Markov property?
+
+		% \item  Answer for martingales: near-martingales \cite[short][KuoSaeTangSzozda2012].
+
+		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s}. \frown
+
+			But \m{𝔼(B_T B_s - s ∣ ℱ_s) = B_s^2 - s}. \smile
+
+		\item  Let \m{Z(t)} be a process such that \m{𝔼\abs[Z(t)] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then \m{Z(t)} is called a \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)}.
+
+	\stopitemize
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{f} and \m{ϕ} be continuous functions on \m{ℝ}. Under integrability conditions, the processes \m{X_{\argdotsub} = ∫_0^{\argdotsup} f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^{\argdotsup} = ∫_{\argdotsub}^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
+		Let \m{Z(\argdotmid)} be a stochastic process bounded in \m{L^1}, and \m{X_{\argdotsub} = 𝔼(Z(\argdotmid) ∣ ℱ_{\argdotsub})}. Then \m{X_{\argdotsub}} is a martingale if and only if \m{Z(\argdotmid)} is a near-martingale.
+	\stoptheorem
 \stopslide
 
 \stopmode
@@ -477,10 +437,72 @@
 
 \startbackmatter
 
+\setupbackgrounds [page] [
+	background={color,backgraphics,foreground},
+	backgroundcolor=\getvariable{document}{color-background-0}]
+\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+
 \startsubject [title={Appendix}, reference=sub:appendix]
 
+\page
+
+\startsubsubject [title={History of Probability Theory}, reference=sec:history]
 \startmode [presentation]
 
+\startslide [title={History: Probability theory}]
+	
+	\startitemize [m]
+		
+		\item  1564: Gerolamo Cardano published \emph{Liber de ludo aleae} (Book on Games of Chance).
+
+			% Before then, there were many aspects of chance phenomena noted, but not dealt with systematically.
+		
+		\item  1654: Pascal and Fermat corresponded about the \emph{problem of points} floated by the gambler Chevalier de Méré. This is understood to be the origin of systematic study of probability.
+
+		\item  1657: Christiaan Huygens published a book titled \emph{De Ratiociniis in Ludo Aleae}.
+
+		\item  1800s: Pierre Laplace completed what is today considered the classic interpretation.
+		
+		\item  Applications in annuities, statistics of mortality, life insurance, assessing evidence, etc.
+
+		% \item  Classical interpretation: Initial considerations were discrete (combinatorial), but later analytical was taken into accont.
+
+		\item  1904: Henri Lebesgue published what is now knows as the Lebesgue integral.
+
+			The idea was generalized into abstract integrals (over arbitrary spaces).
+
+		\item  1933: Andrey Kolmogorov published \emph{Foundations of the Theory of Probability}.
+
+			This axiomatic approach unified the theories of discrete and continuous probability.
+
+			% This established probability theory as a field of study within mathematics, in particular, analysis.
+
+	\stopitemize
+\stopslide
+
+\startslide [title={History: Brownian motion}]
+	
+	\startitemize [m]
+		
+		\item  1827: Discovered by the biologist Robert Brown while studying pollen particles floating in water in the microscope.
+
+		\item  1900: Louis Bachelier used Brownian motion to model financial markets in his PhD thesis \emph{The theory of speculation}.
+
+		\item  1905: Albert Einstein tried to explain Brownian motion using a probabilistic model for diffusion transport.
+
+		\item  1923: Norbert Wiener rigorously constructed the Brownian motion, proving its existence.
+
+		\item  1944: Kiyosi Itô published his integral w.r.t. a Brownian motion.
+
+		\item  1973: Black and Scholes used Brownian motion and the Itô integral to model the stock market.
+	\stopitemize
+\stopslide
+
+\stopmode
+\stopsubsubject
+
+
+\startmode [presentation]
 \startslide
 
 	\startalign [middle]
@@ -491,7 +513,6 @@
 
 	\stopalign
 \stopslide
-
 \stopsubject
 
 \startslide [title={Bibliography}]
