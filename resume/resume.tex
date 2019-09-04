@@ -1,0 +1,68 @@
+\setupcolors [state=start]       % otherwise you get greyscale
+\usecolors [x11]    % X11 colors, use \showcolor[x11] to get a list
+
+% See wiki/Command/setupinteraction
+\setupinteraction [
+	state=start,  % make hyperlinks active
+	menu=on,
+	click=yes,
+	style=normal,
+	color=\getvariable{document}{color-link-external},   % Seems like this is the only color working
+	contrastcolor=\getvariable{document}{color-link-internal},   % This is not working
+	openaction=FitWidth,    % Make the PDF open in 'fit width' mode
+	focus=standard,    % stop switching to 'fit page' mode when clicking an interdocument hyperlink
+	title={Résumé},
+	subtitle={Industrial},
+	author={Sudip Sinha},
+	date={2019-08-31},
+	keyword={résumé, curriculum vitae}]
+\setupinteractionscreen [option=bookmark]    % wiki/Command/setupinteractionscreen
+
+
+% \setupframed[offset=5pt]
+
+\starttext
+
+\noindent % leave vertical mode
+\startframed[align=normal,width=0.75\textwidth,location=lohi]
+	\framed[]{\tfd \sc Sudip Sinha}
+	\quad
+	\startframed[width=local, align=normal]
+		Random bullshit
+	\stopframed
+	
+	% \externalfigure[LaTeX/pic.jpg][width=.1\hsize,frame=on,location=lohi]
+	% \startframed[align=middle,width=.8\hsize,location=lohi]
+	% 	Lorem Ipsum
+
+	% 	Neque porro quisquam est qui dolorem
+	% \stopframed
+	
+	\startframed[align=normal,width=.95\hsize]
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+		luctus augue augue, vitae vulputate ligula mattis vel. Praesent
+		efficitur massa et neque vehicula, quis ultricies mi
+		vestibulum. Donec facilisis, nibh eu mollis consectetur, justo
+		elit faucibus leo, ut viverra dolor ante sit amet lorem
+	\stopframed
+\stopframed
+\quad
+\startframed[align=normal,width=.2\textwidth,location=lohi]
+	\starttabulate[|c|c|]
+		\NC Lorem \NC Ipsum \NC\NR\HL
+		\NC Lorem \NC Ipsum \NC\NR\HL
+		\NC Lorem \NC Ipsum \NC\NR\HL
+		\NC Lorem \NC Ipsum \NC\NR\HL
+		\NC Lorem \NC Ipsum \NC\NR\HL
+	\stoptabulate
+\stopframed
+\par\noindent
+\startframed[align=normal,width=\textwidth]
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus
+	augue augue, vitae vulputate ligula mattis vel. Praesent efficitur
+	massa et neque vehicula, quis ultricies mi vestibulum. Donec
+	facilisis, nibh eu mollis consectetur, justo elit faucibus leo, ut
+	viverra dolor ante sit amet lorem
+\stopframed
+
+\stoptext

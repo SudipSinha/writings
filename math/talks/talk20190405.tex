@@ -722,7 +722,7 @@
 				\item  Planning period: \m{n} days.
 				\item  Average expenditure: \m{\overline{X}_n = \frac1n ∑_{j = 1}^n X_j} \$/day.
 				\item  \emph{Question}: How should the company decide on the premium?
-				\item  \important\emph{Idea}: {Determine \m{x} such that \m{ℙ\bcrl[\overline{X}_n > x] < ε} (specified)}.
+				\item  \important\emph{Idea}: {Determine \m{x} such that \m{ℙ\bcrl[\overline{X}_n > x] < ε}, where \m{ε} is specified}.
 			\stopitemize
 	\stopitemize
 \stopslide
@@ -758,15 +758,15 @@
 				ℙ\bcrl[\overline{X}_n ≥ x]
 				=  ℙ\bcrl[e^{θn\overline{X}_n} ≥ e^{θnx}]
 				≤  e^{-θnx} 𝔼\brnd[e^{θn\overline{X}_n}]
-				=  e^{-θnx} M_{X}(θ)^n
-				=  e^{-n(θx - \log M_{X}(θ))} .
+				=  e^{-θnx} M(θ)^n
+				=  e^{-n(θx - \log M(θ))} .
 			\stopformula
 
 		\item  Since \m{θ} was arbitrary, we have
 			\startformula
 				ℙ\bcrl[\overline{X}_n ≥ x]
-				≤  \inf_θ e^{-n(θx - \log M_{X}(θ))}
-				=  e^{-n \sup_θ (θx - \log M_{X}(θ))}
+				≤  \inf_θ e^{-n(θx - \log M(θ))}
+				=  e^{-n \sup_θ (θx - \log M(θ))}
 				=: e^{-n I(x)} .
 			\stopformula
 
