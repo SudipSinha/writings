@@ -30,3 +30,107 @@
 	\stopproof
 
 \stopexercises
+
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}  \hfill  2019-09-24}]
+
+	In what follows, we shall say that a truth assigment \m{v} satisfies \m{Σ} if it satisfies every member of \m{Σ}.
+	
+	\startproposition [title={Exercise 1.2.1}]
+		Show that neither of the following two formulas tautologically implies the other:
+		\startformula  \startalign[align={right, left}]
+			\NC  α =  \NC  (A ↔ (B ↔ C))  \NR
+			\NC  β =  \NC  ((A ∧ (B ∧ C)) ∨ ((¬ A) ∧ ((¬ B) ∧ (¬ C))))  \NR
+		\stopalign  \stopformula
+
+		% \startformula  \startalign[n=4, align={right, right, right, right}]
+		% 	\NC 42823 =  \NC  6 ⋅  \NC 6409 +  \NC 4369  \NR
+		% 	\NC  6409 =  \NC  1 ⋅  \NC 4369 +  \NC 2040  \NR
+		% 	\NC  4369 =  \NC  2 ⋅  \NC 2040 +  \NC  289  \NR
+		% 	\NC  2040 =  \NC  7 ⋅  \NC  289 +  \NC   17  \NR
+		% 	\NC   289 =  \NC 17 ⋅  \NC   17 +  \NC    0  \NR
+		% \stopalign  \stopformula
+	\stopproposition
+	\startproof
+		Which one: \m{⊧ \not\models ⊨ ⊭ ⟹ ⇒ \impliedby ⇐}?
+
+		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
+
+		\bold{(\m{α ⊭ β})}
+		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = ⊤} and \m{\bar{v}(β) = ⊥}.
+
+		Consider \m{v} such that \m{v(A) = v(B) = ⊥} and \m{v(C) = ⊤}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
+		\startformula  \startalign
+			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
+			\NC  ⊤ =  \NC  (⊥  \NC  ⊤  \NC  (⊥  \NC  ⊥  \NC  ⊤))  \NR
+		\stopalign  \stopformula
+		\startformula  \startalign
+			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
+			\NC  ⊥ =  \NC  ((⊥  \NC  ⊥  \NC  (   \NC     \NC   ))  \NC  ⊥  \NC  ((   \NC   )  \NC  ⊥  \NC  ((   \NC   )  \NC  ⊥  \NC  (⊥  \NC  ⊤))))  \NR
+		\stopalign  \stopformula
+
+		\bold{(\m{β ⊭ α})}
+		Again, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(β) = ⊤} and \m{\bar{v}(α) = ⊥}.
+
+		Consider \m{v} such that \m{v(A) = v(B) = v(C) = ⊥}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
+		\startformula  \startalign
+			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
+			\NC  ⊤ =  \NC  ((   \NC     \NC  (   \NC     \NC   ))  \NC  ⊤  \NC  ((⊤  \NC  ⊥)  \NC  ⊤  \NC  ((⊤  \NC  ⊥)  \NC  ⊤  \NC  (⊤  \NC  ⊥))))  \NR
+		\stopalign  \stopformula
+		\startformula  \startalign
+			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
+			\NC  ⊥ =  \NC  (⊥  \NC  ⊥  \NC  (⊥  \NC  ⊤  \NC  ⊥))  \NR
+		\stopalign  \stopformula
+	\stopproof
+
+	\startproposition [title={Exercise 1.2.4a}]
+		Show that \m{Σ ∪ \bcrl[α] ⊨ β} iff \m{Σ ⊨ (α → β)}.
+	\stopproposition
+	\startproof
+		\bold{(\m{⟹})}
+		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
+		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} that satisfies \m{(α → β)}. We have two cases.
+		\startitemize[i, joinedup]
+			\item  \m{v(α) = ⊤}: In this case, from the supposition, we get \m{v(β) = ⊤}. So \m{v(α → β) = ⊤}.
+			\item  \m{v(α) = ⊥}: In this case, \m{v(α → β) = ⊤} vacuously since the antecedent is \m{⊥}.
+		\stopitemize
+		Therefore \m{Σ ⊨ (α → β)} under every truth assignment that satisfies \m{Σ}.
+
+		\bold{(\m{⟸})}
+		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} that satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v(α → β) = ⊤}. Now, since \m{v(α) = ⊤}, it can only be that \m{v(β) = ⊤}. (The only other way the material implication can be true is when the antecedent is \m{⊥}.) This proves our claim.
+	\stopproof
+
+	\startproposition [title={Exercise 1.2.5}]
+		Prove or refute each of the following assertions:
+		\startitemize[m, joinedup]
+			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
+			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
+		\stopitemize
+	\stopproposition
+	\startproof
+		\startitemize[m]
+			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
+			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
+		\stopitemize
+	\stopproof
+
+	\startproposition [title={Exercise 1.2.6}]
+		\startitemize[m, joinedup]
+
+			\item  Show that if \m{v_1} and \m{v_2} are truth assignments which agree on all the sentence symbols in the wff α, then \m{v_1(α)} = \m{v_2(α)}. Use the induction principle.
+			
+			\item  Let \m{S} be a set of sentence symbols that includes those in \m{Σ} and \m{τ} (and possibly more). Show that \m{Σ ⊨ τ} iff every truth assignment for \m{S} which satisfies every member of \m{Σ} also satisfies \m{τ}.
+
+				(This is an easy consequence of part (a). The point of part (b) is that we do not need to worry about getting the domain of a truth assignment exactly perfect, as long as it is big enough. For example, one option would be always to use truth assignments on the set of all sentence symbols. The drawback is that these are infinite objects, and there are a great many — uncountably many — of them.)
+		\stopitemize
+	\stopproposition
+	\startproof
+		\startitemize[m]
+			\item  
+
+			\item  
+		\stopitemize
+	\stopproof
+
+\stopexercises
+
