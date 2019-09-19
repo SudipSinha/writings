@@ -52,34 +52,32 @@
 		% \stopalign  \stopformula
 	\stopproposition
 	\startproof
-		Which one: \m{⊧ \not\models ⊨ ⊭ ⟹ ⇒ \impliedby ⇐}?
-
 		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
 
 		\bold{(\m{α ⊭ β})}
 		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = ⊤} and \m{\bar{v}(β) = ⊥}.
 
 		Consider \m{v} such that \m{v(A) = v(B) = ⊥} and \m{v(C) = ⊤}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
-		\startformula  \startalign
+		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  ⊤ =  \NC  (⊥  \NC  ⊤  \NC  (⊥  \NC  ⊥  \NC  ⊤))  \NR
+			\NC  ⊤    \NC   ⊥  \NC  ⊤  \NC   ⊥  \NC  ⊥  \NC  ⊤    \NR
 		\stopalign  \stopformula
-		\startformula  \startalign
+		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
 			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  ⊥ =  \NC  ((⊥  \NC  ⊥  \NC  (   \NC     \NC   ))  \NC  ⊥  \NC  ((   \NC   )  \NC  ⊥  \NC  ((   \NC   )  \NC  ⊥  \NC  (⊥  \NC  ⊤))))  \NR
+			\NC  ⊥    \NC    ⊥  \NC  ⊥  \NC      \NC     \NC       \NC  ⊥  \NC       \NC      \NC  ⊥  \NC       \NC      \NC  ⊥  \NC   ⊥  \NC  ⊤      \NR
 		\stopalign  \stopformula
 
 		\bold{(\m{β ⊭ α})}
-		Again, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(β) = ⊤} and \m{\bar{v}(α) = ⊥}.
+		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = ⊤} and \m{\bar{v}(α) = ⊥}.
 
 		Consider \m{v} such that \m{v(A) = v(B) = v(C) = ⊥}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
-		\startformula  \startalign
+		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
 			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  ⊤ =  \NC  ((   \NC     \NC  (   \NC     \NC   ))  \NC  ⊤  \NC  ((⊤  \NC  ⊥)  \NC  ⊤  \NC  ((⊤  \NC  ⊥)  \NC  ⊤  \NC  (⊤  \NC  ⊥))))  \NR
+			\NC  ⊤ =  \NC       \NC     \NC      \NC     \NC       \NC  ⊤  \NC    ⊤  \NC  ⊥   \NC  ⊤  \NC    ⊤  \NC  ⊥   \NC  ⊤  \NC   ⊤  \NC  ⊥      \NR
 		\stopalign  \stopformula
-		\startformula  \startalign
+		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  ⊥ =  \NC  (⊥  \NC  ⊥  \NC  (⊥  \NC  ⊤  \NC  ⊥))  \NR
+			\NC  ⊥ =  \NC   ⊥  \NC  ⊥  \NC   ⊥  \NC  ⊤  \NC  ⊥    \NR
 		\stopalign  \stopformula
 	\stopproof
 
@@ -92,9 +90,9 @@
 		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} that satisfies \m{(α → β)}. We have two cases.
 		\startitemize[i, joinedup]
 			\item  \m{v(α) = ⊤}: In this case, from the supposition, we get \m{v(β) = ⊤}. So \m{v(α → β) = ⊤}.
-			\item  \m{v(α) = ⊥}: In this case, \m{v(α → β) = ⊤} vacuously since the antecedent is \m{⊥}.
+			\item  \m{v(α) = ⊥}: In this case, \m{v(α → β) = ⊤} since the antecedent is \m{⊥}.
 		\stopitemize
-		Therefore \m{Σ ⊨ (α → β)} under every truth assignment that satisfies \m{Σ}.
+		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
 
 		\bold{(\m{⟸})}
 		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} that satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v(α → β) = ⊤}. Now, since \m{v(α) = ⊤}, it can only be that \m{v(β) = ⊤}. (The only other way the material implication can be true is when the antecedent is \m{⊥}.) This proves our claim.
