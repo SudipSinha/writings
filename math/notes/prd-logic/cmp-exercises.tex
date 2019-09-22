@@ -1,57 +1,50 @@
 \startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}  \hfill  2019-09-10}]
 	
-	\startproposition [title={Exercise 1.8}]
+	\startexercise [title={Notes, 1.8}]
 		For any sets \m{A} and \m{B}, we have \m{A ∩ B ⊆ A}.
-	\stopproposition
-	\startproof
+	\stopexercise
+	\startsolution
 		Let \m{x ∈ A ∩ B} be arbitrary. This means \m{x ∈ A} and \m{x ∈ B}. Therefore \m{x ∈ A}. Since every element in \m{A ∩ B} is also an element of \m{A}, we have \m{A ∩ B ⊆ A}.
-	\stopproof
+	\stopsolution
 
-	\startproposition [title={Exercise 1.10}]
+	\startexercise [title={Notes, 1.10}]
 		For any set \m{A}, we have \m{A ∩ ∅ = ∅}.
-	\stopproposition
-	\startproof
+	\stopexercise
+	\startsolution
 		\bold{(\m{⊆})}
 		Let \m{x ∈ A ∩ ∅} be arbitrary. This means \m{x ∈ A} and \m{x ∈ ∅}. But there does not exist \m{x ∈ ∅}. Therefore, the statement is vacuously true.
 
 		\bold{(\m{⊇})}
 		Now, let \m{x ∈ ∅} be arbitrary. Again, since there does not exist \m{x ∈ ∅}, the statement vacuously true.
-	\stopproof
+	\stopsolution
 
-	\startproposition [title={Exercise 1.13}]
+	\startexercise [title={Notes, 1.13}]
 		For any sets \m{A} and \m{B}, if \m{A ⊆ B}, then \m{A ∪ B = B}.
-	\stopproposition
-	\startproof
+	\stopexercise
+	\startsolution
 		\bold{(\m{⊆})}
 		Let \m{x ∈ A ∪ B} be arbitrary. This means \m{x ∈ A} or \m{x ∈ B}. If \m{x ∈ A}, then by the condition \m{A ⊆ B}, we obtain \m{x ∈ B}. Therefore, in either case, \m{x ∈ B}.
 
 		\bold{(\m{⊇})}
 		Let \m{x ∈ B} be arbitrary. Therefore, \m{x ∈ A} or \m{x ∈ B}. Hence \m{x ∈ A ∪ B}.
-	\stopproof
+	\stopsolution
 
 \stopexercises
 
 
 \startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}  \hfill  2019-09-24}]
 
-	In what follows, we shall say that a truth assigment \m{v} satisfies \m{Σ} if it satisfies every member of \m{Σ}.
+	\emph{Note:} We shall say that a truth assigment \m{v} satisfies \m{Σ} if it satisfies every member of \m{Σ}.
 	
-	\startproposition [title={Exercise 1.2.1}]
+	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.1}]
+	\startexercise [title={Enderton, 1.2.1}]
 		Show that neither of the following two formulas tautologically implies the other:
 		\startformula  \startalign[align={right, left}]
 			\NC  α =  \NC  (A ↔ (B ↔ C))  \NR
 			\NC  β =  \NC  ((A ∧ (B ∧ C)) ∨ ((¬ A) ∧ ((¬ B) ∧ (¬ C))))  \NR
 		\stopalign  \stopformula
-
-		% \startformula  \startalign[n=4, align={right, right, right, right}]
-		% 	\NC 42823 =  \NC  6 ⋅  \NC 6409 +  \NC 4369  \NR
-		% 	\NC  6409 =  \NC  1 ⋅  \NC 4369 +  \NC 2040  \NR
-		% 	\NC  4369 =  \NC  2 ⋅  \NC 2040 +  \NC  289  \NR
-		% 	\NC  2040 =  \NC  7 ⋅  \NC  289 +  \NC   17  \NR
-		% 	\NC   289 =  \NC 17 ⋅  \NC   17 +  \NC    0  \NR
-		% \stopalign  \stopformula
-	\stopproposition
-	\startproof
+	\stopexercise
+	\startsolution
 		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
 
 		\bold{(\m{α ⊭ β})}
@@ -79,56 +72,78 @@
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
 			\NC  ⊥ =  \NC   ⊥  \NC  ⊥  \NC   ⊥  \NC  ⊤  \NC  ⊥    \NR
 		\stopalign  \stopformula
-	\stopproof
+	\stopsolution
 
-	\startproposition [title={Exercise 1.2.4a}]
+	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.4 (a)}]
+	\startexercise [title={Enderton, 1.2.4(a)}]
 		Show that \m{Σ ∪ \bcrl[α] ⊨ β} iff \m{Σ ⊨ (α → β)}.
-	\stopproposition
-	\startproof
+	\stopexercise
+	\startsolution
+		We show each direction separately.
+
 		\bold{(\m{⟹})}
 		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
-		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} that satisfies \m{(α → β)}. We have two cases.
+		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} satisfies \m{(α → β)}. We have two cases.
 		\startitemize[i, joinedup]
-			\item  \m{v(α) = ⊤}: In this case, from the supposition, we get \m{v(β) = ⊤}. So \m{v(α → β) = ⊤}.
-			\item  \m{v(α) = ⊥}: In this case, \m{v(α → β) = ⊤} since the antecedent is \m{⊥}.
+			\item  \m{\bar{v}(α) = ⊤}: In this case, from the supposition, we get \m{\bar{v}(β) = ⊤}. So \m{\bar{v}(α → β) = ⊤}.
+			\item  \m{\bar{v}(α) = ⊥}: In this case, \m{\bar{v}(α → β) = ⊤} since the antecedent is \m{⊥}.
 		\stopitemize
 		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
 
 		\bold{(\m{⟸})}
-		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} that satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v(α → β) = ⊤}. Now, since \m{v(α) = ⊤}, it can only be that \m{v(β) = ⊤}. (The only other way the material implication can be true is when the antecedent is \m{⊥}.) This proves our claim.
-	\stopproof
+		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v} satisfies \m{(α → β)}. Now, since \m{v} satisfies \m{α}, it can only be that \m{v} satisfies \m{β}, since the only other way the material implication can be satisfied is when \m{v} does not satisfies \m{α}. This proves our claim.
+	\stopsolution
 
-	\startproposition [title={Exercise 1.2.5}]
+	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.5}]
+	\startexercise [title={Enderton, 1.2.5}]
 		Prove or refute each of the following assertions:
-		\startitemize[m, joinedup]
+		\startitemize[a, joinedup]
 			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
 			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
 		\stopitemize
-	\stopproposition
-	\startproof
-		\startitemize[m]
-			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
-			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
+	\stopexercise
+	\startsolution
+		\startitemize[a]
+			\item  (\bold{⊤})
+
+				There are two cases: \m{Σ ⊨ α} and \m{Σ ⊨ β}. Without loss of generality, we can assume that \m{Σ ⊨ α}, as the argument for other case is exactly the same. This means any arbitrary truth assignment \m{v} satisfying \m{Σ} also satisfies \m{α}. This implies \m{\bar{v}(α ∨ β) = ⊤} by the definition of extension of \m{\bar{v}} for \m{∨}.
+
+			\item  (\bold{⊥})
+
+				We give a counterexample. Let \m{α} be a sentence symbol and \m{Σ = ∅}. Then it is always true that \m{⊨ (α ∨ (¬α))}. But it does not follow that \m{⊨ α} or \m{⊨ (¬α)}.
+
+				For an explicit example, consider two truth assignments \m{v_1} and \m{v_2}, such that \m{v_1(α) = ⊤} and \m{v_2(α) = ⊥}. In this case, \m{⊨ α} is not true since \m{v_2} does not satisfy \m{α}, and \m{⊨ (¬α)} is not true since \m{v_1} does not satisfy \m{(¬α)}.
 		\stopitemize
-	\stopproof
+	\stopsolution
 
-	\startproposition [title={Exercise 1.2.6}]
-		\startitemize[m, joinedup]
+	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.6}]
+	\startexercise [title={Enderton, 1.2.6}]
+		\startitemize[a, joinedup]
 
-			\item  Show that if \m{v_1} and \m{v_2} are truth assignments which agree on all the sentence symbols in the wff α, then \m{v_1(α)} = \m{v_2(α)}. Use the induction principle.
+			\item  Show that if \m{v_1} and \m{v_2} are truth assignments which agree on all the sentence symbols in the wff \m{α}, then \m{\bar{v}_1(α)} = \m{\bar{v}_2(α)}. Use the induction principle.
 			
 			\item  Let \m{S} be a set of sentence symbols that includes those in \m{Σ} and \m{τ} (and possibly more). Show that \m{Σ ⊨ τ} iff every truth assignment for \m{S} which satisfies every member of \m{Σ} also satisfies \m{τ}.
 
 				(This is an easy consequence of part (a). The point of part (b) is that we do not need to worry about getting the domain of a truth assignment exactly perfect, as long as it is big enough. For example, one option would be always to use truth assignments on the set of all sentence symbols. The drawback is that these are infinite objects, and there are a great many — uncountably many — of them.)
 		\stopitemize
-	\stopproposition
-	\startproof
-		\startitemize[m]
-			\item  
+	\stopexercise
+	\startsolution
+		\startitemize[a]
+			\item[uniqueness]  Let \m{G} be set of all sentence symbols used in \m{α}, and let \m{B = \bcrl[ϕ \text{ wff}: \bar{v}_1(ϕ) = \bar{v}_2(ϕ)]}.
 
-			\item  
+			Now, let \m{ϕ, ψ ∈ B} (arbitrary) and \m{⊡ ∈ \bcrl[∧, ∨, →, ↔]}. Since the rules for extension for \m{v_1} and \m{v_2} are the same, \m{\bar{v}_1(¬ ϕ) = \bar{v}_2(¬ ϕ)} and \m{\bar{v}_1(ϕ ⊡ ψ) = \bar{v}_2(ϕ ⊡ ψ)}. Hence \m{(¬ϕ), (ϕ ⊡ ψ) ∈ B}, that is, \m{B} is closed with respect to the formula building operations.
+
+			Therefore, by the induction principle, \m{B} is the set generated by the formula building operations. So \m{α ∈ B}. Therefore, \m{\bar{v}_1(α)} = \m{\bar{v}_2(α)}.
+
+			\item  Let \m{G} be the set of sentence symbols used in \m{Σ} and \m{τ}. Clearly, \m{G ⊆ S}. Now, \m{Σ ⊨ τ}
+
+				⟺  Every \m{v} on \m{G} satisfies \m{Σ} and \m{τ}.
+
+				⟺  Every \m{v} on \m{S} satisfies \m{Σ} and \m{τ} [using Part (\in[uniqueness])].
+				
+				⟺  Every \m{v} on \m{S} satisfies every member of \m{Σ} also satisfies \m{τ}.
 		\stopitemize
-	\stopproof
+	\stopsolution
 
 \stopexercises
 
