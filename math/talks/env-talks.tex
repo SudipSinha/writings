@@ -160,27 +160,26 @@
 % Styling for mathematical environments
 
 %  Randomized frame
-\startuseMPgraphic{background:random}
+\startuseMPgraphic{background:mathematicalargumentframe}
 	path p;
 	for i = 1 upto nofmultipars :
-		p = (multipars[i] topenlarged 16pt bottomenlarged 16pt) randomized 4pt;
-		fill p withcolor \getvariable{document}{color-background-0};
+		p = (multipars[i]  topenlarged 1pt  bottomenlarged 1pt)  randomized 1pt;
+		fill p withcolor green + 0.9375 * white;    % hard to change (works: red, green, blue, white, lightgray + linear combinations)
 		draw p withcolor \MPvar{linecolor}
 		withpen pencircle scaled \MPvar{linewidth};
 	endfor;
 \stopuseMPgraphic
 
-% Backgrounds
-\definetextbackground [mathenv] [
-	mp=background:random,
+\definetextbackground [mathematicalargumentframe] [
+	mp=background:mathematicalargumentframe,
 	location=paragraph,
-	rulethickness=1pt,
-	framecolor=\getvariable{document}{color-foreground-0},
-	width=local,
-	leftoffset=1em,
-	rightoffset=1em,
-	before={\testpage[3]\blank[big]},    % wiki/Command/testpage
-	after={\blank[2*big]}]
+	rulethickness=0.5pt,
+	framecolor=green,    % hard to change (works: red, green, blue, white, lightgray)
+	width=broad,
+	leftoffset=4pt,
+	rightoffset=4pt,
+	before={\testpage[3]\blank[small]},
+	after={\blank[small]}]
 
 
 % Mathematical environments
@@ -189,15 +188,31 @@
 
 \defineenumeration [mathematicalstatement] [
 	title=yes,    % now we can use title={}
-	number=no,    % remove if definitions shoud be numbered
+	% number=no,    % uncomment if statements shoud not be numbered
+	way=bychapter,    % eg wiki/Command/defineenumeration
+	prefix=chapter,    % eg wiki/Command/defineenumeration
 	headstyle=bold,
 	headcolor=\getvariable{document}{color-foreground-0},
 	width=fit,
 	alternative=hanging,  % top
 	hang=fit,
 	style=italic]
-	% before=\startmathenv,
-	% after=\stopmathenv
+
+\defineenumeration [mathematicalargument] [
+	title=yes,    % now we can use title={}
+	number=no,    % removes numbering
+	headstyle=italic,
+	titlestyle=italic,
+	style=normal,
+	headcolor=\getvariable{document}{color-foreground-0},
+	width=fit,
+	alternative=hanging,  % top
+	hang=fit,
+	before={\startmathematicalargumentframe},
+	after={\stopmathematicalargumentframe},
+	% before=,
+	% after=,
+	closesymbol={□}]
 
 \defineenumeration [definition] [mathematicalstatement] [
 	text=Definition,
@@ -239,28 +254,11 @@
 	list=all,
 	listtext={Exercise }]
 
-\defineenumeration [proof] [mathematicalstatement] [
-	text=Proof.,
-	% title=no,
-	number=no,
-	headstyle=italic,    % This is for "Proof"
-	titlestyle=italic,    % This is for the title
-	style=normal,
-	before=,
-	after=,
-	closesymbol={□}]
+\defineenumeration [proof] [mathematicalargument] [
+	text=Proof.]
 
-\defineenumeration [solution] [mathematicalstatement] [
-	text=Solution.,
-	% title=no,
-	number=no,
-	headstyle=italic,    % This is for "Solution"
-	titlestyle=italic,    % This is for the title
-	style=normal,
-	before=,
-	after=,
-	color=\getvariable{document}{color-solution},
-	closesymbol={□}]
+\defineenumeration [solution] [mathematicalargument] [
+	text=Solution.]
 
 
 % Graphics
