@@ -167,6 +167,7 @@
 \def \brnd[#arguments]{\delim[#arguments][(][)]}
 \def \bcrl[#arguments]{\delim[#arguments][\{][\}]}
 \def \bsqr[#arguments]{\delim[#arguments][[][]]}
+\def \bngl[#arguments]{\delim[#arguments][⟨][⟩]}
 
 % Commonly used delimiters
 \def \inn[#arguments]{\delim[#arguments][⟨][⟩]}
@@ -243,10 +244,13 @@
 % Mathematical environments
 
 \definereferenceformat [eqref] [left=(, right=)]    % Referencing formulas
+\defineenumeration[problem][text=Problem]
 
 \defineenumeration [mathematicalstatement] [
 	title=yes,    % now we can use title={}
-	number=no,    % remove if definitions shoud be numbered
+	% number=no,    % remove if definitions shoud be numbered
+	way=bychapter,    % Eg wiki/Command/defineenumeration
+	prefix=chapter,    % Eg wiki/Command/defineenumeration
 	headstyle=bold,
 	headcolor=\getvariable{document}{color-foreground-0},
 	width=fit,

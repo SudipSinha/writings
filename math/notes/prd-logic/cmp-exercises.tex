@@ -1,4 +1,4 @@
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}  \hfill  2019-09-10}]
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: HW1  \hfill  2019-09-10}]
 	
 	\startexercise [title={Notes, 1.8}]
 		For any sets \m{A} and \m{B}, we have \m{A ∩ B ⊆ A}.
@@ -11,10 +11,10 @@
 		For any set \m{A}, we have \m{A ∩ ∅ = ∅}.
 	\stopexercise
 	\startsolution
-		\bold{(\m{⊆})}\qquad
+		\bold{(\m{⊆})}  \qquad
 		Let \m{x ∈ A ∩ ∅} be arbitrary. This means \m{x ∈ A} and \m{x ∈ ∅}. But there does not exist \m{x ∈ ∅}. Therefore, the statement is vacuously true.
 
-		\bold{(\m{⊇})}\qquad
+		\bold{(\m{⊇})}  \qquad
 		Now, let \m{x ∈ ∅} be arbitrary. Again, since there does not exist \m{x ∈ ∅}, the statement vacuously true.
 	\stopsolution
 
@@ -22,17 +22,17 @@
 		For any sets \m{A} and \m{B}, if \m{A ⊆ B}, then \m{A ∪ B = B}.
 	\stopexercise
 	\startsolution
-		\bold{(\m{⊆})}\qquad
+		\bold{(\m{⊆})}  \qquad
 		Let \m{x ∈ A ∪ B} be arbitrary. This means \m{x ∈ A} or \m{x ∈ B}. If \m{x ∈ A}, then by the condition \m{A ⊆ B}, we obtain \m{x ∈ B}. Therefore, in either case, \m{x ∈ B}.
 
-		\bold{(\m{⊇})}\qquad
+		\bold{(\m{⊇})}  \qquad
 		Let \m{x ∈ B} be arbitrary. Therefore, \m{x ∈ A} or \m{x ∈ B}. Hence \m{x ∈ A ∪ B}.
 	\stopsolution
 
 \stopexercises
 
 
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}  \hfill  2019-09-24}]
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: HW2  \hfill  2019-09-24}]
 
 	\emph{Note:} We shall say that a truth assigment \m{v} satisfies \m{Σ} iff it satisfies every member of \m{Σ}.
 	
@@ -47,7 +47,7 @@
 	\startsolution
 		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
 
-		\bold{(\m{α ⊭ β})}\qquad
+		\bold{(\m{α ⊭ β})}  \qquad
 		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = ⊤} and \m{\bar{v}(β) = ⊥}.
 
 		Consider \m{v} such that \m{v(A) = v(B) = ⊥} and \m{v(C) = ⊤}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
@@ -60,7 +60,7 @@
 			\NC  ⊥    \NC    ⊥  \NC  ⊥  \NC      \NC     \NC       \NC  ⊥  \NC       \NC      \NC  ⊥  \NC       \NC      \NC  ⊥  \NC   ⊥  \NC  ⊤      \NR
 		\stopalign  \stopformula
 
-		\bold{(\m{β ⊭ α})}\qquad
+		\bold{(\m{β ⊭ α})}  \qquad
 		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = ⊤} and \m{\bar{v}(α) = ⊥}.
 
 		Consider \m{v} such that \m{v(A) = v(B) = v(C) = ⊥}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
@@ -82,7 +82,7 @@
 	\startsolution
 		We show each direction separately.
 
-		\bold{(\m{⟹})}\qquad
+		\bold{(\m{⟹})}  \qquad
 		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
 		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} satisfies \m{(α → β)}. We have two cases.
 		\startitemize [i, joinedup]
@@ -91,7 +91,7 @@
 		\stopitemize
 		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
 
-		\bold{(\m{⟸})}\qquad
+		\bold{(\m{⟸})}  \qquad
 		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v} satisfies \m{(α → β)}. Now, since \m{v} satisfies \m{α}, it can only be that \m{v} satisfies \m{β}, since the only other way the material implication can be satisfied is when \m{v} does not satisfies \m{α}. This proves our claim.
 	\stopsolution
 
@@ -143,7 +143,7 @@
 
 				We show each direction separately.
 
-				\bold{(\m{⟹})}\qquad
+				\bold{(\m{⟹})}  \qquad
 				From the definition of tautological implication,
 				\startformula  \startalign[n=3]
 					\NC     \NC  Σ ⊨ τ  \NR
@@ -151,7 +151,7 @@
 					\NC  ⟹  \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NC  \text{[Part (\in[uniqueness])]}  \NR
 				\stopalign  \stopformula
 				
-				\bold{(\m{⟸})}\qquad
+				\bold{(\m{⟸})}  \qquad
 				Since \m{Σ} and \m{τ} does not depend on any element of \m{S ∖ G}, restricting the definition of \m{v} from \m{S} to \m{G} will not change anything on \m{Σ} and \m{τ}. Therefore,
 				\startformula  \startalign
 					\NC     \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
@@ -164,3 +164,99 @@
 
 \stopexercises
 
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: Prelim  \hfill  2019-10-08}]
+
+	\startremark
+		Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. Moreover, to show \m{A ⊆ B}, it suffices to show that for an arbitrary \m{x}, we have \m{x ∈ A ⟹ x ∈ B}.  % TODO: remove one
+	\stopremark
+
+	\startexercise [title={Set Theory (10 × 3)}]
+		Prove the following.
+
+		\emph{Note}: Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. Moreover, to show \m{A ⊆ B}, it suffices to show that for an arbitrary \m{x}, we have \m{x ∈ A ⟹ x ∈ B}.  % TODO: remove one
+
+		\startitemize [i]
+			\item  If \m{A ⊆ B}, then \m{A ∩ B = A}.
+
+				\startsolution
+					We show \m{A ∩ B ⊆ A} and \m{A ∩ B ⊇ A} separately.
+
+					\bold{(⊆)}  \qquad
+					Let \m{x} be arbitrary. Then
+					\startformula
+						x ∈ A ∩ B  \qquad ⟺ \qquad  x ∈ A \text{ and } x ∈ B  \qquad ⟹ \qquad  x ∈ A
+					\stopformula
+
+					\bold{(⊇)}  \qquad
+					% Let \m{x} be arbitrary. Then \m{A ⊆ B} means \m{x ∈ A ⟹ x ∈ B}. Therefore, \m{x ∈ A ⟹ x ∈ A \text{ and } x ∈ B}.
+					% Then
+					% \startformula
+					% 	x ∈ A \qquad ⟺ \qquad  x ∈ A \text{ and } x ∈ B  \qquad ⟹ \qquad  x ∈ A
+					% \stopformula
+
+				\stopsolution
+
+			\item  If \m{A ∩ B = ∅}, then \m{A ∖ B = A}.
+
+				\startsolution
+					ABCD
+				\stopsolution
+				
+			\item  \m{A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)}.
+
+				\startsolution
+					Let \m{x} be arbitrary. Then
+					\startformula  \startalign
+						\NC  x ∈ A ∩ (B ∪ C)  \NC  ⟺  x ∈ A \text{ and } x ∈ B ∪ C  \NR
+						\NC  \NC  ⟺  x ∈ A \text{ and } (x ∈ B \text{ or } x ∈ C)  \NR
+					\stopalign  \stopformula
+				\stopsolution
+				
+		\stopitemize
+	\stopexercise
+
+	\startexercise [title={Construction (10 × 2)}]
+		\startitemize [i]
+
+			\item  Write down a construction sequence for \m{((¬((¬A_1) ∨ A_4)) ∧ ((A_1 → A_3) ↔ A_7))}.
+
+				\startsolution
+					\m{\bngl[A_1, A_3, A_4, A_7, (¬A_1), ((¬A_1) ∨ A_4), (¬((¬A_1) ∨ A_4)), (A_1 → A_3), ((A_1 → A_3) ↔ A_7), ((¬((¬A_1) ∨ A_4)) ∧ ((A_1 → A_3) ↔ A_7))]}.
+				\stopsolution
+				
+				\solution{\m{\bngl[A_1, A_3, A_4, A_7, (¬A_1), ((¬A_1) ∨ A_4), (¬((¬A_1) ∨ A_4)), (A_1 → A_3), ((A_1 → A_3) ↔ A_7), ((¬((¬A_1) ∨ A_4)) ∧ ((A_1 → A_3) ↔ A_7))]}.}
+
+			\item  Write down a construction tree for \m{(((¬(¬ A_2)) ∧ A_5) → ((A_5 ∨ (¬A_2)) → A_5))}.
+
+				\startsolution
+				
+				% \starttikzpicture[      scale=3,line cap=round
+				% 						axes/.style=,         
+				% 						important line/.style={very thick},
+				% 						information text/.style={rounded corners,fill=red!10,inner sep=1ex} ]
+				\starttikzpicture
+					\node {→} % root
+					child { node {∧}
+						child { node {¬}
+							child { node {¬}
+								child { node {A_2} }
+							}
+						}
+						child { node {A_5} }
+					}
+					child { node {→}
+						child { node {∨}
+							child { node {A_5} }
+							child { node {¬}
+								child { node {A_2} }
+							}
+						}
+						child { node {A_5} }
+					};
+				\stoptikzpicture				
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+
+\stopexercises
