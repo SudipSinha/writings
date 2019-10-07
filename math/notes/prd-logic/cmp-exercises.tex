@@ -167,85 +167,73 @@
 
 \startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: Prelim  \hfill  2019-10-08}]
 
-	% \startremark
-	% 	Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. Moreover, to show \m{A ⊆ B}, it suffices to show that for an arbitrary \m{x}, we have \m{x ∈ A ⟹ x ∈ B}.  % TODO: remove one
-	% \stopremark
+	\startexercise [title={Set Theory}]
+		Prove the following. 10 points each.
 
-	\startexercise [title={Set Theory (10 × 3)}]
-		Prove the following.
+		\emph{Note}: Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. In each of the following problems, we show each inclusion separately.
 
-		\emph{Note}: Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. Moreover, to show \m{A ⊆ B}, it suffices to show that for an arbitrary \m{x}, we have \m{x ∈ A ⟹ x ∈ B}.  % TODO: remove one
+		Moreover, to show \m{A ⊆ B}, it suffices to show that for \m{x} arbitrary, \m{x ∈ A ⟹ x ∈ B}.
 
 		\startitemize [i]
 			\item  If \m{A ⊆ B}, then \m{A ∩ B = A}.
 
 				\startsolution
-					We show \m{A ∩ B ⊆ A} and \m{A ∩ B ⊇ A} separately.
+					\startitemize
+						
+						\sym{\bold{(⊆)}}  \qquad
+							Let \m{x} be arbitrary. Then
 
-					\bold{(⊆)}  \qquad
-					Let \m{x} be arbitrary. Then
-					\startformula
-						x ∈ A ∩ B  \qquad ⟺ \qquad  x ∈ A \text{ and } x ∈ B  \qquad ⟹ \qquad  x ∈ A
-					\stopformula
+							\m{x ∈ A ∩ B  \quad ⟺ \quad  x ∈ A \text{ and } x ∈ B  \quad ⟹ \quad  x ∈ A}.
 
-					\bold{(⊇)}  \qquad
-					% Let \m{x} be arbitrary. Then \m{A ⊆ B} means \m{x ∈ A ⟹ x ∈ B}. Therefore, \m{x ∈ A ⟹ x ∈ A \text{ and } x ∈ B}.
-					% Then
-					% \startformula
-					% 	x ∈ A \qquad ⟺ \qquad  x ∈ A \text{ and } x ∈ B  \qquad ⟹ \qquad  x ∈ A
-					% \stopformula
-
+						\sym{\bold{(⊇)}}  \qquad
+							Let \m{x ∈ A} be arbitrary. Then by the hypothesis \m{x ∈ B} since \m{A ⊆ B}. Therefore, \m{x ∈ A} and \m{x ∈ B}, and thus \m{x ∈ A ∩ B}.
+					\stopitemize
 				\stopsolution
 
 			\item  If \m{A ∩ B = ∅}, then \m{A ∖ B = A}.
 
 				\startsolution
-					ABCD
+					\startitemize
+						
+						\sym{\bold{(⊆)}}  \qquad
+							Let \m{x ∈ A ∖ B} be arbitrary. Then \m{x ∈ A} and \m{x ∉ B}. It is enough to show that \m{x ∈ A} implies \m{x ∉ B}. But must be true since if \m{x ∈ A} and \m{x ∈ B}, then \m{x ∈ A ∩ B = ∅}, which is absurd.
+
+						\sym{\bold{(⊇)}}  \qquad
+							Let \m{x ∈ A} be arbitrary. Now, either \m{x ∈ B} or \m{x ∉ B}. If \m{x ∈ B}, then \m{x ∈ A ∩ B} since \m{x ∈ A} by hypothesis. But this is an impossibility since \m{A ∩ B = ∅}. Therefore, it must be that \m{x ∉ B}. So \m{x ∈ A ∖ B}.
+					\stopitemize
 				\stopsolution
 				
 			\item  \m{A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)}.
 
 				\startsolution
-					We show each inclusion separately.
-
 					\startitemize
 						
 						\sym{\bold{(⊆)}}  \qquad
-							Let \m{x} be arbitrary. Then
-							\startformula  \startalign
-								\NC  x ∈ A ∩ (B ∪ C)  \NC  ⟺  x ∈ A \text{ and } x ∈ B ∪ C  \NR
-								\NC  \NC  ⟺  x ∈ A \text{ and } (x ∈ B \text{ or } x ∈ C) .  \NR
-							\stopalign  \stopformula
-							
-							If \m{x ∈ B} or \m{x ∈ C}, we have two cases:
-							\startitemize [a]
+							Let \m{x ∈ A ∩ (B ∪ C)} be arbitrary. Then \m{x ∈ A} and \m{x ∈ B ∪ C}. Note that \m{x ∈ B ∪ C} means \m{x ∈ B} or \m{x ∈ C}.
+							Now, either \m{x ∈ B} or \m{x ∉ B}, so have two cases.
+							\startitemize [1]
 								\item  (\m{x ∈ B})  \qquad
-									In this case, \m{x ∈ A} and \m{x ∈ B}. Therefore
-									\startformula  \startalign
-										\NC  x ∈ A ∩ (B ∪ C)  \NC  ⟺  x ∈ A \text{ and } x ∈ B  \NR
-										\NC  \NC  ⟺  x ∈ A ∩ B  \NR
-										\NC  \NC  ⟹  x ∈ A ∩ B \text{ or } x ∈ A ∩ C  \NR
-										\NC  \NC  ⟺  x ∈ (A ∩ B) ∪ (A ∩ C) .  \NR
-									\stopalign  \stopformula
-								\item  (\m{x ∈ C})  \qquad
-									Interchanging the roles of \m{B} and \m{C} in Case 1, we get the exact same result.
+									In this case, \m{x ∈ A} and \m{x ∈ B}, so \m{x ∈ A ∩ B}. Therefore \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. Hence \m{x ∈ (A ∩ B) ∪ (A ∩ C)}.
+								\item  (\m{x ∉ B})  \qquad
+									Since \m{x ∈ B} or \m{x ∈ C}, and \m{x ∉ B}, it is necessary that \m{x ∈ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
 							\stopitemize
-							Hence, from the above \m{A ∩ (B ∪ C) ⊆ (A ∩ B) ∪ (A ∩ C)}.
 
 						\sym{\bold{(⊇)}}  \qquad
-							Let \m{x} be arbitrary. Then \m{x ∈ (A ∩ B) ∪ (A ∩ C)}  ⟺  \m{x ∈ (A ∩ B)} or \m{x ∈ (A ∩ C)}.
-							\startformula  \startalign
-								\NC  x ∈ (A ∩ B) ∪ (A ∩ C)  \NC  ⟺  x ∈ (A ∩ B) \text{ or } x ∈ (A ∩ C)  \NR
-								\NC  \NC  ⟺  x ∈ A ∩ B  \NR
-								\NC  \NC  ⟹  x ∈ A ∩ B \text{ or } x ∈ A ∩ C  \NR
-								\NC  \NC  ⟺    \NR
-							\stopalign  \stopformula
+							Let \m{x ∈ (A ∩ B) ∪ (A ∩ C)} be arbitrary. This means \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. As above, we have two cases, either \m{x ∈ A ∩ B} or \m{x ∉ A ∩ B}.
+							\startitemize [1]
+								\item  (\m{x ∈ A ∩ B})  \qquad
+									In this case, \m{x ∈ A} and \m{x ∈ B}. Now, so \m{x ∈ B} implies \m{x ∈ B} or \m{x ∈ C}, that is, \m{x ∈ B ∪ C}. Therefore \m{x ∈ A ∩ (B ∪ C)}.
+								\item  (\m{x ∉ A ∩ B})  \qquad
+									Again, since \m{x ∈ A ∩ B} or \m{x ∉ A ∩ B}, and \m{x ∉ A ∩ B}, it is necessary that \m{x ∈ A ∩ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
+							\stopitemize
 					\stopitemize
 				\stopsolution				
 		\stopitemize
 	\stopexercise
 
-	\startexercise [title={Construction (10 × 2)}]
+	
+	\startexercise [title={Construction}]
+		10 points each.
 		\startitemize [i]
 
 			\item  Write down a construction sequence for \m{((¬((¬A_1) ∨ A_4)) ∧ ((A_1 → A_3) ↔ A_7))}.
@@ -288,5 +276,186 @@
 		\stopitemize
 	\stopexercise
 
+	
+	\page
+	\startexercise [title={Truth Assignments}]
+		\startitemize [i]
+
+			\item  Let \m{S} be the set of all sentence symbols, and assume that \m{v : S → \bcrl[F, T]} is a truth assignment. Show there is at most one extension \m{v} meeting conditions 0–5 on pp. 20–21.
+
+				(Hint: Show that if \m{v_1} and \m{v_2} are such extensions, then \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}. Use the induction principle.)  20 points.
+
+				\startsolution
+					We show this via induction on the complexity of any arbitrary wff \m{α}.
+					\startitemize [1]
+						
+						\item  \bold{(Base case)}  \qquad
+							Assume \m{α} be a sentence symbol. Then \m{\bar{v}_1(α) = v(α) = \bar{v}_2(α)} since \m{\bar{v}_1} and \m{\bar{v}_2} are both extensions of \m{v}.
+
+						\item  \bold{(Induction step)}  \qquad
+							We assume that the result holds for all wffs less complex than \m{α} (induction hypothesis). Now, we show that the result holds under all the formula building operations.
+							\startitemize
+								\sym{(¬)}  \qquad
+									Assume \m{α = (¬β)} for some wff \m{β}. Then
+									\startformula  \startalign[n=4, align={left, right, left, left}]
+										\NC     \NC  \bar{v}_1( α)  \NC  =  ⊤  \NR
+										\NC  ⟺  \NC  \bar{v}_1(¬β)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_1( β)  \NC  =  ⊥  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( β)  \NC  =  ⊥  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(¬β)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(∧)}  \qquad
+									Assume \m{α = (β ∧ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∧ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = ⊤  \NC  \text{ and }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = ⊤  \NC  \text{ and }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∧ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(∨)}  \qquad
+									Assume \m{α = (β ∨ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∨ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = ⊤  \NC  \text{ or }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = ⊤  \NC  \text{ or }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∨ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(→)}  \qquad
+									Assume \m{α = (β → γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β → γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = ⊥  \NC  \text{ or }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = ⊥  \NC  \text{ or }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β → γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(↔)}  \qquad
+									Assume \m{α = (β ↔ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ↔ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β)  \NC  =  \bar{v}_1(γ)  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β)  \NC  =  \bar{v}_2(γ)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ↔ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+							\stopitemize
+					\stopitemize
+					Therefore, the induction step holds under all the formula building operations. By the method of induction, \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}, which proves the uniqueness of the extension.
+				\stopsolution
+
+			\item[satisfiability]  Show that for a set of wffs \m{Σ} and a wff \m{α}: \m{Σ ∪ \bcrl[¬¬α]} is satisfiable ⟺ \m{Σ ∪ \bcrl[α]} is satisfiable. 10 points.
+
+				\startsolution
+					First, note that for any wff \m{α} and truth assignment \m{v},
+					\startformula
+						\bar{v}(α) = ⊤  \quad ⟺ \quad  \bar{v}(¬α) = ⊥  \quad ⟺ \quad  \bar{v}(¬¬α) = ⊤ .
+					\stopformula
+					Therefore, we have the following (\m{v} always represents a truth assignment):
+					\startitemize [joinedup]
+						\sym{ }  \qquad  \m{Σ ∪ \bcrl[α]} is satisfiable.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(α) = ⊤}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬α) = ⊥}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬¬α) = ⊤}.
+						\sym{⟺}  \qquad  \m{Σ ∪ \bcrl[¬¬α]} is satisfiable.
+					\stopitemize
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+
+	\page
+	\startexercise [title={Compactness}]
+
+		Recall the Compactness Theorem: A set of wffs is satisfiable iff it is finitely satisfiable.
+	
+		Recall Corollary 17A: If \m{Σ ⊨ τ}, then \m{Σ_0 ⊨ τ} for some finite \m{Σ_0 ⊆ Σ}.
+	
+		Prove that they are equivalent, i.e., prove that the Compactness Theorem holds iff Corollary 17A holds.
+
+		(Hint: Use the fact that \m{Γ ⊨ σ} iff \m{Γ ∪ \bcrl[¬σ]} is unsatisfiable and 3.3.\in[satisfiability] above.) 20 points.
+	\stopexercise
+
+	
+	\startexercise [title={Substitution}]
+		Let \m{α_1, α_2, …} be a sequence of wffs. For each wff \m{ϕ} and \m{n ∈ ℕ}, let \m{ϕ^∗} be the result of replacing the sentence symbol \m{A_n} in \m{ϕ} by the wff \m{α_n}. Suppose that \m{v} is a truth assignment for the set of all sentence symbols and that \m{u} is a truth assignment defined by \m{u(A_n) = \bar{v}(α_n)}. Show that \m{\bar{u}(ϕ) = \bar{v}(ϕ^∗)}. 
+
+		(Hint: Use the induction principle.)  20 points
+	\stopexercise
+
+	\startsolution
+		We show this via induction on the complexity of any arbitrary wff \m{ϕ}.
+		\startitemize [1]
+			
+			\item  \bold{(Base case)}  \qquad
+				Assume \m{ϕ = A_n} for some \m{n ∈ ℕ}, so \m{ϕ^* = α_n}. Now \m{\bar{u}(ϕ) = \bar{u}(A_n) = u(A_n) = \bar{v}(α_n) = \bar{v}(ϕ^∗)}, so the result holds when \m{ϕ} is a sentence symbol.
+
+			\item  \bold{(Induction step)}  \qquad
+				We assume that the result holds for all wffs less complex than \m{ϕ} (induction hypothesis). Now, we show that the result holds under all the formula building operations.
+				\startitemize
+					\sym{(¬)}  \qquad
+						Assume \m{ϕ = (¬ψ)} for some wff \m{ψ}, so \m{ϕ^* = (¬ψ^*)}. Then
+						\startformula  \startalign[n=4, align={left, right, left, left}]
+							\NC     \NC  \bar{u}( ϕ  )  \NC  =  ⊤  \NR
+							\NC  ⟺  \NC  \bar{u}(¬ψ  )  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC  \bar{u}( ψ  )  \NC  =  ⊥  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{¬}}]  \NR
+							\NC  ⟺  \NC  \bar{v}( ψ^*)  \NC  =  ⊥  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(¬ψ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+							\NC  ⟺  \NC  \bar{v}( ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+						\stopalign  \stopformula
+					\sym{(∧)}  \qquad
+						Assume \m{ϕ = (ψ ∧ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ∧ θ^*)}. Then
+						\startformula  \startalign[n=4, align={right, right, left, left}]
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ∧ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = ⊤  \NC  \text{ and }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∧}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊤  \NC  \text{ and }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ∧ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+						\stopalign  \stopformula
+					\sym{(∨)}  \qquad
+						Assume \m{ϕ = (ψ ∨ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ∨ θ^*)}. Then
+						\startformula  \startalign[n=4, align={right, right, left, left}]
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ∨ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = ⊤  \NC  \text{ or }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∨}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊤  \NC  \text{ or }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ∨ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+						\stopalign  \stopformula
+					\sym{(→)}  \qquad
+						Assume \m{ϕ = (ψ → θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* → θ^*)}. Then
+						\startformula  \startalign[n=4, align={right, right, left, left}]
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ → θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = ⊥  \NC  \text{ or }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{→}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊥  \NC  \text{ or }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* → θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+						\stopalign  \stopformula
+					\sym{(↔)}  \qquad
+						Assume \m{ϕ = (ψ ↔ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ↔ θ^*)}. Then
+						\startformula  \startalign[n=4, align={right, right, left, left}]
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ↔ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ)  \NC  =  \bar{u}(θ)  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{↔}}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^*)  \NC  =  \bar{v}(θ^*)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ↔ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+						\stopalign  \stopformula
+				\stopitemize
+		\stopitemize
+		Therefore, the induction step holds under all the formula building operations. By the method of induction, \m{\bar{u}(ϕ) = \bar{v}(ϕ)} for every wff \m{ϕ}.
+	\stopsolution
 
 \stopexercises
+
+% \startformula  \startalign
+
+% \stopalign  \stopformula
