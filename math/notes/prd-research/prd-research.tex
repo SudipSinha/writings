@@ -1,0 +1,72 @@
+% Variables
+
+% Language
+\setvariables [document] [language=en]
+
+% Version
+\setvariables [document] [version=temporary]    % {final, concept, temporary}
+
+% Colors
+\setvariables [document] [color-link-external=royalblue]
+\setvariables [document] [color-link-internal=violetred]
+
+% \setvariables [document] [color-background=azure]
+\setvariables [document] [color-background=white]
+\setvariables [document] [color-foreground=darkslategray]
+\setvariables [document] [color-headings=firebrick]
+
+% Fonts
+% No  (increasing order of yes): hvmath, mathtimes, iwona, asana, informal, charter, garamond, utopia, cambria
+% Yes (decreasing order of yes): palatino, xits, xitsbidi, euler, pagellaovereuler, schola, times, modern, antykwa-torunska, bonum
+\setvariables [document] [font=schola]
+\setvariables [document] [fontsize=12pt]
+
+% Document specific information
+\setvariables [document] [title={Analysis}]
+\setvariables [document] [subtitle={With an emphasis on probability theory}]
+\setvariables [document] [author={Sudip Sinha}]
+\setvariables [document] [date={\date}]
+\setvariables [document] [keyword={mathematics, solutions, notes, probability theory, stochastic analysis, anticipating integrals, large deviations theory}]
+
+
+
+\startproduct *
+
+\project  prj-notes
+
+
+\startstandardmakeup
+	\title    %Titlepage for the book
+\stopstandardmakeup
+ 
+
+\startfrontmatter
+	\completecontent    % Contents
+\stopfrontmatter
+
+
+\startbodymatter
+
+	\startpart[title={Anticipating integrals}, reference=prt:anticipating-integrals]
+		\component  cmp-anticipating-integrals
+	\stoppart
+
+	\startpart[title={Large deviations theory}, reference=prt:cmp-large-deviations-theory]
+		\component  cmp-large-deviations-theory
+	\stoppart
+
+\stopbodymatter
+
+
+\startbackmatter
+
+   % \component appendices % Appendix 1
+		 %       % Appendix 2
+		 %       % Impressum
+
+	\startchapter [title=Bibliography]
+		\placelistofpublications
+	\stopchapter
+\stopbackmatter
+
+\stopproduct

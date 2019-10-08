@@ -1,0 +1,50 @@
+\startcomponent *
+
+\product  prd-research
+
+
+\startchapter [title={Friedlin-Wentzell theorem}, reference=chp:Friedlin-Wentzell-theorem]
+
+
+\stopchapter
+
+
+\startchapter [title={Friedlin-Wentzell theorem for anticipating initial condition with extension of filtration}, reference=chp:FW-anticipating-IC-extension-filtration]
+	
+	Our aim is to formulate a large deviations principle for an SDE with anticipating initial conditions. We start of with a very simple case
+	\startformula
+		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d B_t ,
+	\stopformula
+	where \m{t ∈ [0, T]} for some \m{T < ∞}, and conditions on \m{σ} shall be imposed as necessary.
+
+	We shall look at the method of enlargement of filtration by \cite[short][Itô1978]. We denote the enlarged filtration by \m{\tilde{ℱ}_t = ℱ_t ∨ σ(B_T)}. Then
+	\startformula
+		B_t = \tilde{B}_t + ∫_0^t \frac{B_T - B_s}{T - s} \d s ,
+	\stopformula
+	where \m{\tilde{B}_⋅} is a Brownian motion w.r.t. \m{\tilde{ℱ}_⋅}. Using this, we write our original SDE as
+	\startformula
+		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{B}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{B_T - B_s}{T - s} \d s .
+	\stopformula
+	Now, let \m{Y_t^ε = \sqrt{ε} (B_T - B_t)}. Then \m{X_t^ε} is given by
+	\startformula
+		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{B}_t + ∫_0^t σ(X_t^ε) \frac{Y_s^ε}{T - s} \d s .
+	\stopformula
+
+	Moreover,
+	\startformula  \startalign
+		\NC  Y_t^ε  \NC  =  \sqrt{ε} B_T - \sqrt{ε} B_t  \NR
+		\NC  \NC  =  \sqrt{ε} B_T - \sqrt{ε} \brnd[\tilde{B}_t + ∫_0^t \frac{B_T - B_s}{T - s} \d s]  \NR
+		\NC  \NC  =  \sqrt{ε} B_T - \sqrt{ε} \tilde{B}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
+	\stopalign  \stopformula
+
+	Therefore, we have the joint process
+	\startformula
+		\startmatrix
+			\NC A \NC B \NC C \NR
+			\NC a \NC b \NC c \NR
+		\stopmatrix
+	\stopformula
+
+\stopchapter
+
+\stopcomponent

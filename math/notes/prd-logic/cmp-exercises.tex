@@ -1,3 +1,8 @@
+\startcomponent *
+
+\product  prd-logic
+
+
 \startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: HW1  \hfill  2019-09-10}]
 	
 	\startexercise [title={Notes, 1.8}]
@@ -48,29 +53,29 @@
 		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
 
 		\bold{(\m{α ⊭ β})}  \qquad
-		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = ⊤} and \m{\bar{v}(β) = ⊥}.
+		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = T} and \m{\bar{v}(β) = F}.
 
-		Consider \m{v} such that \m{v(A) = v(B) = ⊥} and \m{v(C) = ⊤}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
+		Consider \m{v} such that \m{v(A) = v(B) = F} and \m{v(C) = T}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
 		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  ⊤    \NC   ⊥  \NC  ⊤  \NC   ⊥  \NC  ⊥  \NC  ⊤    \NR
+			\NC  T    \NC   F  \NC  T  \NC   F  \NC  F  \NC  T    \NR
 		\stopalign  \stopformula
 		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
 			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  ⊥    \NC    ⊥  \NC  ⊥  \NC      \NC     \NC       \NC  ⊥  \NC       \NC      \NC  ⊥  \NC       \NC      \NC  ⊥  \NC   ⊥  \NC  ⊤      \NR
+			\NC  F    \NC    F  \NC  F  \NC      \NC     \NC       \NC  F  \NC       \NC      \NC  F  \NC       \NC      \NC  F  \NC   F  \NC  T      \NR
 		\stopalign  \stopformula
 
 		\bold{(\m{β ⊭ α})}  \qquad
-		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = ⊤} and \m{\bar{v}(α) = ⊥}.
+		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = T} and \m{\bar{v}(α) = F}.
 
-		Consider \m{v} such that \m{v(A) = v(B) = v(C) = ⊥}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
+		Consider \m{v} such that \m{v(A) = v(B) = v(C) = F}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
 		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
 			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  ⊤ =  \NC       \NC     \NC      \NC     \NC       \NC  ⊤  \NC    ⊤  \NC  ⊥   \NC  ⊤  \NC    ⊤  \NC  ⊥   \NC  ⊤  \NC   ⊤  \NC  ⊥      \NR
+			\NC  T =  \NC       \NC     \NC      \NC     \NC       \NC  T  \NC    T  \NC  F   \NC  T  \NC    T  \NC  F   \NC  T  \NC   T  \NC  F      \NR
 		\stopalign  \stopformula
 		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  ⊥ =  \NC   ⊥  \NC  ⊥  \NC   ⊥  \NC  ⊤  \NC  ⊥    \NR
+			\NC  F =  \NC   F  \NC  F  \NC   F  \NC  T  \NC  F    \NR
 		\stopalign  \stopformula
 	\stopsolution
 
@@ -86,8 +91,8 @@
 		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
 		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} satisfies \m{(α → β)}. We have two cases.
 		\startitemize [i, joinedup]
-			\item  \m{\bar{v}(α) = ⊤}: In this case, from the supposition, we get \m{\bar{v}(β) = ⊤}. So \m{\bar{v}(α → β) = ⊤}.
-			\item  \m{\bar{v}(α) = ⊥}: In this case, \m{\bar{v}(α → β) = ⊤} since the antecedent is \m{⊥}.
+			\item  \m{\bar{v}(α) = T}: In this case, from the supposition, we get \m{\bar{v}(β) = T}. So \m{\bar{v}(α → β) = T}.
+			\item  \m{\bar{v}(α) = F}: In this case, \m{\bar{v}(α → β) = T} since the antecedent is \m{F}.
 		\stopitemize
 		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
 
@@ -103,17 +108,17 @@
 			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
 
 				\startsolution
-					(\bold{⊤})  \qquad
-					There are two cases: \m{Σ ⊨ α} and \m{Σ ⊨ β}. Without loss of generality, we can assume that \m{Σ ⊨ α}, as the argument for other case is exactly the same. This means any arbitrary truth assignment \m{v} satisfying \m{Σ} also satisfies \m{α}. This implies \m{\bar{v}(α ∨ β) = ⊤} by the definition of extension of \m{\bar{v}} for \m{∨}.
+					(\bold{T})  \qquad
+					There are two cases: \m{Σ ⊨ α} and \m{Σ ⊨ β}. Without loss of generality, we can assume that \m{Σ ⊨ α}, as the argument for other case is exactly the same. This means any arbitrary truth assignment \m{v} satisfying \m{Σ} also satisfies \m{α}. This implies \m{\bar{v}(α ∨ β) = T} by the definition of extension of \m{\bar{v}} for \m{∨}.
 				\stopsolution
 
 			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
 
 				\startsolution
-					(\bold{⊥})  \qquad
+					(\bold{F})  \qquad
 					We give a counterexample. Let \m{α} be a sentence symbol and \m{Σ = ∅}. Then it is always true that \m{⊨ (α ∨ (¬α))}. But it does not follow that \m{⊨ α} or \m{⊨ (¬α)}.
 
-					For an explicit example, consider two truth assignments \m{v_1} and \m{v_2}, such that \m{v_1(α) = ⊤} and \m{v_2(α) = ⊥}. In this case, \m{⊨ α} is not true since \m{v_2} does not satisfy \m{α}, and \m{⊨ (¬α)} is not true since \m{v_1} does not satisfy \m{(¬α)}.
+					For an explicit example, consider two truth assignments \m{v_1} and \m{v_2}, such that \m{v_1(α) = T} and \m{v_2(α) = F}. In this case, \m{⊨ α} is not true since \m{v_2} does not satisfy \m{α}, and \m{⊨ (¬α)} is not true since \m{v_1} does not satisfy \m{(¬α)}.
 				\stopsolution
 		\stopitemize
 	\stopexercise
@@ -298,52 +303,52 @@
 								\sym{(¬)}  \qquad
 									Assume \m{α = (¬β)} for some wff \m{β}. Then
 									\startformula  \startalign[n=4, align={left, right, left, left}]
-										\NC     \NC  \bar{v}_1( α)  \NC  =  ⊤  \NR
-										\NC  ⟺  \NC  \bar{v}_1(¬β)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_1( β)  \NC  =  ⊥  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2( β)  \NC  =  ⊥  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(¬β)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2( α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC     \NC  \bar{v}_1( α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_1( β)  \NC  =  F  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( β)  \NC  =  F  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 									\stopalign  \stopformula
 								\sym{(∧)}  \qquad
 									Assume \m{α = (β ∧ γ)} for some wffs \m{β, γ}. Then
 									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ∧ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = ⊤  \NC  \text{ and }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = ⊤  \NC  \text{ and }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ∧ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ and }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ and }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 									\stopalign  \stopformula
 								\sym{(∨)}  \qquad
 									Assume \m{α = (β ∨ γ)} for some wffs \m{β, γ}. Then
 									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ∨ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = ⊤  \NC  \text{ or }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = ⊤  \NC  \text{ or }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ∨ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 									\stopalign  \stopformula
 								\sym{(→)}  \qquad
 									Assume \m{α = (β → γ)} for some wffs \m{β, γ}. Then
 									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β → γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = ⊥  \NC  \text{ or }  \bar{v}_1(γ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = ⊥  \NC  \text{ or }  \bar{v}_2(γ) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β → γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = F  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = F  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 									\stopalign  \stopformula
 								\sym{(↔)}  \qquad
 									Assume \m{α = (β ↔ γ)} for some wffs \m{β, γ}. Then
 									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  ⊤  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ↔ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 										\NC  ⟺  \NC  \bar{v}_1(β)  \NC  =  \bar{v}_1(γ)  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
 										\NC  ⟺  \NC  \bar{v}_2(β)  \NC  =  \bar{v}_2(γ)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ↔ γ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(α)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
 									\stopalign  \stopformula
 							\stopitemize
 					\stopitemize
@@ -355,14 +360,14 @@
 				\startsolution
 					First, note that for any wff \m{α} and truth assignment \m{v},
 					\startformula
-						\bar{v}(α) = ⊤  \quad ⟺ \quad  \bar{v}(¬α) = ⊥  \quad ⟺ \quad  \bar{v}(¬¬α) = ⊤ .
+						\bar{v}(α) = T  \quad ⟺ \quad  \bar{v}(¬α) = F  \quad ⟺ \quad  \bar{v}(¬¬α) = T .
 					\stopformula
 					Therefore, we have the following (\m{v} always represents a truth assignment):
 					\startitemize [joinedup]
 						\sym{ }  \qquad  \m{Σ ∪ \bcrl[α]} is satisfiable.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(α) = ⊤}.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬α) = ⊥}.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬¬α) = ⊤}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(α) = T}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬α) = F}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬¬α) = T}.
 						\sym{⟺}  \qquad  \m{Σ ∪ \bcrl[¬¬α]} is satisfiable.
 					\stopitemize
 				\stopsolution
@@ -370,7 +375,7 @@
 	\stopexercise
 
 
-	\page
+	% \page
 	\startexercise [title={Compactness}]
 
 		Recall the Compactness Theorem: A set of wffs is satisfiable iff it is finitely satisfiable.
@@ -381,6 +386,14 @@
 
 		(Hint: Use the fact that \m{Γ ⊨ σ} iff \m{Γ ∪ \bcrl[¬σ]} is unsatisfiable and 3.3.\in[satisfiability] above.) 20 points.
 	\stopexercise
+
+	\startsolution
+		The proof of Corollary 17A in the book shows that the Compactness Theorem implies Corollary 17A. Therefore, we are left to show that Corollary 17A implies the Compactness Theorem.
+		
+		For this, we assume Corollary 17A and prove Compactness Theorem. Note that if a set of wffs is satisfiable with a truth assignment, then it is finitely satified with the same truth assignment. Therefore, we only have to show that finite satisfiability implies satisfiability.
+
+		Suppose not. That is, assume that \m{Σ} is a set of wffs such that \m{Σ} is finitely satisfiable but \m{Σ} is unsatisfiable. Fix a wff \m{τ}. Since \m{Σ} is unsatisfiable, both \m{Σ ⊨ τ} and \m{Σ ⊨ ¬τ}. Since \m{Σ ⊨ τ}, using Corollary 17A, there is a finite subset \m{Σ_1 ⊆ Σ} such that \m{Σ_1 ⊨ τ}. Similarly, there exists \m{Σ_2 ⊆ Σ} finite such that \m{Σ_2 ⊨ ¬τ}. Now, since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it is finitely satisfiable by a truth assignment, say \m{v}. Clearly, since \m{Σ_1, Σ_2 ⊆ Σ}, \m{v} satisfies \m{Σ_1} and \m{Σ_2}. Then \m{v} satisfies both \m{τ} and \m{¬τ}, which is an impossibility. This contradiction shows \m{Σ} is finitely satisfiable implies \m{Σ} is satisfiable. This concludes the proof.
+	\stopsolution
 
 	
 	\startexercise [title={Substitution}]
@@ -402,52 +415,52 @@
 					\sym{(¬)}  \qquad
 						Assume \m{ϕ = (¬ψ)} for some wff \m{ψ}, so \m{ϕ^* = (¬ψ^*)}. Then
 						\startformula  \startalign[n=4, align={left, right, left, left}]
-							\NC     \NC  \bar{u}( ϕ  )  \NC  =  ⊤  \NR
-							\NC  ⟺  \NC  \bar{u}(¬ψ  )  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
-							\NC  ⟺  \NC  \bar{u}( ψ  )  \NC  =  ⊥  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{¬}}]  \NR
-							\NC  ⟺  \NC  \bar{v}( ψ^*)  \NC  =  ⊥  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-							\NC  ⟺  \NC  \bar{v}(¬ψ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
-							\NC  ⟺  \NC  \bar{v}( ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+							\NC     \NC  \bar{u}( ϕ  )  \NC  =  T  \NR
+							\NC  ⟺  \NC  \bar{u}(¬ψ  )  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC  \bar{u}( ψ  )  \NC  =  F  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{¬}}]  \NR
+							\NC  ⟺  \NC  \bar{v}( ψ^*)  \NC  =  F  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(¬ψ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+							\NC  ⟺  \NC  \bar{v}( ϕ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
 						\stopalign  \stopformula
 					\sym{(∧)}  \qquad
 						Assume \m{ϕ = (ψ ∧ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ∧ θ^*)}. Then
 						\startformula  \startalign[n=4, align={right, right, left, left}]
-							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
-							\NC  ⟺  \NC  \bar{u}(ψ ∧ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
-							\NC  ⟺  \NC   \bar{u}(ψ) = ⊤  \NC  \text{ and }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∧}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊤  \NC  \text{ and }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-							\NC  ⟺  \NC  \bar{v}(ψ^* ∧ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  T  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ∧ θ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = T  \NC  \text{ and }  \bar{u}(θ) = T  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∧}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = T  \NC  \text{ and }  \bar{v}(θ^*) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ∧ θ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
 						\stopalign  \stopformula
 					\sym{(∨)}  \qquad
 						Assume \m{ϕ = (ψ ∨ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ∨ θ^*)}. Then
 						\startformula  \startalign[n=4, align={right, right, left, left}]
-							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
-							\NC  ⟺  \NC  \bar{u}(ψ ∨ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
-							\NC  ⟺  \NC   \bar{u}(ψ) = ⊤  \NC  \text{ or }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∨}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊤  \NC  \text{ or }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-							\NC  ⟺  \NC  \bar{v}(ψ^* ∨ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  T  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ∨ θ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = T  \NC  \text{ or }  \bar{u}(θ) = T  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{∨}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = T  \NC  \text{ or }  \bar{v}(θ^*) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ∨ θ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
 						\stopalign  \stopformula
 					\sym{(→)}  \qquad
 						Assume \m{ϕ = (ψ → θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* → θ^*)}. Then
 						\startformula  \startalign[n=4, align={right, right, left, left}]
-							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
-							\NC  ⟺  \NC  \bar{u}(ψ → θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
-							\NC  ⟺  \NC   \bar{u}(ψ) = ⊥  \NC  \text{ or }  \bar{u}(θ) = ⊤  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{→}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ψ^*) = ⊥  \NC  \text{ or }  \bar{v}(θ^*) = ⊤  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-							\NC  ⟺  \NC  \bar{v}(ψ^* → θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
-							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  T  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ → θ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC  ⟺  \NC   \bar{u}(ψ) = F  \NC  \text{ or }  \bar{u}(θ) = T  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{→}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ψ^*) = F  \NC  \text{ or }  \bar{v}(θ^*) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* → θ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+							\NC  ⟺  \NC   \bar{v}(ϕ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
 						\stopalign  \stopformula
 					\sym{(↔)}  \qquad
 						Assume \m{ϕ = (ψ ↔ θ)} for some wffs \m{ψ, θ}, so \m{ϕ^* = (ψ^* ↔ θ^*)}. Then
 						\startformula  \startalign[n=4, align={right, right, left, left}]
-							\NC     \NC  \bar{u}(ϕ)  \NC  =  ⊤  \NR
-							\NC  ⟺  \NC  \bar{u}(ψ ↔ θ)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
+							\NC     \NC  \bar{u}(ϕ)  \NC  =  T  \NR
+							\NC  ⟺  \NC  \bar{u}(ψ ↔ θ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ}}]  \NR
 							\NC  ⟺  \NC  \bar{u}(ψ)  \NC  =  \bar{u}(θ)  \NC  \qquad  [\text{Def of \m{\bar{u}} under \m{↔}}]  \NR
 							\NC  ⟺  \NC  \bar{v}(ψ^*)  \NC  =  \bar{v}(θ^*)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-							\NC  ⟺  \NC  \bar{v}(ψ^* ↔ θ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
-							\NC  ⟺  \NC  \bar{v}(ϕ^*)  \NC  =  ⊤  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ψ^* ↔ θ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+							\NC  ⟺  \NC  \bar{v}(ϕ^*)  \NC  =  T  \NC  \qquad  [\text{Def of \m{ϕ^*}}]  \NR
 						\stopalign  \stopformula
 				\stopitemize
 		\stopitemize
