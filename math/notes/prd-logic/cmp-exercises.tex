@@ -186,9 +186,7 @@
 					\startitemize
 						
 						\sym{\bold{(⊆)}}  \qquad
-							Let \m{x} be arbitrary. Then
-
-							\m{x ∈ A ∩ B  \quad ⟺ \quad  x ∈ A \text{ and } x ∈ B  \quad ⟹ \quad  x ∈ A}.
+							Let \m{x ∈ A ∩ B} be arbitrary. This mean \m{x ∈ A} and \m{x ∈ B}. So \m{x ∈ A}.
 
 						\sym{\bold{(⊇)}}  \qquad
 							Let \m{x ∈ A} be arbitrary. Then by the hypothesis \m{x ∈ B} since \m{A ⊆ B}. Therefore, \m{x ∈ A} and \m{x ∈ B}, and thus \m{x ∈ A ∩ B}.
@@ -229,7 +227,7 @@
 								\item  (\m{x ∈ A ∩ B})  \qquad
 									In this case, \m{x ∈ A} and \m{x ∈ B}. Now, so \m{x ∈ B} implies \m{x ∈ B} or \m{x ∈ C}, that is, \m{x ∈ B ∪ C}. Therefore \m{x ∈ A ∩ (B ∪ C)}.
 								\item  (\m{x ∉ A ∩ B})  \qquad
-									Again, since \m{x ∈ A ∩ B} or \m{x ∉ A ∩ B}, and \m{x ∉ A ∩ B}, it is necessary that \m{x ∈ A ∩ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
+									Again, since \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}, and \m{x ∉ A ∩ B}, it is necessary that \m{x ∈ A ∩ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
 							\stopitemize
 					\stopitemize
 				\stopsolution				
@@ -378,9 +376,9 @@
 	% \page
 	\startexercise [title={Compactness}]
 
-		Recall the Compactness Theorem: A set of wffs is satisfiable iff it is finitely satisfiable.
+		Recall the Compactness Theorem: \emph{A set of wffs is satisfiable iff it is finitely satisfiable.}
 	
-		Recall Corollary 17A: If \m{Σ ⊨ τ}, then \m{Σ_0 ⊨ τ} for some finite \m{Σ_0 ⊆ Σ}.
+		Recall Corollary 17A: \emph{If \m{Σ ⊨ τ}, then \m{Σ_0 ⊨ τ} for some finite \m{Σ_0 ⊆ Σ}.}
 	
 		Prove that they are equivalent, i.e., prove that the Compactness Theorem holds iff Corollary 17A holds.
 
@@ -392,7 +390,7 @@
 		
 		For this, we assume Corollary 17A and prove Compactness Theorem. Note that if a set of wffs is satisfiable with a truth assignment, then it is finitely satified with the same truth assignment. Therefore, we only have to show that finite satisfiability implies satisfiability.
 
-		Suppose not. That is, assume that \m{Σ} is a set of wffs such that \m{Σ} is finitely satisfiable but \m{Σ} is unsatisfiable. Fix a wff \m{τ}. Since \m{Σ} is unsatisfiable, both \m{Σ ⊨ τ} and \m{Σ ⊨ ¬τ}. Since \m{Σ ⊨ τ}, using Corollary 17A, there is a finite subset \m{Σ_1 ⊆ Σ} such that \m{Σ_1 ⊨ τ}. Similarly, there exists \m{Σ_2 ⊆ Σ} finite such that \m{Σ_2 ⊨ ¬τ}. Now, since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it is finitely satisfiable by a truth assignment, say \m{v}. Clearly, since \m{Σ_1, Σ_2 ⊆ Σ}, \m{v} satisfies \m{Σ_1} and \m{Σ_2}. Then \m{v} satisfies both \m{τ} and \m{¬τ}, which is an impossibility. This contradiction shows \m{Σ} is finitely satisfiable implies \m{Σ} is satisfiable. This concludes the proof.
+		Suppose not. That is, assume that \m{Σ} is a set of wffs such that \m{Σ} is finitely satisfiable but \m{Σ} is unsatisfiable. Fix a wff \m{τ}. Since \m{Σ} is unsatisfiable, it is vacously true that \m{Σ ⊨ τ} and \m{Σ ⊨ ¬τ} (as in page 23 of Enderton). Since \m{Σ ⊨ τ}, using Corollary 17A, there is a finite subset \m{Σ_1 ⊆ Σ} such that \m{Σ_1 ⊨ τ}. Similarly, there exists \m{Σ_2 ⊆ Σ} finite such that \m{Σ_2 ⊨ ¬τ}. Now, since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it is satisfiable by a truth assignment, say \m{v}. Clearly, since \m{Σ_1, Σ_2 ⊆ Σ}, the assignment \m{v} satisfies both \m{Σ_1} and \m{Σ_2}. Then \m{v} satisfies both \m{τ} and \m{¬τ}, which is an impossibility. This contradiction shows that if \m{Σ} is finitely satisfiable then \m{Σ} is satisfiable. This concludes the proof.
 	\stopsolution
 
 	
