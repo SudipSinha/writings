@@ -176,6 +176,11 @@
 \def \floor[#arguments]{\delim[#arguments][⌊][⌋]}
 \def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
 
+% Logic
+\def \synentl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ [#satisfaction]}
+\def \nsynentl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ [#satisfaction]}
+% \def \symentl[#arguments][#structure][#satisfaction]{⊢_{#structure} #arguments \ [#satisfaction]}
+
 % Algebra
 \def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
 \def \inv[#arguments]{#arguments^{-1}}

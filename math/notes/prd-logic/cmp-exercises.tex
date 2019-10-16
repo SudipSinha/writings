@@ -3,7 +3,7 @@
 \product  prd-logic
 
 
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: HW1  \hfill  2019-09-10}]
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS1  \hfill  2019-09-10}]
 	
 	\startexercise [title={Notes, 1.8}]
 		For any sets \m{A} and \m{B}, we have \m{A ∩ B ⊆ A}.
@@ -37,7 +37,7 @@
 \stopexercises
 
 
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: HW2  \hfill  2019-09-24}]
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS2  \hfill  2019-09-24}]
 
 	\emph{Note:} We shall say that a truth assigment \m{v} satisfies \m{Σ} iff it satisfies every member of \m{Σ}.
 	
@@ -55,7 +55,7 @@
 		\bold{(\m{α ⊭ β})}  \qquad
 		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = T} and \m{\bar{v}(β) = F}.
 
-		Consider \m{v} such that \m{v(A) = v(B) = F} and \m{v(C) = T}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
+		Consider \m{v} such that \m{vitem  = vitem  = F} and \m{vitem  = T}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
 		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
 			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
 			\NC  T    \NC   F  \NC  T  \NC   F  \NC  F  \NC  T    \NR
@@ -68,7 +68,7 @@
 		\bold{(\m{β ⊭ α})}  \qquad
 		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = T} and \m{\bar{v}(α) = F}.
 
-		Consider \m{v} such that \m{v(A) = v(B) = v(C) = F}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
+		Consider \m{v} such that \m{vitem  = vitem  = vitem  = F}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
 		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
 			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
 			\NC  T =  \NC       \NC     \NC      \NC     \NC       \NC  T  \NC    T  \NC  F   \NC  T  \NC    T  \NC  F   \NC  T  \NC   T  \NC  F      \NR
@@ -80,8 +80,8 @@
 	\stopsolution
 
 	\page
-	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.4 (a)}]
-	\startexercise [title={Enderton, 1.2.4(a)}]
+	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.4 item }]
+	\startexercise [title={Enderton, 1.2.4item }]
 		Show that \m{Σ ∪ \bcrl[α] ⊨ β} iff \m{Σ ⊨ (α → β)}.
 	\stopexercise
 	\startsolution
@@ -466,6 +466,106 @@
 	\stopsolution
 
 \stopexercises
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS3  \hfill  2019-10-15}]
+	
+	\emph{Note}: \m{∄} abbreviates \m{¬∃}, and \m{∉} abbreviates \m{¬∈}. We shall also use the convention that grouping for conditionals is from the right. That is, \m{(p → q → r) = ((p → (q → r)))}.
+
+	\startexercise [title={Enderton, 2.1.1}]
+		Assume that we have a language with the following parameters: \m{∀}, intended to mean \quotation{for all things}; \m{N}, intended to mean \quotation{is a number}; \m{I}, intended to mean \quotation{is interesting}; \m{<}, intended to mean \quotation{is less than}; and \m{0}, a constant symbol intended to denote zero. Translate into this language the English sentences listed below. If the English sentence is ambiguous, you will need more than one translation.
+		\startitemize[a]
+		
+			\item  Zero is less than any number.
+				\startsolution
+					\m{∀x (Nx → <0x)}
+				\stopsolution
+
+			\item  If any number is interesting, then zero is interesting.
+				\startsolution
+					The word \emph{any number} can be interpretated as \emph{every number} or \emph{some number}. Using the exportation tautology, the corresponding translations are
+					\startitemize [joinedup]
+						\sym{(every)}  \qquad \qquad
+							\m{∀x (Nx → Ix → I0)}
+						\sym{(some)}  \qquad \qquad
+							\m{∃x (Nx → Ix) → I0}
+					\stopitemize
+				\stopsolution
+
+			\item  No number is less than zero.
+				\startsolution
+					\startformula  \startalign
+						\NC     \NC  ∄x (Nx ∧ <x0)  \NR
+						\NC  ⟺  \NC  ¬∃x (Nx ∧ <x0)  \NR
+						\NC  ⟺  \NC  ¬¬∀x (¬(Nx ∧ <x0))  \NR
+						\NC  ⟺  \NC  ¬¬∀x (¬¬(Nx → ¬<x0))  \NR
+						\NC  ⟺  \NC  ∀x (Nx → ¬<x0))  \NR
+					\stopalign  \stopformula
+				\stopsolution
+
+			\item  Any uninteresting number with the property that all smaller numbers are interesting certainly is interesting.
+				\startsolution
+					\m{∀x (Nx → ¬Ix → ∀y (Ny → <yx → Iy) → Ix)}
+				\stopsolution
+
+			\item  There is no number such that all numbers are less than it.
+				\startsolution
+					\startformula  \startalign
+						\NC     \NC  ∄x (Nx → ∀y (Ny → (x < y)))  \NR
+						\NC  ⟺   \NC  ¬∃x (Nx → ∀y (Ny → <xy))  \NR
+						\NC  ⟺  \NC  ¬¬∀x ¬(Nx → ∀y (Ny → <xy))  \NR
+						\NC  ⟺  \NC  ∀x ¬(Nx → ∀y (Ny → <xy))  \NR
+					\stopalign  \stopformula
+				\stopsolution
+
+			\item  There is no number such that no number is less than it.
+				\startsolution
+					\startformula  \startalign
+						\NC     \NC  ∄x (Nx → ∄y (Ny → (y < x)))  \NR
+						\NC  ⟺  \NC  ¬∃x (Nx → ¬∃y (Ny → <xy))  \NR
+						\NC  ⟺  \NC  ¬¬∀x ¬(Nx → ¬¬∀y ¬(Ny → <xy))  \NR
+						\NC  ⟺  \NC  ∀x ¬(Nx → ∀y ¬(Ny → <xy))  \NR
+					\stopalign  \stopformula
+				\stopsolution
+
+		\stopitemize
+	\stopexercise
+
+	
+	% \page
+	\startexercise [title={Enderton, 2.1.3}]
+		Translate the English sentence into the first-order language specified by \m{∀}, for all sets; \m{∈}, is a member of; \m{a}, \m{a}; \m{b}, \m{b}.
+
+		\quotation{Neither \m{a} nor \m{b} is a member of every set.}
+	\stopexercise
+
+	\startsolution
+		\startformula  \startalign
+			\NC     \NC  \text{Neither \m{a} nor \m{b} is a member of every set.}  \NR
+			\NC  ⟺  \NC  \text{\m{a} is not a member of every set and \m{b} is not a member of every set.}  \NR
+			\NC  ⟺  \NC  \text{There is a set that \m{a} is not a member of and there is a set that \m{b} is not a member of.}  \NR
+			\NC  ⟺  \NC  (∃x (a ∉ x)) ∧ (∃y (b ∉ y))  \NR
+			\NC  ⟺  \NC  (∃x (¬∈ax)) ∧ (∃y (¬∈bx))  \NR
+			\NC  ⟺  \NC  (¬∀x (¬¬∈ax)) ∧ (¬∀y (¬¬∈by))  \NR
+			\NC  ⟺  \NC  (¬∀x ∈ax) ∧ (¬∀y ∈by)  \NR
+		\stopalign  \stopformula
+	\stopsolution
+
+
+	\startexercise [title={Enderton, page 87}]
+		Prove that \m{\synentl[𝔄][s]{α ∨ β}} iff \m{\synentl[𝔄][s]{α}} or \m{\synentl[𝔄][s]{β}}.
+	\stopexercise
+
+	\startsolution
+		\startformula  \startalign[n=3]
+			\NC     \NC  \synentl[𝔄][s]{(α ∨ β)}  \NR
+			\NC  ⟺  \NC  \synentl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \nsynentl[𝔄][s]{¬α}  \text{ or }  \synentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \synentl[𝔄][s]{α} \text{ or }  \synentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
+		\stopalign  \stopformula
+	\stopsolution
+\stopexercises
+
+\stopcomponent
 
 % \startformula  \startalign
 
