@@ -13,28 +13,26 @@
 	
 	Our aim is to formulate a large deviations principle for an SDE with anticipating initial conditions. We start of with a very simple case
 	\startformula
-		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d B_t ,
+		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d W_t ,
 	\stopformula
 	where \m{t ∈ [0, T]} for some \m{T < ∞}, and conditions on \m{σ} shall be imposed as necessary.
 
-	We shall look at the method of enlargement of filtration by \cite[short][Itô1978]. We denote the enlarged filtration by \m{\tilde{ℱ}_t = ℱ_t ∨ σ(B_T)}. Then
+	We shall look at the method of enlargement of filtration by \cite[short][Itô1978]. We denote the enlarged filtration by \m{\tilde{ℱ}_t = ℱ_t ∨ σ(W_T)}. For \m{t ∈ [0, T]}, define the process \m{A_t = ∫_0^t \frac{W_T - W_u}{T - u} \d u}. Then \m{W_t = \tilde{W}_t + A_t}, where \m{\tilde{W}_⋅} is a Wiener process w.r.t. \m{\tilde{ℱ}_⋅}.
+
+	Using this, we write our original SDE as
 	\startformula
-		B_t = \tilde{B}_t + ∫_0^t \frac{B_T - B_s}{T - s} \d s ,
+		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{W_T - W_s}{T - s} \d s .
 	\stopformula
-	where \m{\tilde{B}_⋅} is a Brownian motion w.r.t. \m{\tilde{ℱ}_⋅}. Using this, we write our original SDE as
+	Now, let \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then \m{X_t^ε} is given by
 	\startformula
-		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{B}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{B_T - B_s}{T - s} \d s .
-	\stopformula
-	Now, let \m{Y_t^ε = \sqrt{ε} (B_T - B_t)}. Then \m{X_t^ε} is given by
-	\startformula
-		X_t^ε = B_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{B}_t + ∫_0^t σ(X_t^ε) \frac{Y_s^ε}{T - s} \d s .
+		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + ∫_0^t σ(X_t^ε) \frac{Y_s^ε}{T - s} \d s .
 	\stopformula
 
 	Moreover,
 	\startformula  \startalign
-		\NC  Y_t^ε  \NC  =  \sqrt{ε} B_T - \sqrt{ε} B_t  \NR
-		\NC  \NC  =  \sqrt{ε} B_T - \sqrt{ε} \brnd[\tilde{B}_t + ∫_0^t \frac{B_T - B_s}{T - s} \d s]  \NR
-		\NC  \NC  =  \sqrt{ε} B_T - \sqrt{ε} \tilde{B}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
+		\NC  Y_t^ε  \NC  =  \sqrt{ε} W_T - \sqrt{ε} W_t  \NR
+		\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \brnd[\tilde{W}_t + ∫_0^t \frac{W_T - W_s}{T - s} \d s]  \NR
+		\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
 	\stopalign  \stopformula
 
 	Therefore, we have the joint process
@@ -45,6 +43,89 @@
 		\stopmatrix
 	\stopformula
 
+	\startsection [title={\m{\tilde{W}_⋅} is a Wiener process}]
+
+		% We shall use  throughtout the text.
+		
+		We show that \m{(\tilde{W}_t)} is a \m{(\tilde{ℱ}_t)}-martingale with quadratic variation \m{t}. Then by Lévy's Characterization of Wiener process, we obtain that \m{\tilde{W}_⋅} is a Wiener process.
+
+		\startsubsection [title={\m{\tilde{W}_⋅} is a \m{\tilde{ℱ}_⋅}-martingale}]
+			Before we jump into the main result, we prove some lemmas.
+
+			\startlemma [reference={lemma:equality-of-σalgebras}]
+				The σ-algebras \m{ℱ_s ∨ σ(W_T)} and \m{ℱ_s ∨ σ(W_T - W_s)} are the same.
+			\stoplemma
+
+			\startproof
+				TODO
+			\stopproof
+
+			\startlemma [reference={lemma:conditional-expectation-of-W_t-W_s}]
+				For \m{0 ≤ s ≤ t ≤ T}, we have
+				\startformula
+					𝔼(W_t - W_s ∣ W_T - W_s) = \frac{t - s}{T - s} (W_T - W_s) .
+				\stopformula
+			\stoplemma
+
+			\startproof
+				We partition the interval \m{[0, T]} into \m{n = k n_0} equal parts, where \m{n_0 = \brnd[\min{\bcrl[s, t - s, T - t]}]^{-1}} and \m{k ∈ ℕ}. Let \m{n_s = s \frac{n}{T}} and \m{n_t = t \frac{n}{T}}. That is, the partition is
+				\startformula
+					P = \bcrl[0, \frac{T}{n}, …, \frac{n_s T}{n} = s, …, \frac{n_t T}{n} = t, …, \frac{(n - 1)T}{n}, T] .
+				\stopformula
+
+				Let \m{Δ_i W = W_{\frac{(i + 1) T}{n}} - W_{\frac{i T}{n}}}.
+
+				Firstly, note that the \m{Δ_i W}s are independent and identically distributed from the definition of Wiener process. Now, using the linearity of conditional expectation, we have
+				\startformula  \startalign
+					\NC  𝔼(W_t - W_s ∣ W_T - W_s)  =  \NC  𝔼 \brnd[∑_{i = n_s}^{n_t - 1} Δ_i W ∣ ∑_{i = n_s}^{n_t - 1} Δ_i W]  \NR
+					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s} ∑_{i = n_s}^{n - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  𝔼 \brnd[∑_{i = n_s}^{n - 1} Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  ∑_{i = n_s}^{n - 1} Δ_i W  \NR
+					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  (W_T - W_s)  \NR
+					\NC  =  \NC  \frac{n_t - n_s}{n - n_s}  (W_T - W_s)  \quad  =  \quad  \frac{t - s}{T - s}  (W_T - W_s) . \NR
+				\stopalign  \stopformula
+			\stopproof
+
+
+			\startproposition
+				\m{\tilde{W}_⋅} is a \m{\tilde{ℱ}_⋅}-martingale.
+			\stopproposition
+
+			\startproof
+				Let \m{0 ≤ s ≤ t ≤ T}. Then
+				\startformula
+					\tilde{W}_t - \tilde{W}_s
+					=  (W_t - W_s) - ∫_s^t \frac{W_T - W_u}{T - u} \d u
+					=  (W_t - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{W_u - W_s}{T - u}] \d u .
+				\stopformula
+
+				Moreover, since \m{W_t - W_s} is independent of \m{ℱ_s} for every \m{t ≥ s}, using lemmas \in[lemma:equality-of-σalgebras] and \in[lemma:conditional-expectation-of-W_t-W_s], we get
+				\startformula
+					𝔼(W_t - W_s ∣ \tilde{ℱ}_s)
+					=  𝔼 \brnd[W_t - W_s ∣ ℱ_s ∨ σ(W_T - W_s)]
+					=  𝔼 \brnd[W_t - W_s ∣ W_T - W_s] = \frac{t - s}{T - s} (W_T - W_s) .
+				\stopformula
+
+				Therefore, using the fact that \m{W_T} and \m{W_s} are \m{\tilde{ℱ}_s}-measurable with conditional Fubini's theorem, we get
+				\startformula  \startalign
+					\NC  𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s)
+					     =  \NC  𝔼 \brnd[W_t - W_s ∣ \tilde{ℱ}_s] - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{𝔼 \brnd[W_u - W_s ∣ \tilde{ℱ}_s]}{T - u}] \d u  \NR
+					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{u - s}{T - s} \frac{W_T - W_s}{T - u}] \d u  \NR
+					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \frac{W_T - W_s}{T - s} \d u  \NR
+					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - \frac{t - s}{T - s} (W_T - W_s)  \quad  =  \quad  0 . \NR
+				\stopalign  \stopformula
+
+				Now, since \m{\tilde{W}_s} is \m{\tilde{ℱ}_s}-measurable, \m{𝔼(\tilde{W}_t ∣ \tilde{ℱ}_s) = 𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s) + \tilde{W}_s = \tilde{W}_s}.
+			\stopproof
+
+		\stopsubsection
+	\stopsection
+
 \stopchapter
 
 \stopcomponent
+
+% \startformula  \startalign
+	
+% \stopalign  \stopformula

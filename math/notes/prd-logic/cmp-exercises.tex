@@ -477,7 +477,7 @@
 		
 			\item  Zero is less than any number.
 				\startsolution
-					\m{∀x (Nx → <0x)}
+					\m{∀x\,(Nx → <0x)}
 				\stopsolution
 
 			\item  If any number is interesting, then zero is interesting.
@@ -485,7 +485,7 @@
 					The word \emph{any number} can be interpretated as \emph{every number} or \emph{some number}. Using the exportation tautology, the corresponding translations are
 					\startitemize [joinedup]
 						\sym{(every)}  \qquad \qquad
-							\m{∀x (Nx → Ix → I0)}
+							\m{∀x\,(Nx → Ix → I0)}
 						\sym{(some)}  \qquad \qquad
 							\m{∃x (Nx → Ix) → I0}
 					\stopitemize
@@ -496,24 +496,24 @@
 					\startformula  \startalign
 						\NC     \NC  ∄x (Nx ∧ <x0)  \NR
 						\NC  ⟺  \NC  ¬∃x (Nx ∧ <x0)  \NR
-						\NC  ⟺  \NC  ¬¬∀x (¬(Nx ∧ <x0))  \NR
-						\NC  ⟺  \NC  ¬¬∀x (¬¬(Nx → ¬<x0))  \NR
-						\NC  ⟺  \NC  ∀x (Nx → ¬<x0))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,(¬(Nx ∧ <x0))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,(¬¬(Nx → ¬<x0))  \NR
+						\NC  ⟺  \NC  ∀x\,(Nx → ¬<x0))  \NR
 					\stopalign  \stopformula
 				\stopsolution
 
 			\item  Any uninteresting number with the property that all smaller numbers are interesting certainly is interesting.
 				\startsolution
-					\m{∀x (Nx → ¬Ix → ∀y (Ny → <yx → Iy) → Ix)}
+					\m{∀x\,(Nx → ¬Ix → ∀y\,(Ny → <yx → Iy) → Ix)}
 				\stopsolution
 
 			\item  There is no number such that all numbers are less than it.
 				\startsolution
 					\startformula  \startalign
-						\NC     \NC  ∄x (Nx → ∀y (Ny → (x < y)))  \NR
-						\NC  ⟺   \NC  ¬∃x (Nx → ∀y (Ny → <xy))  \NR
-						\NC  ⟺  \NC  ¬¬∀x ¬(Nx → ∀y (Ny → <xy))  \NR
-						\NC  ⟺  \NC  ∀x ¬(Nx → ∀y (Ny → <xy))  \NR
+						\NC     \NC  ∄x (Nx → ∀y\,(Ny → (x < y)))  \NR
+						\NC  ⟺   \NC  ¬∃x (Nx → ∀y\,(Ny → <xy))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,¬(Nx → ∀y\,(Ny → <xy))  \NR
+						\NC  ⟺  \NC  ∀x\,¬(Nx → ∀y\,(Ny → <xy))  \NR
 					\stopalign  \stopformula
 				\stopsolution
 
@@ -522,8 +522,8 @@
 					\startformula  \startalign
 						\NC     \NC  ∄x (Nx → ∄y (Ny → (y < x)))  \NR
 						\NC  ⟺  \NC  ¬∃x (Nx → ¬∃y (Ny → <xy))  \NR
-						\NC  ⟺  \NC  ¬¬∀x ¬(Nx → ¬¬∀y ¬(Ny → <xy))  \NR
-						\NC  ⟺  \NC  ∀x ¬(Nx → ∀y ¬(Ny → <xy))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,¬(Nx → ¬¬∀y\,¬(Ny → <xy))  \NR
+						\NC  ⟺  \NC  ∀x\,¬(Nx → ∀y\,¬(Ny → <xy))  \NR
 					\stopalign  \stopformula
 				\stopsolution
 
@@ -531,7 +531,6 @@
 	\stopexercise
 
 	
-	% \page
 	\startexercise [title={Enderton, 2.1.3}]
 		Translate the English sentence into the first-order language specified by \m{∀}, for all sets; \m{∈}, is a member of; \m{a}, \m{a}; \m{b}, \m{b}.
 
@@ -545,24 +544,169 @@
 			\NC  ⟺  \NC  \text{There is a set that \m{a} is not a member of and there is a set that \m{b} is not a member of.}  \NR
 			\NC  ⟺  \NC  (∃x (a ∉ x)) ∧ (∃y (b ∉ y))  \NR
 			\NC  ⟺  \NC  (∃x (¬∈ax)) ∧ (∃y (¬∈bx))  \NR
-			\NC  ⟺  \NC  (¬∀x (¬¬∈ax)) ∧ (¬∀y (¬¬∈by))  \NR
-			\NC  ⟺  \NC  (¬∀x ∈ax) ∧ (¬∀y ∈by)  \NR
+			\NC  ⟺  \NC  (¬∀x\,(¬¬∈ax)) ∧ (¬∀y\,(¬¬∈by))  \NR
+			\NC  ⟺  \NC  (¬∀x\,∈ax) ∧ (¬∀y\,∈by)  \NR
 		\stopalign  \stopformula
 	\stopsolution
 
 
 	\startexercise [title={Enderton, page 87}]
-		Prove that \m{\synentl[𝔄][s]{α ∨ β}} iff \m{\synentl[𝔄][s]{α}} or \m{\synentl[𝔄][s]{β}}.
+		Prove that \m{\symentl[𝔄][s]{α ∨ β}} iff \m{\symentl[𝔄][s]{α}} or \m{\symentl[𝔄][s]{β}}.
 	\stopexercise
 
 	\startsolution
 		\startformula  \startalign[n=3]
-			\NC     \NC  \synentl[𝔄][s]{(α ∨ β)}  \NR
-			\NC  ⟺  \NC  \synentl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \nsynentl[𝔄][s]{¬α}  \text{ or }  \synentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \synentl[𝔄][s]{α} \text{ or }  \synentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
+			\NC     \NC  \symentl[𝔄][s]{(α ∨ β)}  \NR
+			\NC  ⟺  \NC  \symentl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \nsymentl[𝔄][s]{¬α}  \text{ or }  \symentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \symentl[𝔄][s]{α} \text{ or }  \symentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
 		\stopalign  \stopformula
 	\stopsolution
+\stopexercises
+
+
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS4  \hfill  2019-10-29}]
+	
+	\startexercise [title={Enderton, 2.2.1}]
+		Show that
+		\startitemize [a]
+			
+			\item  \m{Γ ∪ \bcrl[α] ⊨ ϕ} iff \m{Γ ⊨ (α → ϕ)}.
+				\startsolution
+					\startitemize
+
+						\sym{\bold{(⟹)}}  \qquad
+							\m{Γ ∪ \bcrl[α] ⊨ ϕ} means that any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, the structure \m{𝔄} also satisfies \m{ϕ} with \m{s}. Now, let \m{𝔄} and \m{s} be such a combination. Now, either \m{\nsymentl[𝔄][s]{α}} or \m{\symentl[𝔄][s]{α}}. If \m{\nsymentl[𝔄][s]{α}}, then \m{\symentl[𝔄][s]{α → ϕ}} by definition. If \m{\symentl[𝔄][s]{α}}, then \m{Γ ∪ \bcrl[α] ⊨ ϕ} and \m{\symentl[𝔄][s]{α}} implies \m{\symentl[𝔄][s]{(α → ϕ)}}. Therefore, \m{Γ ⊨ (α → ϕ)}.
+
+						\sym{\bold{(⟸)}}  \qquad
+							Since we have \m{Γ ⊨ (α → ϕ)}, any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, since we have \m{\symentl[𝔄][s]{α}} and \m{Γ ⊨ (α → ϕ)}, it must be that \m{\symentl[𝔄][s]{ϕ}}.
+					\stopitemize
+				\stopsolution
+
+			\item  \m{ϕ ⟚ ψ} iff \m{⊨ (ϕ ↔ ψ)}.
+				\startsolution
+					% For any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]}, either \m{\nsymentl[𝔄][s]{ϕ}} or \m{\symentl[𝔄][s]{ϕ}}.
+
+					% If \m{\nsymentl[𝔄][s]{ϕ}}, we have \m{\nsymentl[𝔄][s]{ψ}}, so \m{\symentl[𝔄][s]{ϕ ↔ ψ}}.
+
+					% If \m{\symentl[𝔄][s]{ϕ}}, we have \m{\symentl[𝔄][s]{ψ}}, so \m{\symentl[𝔄][s]{ϕ ↔ ψ}}.
+					\startformula  \startalign[n=3]
+						\NC     \NC  ϕ ⟚ ψ  \NR
+						\NC  ⟺  \NC  ⊨ (ϕ → ψ) \text{ and }  ⊨ (ψ → ϕ)  \NC  [Using (a)]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ → ψ)}  \text{ and }  \symentl[𝔄][s]{(ψ → ϕ)}  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ → ψ) ∧ (ψ → ϕ)}  \NC  [\text{Definition of } ∧]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ ↔ ψ)}  \NC  [\text{Definition of } ↔]  \NR
+						\NC  ⟺  \NC  ⊨ (ϕ ↔ ψ)  \NR
+					\stopalign  \stopformula
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+	
+	\startexercise [title={Enderton, 2.2.3}]
+		Show that \m{\bcrl[∀x\,α, ∀x\,(α → β)] ⊨ ∀x\,β}.
+	\stopexercise
+
+	\startsolution
+		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{∀x\,α} and \m{∀x\,(α → β)} with \m{s}.
+
+		Now, by the definition of the satisfaction function,
+		\placeformula  \startformula  \startalign
+			\NC  \symentl[𝔄][s]{∀x\,α}        ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \symentl[𝔄][s(x∣a)]{α} , \qquad \text{ and }  \NR[eq:condition1]
+			\NC  \symentl[𝔄][s]{∀x\,(α → β)}  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \symentl[𝔄][s(x∣a)]{α → β}  \NR
+			\NC  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \nsymentl[𝔄][s(x∣a)]{α} \text{ or } \symentl[𝔄][s(x∣a)]{β} .  \NR[eq:condition2]
+		\stopalign  \stopformula
+
+		Fix an arbitrary \m{a ∈ \abs[𝔄]}. If \m{\nsymentl[𝔄][s(x∣a)]{α}} in (\in[eq:condition2]), then combining it with (\in[eq:condition1]) gives a contradiction. Therefore, we must have \m{ \symentl[𝔄][s(x∣a)]{β}}. This means for every \m{a ∈ \abs[𝔄]}, we have \m{ \symentl[𝔄][s(x∣a)]{β}}, which says \m{\symentl[𝔄][s]{∀x\,β}}.
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 2.2.4}]
+		Show that if \m{x} does not occur free in \m{α}, then \m{α ⊨ ∀x\,α}.
+	\stopexercise
+
+	\startsolution
+		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{α} with \m{s}. Now, fix an arbitrary \m{a ∈ \abs[𝔄]}. Then the satisfaction functions \m{s} and \m{s(x∣a)} agree on all variables except possibly at \m{x}. But \m{x} does not occur free in \m{α}, so \m{s} and \m{s(x∣a)} agree on all variables that occur free in \m{α}. Now by Theorem 22A, \m{\symentl[𝔄][s(x∣a)]{α}}. Since \m{a} was arbitrary, this holds for every \m{a ∈ \abs[𝔄]}. Therefore by the definition of satisfaction function, \m{\symentl[𝔄][s]{∀x\,α}}. Therefore \m{α ⊨ ∀x\,α}.
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 2.2.6}]
+		Show that a formula \m{θ} is valid iff \m{∀x\,θ} is valid.
+	\stopexercise
+
+	\startsolution
+		\startformula  \startalign
+			\NC     \NC  θ \text{ is valid }  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \symentl[𝔄][s]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄] \text{ and } a ∈ \abs[𝔄], \text{ we have } \symentl[𝔄][s(x∣a)]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \symentl[𝔄][s]{∀x\,θ}  \NR
+			\NC  ⟺  \NC  ∀x\,θ \text{ is valid }  \NR
+		\stopalign  \stopformula
+		The second \m{⟺} above works because
+		\startitemize [joinedup]
+
+			\sym{\bold{(⟹)}}  \qquad
+				\m{s(x∣a): V → \abs[𝔄]} is also a satisfaction function, and
+		
+			\sym{\bold{(⟸)}}  \qquad
+				\m{s = s(x∣s(x))}.
+		\stopitemize
+		
+	\stopsolution
+\stopexercises
+
+
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS5  \hfill  2019-11-05}]
+
+	\startexercise [title={Enderton, 2.2.8}]
+		Assume that \m{Σ} is a set of sentences such that for any sentence \m{τ}, either \m{Σ ⊨ τ} or \m{Σ ⊨ ¬τ}. Assume that \m{𝔄} is a model of \m{Σ}. Show that for any sentence \m{τ}, we have \m{\symentl[𝔄]{τ}} iff \m{Σ ⊨ τ}.
+	\stopexercise
+
+	\startsolution
+		
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 2.2.13}]
+		Prove part (a) of the homomorphism theorem.
+	\stopexercise
+
+	\startsolution
+		
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 2.2.18}]
+		A universal (\m{∀_1}) formula is one of the form \m{∀ x_1 ⋯ ∀ x_n \, θ}, where \m{θ} is quantifier-free. An existential (\m{∃_1}) formula is of the dual form \m{∃ x_1 ⋯ ∃ x_n θ}. Let \m{𝔄} be a substructure of \m{𝔅}, and let \m{s : V → \abs[𝔄]}.
+		\startitemize [a]
+
+			\item  Show that if \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}. And if \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔅][s]{ϕ}}.
+				\startsolution
+					
+				\stopsolution
+
+			\item  Conclude that the sentence \m{∃x\,Px} is not logically equivalent to any universal sentence, nor \m{∀x\,Px} to any existential sentence.
+				\startsolution
+					
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+	\startsolution
+		
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 2.2.20(a)}]
+		Assume the language has equality and a two-place predicate symbol \m{P}. Consider the two structures \m{(ℕ; <)} and \m{(ℝ; <)} for the language. Find a sentence true in one structure and false in the other.
+	\stopexercise
+
+	\startsolution
+		
+	\stopsolution
+
 \stopexercises
 
 \stopcomponent
