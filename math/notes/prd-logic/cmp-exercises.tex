@@ -661,11 +661,19 @@
 \startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS5  \hfill  2019-11-05}]
 
 	\startexercise [title={Enderton, 2.2.8}]
-		Assume that \m{Σ} is a set of sentences such that for any sentence \m{τ}, either \m{Σ ⊨ τ} or \m{Σ ⊨ ¬τ}. Assume that \m{𝔄} is a model of \m{Σ}. Show that for any sentence \m{τ}, we have \m{\symentl[𝔄]{τ}} iff \m{Σ ⊨ τ}.
+		Assume that \m{Σ} is a set of sentences such that for any sentence \m{τ}, either \m{Σ ⊨ τ} or \m{Σ ⊨ ¬τ}. Assume that \m{𝔄} is a model of \m{Σ}. Show that for any sentence \m{τ}, we have \m{⊨_𝔄 τ} iff \m{Σ ⊨ τ}.
 	\stopexercise
 
 	\startsolution
-		
+		\startitemize
+
+			\sym{\bold{(⟸)}}  \qquad
+				Since \m{Σ ⊨ τ}, and \m{𝔄} is a model of \m{Σ}, it follows from definition of logical implication that \m{⊨_𝔄 τ}.
+
+			\sym{\bold{(⟹)}}  \qquad
+				We prove this side by proving the contrapositive. If \m{Σ ⊭ τ}, then \m{Σ ⊨ ¬τ} by the given condition. Since \m{𝔄} is a model of \m{Σ}, \m{⊨_𝔄 ¬τ}, and therefore \m{⊭_𝔄 τ}.
+
+		\stopitemize
 	\stopsolution
 
 
@@ -674,7 +682,38 @@
 	\stopexercise
 
 	\startsolution
-		
+		We prove this by induction of the complexity of a term \m{t}.
+
+		\startitemize [i, joinedup]
+
+			\item  (base case: \m{t} is a variable)  In this case,
+				\startformula  \startalign[n=3]
+					\NC  (h ∘ \overline{s})(t)  =  \NC  h(\overline{s}(t))  \NR
+					\NC  =  \NC  h(s(t))  \NC  [\text{Definition of \m{\overline{s}}}]  \NR
+					\NC  =  \NC  (h ∘ s)(t)  \NR
+					\NC  =  \NC  (\overline{h ∘ s})(t) .  \NC  \qquad  [\text{Definition of \m{\overline{h ∘ s}}}]  \NR
+				\stopalign  \stopformula
+
+			\item  (base case: \m{t} is a constant)  In this case,
+				\startformula  \startalign[n=3]
+					\NC  (h ∘ \overline{s})(t)  =  \NC  h(\overline{s}(t))  \NR
+					\NC  =  \NC  h(t^𝔄)  \NC  [\text{Definition of \m{\overline{s}}}]  \NR
+					\NC  =  \NC  t^𝔅  \NC  [\text{Definition of homomorphism}]  \NR
+					\NC  =  \NC  (\overline{h ∘ s})(t) .  \NC  \qquad  [\text{Definition of \m{\overline{h ∘ s}}}]  \NR
+				\stopalign  \stopformula
+
+			\item  (induction step: \m{t = f t_1 ⋯ t_n})  In this case, we use the induction hypothesis that the result holds for all terms less complex than \m{t}. Now,
+				\startformula  \startalign[n=3]
+					\NC  (h ∘ \overline{s})(t)  =  \NC  h(\overline{s}(f t_1 ⋯ t_n))  \NR
+					\NC  =  \NC  h(f^𝔄(\overline{s}(t_1), …, \overline{s}(t_n)))  \NC  [\text{Definition of \m{\overline{s}}}]  \NR
+					\NC  =  \NC  h(f^𝔅(h(\overline{s}(t_1)), …, h(\overline{s}(t_n))))  \NC  [\text{Definition of homomorphism}]  \NR
+					\NC  =  \NC  h(f^𝔅(\overline{h ∘ s})(t_1), …, (\overline{h ∘ s})(t_n)))  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+					\NC  =  \NC  (\overline{h ∘ s})(f t_1 ⋯ t_n)  \NC  [\text{Definition of \m{\overline{h ∘ s}}}]  \NR
+					\NC  =  \NC  (\overline{h ∘ s})(t) . \NC  [\text{Definition of \m{\overline{h ∘ s}}}]  \NR					
+				\stopalign  \stopformula
+		\stopitemize
+
+		Therefore, \m{\overline{h ∘ s} ≡ h ∘ \overline{s}} on \m{T}.
 	\stopsolution
 
 
@@ -682,21 +721,29 @@
 		A universal (\m{∀_1}) formula is one of the form \m{∀ x_1 ⋯ ∀ x_n \, θ}, where \m{θ} is quantifier-free. An existential (\m{∃_1}) formula is of the dual form \m{∃ x_1 ⋯ ∃ x_n θ}. Let \m{𝔄} be a substructure of \m{𝔅}, and let \m{s : V → \abs[𝔄]}.
 		\startitemize [a]
 
-			\item  Show that if \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}. And if \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔅][s]{ϕ}}.
+			\item  Show that if \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}. And if \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔄][s]{ϕ}}.
 				\startsolution
+					Firstly, note that since \m{𝔄} be a substructure of \m{𝔅}, the identity map \m{i: \abs[𝔄] → \abs[𝔅]} is a isomorphism. Therefore, parts (a), (b), and (c) of the Homomorphism Theorem are true.
+					\startitemize [i]
+						
+						\item  \bold{If \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔄][s]{ϕ}}.}
+
+							Since \m{ϕ} is universal, \m{ϕ = ∀ x_1 ⋯ ∀ x_n \, θ} for some quantifier-free wff \m{θ}. Therefore, \m{\symentl[𝔅][s]{∀ x_1 ⋯ ∀ x_n \, θ}} means that for every \m{b_1, …, b_n ∈ \abs[𝔅]}, we have \m{\symentl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[b_1, …, b_n]}]}] {θ}}. Therefore, in particular, for every \m{a_1, …, a_n ∈ \abs[𝔄] ⊆ \abs[𝔅]}, we have \m{\symentl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}. By the Homomorphism Theorem, for every \m{a_1, …, a_n ∈ \abs[𝔄]}, we have \m{\symentl[𝔄][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}, that is, \m{\symentl[𝔄][s]{∀ x_1 ⋯ ∀ x_n \, θ}}.
+
+						\item  \bold{If \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}.}
+
+							Since \m{ψ} is existential, \m{ψ = ∃ x_1 ⋯ ∃ x_n θ = ¬∀x_1¬ ¬∀x_2¬ ⋯ ¬∀x_2¬ θ}, which is logically equivalent to saying \m{ψ = ¬∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}. Therefore, \m{\symentl[𝔄][s]{ψ}} is the same as \m{\symentl[𝔄][s]{¬ ∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}, which is in turn the same as \m{\nsymentl[𝔄][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Now, using the above result, we get that this implies \m{\nsymentl[𝔅][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Reversing the above steps, we get \m{\symentl[𝔅][s]{ψ}}.
+
+					\stopitemize
 					
 				\stopsolution
 
 			\item  Conclude that the sentence \m{∃x\,Px} is not logically equivalent to any universal sentence, nor \m{∀x\,Px} to any existential sentence.
 				\startsolution
-					
+					% Let \m{𝔄 = (\bcrl[0, 1], \bcrl[0], \bcrl[1])}
 				\stopsolution
 		\stopitemize
 	\stopexercise
-
-	\startsolution
-		
-	\stopsolution
 
 
 	\startexercise [title={Enderton, 2.2.20(a)}]
@@ -704,7 +751,16 @@
 	\stopexercise
 
 	\startsolution
-		
+		\startitemize [i, joinedup]
+			\item  True in \m{(ℕ; <)} but false in \m{(ℝ; <)}: There is an smallest object, i.e.,
+				\startformula
+					∃x\,∀y\,((y ≠ x) → (x < y)) .
+				\stopformula
+			\item  True in \m{(ℝ; <)} but false in \m{(ℕ; <)}: There is an object between any two objects, i.e.,
+				\startformula
+					∀x\,∀y\,∃z\,((z < y ∧ z > x) ∨ (z < x ∧ z > y)) .
+				\stopformula
+		\stopitemize
 	\stopsolution
 
 \stopexercises

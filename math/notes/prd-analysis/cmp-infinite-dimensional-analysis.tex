@@ -3,6 +3,74 @@
 \product  prd-analysis
 
 
+\startchapter [title={Giuseppe Da Prato}]
+	
+	\startproposition [title={Proposition 1.2 in the book}, reference=prp:1d-Gaussian-measure]
+		Let \m{a ∈ ℝ}, \m{λ > 0}, and \m{μ = N_{a, Q}}. Then
+		\startitemize [i, joinedup]
+			\item[1d-mean]  \m{∫_ℝ x N_{a, λ}(\d x) = a},
+			\item[1d-cov]  \m{∫_ℝ (x - a)^2 N_{a, λ}(\d x) = λ}, and
+			\item[1d-Fourier]  \m{\widehat{N_{a, λ}}(h) := ∫_ℝ e^{𝚤 h x} N_{a, λ}(\d x) = e^{𝚤 a h - \frac12 λ h^2}}, \m{h ∈ ℝ}.
+		\stopitemize
+	\stopproposition
+
+	\startproof
+		\startitemize [i]
+			\item  \m{∫_ℝ x N_{a, λ}(\d x) = a},
+			\item  \m{∫_ℝ (x - a)^2 N_{a, λ}(\d x) = λ}, and
+			\item  \m{\widehat{N_{a, λ}}(h) := ∫_ℝ e^{𝚤 h x} N_{a, λ}(\d x) = e^{𝚤 a h - \frac12 λ h^2}}, \m{h ∈ ℝ}.
+		\stopitemize
+	\stopproof
+
+
+	\startproposition [title={Proposition 1.3 in the book}]
+		Let \m{H ≃ ℝ^d} \m{a ∈ H}, \m{Q ∈ L_+(H)}, and \m{μ = N_{a, Q}}. Then
+		\startitemize [i, joinedup]
+			\item[fd-mean]  \m{∫_H x N_{a, Q}(\d x) = a},
+			\item[fd-cov]  \m{∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x) = \inn[Qy, z]}, and
+			\item[fd-Fourier]  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x) = e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]}}, \m{h ∈ H}.
+		\stopitemize
+ 	\stopproposition
+
+	\startproof
+		All indices vary from \m{1} to \m{d}.
+		\startitemize [i]
+
+			\item  \m{∫_H x N_{a, Q}(\d x) = a}.
+				\startformula  \startalign[n=3]
+					\NC  ∫_H x N_{a, Q}(\d x)  =  \NC  ∫_H x ⨉_j N_{a_j, λ_j} \brnd[⨉_i \d x_i]  \NR
+					\NC  =  \NC  ∫_H ∑_k(x_k e_k) ∏_j N_{a_j, λ_j}(\d x_j)  \NC  [\text{Fubini}]  \NR
+					\NC  =  \NC  ∑_k \brnd[∫_ℝ ⋯ ∫_ℝ x_k ∏_j N_{a_j, λ_j}(\d x_j)] e_k  \qquad  \NC  [\text{Fubini}]  \NR
+					\NC  =  \NC  ∑_k ∫_ℝ x_k N_{a_k, λ_k}(\d x_k) e_k  \NC  \bsqr[∫_ℝ N_{a_j, λ_j}(\d x_j) = 1 \ ∀j]  \NR
+					\NC  =  \NC  ∑_k a_k e_k  \quad  =  a .  \NC  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-mean])}]  \NR
+				\stopalign  \stopformula
+
+			\item  \m{∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x) = \inn[Qy, z]}.
+				\startformula  \startalign
+					\NC     \NC  ∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x)  \NR
+					\NC  =  \NC  ∫_H ∑_k y_k (x_k - a_k) ∑_l z_l (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
+					\NC  =  \NC  ∑_k ∑_l y_k z_l ∫_H (x_k - a_k) (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
+					\NC  =  \NC  ∑_k y_k z_k ∫_H (x_k - a_k)^2 ∏_j N_{a_j, λ_j}(\d x_j)  +  ∑_{i ≠ j} y_k z_l ∫_H (x_k - a_k) (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
+					\NC  =  \NC  ∑_k y_k z_k ∫_ℝ (x_k - a_k)^2 N_{a_k, λ_k}(\d x_k)  +  ∑_{i ≠ j} y_k z_l ∫_ℝ (x_k - a_k) N_{a_k, λ_k} (\d x_k) ∫_ℝ (x_l - a_l) N_{a_l, λ_l}(\d x_l)  \NR
+					\NC  =  \NC  ∑_k y_k z_k λ_k  \quad = \inn[Qy, z] .  \qquad  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-cov])}]  \NR
+				\stopalign  \stopformula
+
+			\item  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x) = e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]}}, \m{h ∈ H}.
+				\startformula  \startalign[n=3]
+					\NC  \widehat{N_{a, Q}}(h)  =  \NC  ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x)  \NR
+					\NC  =  \NC  ∫_H e^{𝚤 ∑_k h_k x_k} ∏_j N_{a_j, λ_j}(\d x_j)  \NR
+					\NC  =  \NC  ∫_H ∏_k e^{𝚤 h_k x_k} ∏_j N_{a_j, λ_j}(\d x_j)  \NR
+					\NC  =  \NC  ∏_k ∫_H e^{𝚤 h_k x_k} N_{a_k, λ_k}(\d x_k)  \NC  [\text{\comment{Why? This is false in general!}}]  \NR
+					\NC  =  \NC  ∏_k e^{𝚤 a_k h_k - \frac12 λ_k h_k^2}  \qquad  \NC  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-Fourier])}]  \NR
+					\NC  =  \NC  e^{𝚤 ∑_k a_k h_k - \frac12 ∑_k λ_k h_k h_k}  \NR
+					\NC  =  \NC  e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]} .  \NR
+				\stopalign  \stopformula
+		\stopitemize
+	\stopproof
+
+\stopchapter
+
+
 \startchapter [title={Abstract Wiener spaces}, reference=chp:abstract-Wiener-spaces]
 
 \stopchapter

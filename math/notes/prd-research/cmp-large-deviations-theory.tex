@@ -45,81 +45,88 @@
 
 	\startsection [title={\m{\tilde{W}_⋅} is a Wiener process}]
 
-		% We shall use  throughtout the text.
-		
 		We show that \m{(\tilde{W}_t)} is a \m{(\tilde{ℱ}_t)}-martingale with quadratic variation \m{t}. Then by Lévy's Characterization of Wiener process, we obtain that \m{\tilde{W}_⋅} is a Wiener process.
 
-		\startsubsection [title={\m{\tilde{W}_⋅} is a \m{\tilde{ℱ}_⋅}-martingale}]
-			Before we jump into the main result, we prove some lemmas.
+		First we prove two lemmas.
 
-			\startlemma [reference={lemma:equality-of-σalgebras}]
-				The σ-algebras \m{ℱ_s ∨ σ(W_T)} and \m{ℱ_s ∨ σ(W_T - W_s)} are the same.
-			\stoplemma
+		\startlemma [reference=lemma:equality-of-σalgebras]
+			The σ-algebras \m{ℱ_s ∨ σ(W_T)} and \m{ℱ_s ∨ σ(W_T - W_s)} are the same.
+		\stoplemma
 
-			\startproof
-				TODO
-			\stopproof
+		\startproof
+			For any Borel set \m{B}, the set \m{\bcrl[W_T ∈ B] = \bcrl[(W_T - W_t) + W_t ∈ B]}.
 
-			\startlemma [reference={lemma:conditional-expectation-of-W_t-W_s}]
-				For \m{0 ≤ s ≤ t ≤ T}, we have
-				\startformula
-					𝔼(W_t - W_s ∣ W_T - W_s) = \frac{t - s}{T - s} (W_T - W_s) .
-				\stopformula
-			\stoplemma
+			TODO
+		\stopproof
 
-			\startproof
-				We partition the interval \m{[0, T]} into \m{n = k n_0} equal parts, where \m{n_0 = \brnd[\min{\bcrl[s, t - s, T - t]}]^{-1}} and \m{k ∈ ℕ}. Let \m{n_s = s \frac{n}{T}} and \m{n_t = t \frac{n}{T}}. That is, the partition is
-				\startformula
-					P = \bcrl[0, \frac{T}{n}, …, \frac{n_s T}{n} = s, …, \frac{n_t T}{n} = t, …, \frac{(n - 1)T}{n}, T] .
-				\stopformula
+		\startlemma [reference=lemma:conditional-expectation-of-W_t-W_s]
+			For \m{0 ≤ s ≤ t ≤ T}, we have
+			\startformula
+				𝔼(W_t - W_s ∣ W_T - W_s) = \frac{t - s}{T - s} (W_T - W_s) .
+			\stopformula
+		\stoplemma
 
-				Let \m{Δ_i W = W_{\frac{(i + 1) T}{n}} - W_{\frac{i T}{n}}}.
+		\startproof
+			We partition the interval \m{[0, T]} into \m{n = k n_0} equal parts, where \m{n_0 = \brnd[\min{\bcrl[s, t - s, T - t]}]^{-1}} and \m{k ∈ ℕ}. Let \m{n_s = s \frac{n}{T}} and \m{n_t = t \frac{n}{T}}. That is, the partition is
+			\startformula
+				P = \bcrl[0, \frac{T}{n}, …, \frac{n_s T}{n} = s, …, \frac{n_t T}{n} = t, …, \frac{(n - 1)T}{n}, T] .
+			\stopformula
 
-				Firstly, note that the \m{Δ_i W}s are independent and identically distributed from the definition of Wiener process. Now, using the linearity of conditional expectation, we have
-				\startformula  \startalign
-					\NC  𝔼(W_t - W_s ∣ W_T - W_s)  =  \NC  𝔼 \brnd[∑_{i = n_s}^{n_t - 1} Δ_i W ∣ ∑_{i = n_s}^{n_t - 1} Δ_i W]  \NR
-					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
-					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s} ∑_{i = n_s}^{n - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
-					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  𝔼 \brnd[∑_{i = n_s}^{n - 1} Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
-					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  ∑_{i = n_s}^{n - 1} Δ_i W  \NR
-					\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  (W_T - W_s)  \NR
-					\NC  =  \NC  \frac{n_t - n_s}{n - n_s}  (W_T - W_s)  \quad  =  \quad  \frac{t - s}{T - s}  (W_T - W_s) . \NR
-				\stopalign  \stopformula
-			\stopproof
+			Let \m{Δ_i W = W_{\frac{(i + 1) T}{n}} - W_{\frac{i T}{n}}}.
+
+			Firstly, note that the \m{Δ_i W}s are independent and identically distributed from the definition of Wiener process. Now, using the linearity of conditional expectation, we have
+			\startformula  \startalign
+				\NC  𝔼(W_t - W_s ∣ W_T - W_s)  =  \NC  𝔼 \brnd[∑_{i = n_s}^{n_t - 1} Δ_i W ∣ ∑_{i = n_s}^{n_t - 1} Δ_i W]  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s} ∑_{i = n_s}^{n - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  𝔼 \brnd[∑_{i = n_s}^{n - 1} Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  ∑_{i = n_s}^{n - 1} Δ_i W  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  (W_T - W_s)  \NR
+				\NC  =  \NC  \frac{n_t - n_s}{n - n_s}  (W_T - W_s)  \quad  =  \quad  \frac{t - s}{T - s}  (W_T - W_s) . \NR
+			\stopalign  \stopformula
+		\stopproof
 
 
-			\startproposition
-				\m{\tilde{W}_⋅} is a \m{\tilde{ℱ}_⋅}-martingale.
-			\stopproposition
+		\startproposition
+			\m{\tilde{W}_⋅} is a \m{\tilde{ℱ}_⋅}-martingale.
+		\stopproposition
 
-			\startproof
-				Let \m{0 ≤ s ≤ t ≤ T}. Then
-				\startformula
-					\tilde{W}_t - \tilde{W}_s
-					=  (W_t - W_s) - ∫_s^t \frac{W_T - W_u}{T - u} \d u
-					=  (W_t - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{W_u - W_s}{T - u}] \d u .
-				\stopformula
+		\startproof
+			Let \m{0 ≤ s ≤ t ≤ T}. Then
+			\startformula
+				\tilde{W}_t - \tilde{W}_s
+				=  (W_t - W_s) - ∫_s^t \frac{W_T - W_u}{T - u} \d u
+				=  (W_t - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{W_u - W_s}{T - u}] \d u .
+			\stopformula
 
-				Moreover, since \m{W_t - W_s} is independent of \m{ℱ_s} for every \m{t ≥ s}, using lemmas \in[lemma:equality-of-σalgebras] and \in[lemma:conditional-expectation-of-W_t-W_s], we get
-				\startformula
-					𝔼(W_t - W_s ∣ \tilde{ℱ}_s)
-					=  𝔼 \brnd[W_t - W_s ∣ ℱ_s ∨ σ(W_T - W_s)]
-					=  𝔼 \brnd[W_t - W_s ∣ W_T - W_s] = \frac{t - s}{T - s} (W_T - W_s) .
-				\stopformula
+			Moreover, since \m{W_t - W_s} is independent of \m{ℱ_s} for every \m{t ≥ s}, using lemmas \in[lemma:equality-of-σalgebras] and \in[lemma:conditional-expectation-of-W_t-W_s], we get
+			\startformula
+				𝔼(W_t - W_s ∣ \tilde{ℱ}_s)
+				=  𝔼 \brnd[W_t - W_s ∣ ℱ_s ∨ σ(W_T - W_s)]
+				=  𝔼 \brnd[W_t - W_s ∣ W_T - W_s] = \frac{t - s}{T - s} (W_T - W_s) .
+			\stopformula
 
-				Therefore, using the fact that \m{W_T} and \m{W_s} are \m{\tilde{ℱ}_s}-measurable with conditional Fubini's theorem, we get
-				\startformula  \startalign
-					\NC  𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s)
-					     =  \NC  𝔼 \brnd[W_t - W_s ∣ \tilde{ℱ}_s] - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{𝔼 \brnd[W_u - W_s ∣ \tilde{ℱ}_s]}{T - u}] \d u  \NR
-					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{u - s}{T - s} \frac{W_T - W_s}{T - u}] \d u  \NR
-					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \frac{W_T - W_s}{T - s} \d u  \NR
-					\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - \frac{t - s}{T - s} (W_T - W_s)  \quad  =  \quad  0 . \NR
-				\stopalign  \stopformula
+			Therefore, using the fact that \m{W_T} and \m{W_s} are \m{\tilde{ℱ}_s}-measurable with conditional Fubini's theorem, we get
+			\startformula  \startalign
+				\NC  𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s)
+				     =  \NC  𝔼 \brnd[W_t - W_s ∣ \tilde{ℱ}_s] - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{𝔼 \brnd[W_u - W_s ∣ \tilde{ℱ}_s]}{T - u}] \d u  \NR
+				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{u - s}{T - s} \frac{W_T - W_s}{T - u}] \d u  \NR
+				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \frac{W_T - W_s}{T - s} \d u  \NR
+				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - \frac{t - s}{T - s} (W_T - W_s)  \quad  =  \quad  0 . \NR
+			\stopalign  \stopformula
 
-				Now, since \m{\tilde{W}_s} is \m{\tilde{ℱ}_s}-measurable, \m{𝔼(\tilde{W}_t ∣ \tilde{ℱ}_s) = 𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s) + \tilde{W}_s = \tilde{W}_s}.
-			\stopproof
+			Now, since \m{\tilde{W}_s} is \m{\tilde{ℱ}_s}-measurable, \m{𝔼(\tilde{W}_t ∣ \tilde{ℱ}_s) = 𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s) + \tilde{W}_s = \tilde{W}_s}.
+		\stopproof
 
-		\stopsubsection
+
+		\startproposition
+			The quadratic variation of \m{\tilde{W}_t} is \m{t}.
+		\stopproposition
+
+		% \startproof
+		% 	TODO
+		% \stopproof
+
 	\stopsection
 
 \stopchapter

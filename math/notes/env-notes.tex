@@ -177,11 +177,12 @@
 \def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
 
 % Logic
-\def \symentl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ [#satisfaction]}
-\def \nsymentl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ [#satisfaction]}
-\def \synentl[#structure][#satisfaction]#arguments{⊢_{#structure} #arguments \ [#satisfaction]}
-\def \nsynentl[#structure][#satisfaction]#arguments{⊬_{#structure} #arguments \ [#satisfaction]}
-% \def \symentl[#arguments][#structure][#satisfaction]{⊢_{#structure} #arguments \ [#satisfaction]}
+\def \tuple[#arguments]{\delim[#arguments][⟨][⟩]}
+\def \symentl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \nsymentl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \synentl[#structure][#satisfaction]#arguments{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \nsynentl[#structure][#satisfaction]#arguments{⊬_{#structure} #arguments \ \bsqr[#satisfaction]}
+% \def \symentl[#arguments][#structure][#satisfaction]{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
 
 % Algebra
 \def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
