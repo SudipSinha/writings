@@ -19,11 +19,14 @@
 
 	We shall look at the method of enlargement of filtration by \cite[short][Itô1978]. We denote the enlarged filtration by \m{\tilde{ℱ}_t = ℱ_t ∨ σ(W_T)}. For \m{t ∈ [0, T]}, define the process \m{A_t = ∫_0^t \frac{W_T - W_u}{T - u} \d u}. Then \m{W_t = \tilde{W}_t + A_t}, where \m{\tilde{W}_⋅} is a Wiener process w.r.t. \m{\tilde{ℱ}_⋅}.
 
+	For now, we shall bound \m{t ∈ [0, T_b]}, where \m{T_b ∈ [0, T)}.
+	\comment{What happens when \m{t → T}?}
+
 	Using this, we write our original SDE as
 	\startformula
 		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{W_T - W_s}{T - s} \d s .
 	\stopformula
-	Now, let \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then \m{X_t^ε} is given by
+	Let \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then \m{X_t^ε} is given by
 	\startformula
 		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + ∫_0^t σ(X_t^ε) \frac{Y_s^ε}{T - s} \d s .
 	\stopformula
@@ -37,11 +40,47 @@
 
 	Therefore, we have the joint process
 	\startformula
-		\startmatrix
-			\NC A \NC B \NC C \NR
-			\NC a \NC b \NC c \NR
-		\stopmatrix
+		\startrndmatrix
+			X_t^ε  \NR  Y_t^ε  \NR
+		\stoprndmatrix
+		=
+		\startrndmatrix
+			1  \NR  \sqrt{ε}  \NR
+		\stoprndmatrix
+		W_T  +  \sqrt{ε} ∫_0^t
+		\startrndmatrix
+			σ(X_s^ε)  \NR  -1  \NR
+		\stoprndmatrix
+		\d \tilde{W}_s  +  ∫_0^t
+		\startrndmatrix
+			σ(X_s^ε)  \NR  -1  \NR
+		\stoprndmatrix
+		\frac{Y_s^ε}{T - s} \d s .
 	\stopformula
+
+	Firstly, we show that there is a unique solution to the above system of SDEs. For convinience, let \m{\tilde{σ}(x, y) = (σ(x), -1)} and \m{\tilde{b}(x, y) = \frac{y}{T - s} (σ(x), -1)}.
+	\startproposition
+		\m{\tilde{σ}} and \m{\tilde{b}} satisfy the linear growth and Lipshitz conditions.
+	\stopproposition
+	\startproof
+		
+	\stopproof
+
+	Note that \m{Y_t^ε → 0} as \m{ε → 0}. Therefore, we expect
+	\startformula
+		\startrndmatrix
+			X_t^ε - W_T  \NR  Y_t^ε  \NR
+		\stoprndmatrix
+		→
+		\startrndmatrix
+			0  \NR  0  \NR
+		\stoprndmatrix
+		\text{ as } ε → 0 .
+	\stopformula
+
+	We want a large deviation principle of the joint process \m{Z_t^ε = (X_t^ε - W_T, Y_t^ε)}.
+
+	We take a sequence of stopping times \m{(τ_n)} such that \m{τ_n ↗ T_b}. Then
 
 	\startsection [title={\m{\tilde{W}_⋅} is a Wiener process}]
 
