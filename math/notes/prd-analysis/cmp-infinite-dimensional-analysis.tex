@@ -13,7 +13,6 @@
 			\item[1d-Fourier]  \m{\widehat{N_{a, λ}}(h) := ∫_ℝ e^{𝚤 h x} N_{a, λ}(\d x) = e^{𝚤 a h - \frac12 λ h^2}}, \m{h ∈ ℝ}.
 		\stopitemize
 	\stopproposition
-
 	\startproof
 		\startitemize [i]
 			\item  \m{∫_ℝ x N_{a, λ}(\d x) = a},
@@ -31,7 +30,6 @@
 			\item[fd-Fourier]  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x) = e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]}}, \m{h ∈ H}.
 		\stopitemize
  	\stopproposition
-
 	\startproof
 		All indices vary from \m{1} to \m{d}.
 		\startitemize [i]
@@ -68,7 +66,65 @@
 		\stopitemize
 	\stopproof
 
+	
+	\startlemma [title={The operator \m{1 - εQ} in Page 14}]
+		The operator \m{1 - εQ} is invertible with a finite positive determinant. Moreover, the inverse is bounded.
+	\stoplemma
+	\startproof
+		Firstly, note that for the operator
+		
+		Since \m{ε < \frac1λ_1}, we have \m{1 > ε λ_1}. Combining this with \m{λ_1 ≥ λ_2 ≥ ⋯}, we get \m{1 > ε λ_1 ≥ ε λ_2 ≥ ⋯}, which futher implies \m{∞ > \inv[(1 - ε λ_1)] ≥ \inv[(1 - ε λ_2)] ≥ ⋯}. Therefore the operator \m{1 - εQ} is invertible and \m{\inv[(1 - εQ)]} is bounded.
+
+		Now, since \m{(1 - ε Q) e_k = (1 - ε λ_k) e_k} for every \m{k ∈ ℕ}, we have \m{\inv[(1 - ε Q)] e_k = \inv[(1 - ε λ_k)] e_k} for every \m{k ∈ ℕ}. This gives us for every \m{x ∈ H},
+		\startformula
+			\inv[(1 - εQ)]x = ∑_{k = 1}^∞ \frac{1}{1 - ε λ_k} \inn[x, e_k] e_k .
+		\stopformula
+
+		\comment{Why is the infinite product finite and positive?}
+	\stopproof
+
+	\startlemma [title={Lemma for Proposition 1.13}]
+		\startformula
+			∫_ℝ e^{\frac{ε}{2} \abs[x]^2} N_{a, λ}(\d x)  =  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}} .
+		\stopformula
+	\stoplemma
+	\startproof
+		First, note that using completion of squares, we get
+		\startformula  \startalign
+			\NC  \frac{ε}{2} x^2 - \frac{1}{2 λ} (x - a)^2  =  \NC  - \frac{1}{2 λ} \brnd[(1 - ε λ) x^2 - 2 a x + a^2]  \NR
+			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr[x^2 - 2 \frac{a}{1 - ε λ} x + \frac{a^2}{(1 - ε λ)^2} - \frac{a^2}{(1 - ε λ)^2} + \frac{a^2}{1 - ε λ}]  \NR
+			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr[{\brnd[x - \frac{a}{1 - ε λ}]^2} - \frac{ε λ a^2}{(1 - ε λ)^2}]  \NR
+			\NC  =  \NC  - \frac12 \frac{\brnd[x - \frac{a}{1 - ε λ}]^2}{\frac{λ}{1 - ε λ}} + \frac{ε a^2}{2 (1 - ε λ)} .  \NR
+		\stopalign  \stopformula
+		Therefore,
+		\startformula \startalign
+			\NC  ∫_ℝ e^{\frac{ε}{2} x} N_{a, λ}(\d x)
+			     =  \NC  ∫_ℝ e^{\frac{ε}{2} x^2} \frac{1}{\sqrt{2 π λ}} e^{-\frac{1}{2 λ} \brnd[x - a]^2} \d x  \NR
+			\NC  =  \NC  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}}
+			             ∫_ℝ \frac{1}{\sqrt{2 π \frac{λ}{1 - ε λ}}}
+			                 e^{- \frac12 \frac{\brnd[x - \frac{a}{1 - ε λ}]^2}{\frac{λ}{1 - ε λ}}} \d x  \NR
+			\NC  =  \NC  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}} .  \NR
+		\stopalign \stopformula
+	\stopproof
+
+
+	\startproposition [title={Hint for Exercise 1.14}]
+		\startformula
+			J_m  =  2^m F^{(m)}(0), \ m ∈ ℕ ;  \qquad \text{where} \quad  F(ε) = ∫_H e^{\frac{ε}{2} \abs[x]^2} μ(\d x) , \ ε > 0.
+		\stopformula
+	\stopproposition
+	\startproof
+		\startformula \startalign
+			\NC  F(ε) =  \NC  ∫_H e^{\frac{ε}{2} \abs[x]^2} μ(\d x)  \NR
+			\NC  =  \NC  ∫_H ∑_{m = 0}^∞ \frac{1}{m!} \brnd[\frac{ε}{2} {\abs[x]^2}]^m μ(\d x)  \NR
+			\NC  =  \NC  ∑_{m = 0}^∞ \frac{ε^m}{2^m m!}  ∫_H \abs[x]^{2m} μ(\d x)  \qquad  [\text{Monotone convergence theorem}]  \NR
+			\NC  =  \NC  ∑_{m = 0}^∞ \frac{J_m}{2^m m!} ε^m  \NR
+		\stopalign \stopformula
+	\stopproof
+
 \stopchapter
+
+
 
 
 \startchapter [title={Abstract Wiener spaces}, reference=chp:abstract-Wiener-spaces]
