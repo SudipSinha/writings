@@ -384,7 +384,6 @@
 
 		(Hint: Use the fact that \m{Γ ⊨ σ} iff \m{Γ ∪ \bcrl[¬σ]} is unsatisfiable and 3.3.\in[satisfiability] above.) 20 points.
 	\stopexercise
-
 	\startsolution
 		The proof of Corollary 17A in the book shows that the Compactness Theorem implies Corollary 17A. Therefore, we are left to show that Corollary 17A implies the Compactness Theorem.
 		
@@ -399,7 +398,6 @@
 
 		(Hint: Use the induction principle.)  20 points
 	\stopexercise
-
 	\startsolution
 		We show this via induction on the complexity of any arbitrary wff \m{ϕ}.
 		\startitemize [1]
@@ -536,7 +534,6 @@
 
 		\quotation{Neither \m{a} nor \m{b} is a member of every set.}
 	\stopexercise
-
 	\startsolution
 		\startformula  \startalign
 			\NC     \NC  \text{Neither \m{a} nor \m{b} is a member of every set.}  \NR
@@ -551,15 +548,14 @@
 
 
 	\startexercise [title={Enderton, page 87}]
-		Prove that \m{\symentl[𝔄][s]{α ∨ β}} iff \m{\symentl[𝔄][s]{α}} or \m{\symentl[𝔄][s]{β}}.
+		Prove that \m{\sementl[𝔄][s]{α ∨ β}} iff \m{\sementl[𝔄][s]{α}} or \m{\sementl[𝔄][s]{β}}.
 	\stopexercise
-
 	\startsolution
 		\startformula  \startalign[n=3]
-			\NC     \NC  \symentl[𝔄][s]{(α ∨ β)}  \NR
-			\NC  ⟺  \NC  \symentl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \nsymentl[𝔄][s]{¬α}  \text{ or }  \symentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \symentl[𝔄][s]{α} \text{ or }  \symentl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
+			\NC     \NC  \sementl[𝔄][s]{(α ∨ β)}  \NR
+			\NC  ⟺  \NC  \sementl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \nsementl[𝔄][s]{¬α}  \text{ or }  \sementl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
+			\NC  ⟺  \NC  \text{either }  \sementl[𝔄][s]{α} \text{ or }  \sementl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
 		\stopalign  \stopformula
 	\stopsolution
 \stopexercises
@@ -577,26 +573,26 @@
 					\startitemize
 
 						\sym{\bold{(⟹)}}  \qquad
-							\m{Γ ∪ \bcrl[α] ⊨ ϕ} means that any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, the structure \m{𝔄} also satisfies \m{ϕ} with \m{s}. Now, let \m{𝔄} and \m{s} be such a combination. Now, either \m{\nsymentl[𝔄][s]{α}} or \m{\symentl[𝔄][s]{α}}. If \m{\nsymentl[𝔄][s]{α}}, then \m{\symentl[𝔄][s]{α → ϕ}} by definition. If \m{\symentl[𝔄][s]{α}}, then \m{Γ ∪ \bcrl[α] ⊨ ϕ} and \m{\symentl[𝔄][s]{α}} implies \m{\symentl[𝔄][s]{(α → ϕ)}}. Therefore, \m{Γ ⊨ (α → ϕ)}.
+							\m{Γ ∪ \bcrl[α] ⊨ ϕ} means that any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, the structure \m{𝔄} also satisfies \m{ϕ} with \m{s}. Now, let \m{𝔄} and \m{s} be such a combination. Now, either \m{\nsementl[𝔄][s]{α}} or \m{\sementl[𝔄][s]{α}}. If \m{\nsementl[𝔄][s]{α}}, then \m{\sementl[𝔄][s]{α → ϕ}} by definition. If \m{\sementl[𝔄][s]{α}}, then \m{Γ ∪ \bcrl[α] ⊨ ϕ} and \m{\sementl[𝔄][s]{α}} implies \m{\sementl[𝔄][s]{(α → ϕ)}}. Therefore, \m{Γ ⊨ (α → ϕ)}.
 
 						\sym{\bold{(⟸)}}  \qquad
-							Since we have \m{Γ ⊨ (α → ϕ)}, any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, since we have \m{\symentl[𝔄][s]{α}} and \m{Γ ⊨ (α → ϕ)}, it must be that \m{\symentl[𝔄][s]{ϕ}}.
+							Since we have \m{Γ ⊨ (α → ϕ)}, any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, since we have \m{\sementl[𝔄][s]{α}} and \m{Γ ⊨ (α → ϕ)}, it must be that \m{\sementl[𝔄][s]{ϕ}}.
 					\stopitemize
 				\stopsolution
 
 			\item  \m{ϕ ⟚ ψ} iff \m{⊨ (ϕ ↔ ψ)}.
 				\startsolution
-					% For any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]}, either \m{\nsymentl[𝔄][s]{ϕ}} or \m{\symentl[𝔄][s]{ϕ}}.
+					% For any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]}, either \m{\nsementl[𝔄][s]{ϕ}} or \m{\sementl[𝔄][s]{ϕ}}.
 
-					% If \m{\nsymentl[𝔄][s]{ϕ}}, we have \m{\nsymentl[𝔄][s]{ψ}}, so \m{\symentl[𝔄][s]{ϕ ↔ ψ}}.
+					% If \m{\nsementl[𝔄][s]{ϕ}}, we have \m{\nsementl[𝔄][s]{ψ}}, so \m{\sementl[𝔄][s]{ϕ ↔ ψ}}.
 
-					% If \m{\symentl[𝔄][s]{ϕ}}, we have \m{\symentl[𝔄][s]{ψ}}, so \m{\symentl[𝔄][s]{ϕ ↔ ψ}}.
+					% If \m{\sementl[𝔄][s]{ϕ}}, we have \m{\sementl[𝔄][s]{ψ}}, so \m{\sementl[𝔄][s]{ϕ ↔ ψ}}.
 					\startformula  \startalign[n=3]
 						\NC     \NC  ϕ ⟚ ψ  \NR
 						\NC  ⟺  \NC  ⊨ (ϕ → ψ) \text{ and }  ⊨ (ψ → ϕ)  \NC  [Using (a)]  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ → ψ)}  \text{ and }  \symentl[𝔄][s]{(ψ → ϕ)}  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ → ψ) ∧ (ψ → ϕ)}  \NC  [\text{Definition of } ∧]  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \symentl[𝔄][s]{(ϕ ↔ ψ)}  \NC  [\text{Definition of } ↔]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ → ψ)}  \text{ and }  \sementl[𝔄][s]{(ψ → ϕ)}  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ → ψ) ∧ (ψ → ϕ)}  \NC  [\text{Definition of } ∧]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ ↔ ψ)}  \NC  [\text{Definition of } ↔]  \NR
 						\NC  ⟺  \NC  ⊨ (ϕ ↔ ψ)  \NR
 					\stopalign  \stopformula
 				\stopsolution
@@ -607,40 +603,37 @@
 	\startexercise [title={Enderton, 2.2.3}]
 		Show that \m{\bcrl[∀x\,α, ∀x\,(α → β)] ⊨ ∀x\,β}.
 	\stopexercise
-
 	\startsolution
 		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{∀x\,α} and \m{∀x\,(α → β)} with \m{s}.
 
 		Now, by the definition of the satisfaction function,
 		\placeformula  \startformula  \startalign
-			\NC  \symentl[𝔄][s]{∀x\,α}        ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \symentl[𝔄][s(x∣a)]{α} , \qquad \text{ and }  \NR[eq:condition1]
-			\NC  \symentl[𝔄][s]{∀x\,(α → β)}  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \symentl[𝔄][s(x∣a)]{α → β}  \NR
-			\NC  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \nsymentl[𝔄][s(x∣a)]{α} \text{ or } \symentl[𝔄][s(x∣a)]{β} .  \NR[eq:condition2]
+			\NC  \sementl[𝔄][s]{∀x\,α}        ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \sementl[𝔄][s(x∣a)]{α} , \qquad \text{ and }  \NR[eq:condition1]
+			\NC  \sementl[𝔄][s]{∀x\,(α → β)}  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \sementl[𝔄][s(x∣a)]{α → β}  \NR
+			\NC  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \nsementl[𝔄][s(x∣a)]{α} \text{ or } \sementl[𝔄][s(x∣a)]{β} .  \NR[eq:condition2]
 		\stopalign  \stopformula
 
-		Fix an arbitrary \m{a ∈ \abs[𝔄]}. If \m{\nsymentl[𝔄][s(x∣a)]{α}} in (\in[eq:condition2]), then combining it with (\in[eq:condition1]) gives a contradiction. Therefore, we must have \m{ \symentl[𝔄][s(x∣a)]{β}}. This means for every \m{a ∈ \abs[𝔄]}, we have \m{ \symentl[𝔄][s(x∣a)]{β}}, which says \m{\symentl[𝔄][s]{∀x\,β}}.
+		Fix an arbitrary \m{a ∈ \abs[𝔄]}. If \m{\nsementl[𝔄][s(x∣a)]{α}} in (\in[eq:condition2]), then combining it with (\in[eq:condition1]) gives a contradiction. Therefore, we must have \m{ \sementl[𝔄][s(x∣a)]{β}}. This means for every \m{a ∈ \abs[𝔄]}, we have \m{ \sementl[𝔄][s(x∣a)]{β}}, which says \m{\sementl[𝔄][s]{∀x\,β}}.
 	\stopsolution
 
 
 	\startexercise [title={Enderton, 2.2.4}]
 		Show that if \m{x} does not occur free in \m{α}, then \m{α ⊨ ∀x\,α}.
 	\stopexercise
-
 	\startsolution
-		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{α} with \m{s}. Now, fix an arbitrary \m{a ∈ \abs[𝔄]}. Then the satisfaction functions \m{s} and \m{s(x∣a)} agree on all variables except possibly at \m{x}. But \m{x} does not occur free in \m{α}, so \m{s} and \m{s(x∣a)} agree on all variables that occur free in \m{α}. Now by Theorem 22A, \m{\symentl[𝔄][s(x∣a)]{α}}. Since \m{a} was arbitrary, this holds for every \m{a ∈ \abs[𝔄]}. Therefore by the definition of satisfaction function, \m{\symentl[𝔄][s]{∀x\,α}}. Therefore \m{α ⊨ ∀x\,α}.
+		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{α} with \m{s}. Now, fix an arbitrary \m{a ∈ \abs[𝔄]}. Then the satisfaction functions \m{s} and \m{s(x∣a)} agree on all variables except possibly at \m{x}. But \m{x} does not occur free in \m{α}, so \m{s} and \m{s(x∣a)} agree on all variables that occur free in \m{α}. Now by Theorem 22A, \m{\sementl[𝔄][s(x∣a)]{α}}. Since \m{a} was arbitrary, this holds for every \m{a ∈ \abs[𝔄]}. Therefore by the definition of satisfaction function, \m{\sementl[𝔄][s]{∀x\,α}}. Therefore \m{α ⊨ ∀x\,α}.
 	\stopsolution
 
 
 	\startexercise [title={Enderton, 2.2.6}]
 		Show that a formula \m{θ} is valid iff \m{∀x\,θ} is valid.
 	\stopexercise
-
 	\startsolution
 		\startformula  \startalign
 			\NC     \NC  θ \text{ is valid }  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \symentl[𝔄][s]{θ}  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄] \text{ and } a ∈ \abs[𝔄], \text{ we have } \symentl[𝔄][s(x∣a)]{θ}  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \symentl[𝔄][s]{∀x\,θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \sementl[𝔄][s]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄] \text{ and } a ∈ \abs[𝔄], \text{ we have } \sementl[𝔄][s(x∣a)]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \sementl[𝔄][s]{∀x\,θ}  \NR
 			\NC  ⟺  \NC  ∀x\,θ \text{ is valid }  \NR
 		\stopalign  \stopformula
 		The second \m{⟺} above works because
@@ -663,7 +656,6 @@
 	\startexercise [title={Enderton, 2.2.8}]
 		Assume that \m{Σ} is a set of sentences such that for any sentence \m{τ}, either \m{Σ ⊨ τ} or \m{Σ ⊨ ¬τ}. Assume that \m{𝔄} is a model of \m{Σ}. Show that for any sentence \m{τ}, we have \m{⊨_𝔄 τ} iff \m{Σ ⊨ τ}.
 	\stopexercise
-
 	\startsolution
 		\startitemize
 
@@ -680,7 +672,6 @@
 	\startexercise [title={Enderton, 2.2.13}]
 		Prove part (a) of the homomorphism theorem.
 	\stopexercise
-
 	\startsolution
 		We prove this by induction of the complexity of a term \m{t}.
 
@@ -721,18 +712,18 @@
 		A universal (\m{∀_1}) formula is one of the form \m{∀ x_1 ⋯ ∀ x_n \, θ}, where \m{θ} is quantifier-free. An existential (\m{∃_1}) formula is of the dual form \m{∃ x_1 ⋯ ∃ x_n θ}. Let \m{𝔄} be a substructure of \m{𝔅}, and let \m{s : V → \abs[𝔄]}.
 		\startitemize [a]
 
-			\item  Show that if \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}. And if \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔄][s]{ϕ}}.
+			\item  Show that if \m{\sementl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\sementl[𝔅][s]{ψ}}. And if \m{\sementl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\sementl[𝔄][s]{ϕ}}.
 				\startsolution
 					Firstly, note that since \m{𝔄} be a substructure of \m{𝔅}, the identity map \m{i: \abs[𝔄] → \abs[𝔅]} is a isomorphism. Therefore, parts (a), (b), and (c) of the Homomorphism Theorem are true.
 					\startitemize [i]
 						
-						\item  \bold{If \m{\symentl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\symentl[𝔄][s]{ϕ}}.}
+						\item  \bold{If \m{\sementl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\sementl[𝔄][s]{ϕ}}.}
 
-							Since \m{ϕ} is universal, \m{ϕ = ∀ x_1 ⋯ ∀ x_n \, θ} for some quantifier-free wff \m{θ}. Therefore, \m{\symentl[𝔅][s]{∀ x_1 ⋯ ∀ x_n \, θ}} means that for every \m{b_1, …, b_n ∈ \abs[𝔅]}, we have \m{\symentl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[b_1, …, b_n]}]}] {θ}}. Therefore, in particular, for every \m{a_1, …, a_n ∈ \abs[𝔄] ⊆ \abs[𝔅]}, we have \m{\symentl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}. By the Homomorphism Theorem, for every \m{a_1, …, a_n ∈ \abs[𝔄]}, we have \m{\symentl[𝔄][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}, that is, \m{\symentl[𝔄][s]{∀ x_1 ⋯ ∀ x_n \, θ}}.
+							Since \m{ϕ} is universal, \m{ϕ = ∀ x_1 ⋯ ∀ x_n \, θ} for some quantifier-free wff \m{θ}. Therefore, \m{\sementl[𝔅][s]{∀ x_1 ⋯ ∀ x_n \, θ}} means that for every \m{b_1, …, b_n ∈ \abs[𝔅]}, we have \m{\sementl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[b_1, …, b_n]}]}] {θ}}. Therefore, in particular, for every \m{a_1, …, a_n ∈ \abs[𝔄] ⊆ \abs[𝔅]}, we have \m{\sementl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}. By the Homomorphism Theorem, for every \m{a_1, …, a_n ∈ \abs[𝔄]}, we have \m{\sementl[𝔄][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}, that is, \m{\sementl[𝔄][s]{∀ x_1 ⋯ ∀ x_n \, θ}}.
 
-						\item  \bold{If \m{\symentl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\symentl[𝔅][s]{ψ}}.}
+						\item  \bold{If \m{\sementl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\sementl[𝔅][s]{ψ}}.}
 
-							Since \m{ψ} is existential, \m{ψ = ∃ x_1 ⋯ ∃ x_n θ = ¬∀x_1¬ ¬∀x_2¬ ⋯ ¬∀x_2¬ θ}, which is logically equivalent to saying \m{ψ = ¬∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}. Therefore, \m{\symentl[𝔄][s]{ψ}} is the same as \m{\symentl[𝔄][s]{¬ ∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}, which is in turn the same as \m{\nsymentl[𝔄][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Now, using the above result, we get that this implies \m{\nsymentl[𝔅][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Reversing the above steps, we get \m{\symentl[𝔅][s]{ψ}}.
+							Since \m{ψ} is existential, \m{ψ = ∃ x_1 ⋯ ∃ x_n θ = ¬∀x_1¬ ¬∀x_2¬ ⋯ ¬∀x_2¬ θ}, which is logically equivalent to saying \m{ψ = ¬∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}. Therefore, \m{\sementl[𝔄][s]{ψ}} is the same as \m{\sementl[𝔄][s]{¬ ∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}, which is in turn the same as \m{\nsementl[𝔄][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Now, using the above result, we get that this implies \m{\nsementl[𝔅][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Reversing the above steps, we get \m{\sementl[𝔅][s]{ψ}}.
 
 					\stopitemize
 					
@@ -749,7 +740,6 @@
 	\startexercise [title={Enderton, 2.2.20(a)}]
 		Assume the language has equality and a two-place predicate symbol \m{P}. Consider the two structures \m{(ℕ; <)} and \m{(ℝ; <)} for the language. Find a sentence true in one structure and false in the other.
 	\stopexercise
-
 	\startsolution
 		\startitemize [i, joinedup]
 			\item  True in \m{(ℕ; <)} but false in \m{(ℝ; <)}: There is an smallest object, i.e.,
@@ -763,6 +753,215 @@
 		\stopitemize
 	\stopsolution
 
+\stopexercises
+
+
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS6  \hfill  2019-11-19}]
+	
+	\startexercise [title={Enderton, 2.4.2}]
+		To which axiom groups, if any, do each of the following formulas belong?
+		\startitemize [a]
+
+			\item  \m{[(∀x\,Px → ∀y\,Py) → Pz] → [∀x\,Px →(∀y\,Py → Pz)]}
+				\startsolution
+					Group 1.
+
+					This is of the form \m{((p → q) → r) → (p → (q → r))}, which is a tautology. If not, there would be a truth assignment \m{v} of \m{p, q, r} such that \m{\bar{v}(((p → q) → r) → (p → (q → r))) = F}. Now, this is only possible iff \m{\bar{v}((p → q) → r) = T} and \m{\bar{v}(p → (q → r)) = F}. Looking at the consequent, \m{\bar{v}(p → (q → r)) = F} iff \m{v(p) = T} and \m{\bar{v}(q → r) = F}. Furthermore, \m{\bar{v}(q → r) = F} iff \m{v(q) = T} and \m{v(r) = F}. Now, using these values, \m{\bar{v}((p → q) → r) = F}, which gives a contradiction.
+				\stopsolution
+
+			\item  \m{∀y\, [∀x\,(Px → Px) → (Pc → Pc)]}
+				\startsolution
+					Generalization of group 2.
+				\stopsolution
+			
+			\item  \m{∀x\, ∃y\, Pxy → ∃y\, Pyy}
+				\startsolution
+					None (\m{x} is not substitutable by \m{y} in \m{∃y\, Pxy}).
+
+					In fact, this is false. A counterexample is given by \m{𝔄 = \tuple[ℕ, <]} as every number is smaller than some number but no number is smaller than itself.					
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+
+	\startexercise [title={Enderton, 2.4.6(a)}]
+		 Show that if \m{⊢ α → β}, then \m{⊢ ∀x \, α → ∀x \, β}.
+	\stopexercise
+	\startsolution
+		If \m{⊢ α → β}, using the Generalization Theorem, we have \m{⊢ ∀x \, (α → β)}. Now using axiom group 3, we have \m{⊢ ∀x \, (α → β) → (∀x \, α → ∀x \, β)}. Using these and modus ponens, we get \m{⊢ ∀x \, α → ∀x \, β}.
+	\stopsolution
+
+
+	\page
+	\startexercise [title={Enderton, 2.4.3}]
+		\startitemize [a]
+
+			\item[ex2.4.3a]   Let \m{𝔄} be a structure and let \m{s: V → \abs[𝔄]}. Define a truth assignment \m{v} on the set of prime formulas by
+				\startformula
+					v(α) = T  \qquad  \text{iff}  \qquad  \sementl[𝔄][s]{α} . 
+				\stopformula
+				Show that for any formula (prime or not),
+				\startformula
+					\bar{v}(α) = T  \qquad  \text{iff}  \qquad  \sementl[𝔄][s]{α} . 
+				\stopformula
+				\startsolution
+					We show this by induction on the complexity of \m{α}, with the induction hypothesis that the result holds for all wffs less complex than \m{α}.
+					\startitemize [i]
+						
+						\item  \bold{Base case: \m{α} is prime.}  \qquad
+							In this case, \m{\bar{v}(α) = v(α) = T} iff \m{\sementl[𝔄][s]{α}} by the given condition.
+
+						\item  \bold{Induction step: \m{α} is \m{¬β} for some \m{β}.}  \qquad
+							\startformula  \startalign[n=3]
+								\NC  \bar{v}(α) = T  ⟺  \NC  \bar{v}(¬β) = T  \NR
+								\NC  ⟺  \NC  \bar{v}(β) = F  \NC  [\text{Definition of } \bar{v}]  \NR
+								\NC  ⟺  \NC  \nsementl[𝔄][s]{β}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
+								\NC  ⟺  \NC  \sementl[𝔄][s]{¬β}  \NC  [\text{Definition of satisfaction}]  \NR
+								\NC  ⟺  \NC  \sementl[𝔄][s]{α}  \NR
+							\stopalign  \stopformula
+
+						\item  \bold{Induction step: \m{α} is \m{β → γ} for some \m{β} and \m{γ}.}  \qquad
+							\startformula  \startalign[n=3]
+								\NC  \bar{v}(α) = T  ⟺  \NC  \bar{v}(β → γ) = T  \NR
+								\NC  ⟺  \NC  \bar{v}(β) = F  \text{ or }  \bar{v}(γ) = T  \NC  [\text{Definition of } \bar{v}]  \NR
+								\NC  ⟺  \NC  \nsementl[𝔄][s]{β}  \text{ or }  \sementl[𝔄][s]{γ}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
+								\NC  ⟺  \NC  \sementl[𝔄][s]{β → γ}  \NC  [\text{Definition of satisfaction}]  \NR
+								\NC  ⟺  \NC  \sementl[𝔄][s]{α}  \NR
+							\stopalign  \stopformula
+					\stopitemize
+				\stopsolution
+
+			\item  Conclude that if \m{Γ} tautologically implies \m{ϕ}, then \m{Γ} logically implies \m{ϕ}.
+				\startsolution
+					\emph{Note}: Satisfying a set means to satisfy each element of that set.
+					
+					Suppose \m{Γ} tautologically implies \m{ϕ}.
+
+					Let \m{𝔄} by an arbitrary structure and \m{s: V → \abs[𝔄]} by an arbitrary satisfaction function. Corresponding to \m{\tuple[𝔄, s]}, we have a truth assignment, say \m{v}. Now,
+
+					% Using Part (\in[ex2.4.3a]), \m{𝔄} satisfies \m{Γ} with \m{s} iff \m{v} satisfies \m{Γ}. This implies \m{v} satisfies \m{ϕ} since \m{Γ} tautologically implies \m{ϕ}. But \m{v} satisfies \m{ϕ} iff \m{𝔄} satisfies \m{ϕ} with \m{s}, which is what we wanted.
+					\startformula  \startalign[n=3]
+						\NC  𝔄 \text{ satisfies } Γ \text{ with } s  ⟺  \NC  v \text{ satisfies } Γ  \NC  [\text{Part (\in[ex2.4.3a])}]  \NR
+						\NC  ⟹  \NC  v \text{ satisfies } ϕ  \NC  [Γ \text{ tautologically implies } ϕ]  \NR
+						\NC  ⟺  \NC  𝔄 \text{ satisfies } ϕ \text{ with } s  \qquad  \NC  [\text{Part (\in[ex2.4.3a])}]  \NR
+					\stopalign  \stopformula
+					Since this holds for any arbitrary structure and satisfaction function, \m{Γ} logically implies \m{ϕ}.
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+
+	\page
+	\startexercise [title={Enderton, 2.4.9(b)}]
+		Show that if \m{y} does not occur at all in \m{ϕ}, then \m{x} is substitutable for \m{y} in \m{ϕ^x_y} and \m{(ϕ^x_y)^y_x = ϕ}.
+	\stopexercise
+	\startsolution
+		We use induction on the complexity of \m{ϕ}, with the induction hypothesis that the result holds for all wffs less complex than \m{ϕ}.
+		\startitemize [i]
+
+			\item  \bold{Atomics: \m{ϕ} is atomic.}  \qquad
+				Since \m{ϕ} is atomic, so is \m{ϕ^x_y}, and therefore \m{x} is substitutable for \m{y} in \m{ϕ^x_y}.
+
+				To show that \m{(ϕ^x_y)^y_x = ϕ}, we consider each case separately.
+				\startitemize [4, joinedup]
+					\item  \emph{Constants: \m{ϕ} is a constant symbol.}  \qquad				
+						Since \m{ϕ^x_y = ϕ}, so \m{(ϕ^x_y)^y_x = ϕ}, as desired.
+
+					\item  \emph{Variables: \m{ϕ} is a variable (that is not \m{y}).}  \qquad				
+						If \m{ϕ = x}, then \m{ϕ^x_y = y}, so \m{(ϕ^x_y)^y_x = x = ϕ}, and if \m{ϕ ≠ x}, then \m{ϕ^x_y = ϕ}, so \m{(ϕ^x_y)^y_x = ϕ} since \m{y} does not occur at all in \m{ϕ}.
+
+					\item  \emph{Terms: \m{ϕ} is \m{f t_1 ⋯ t_n} for some function symbol \m{f} and terms \m{t_1, …, t_n}.}  \qquad
+						Since \m{ϕ^x_y = f (t_1)^x_y ⋯ (t_n)^x_y}, so by the induction hypothesis, \m{(ϕ^x_y)^y_x = f ((t_1)^x_y)^y_x ⋯ ((t_n)^x_y)^y_x = f t_1 ⋯ t_n = ϕ}.
+					
+					\item  \emph{Predicates: \m{P t_1 ⋯ t_n} for some predicate symbol \m{P} and terms \m{t_1, …, t_n}.}
+						Since \m{ϕ^x_y = P (t_1)^x_y ⋯ (t_n)^x_y}, so by the induction hypothesis, \m{(ϕ^x_y)^y_x = P ((t_1)^x_y)^y_x ⋯ ((t_n)^x_y)^y_x = P t_1 ⋯ t_n = ϕ}. Note that this includes the case for equality.
+				\stopitemize
+				
+			\item  \bold{Negation: \m{ϕ} is \m{(¬ψ)} for some \m{ψ}.}  \qquad
+				We know that \m{x} is substitutable for \m{y} in \m{ϕ^x_y} iff \m{x} is substitutable for \m{y} in \m{ψ^x_y}, which it is by the induction principle.
+
+				Moreover, \m{ϕ^x_y = (¬ ψ^x_y)}, so using the induction hypothesis, \m{(ϕ^x_y)^y_x = (¬ ψ^x_y)^y_x = (¬ (ψ^x_y)^y_x) = (¬ ψ) = ϕ}.
+
+			\item  \bold{Implication: \m{ϕ} is \m{(ψ → θ)} for some \m{ψ} and \m{θ}.}  \qquad
+				We know that \m{x} is substitutable for \m{y} in \m{ϕ^x_y} iff \m{x} is substitutable for \m{y} in both \m{ψ^x_y} and \m{θ^x_y}, which they are by the induction principle.
+
+				Moreover, \m{ϕ^x_y = (ψ → θ)^x_y = (ψ^x_y → θ^x_y)}, so using the induction hypothesis, \m{(ϕ^x_y)^y_x = (ψ^x_y → θ^x_y)^y_x = ((ψ^x_y)^y_x → (θ^x_y)^y_x) = (ψ → θ) = ϕ}.
+
+			\item  \bold{Quantifiers: \m{ϕ} is \m{∀z \, ψ} for some \m{ψ}.}  \qquad
+				We have two cases.
+				\startitemize [4, joinedup]
+					
+					\item  \emph{\m{x = z}.}  \qquad
+					In this case, \m{ϕ^x_y = ∀z \, ψ = ϕ}. Since \m{y} does not occur free in \m{ϕ}, \m{x} is substitutable for \m{y} in \m{ϕ^x_y}. Moreover, \m{(ϕ^x_y)^y_x = (∀z \, ψ)^y_x = ∀z \, ψ = ϕ} since \m{y} does not occur at all in \m{ϕ}.
+
+					\item  \emph{\m{x ≠ z}.}  \qquad
+					In this case, \m{ϕ^x_y = ∀z \, ψ^x_y}. Using the induction hypothesis, \m{x} is substitutable for \m{y} in \m{ψ^x_y}. Moreover, since \m{z} does not occur in \m{x}, so \m{x} is substitutable for \m{y} in \m{ϕ^x_y}. Moreover, \m{ϕ^x_y = ∀z \, ψ^x_y}, so by the induction hypothesis, \m{(ϕ^x_y)^y_x = (∀z \, ψ^x_y)^y_x = ∀z \, (ψ^x_y)^y_x = ∀z \, ψ = ϕ}.
+				\stopitemize
+		\stopitemize
+	\stopsolution
+\stopexercises
+
+
+
+\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS7  \hfill  2019-11-19}]
+
+	\startexercise [title={Enderton, 2.4.12}]
+		Show that any consistent set \m{Γ} of formulas can be extended to a consistent set \m{Δ} having the property that for any formula \m{α}, either \m{α ∈ Δ} or \m{(¬α) ∈ Δ}.
+
+		(Assume that the language is countable. Do not use the compactness theorem of sentential logic.)
+	\stopexercise
+	\startsolution
+		Since the language is countable, let \m{\bcrl[α_1, α_2, …]} an enumeration of all wffs of the language. Define by recursion (on the natural numbers)
+		\startformula  \startalign[n=3]
+			\NC  Δ_0  =  \NC  Γ ,  \NR
+			\NC  Δ_{n+1}  =  \NC
+				\startcases
+					\NC  Δ_n ∪ \bcrl[α_{n+1}]  \NC  if this is consistent,  \NR
+					\NC  Δ_n ∪ \bcrl[¬α_{n+1}]  \NC  otherwise .  \NR
+				\stopcases  \NR
+		\stopalign  \stopformula
+		Let \m{Δ = \lim_{n → ∞} Δ_n = ⋃_{n ∈ ℕ} Δ_n}. Clearly, for any formula \m{α}, either \m{α ∈ Δ} or \m{(¬α) ∈ Δ} since \m{α = α_n} for some \m{n ∈ ℕ}. Notice that the procedure ensures that all finite subsets of \m{Δ} are consistent, since every subset of \m{Δ_n} is consistent for every \m{n ∈ ℕ}.
+
+		Therefore we just have to prove that \m{Δ} is consistent. Suppose not. Say \m{Δ ⊢ ⊥}, where \m{⊥} is some unsatisfiable, refutable formula like \m{¬∀x x=x} or \m{β ∧ ¬β}. Since \m{Δ ⊢ ⊥}, there exists a deduction for \m{⊥}. Let \m{Σ} the wffs in the deduction that are in \m{Δ}. Now, \m{Σ} is inconsistent since it produces \m{⊥}, and is a finite subset of \m{Δ} since deductions are necessarily finite. This gives us an inconsistent finite subset of \m{Δ}, which is a contradiction. Hence \m{Δ} must be consistent.
+	\stopsolution
+
+
+	\page
+	\startexercise [title={Enderton, 2.5.2}]
+		Prove the equivalence of parts (a) and (b) of the completeness theorem.
+
+		\emph{Suggestion}: \m{Γ ⊨ ϕ} iff \m{Γ ∪ ¬ϕ} is unsatisfiable. And \m{Δ} is satisfiable iff \m{Δ ⊨ ⊥}, where \m{⊥} is some unsatisfiable, refutable formula like \m{¬∀x x=x}.
+
+		\emph{Remark}: Similarly, the soundness theorem is equivalent to the statement that every satisfiable set of formulas is consistent.
+	\stopexercise
+	\startsolution
+		First we prove the suggestion. That is, we prove that \m{Γ ⊨ ϕ} iff \m{Γ ∪ ¬ϕ} is unsatisfiable. This is equivalent to proving \m{Γ ⊭ ϕ} iff \m{Γ ∪ ¬ϕ} is satisfiable.
+
+		\startlemma
+			\m{Γ ⊨ ϕ} iff \m{Γ ∪ ¬ϕ} is unsatisfiable
+		\stoplemma
+		\startproof
+			\emph{Notation}: In what follows, we use \m{∃ \tuple[𝔄, s] \ P} to denote \quotation{there exists a structure \m{𝔄} and a satisfaction function \m{s:V → \abs[𝔄]} such that \m{P}}. We shall also write \m{\sementl[𝔄][s]{Γ}} to mean that \m{\sementl[𝔄][s]{γ}} for every \m{γ ∈ Γ}.
+			
+			\startformula  \startalign[n=3]
+				\NC  Γ ⊭ ϕ  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ}  \text{ and }  \nsementl[𝔄][s]{ϕ})  \NC  [\text{Definition of satisfiability}]  \NR
+				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ}  \text{ and }  \sementl[𝔄][s]{¬ϕ})  \NC  [\text{Definition of satisfaction function}]  \NR
+				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ ∪ \bcrl[ϕ]}  \NR
+				\NC  ⟺  \NC  Γ ∪ \bcrl[ϕ] \text{ is satisfiable} .  \NC  [\text{Definition of satisfiability}]  \NR
+			\stopalign  \stopformula
+			Moreover, \m{Δ} is satisfiable iff \m{Δ ∪ \bcrl[¬⊥]} is satisfiable iff \m{Δ ⊭ ⊥}.		  
+		\stopproof
+
+		Now we prove the equivalence.
+		\startitemize [i, joinedup]			
+			\item  \bold{((a) ⟹ (b))}  \qquad
+				Let \m{Γ} be consistent. Then \m{Γ ⊬ ⊥}, where \m{⊥} is as defined in the problem. Using (a), we have \m{Γ ⊭ ⊥}. By the claim above, \m{Γ} is satisfiable.
+
+			\item  \bold{((b) ⟹ (a))}  \qquad
+				Let \m{Γ ⊨ ϕ}. So \m{Γ ∪ \bcrl[¬ϕ]} is unsatisfiable. Using the contrapositive of (b), we have \m{Γ ∪ \bcrl[¬ϕ]} is inconsistent. Using RAA and Rule T, we get \m{Γ ⊢ ϕ}.
+		\stopitemize
+	\stopsolution
 \stopexercises
 
 \stopcomponent

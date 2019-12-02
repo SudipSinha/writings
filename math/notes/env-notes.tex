@@ -178,19 +178,19 @@
 
 % Logic
 \def \tuple[#arguments]{\delim[#arguments][⟨][⟩]}
-\def \symentl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
-\def \nsymentl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
-\def \synentl[#structure][#satisfaction]#arguments{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
-\def \nsynentl[#structure][#satisfaction]#arguments{⊬_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \sementl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \nsementl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
+% \def \synentl[#structure][#satisfaction]#arguments{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
+% \def \nsynentl[#structure][#satisfaction]#arguments{⊬_{#structure} #arguments \ \bsqr[#satisfaction]}
 % \def \symentl[#arguments][#structure][#satisfaction]{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
 
 % Algebra
 \def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
 \def \inv[#arguments]{#arguments^{-1}}
 
-% Differentials
-\def \d{\,\text{d}}
-\def \D{\,\text{D}}
+% Differentials  (We cannot use space before differentials here because we might want to use μ(\d x).)
+\def \d{\text{d}}
+\def \D{\text{D}}
 
 % Topology
 \def \clsr[#set]{\overline{#set}}
