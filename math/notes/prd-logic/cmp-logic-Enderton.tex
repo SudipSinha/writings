@@ -3,17 +3,22 @@
 \product  prd-logic
 
 
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS1  \hfill  2019-09-10}]
+\startchapter [title={Set theory}]
 	
+	For any sets \m{A}, \m{B} and \m{C}, prove the following.
+	
+	\emph{Note}: Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. In each of the following problems, we show each inclusion separately. Moreover, to show \m{A ⊆ B}, it suffices to show that for \m{x} arbitrary, \m{x ∈ A ⟹ x ∈ B}.
+
 	\startexercise [title={Notes, 1.8}]
-		For any sets \m{A} and \m{B}, we have \m{A ∩ B ⊆ A}.
+		\m{A ∩ B ⊆ A}.
 	\stopexercise
 	\startsolution
 		Let \m{x ∈ A ∩ B} be arbitrary. This means \m{x ∈ A} and \m{x ∈ B}. Therefore \m{x ∈ A}. Since every element in \m{A ∩ B} is also an element of \m{A}, we have \m{A ∩ B ⊆ A}.
 	\stopsolution
 
+
 	\startexercise [title={Notes, 1.10}]
-		For any set \m{A}, we have \m{A ∩ ∅ = ∅}.
+		we have \m{A ∩ ∅ = ∅}.
 	\stopexercise
 	\startsolution
 		\bold{(\m{⊆})}  \qquad
@@ -23,8 +28,9 @@
 		Now, let \m{x ∈ ∅} be arbitrary. Again, since there does not exist \m{x ∈ ∅}, the statement vacuously true.
 	\stopsolution
 
+
 	\startexercise [title={Notes, 1.13}]
-		For any sets \m{A} and \m{B}, if \m{A ⊆ B}, then \m{A ∪ B = B}.
+		If \m{A ⊆ B}, then \m{A ∪ B = B}.
 	\stopexercise
 	\startsolution
 		\bold{(\m{⊆})}  \qquad
@@ -34,209 +40,70 @@
 		Let \m{x ∈ B} be arbitrary. Therefore, \m{x ∈ A} or \m{x ∈ B}. Hence \m{x ∈ A ∪ B}.
 	\stopsolution
 
-\stopexercises
 
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS2  \hfill  2019-09-24}]
-
-	\emph{Note:} We shall say that a truth assigment \m{v} satisfies \m{Σ} iff it satisfies every member of \m{Σ}.
-	
-	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.1}]
-	\startexercise [title={Enderton, 1.2.1}]
-		Show that neither of the following two formulas tautologically implies the other:
-		\startformula  \startalign[align={right, left}]
-			\NC  α =  \NC  (A ↔ (B ↔ C))  \NR
-			\NC  β =  \NC  ((A ∧ (B ∧ C)) ∨ ((¬ A) ∧ ((¬ B) ∧ (¬ C))))  \NR
-		\stopalign  \stopformula
+	\startexercise
+		If \m{A ⊆ B}, then \m{A ∩ B = A}.
 	\stopexercise
 	\startsolution
-		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
-
-		\bold{(\m{α ⊭ β})}  \qquad
-		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = T} and \m{\bar{v}(β) = F}.
-
-		Consider \m{v} such that \m{vitem  = vitem  = F} and \m{vitem  = T}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
-		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
-			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  T    \NC   F  \NC  T  \NC   F  \NC  F  \NC  T    \NR
-		\stopalign  \stopformula
-		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
-			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  F    \NC    F  \NC  F  \NC      \NC     \NC       \NC  F  \NC       \NC      \NC  F  \NC       \NC      \NC  F  \NC   F  \NC  T      \NR
-		\stopalign  \stopformula
-
-		\bold{(\m{β ⊭ α})}  \qquad
-		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = T} and \m{\bar{v}(α) = F}.
-
-		Consider \m{v} such that \m{vitem  = vitem  = vitem  = F}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
-		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
-			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
-			\NC  T =  \NC       \NC     \NC      \NC     \NC       \NC  T  \NC    T  \NC  F   \NC  T  \NC    T  \NC  F   \NC  T  \NC   T  \NC  F      \NR
-		\stopalign  \stopformula
-		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
-			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
-			\NC  F =  \NC   F  \NC  F  \NC   F  \NC  T  \NC  F    \NR
-		\stopalign  \stopformula
-	\stopsolution
-
-	\page
-	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.4 item }]
-	\startexercise [title={Enderton, 1.2.4item }]
-		Show that \m{Σ ∪ \bcrl[α] ⊨ β} iff \m{Σ ⊨ (α → β)}.
-	\stopexercise
-	\startsolution
-		We show each direction separately.
-
-		\bold{(\m{⟹})}  \qquad
-		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
-		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} satisfies \m{(α → β)}. We have two cases.
-		\startitemize [i, joinedup]
-			\item  \m{\bar{v}(α) = T}: In this case, from the supposition, we get \m{\bar{v}(β) = T}. So \m{\bar{v}(α → β) = T}.
-			\item  \m{\bar{v}(α) = F}: In this case, \m{\bar{v}(α → β) = T} since the antecedent is \m{F}.
-		\stopitemize
-		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
-
-		\bold{(\m{⟸})}  \qquad
-		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v} satisfies \m{(α → β)}. Now, since \m{v} satisfies \m{α}, it can only be that \m{v} satisfies \m{β}, since the only other way the material implication can be satisfied is when \m{v} does not satisfies \m{α}. This proves our claim.
-	\stopsolution
-
-	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.5}]
-	\startexercise [title={Enderton, 1.2.5}]
-		Prove or refute each of the following assertions:
-		\startitemize [a, joinedup]
-
-			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
-
-				\startsolution
-					(\bold{T})  \qquad
-					There are two cases: \m{Σ ⊨ α} and \m{Σ ⊨ β}. Without loss of generality, we can assume that \m{Σ ⊨ α}, as the argument for other case is exactly the same. This means any arbitrary truth assignment \m{v} satisfying \m{Σ} also satisfies \m{α}. This implies \m{\bar{v}(α ∨ β) = T} by the definition of extension of \m{\bar{v}} for \m{∨}.
-				\stopsolution
-
-			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
-
-				\startsolution
-					(\bold{F})  \qquad
-					We give a counterexample. Let \m{α} be a sentence symbol and \m{Σ = ∅}. Then it is always true that \m{⊨ (α ∨ (¬α))}. But it does not follow that \m{⊨ α} or \m{⊨ (¬α)}.
-
-					For an explicit example, consider two truth assignments \m{v_1} and \m{v_2}, such that \m{v_1(α) = T} and \m{v_2(α) = F}. In this case, \m{⊨ α} is not true since \m{v_2} does not satisfy \m{α}, and \m{⊨ (¬α)} is not true since \m{v_1} does not satisfy \m{(¬α)}.
-				\stopsolution
-		\stopitemize
-	\stopexercise
-
-	\page
-	% \startexercise [title={\cite[short][EndertonLogic2001], 1.2.6}]
-	\startexercise [title={Enderton, 1.2.6}]
-		\startitemize [a, joinedup]
-
-			\item[uniqueness]  Show that if \m{v_1} and \m{v_2} are truth assignments which agree on all the sentence symbols in the wff \m{α}, then \m{\bar{v}_1(α)} = \m{\bar{v}_2(α)}.
-
-				\startsolution
-					
-					Let \m{G} be the set of sentence symbols used in \m{α}, and let \m{B = \bcrl[ϕ \text{ wff}: \bar{v}_1(ϕ) = \bar{v}_2(ϕ)]}. All we need to show is that \m{α ∈ B}.
-
-					Firstly, \m{G ⊆ B} since \m{v_1} and \m{v_2} agree on the sentence symbols used in \m{α}.
-
-					Secondly, let \m{ϕ, ψ ∈ B} (arbitrary), so \m{v_1} and \m{v_2} agree on \m{ϕ} and \m{ψ}. Let \m{⊡ ∈ \bcrl[∧, ∨, →, ↔]}. Since conditions 1–5 on page 20–21 are the same for \m{\bar{v}_1} and \m{\bar{v}_2}, we have \m{\bar{v}_1(¬ ϕ) = \bar{v}_2(¬ ϕ)} and \m{\bar{v}_1(ϕ ⊡ ψ) = \bar{v}_2(ϕ ⊡ ψ)}. Hence \m{(¬ϕ), (ϕ ⊡ ψ) ∈ B}, that is, \m{B} is closed with respect to the formula building operations.
-
-					Therefore, by the induction principle, \m{B} is the set of \emph{all} wffs generated by the formula building operations. So \m{α ∈ B}, and we are done.
-				\stopsolution
+		\startitemize
 			
-			\item  Let \m{S} be a set of sentence symbols that includes those in \m{Σ} and \m{τ} (and possibly more). Show that \m{Σ ⊨ τ} iff every truth assignment for \m{S} which satisfies every member of \m{Σ} also satisfies \m{τ}.
+			\sym{\bold{(⊆)}}  \qquad
+				Let \m{x ∈ A ∩ B} be arbitrary. This mean \m{x ∈ A} and \m{x ∈ B}. So \m{x ∈ A}.
 
-				\startsolution
-					In this part, we use \m{v} to denote truth assignments and \quotation{\m{v} on a set} means \m{v} is defined on that set. Let \m{G} be the set of sentence symbols used in \m{Σ} and \m{τ}. Clearly, \m{G ⊆ S}.
-
-					We show each direction separately.
-
-					\bold{(\m{⟹})}  \qquad
-					From the definition of tautological implication,
-					\startformula  \startalign[n=3]
-						\NC     \NC  Σ ⊨ τ  \NR
-						\NC  ⟺  \NC  (∀ v \text{ on } G) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
-						\NC  ⟹  \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NC  \text{[Part (\in[uniqueness])]}  \NR
-					\stopalign  \stopformula
-					
-					\bold{(\m{⟸})}  \qquad
-					Since \m{Σ} and \m{τ} does not depend on any element of \m{S ∖ G}, restricting the definition of \m{v} from \m{S} to \m{G} will not change anything on \m{Σ} and \m{τ}. Therefore,
-					\startformula  \startalign
-						\NC     \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
-						\NC  ⟹  \NC  (∀ v \text{ on } G) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
-						\NC  ⟺  \NC  Σ ⊨ τ  \NR
-					\stopalign  \stopformula
-				  
-				\stopsolution
+			\sym{\bold{(⊇)}}  \qquad
+				Let \m{x ∈ A} be arbitrary. Then by the hypothesis \m{x ∈ B} since \m{A ⊆ B}. Therefore, \m{x ∈ A} and \m{x ∈ B}, and thus \m{x ∈ A ∩ B}.
 		\stopitemize
+	\stopsolution
+
+
+	\startexercise
+		If \m{A ∩ B = ∅}, then \m{A ∖ B = A}.
 	\stopexercise
-\stopexercises
+	\startsolution
+		\startitemize
+			
+			\sym{\bold{(⊆)}}  \qquad
+				Let \m{x ∈ A ∖ B} be arbitrary. Then \m{x ∈ A} and \m{x ∉ B}, so \m{x ∈ A}.
 
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: Prelim  \hfill  2019-10-08}]
-
-	\startexercise [title={Set Theory}]
-		Prove the following. 10 points each.
-
-		\emph{Note}: Let \m{A} and \m{B} are sets. In order to prove \m{A = B}, it is enough to show \m{A ⊆ B} and \m{A ⊇ B}. In each of the following problems, we show each inclusion separately.
-
-		Moreover, to show \m{A ⊆ B}, it suffices to show that for \m{x} arbitrary, \m{x ∈ A ⟹ x ∈ B}.
-
-		\startitemize [i]
-			\item  If \m{A ⊆ B}, then \m{A ∩ B = A}.
-
-				\startsolution
-					\startitemize
-						
-						\sym{\bold{(⊆)}}  \qquad
-							Let \m{x ∈ A ∩ B} be arbitrary. This mean \m{x ∈ A} and \m{x ∈ B}. So \m{x ∈ A}.
-
-						\sym{\bold{(⊇)}}  \qquad
-							Let \m{x ∈ A} be arbitrary. Then by the hypothesis \m{x ∈ B} since \m{A ⊆ B}. Therefore, \m{x ∈ A} and \m{x ∈ B}, and thus \m{x ∈ A ∩ B}.
-					\stopitemize
-				\stopsolution
-
-			\item  If \m{A ∩ B = ∅}, then \m{A ∖ B = A}.
-
-				\startsolution
-					\startitemize
-						
-						\sym{\bold{(⊆)}}  \qquad
-							Let \m{x ∈ A ∖ B} be arbitrary. Then \m{x ∈ A} and \m{x ∉ B}. It is enough to show that \m{x ∈ A} implies \m{x ∉ B}. But must be true since if \m{x ∈ A} and \m{x ∈ B}, then \m{x ∈ A ∩ B = ∅}, which is absurd.
-
-						\sym{\bold{(⊇)}}  \qquad
-							Let \m{x ∈ A} be arbitrary. Now, either \m{x ∈ B} or \m{x ∉ B}. If \m{x ∈ B}, then \m{x ∈ A ∩ B} since \m{x ∈ A} by hypothesis. But this is an impossibility since \m{A ∩ B = ∅}. Therefore, it must be that \m{x ∉ B}. So \m{x ∈ A ∖ B}.
-					\stopitemize
-				\stopsolution
-				
-			\item  \m{A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)}.
-
-				\startsolution
-					\startitemize
-						
-						\sym{\bold{(⊆)}}  \qquad
-							Let \m{x ∈ A ∩ (B ∪ C)} be arbitrary. Then \m{x ∈ A} and \m{x ∈ B ∪ C}. Note that \m{x ∈ B ∪ C} means \m{x ∈ B} or \m{x ∈ C}.
-							Now, either \m{x ∈ B} or \m{x ∉ B}, so have two cases.
-							\startitemize [1]
-								\item  (\m{x ∈ B})  \qquad
-									In this case, \m{x ∈ A} and \m{x ∈ B}, so \m{x ∈ A ∩ B}. Therefore \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. Hence \m{x ∈ (A ∩ B) ∪ (A ∩ C)}.
-								\item  (\m{x ∉ B})  \qquad
-									Since \m{x ∈ B} or \m{x ∈ C}, and \m{x ∉ B}, it is necessary that \m{x ∈ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
-							\stopitemize
-
-						\sym{\bold{(⊇)}}  \qquad
-							Let \m{x ∈ (A ∩ B) ∪ (A ∩ C)} be arbitrary. This means \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. As above, we have two cases, either \m{x ∈ A ∩ B} or \m{x ∉ A ∩ B}.
-							\startitemize [1]
-								\item  (\m{x ∈ A ∩ B})  \qquad
-									In this case, \m{x ∈ A} and \m{x ∈ B}. Now, so \m{x ∈ B} implies \m{x ∈ B} or \m{x ∈ C}, that is, \m{x ∈ B ∪ C}. Therefore \m{x ∈ A ∩ (B ∪ C)}.
-								\item  (\m{x ∉ A ∩ B})  \qquad
-									Again, since \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}, and \m{x ∉ A ∩ B}, it is necessary that \m{x ∈ A ∩ C}. Therefore we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
-							\stopitemize
-					\stopitemize
-				\stopsolution				
+			\sym{\bold{(⊇)}}  \qquad
+				Let \m{x ∈ A} be arbitrary. Now, either \m{x ∈ B} or \m{x ∉ B}. If \m{x ∈ B}, then \m{x ∈ A ∩ B} since \m{x ∈ A} by hypothesis. But this is an impossibility since \m{A ∩ B = ∅}. Therefore, it must be that \m{x ∉ B}. So \m{x ∈ A ∖ B}.
 		\stopitemize
-	\stopexercise
+	\stopsolution
 
-	
+
+	\startexercise
+		\m{A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)}.
+	\stopexercise
+	\startsolution
+		\startitemize
+			
+			\sym{\bold{(⊆)}}  \qquad
+				Let \m{x ∈ A ∩ (B ∪ C)} be arbitrary. Then \m{x ∈ A} and \m{x ∈ B ∪ C}. Note that \m{x ∈ B ∪ C} means \m{x ∈ B} or \m{x ∈ C}.
+				Now, either \m{x ∈ B} or \m{x ∉ B}, so have two cases.
+				\startitemize [1]
+					\item  (\m{x ∈ B})  \qquad
+						In this case, \m{x ∈ A} and \m{x ∈ B}, so \m{x ∈ A ∩ B}. Therefore \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. Hence \m{x ∈ (A ∩ B) ∪ (A ∩ C)}.
+					\item  (\m{x ∈ C})  \qquad
+						We get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
+				\stopitemize
+
+			\sym{\bold{(⊇)}}  \qquad
+				Let \m{x ∈ (A ∩ B) ∪ (A ∩ C)} be arbitrary. This means \m{x ∈ A ∩ B} or \m{x ∈ A ∩ C}. So we have two cases:
+				\startitemize [1]
+					\item  (\m{x ∈ A ∩ B})  \qquad
+						In this case, \m{x ∈ A} and \m{x ∈ B}. Now, so \m{x ∈ B} implies \m{x ∈ B} or \m{x ∈ C}, that is, \m{x ∈ B ∪ C}. Therefore \m{x ∈ A ∩ (B ∪ C)}.
+					\item  (\m{x ∈ A ∩ C})  \qquad
+						Again, we get the exact same result by interchanging the roles of \m{B} and \m{C} in the previous case.
+				\stopitemize
+		\stopitemize
+	\stopsolution
+\stopchapter
+
+
+
+\startchapter [title={Zeroth-order logic}]
+
 	\startexercise [title={Construction}]
-		10 points each.
 		\startitemize [i]
 
 			\item  Write down a construction sequence for \m{((¬((¬A_1) ∨ A_4)) ∧ ((A_1 → A_3) ↔ A_7))}.
@@ -280,123 +147,137 @@
 	\stopexercise
 
 	
-	\page
-	\startexercise [title={Truth Assignments}]
-		\startitemize [i]
+	\startexercise [title={Enderton, 1.2.1}]
+		Show that neither of the following two formulas tautologically implies the other:
+		\startformula  \startalign[align={right, left}]
+			\NC  α =  \NC  (A ↔ (B ↔ C))  \NR
+			\NC  β =  \NC  ((A ∧ (B ∧ C)) ∨ ((¬ A) ∧ ((¬ B) ∧ (¬ C))))  \NR
+		\stopalign  \stopformula
+	\stopexercise
+	\startsolution
+		We have to show that \m{α ⊭ β} and \m{β ⊭ α}.
 
-			\item  Let \m{S} be the set of all sentence symbols, and assume that \m{v : S → \bcrl[F, T]} is a truth assignment. Show there is at most one extension \m{v} meeting conditions 0–5 on pp. 20–21.
+		\bold{(\m{α ⊭ β})}  \qquad
+		For this, it suffices to produce a truth assignment \m{v} such that \m{\bar{v}(α) = T} and \m{\bar{v}(β) = F}.
 
-				(Hint: Show that if \m{v_1} and \m{v_2} are such extensions, then \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}. Use the induction principle.)  20 points.
+		Consider \m{v} such that \m{v(A) = v(B) = F} and \m{v(C)  = T}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below. (Here the truth assignments by \m{\bar{v}} is denoted under each symbol.)
+		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
+			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
+			\NC  T    \NC   F  \NC  T  \NC   F  \NC  F  \NC  T    \NR
+		\stopalign  \stopformula
+		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
+			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
+			\NC  F    \NC    F  \NC  F  \NC      \NC     \NC       \NC  F  \NC       \NC      \NC  F  \NC       \NC      \NC  F  \NC   F  \NC  T      \NR
+		\stopalign  \stopformula
+
+		\bold{(\m{β ⊭ α})}  \qquad
+		Again, it suffices to produce \m{v} such that \m{\bar{v}(β) = T} and \m{\bar{v}(α) = F}.
+
+		Consider \m{v} such that \m{v(A)  = v(B) = v(C) = F}. Under \m{\bar{v}}, we get exactly what is required as is shown in the computations below.
+		\startformula  \startalign[n=15, align={left, right, middle, middle, middle, middle, middle, right, left, middle, right, left, middle, right, left}]
+			\NC  β =  \NC  ((A  \NC  ∧  \NC  (B  \NC  ∧  \NC  C))  \NC  ∨  \NC  ((¬  \NC  A)  \NC  ∧  \NC  ((¬  \NC  B)  \NC  ∧  \NC  (¬  \NC  C))))  \NR
+			\NC  T =  \NC       \NC     \NC      \NC     \NC       \NC  T  \NC    T  \NC  F   \NC  T  \NC    T  \NC  F   \NC  T  \NC   T  \NC  F      \NR
+		\stopalign  \stopformula
+		\startformula  \startalign[n=6, align={left, right, middle, right, middle, left}]
+			\NC  α =  \NC  (A  \NC  ↔  \NC  (B  \NC  ↔  \NC  C))  \NR
+			\NC  F =  \NC   F  \NC  F  \NC   F  \NC  T  \NC  F    \NR
+		\stopalign  \stopformula
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 1.2.4}]
+		Show that \m{Σ ∪ \bcrl[α] ⊨ β} iff \m{Σ ⊨ (α → β)}.
+	\stopexercise
+	\startsolution
+		We show each direction separately.
+
+		\bold{(\m{⟹})}  \qquad
+		% We show this by contrapositive. Suppose \m{Σ ⊭ (α → β)}. Since
+		We suppose \m{Σ ∪ \bcrl[α] ⊨ β}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ}. We have to show that \m{v} satisfies \m{(α → β)}. We have two cases.
+		\startitemize [i, joinedup]
+			\item  \m{\bar{v}(α) = T}: In this case, from the supposition, we get \m{\bar{v}(β) = T}. So \m{\bar{v}(α → β) = T}.
+			\item  \m{\bar{v}(α) = F}: In this case, \m{\bar{v}(α → β) = T} since the antecedent is \m{F}.
+		\stopitemize
+		Since \m{v} was arbitrary, we have \m{Σ ⊨ (α → β)}.
+
+		\bold{(\m{⟸})}  \qquad
+		We suppose \m{Σ ⊨ (α → β)}. Let \m{v} be an arbitrary truth assignment that satisfies \m{Σ ∪ \bcrl[α]}. We have to show that \m{v} satisfies \m{β}. Since \m{v} satisfies \m{Σ ∪ \bcrl[α]}, it satisfies \m{Σ}. Therefore, by our supposition, \m{v} satisfies \m{(α → β)}. Now, since \m{v} satisfies \m{α}, it can only be that \m{v} satisfies \m{β}, since the only other way the material implication can be satisfied is when \m{v} does not satisfies \m{α}. This proves our claim.
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 1.2.5}]
+		Prove or refute each of the following assertions:
+		\startitemize [a, joinedup]
+
+			\item  If either \m{Σ ⊨ α} or \m{Σ ⊨ β}, then \m{Σ ⊨ (α ∨ β)}.
 
 				\startsolution
-					We show this via induction on the complexity of any arbitrary wff \m{α}.
-					\startitemize [1]
-						
-						\item  \bold{(Base case)}  \qquad
-							Assume \m{α} be a sentence symbol. Then \m{\bar{v}_1(α) = v(α) = \bar{v}_2(α)} since \m{\bar{v}_1} and \m{\bar{v}_2} are both extensions of \m{v}.
-
-						\item  \bold{(Induction step)}  \qquad
-							We assume that the result holds for all wffs less complex than \m{α} (induction hypothesis). Now, we show that the result holds under all the formula building operations.
-							\startitemize
-								\sym{(¬)}  \qquad
-									Assume \m{α = (¬β)} for some wff \m{β}. Then
-									\startformula  \startalign[n=4, align={left, right, left, left}]
-										\NC     \NC  \bar{v}_1( α)  \NC  =  T  \NR
-										\NC  ⟺  \NC  \bar{v}_1(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_1( β)  \NC  =  F  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2( β)  \NC  =  F  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2( α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-									\stopalign  \stopformula
-								\sym{(∧)}  \qquad
-									Assume \m{α = (β ∧ γ)} for some wffs \m{β, γ}. Then
-									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ and }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ and }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-									\stopalign  \stopformula
-								\sym{(∨)}  \qquad
-									Assume \m{α = (β ∨ γ)} for some wffs \m{β, γ}. Then
-									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-									\stopalign  \stopformula
-								\sym{(→)}  \qquad
-									Assume \m{α = (β → γ)} for some wffs \m{β, γ}. Then
-									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_1(β) = F  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(β) = F  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
-										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-									\stopalign  \stopformula
-								\sym{(↔)}  \qquad
-									Assume \m{α = (β ↔ γ)} for some wffs \m{β, γ}. Then
-									\startformula  \startalign[n=4, align={right, right, left, left}]
-										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_1(β)  \NC  =  \bar{v}_1(γ)  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β)  \NC  =  \bar{v}_2(γ)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
-										\NC  ⟺  \NC  \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
-									\stopalign  \stopformula
-							\stopitemize
-					\stopitemize
-					Therefore, the induction step holds under all the formula building operations. By the method of induction, \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}, which proves the uniqueness of the extension.
+					(\bold{T})  \qquad
+					There are two cases: \m{Σ ⊨ α} and \m{Σ ⊨ β}. Without loss of generality, we can assume that \m{Σ ⊨ α}, as the argument for other case is exactly the same. This means any arbitrary truth assignment \m{v} satisfying \m{Σ} also satisfies \m{α}. This implies \m{\bar{v}(α ∨ β) = T} by the definition of extension of \m{\bar{v}} for \m{∨}.
 				\stopsolution
 
-			\item[satisfiability]  Show that for a set of wffs \m{Σ} and a wff \m{α}: \m{Σ ∪ \bcrl[¬¬α]} is satisfiable ⟺ \m{Σ ∪ \bcrl[α]} is satisfiable. 10 points.
+			\item  If \m{Σ ⊨ (α ∨ β)}, then either \m{Σ ⊨ α} or \m{Σ ⊨ β}.
 
 				\startsolution
-					First, note that for any wff \m{α} and truth assignment \m{v},
-					\startformula
-						\bar{v}(α) = T  \quad ⟺ \quad  \bar{v}(¬α) = F  \quad ⟺ \quad  \bar{v}(¬¬α) = T .
-					\stopformula
-					Therefore, we have the following (\m{v} always represents a truth assignment):
-					\startitemize [joinedup]
-						\sym{ }  \qquad  \m{Σ ∪ \bcrl[α]} is satisfiable.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(α) = T}.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬α) = F}.
-						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬¬α) = T}.
-						\sym{⟺}  \qquad  \m{Σ ∪ \bcrl[¬¬α]} is satisfiable.
-					\stopitemize
+					(\bold{F})  \qquad
+					We give a counterexample. Let \m{α} be a sentence symbol and \m{Σ = ∅}. Then it is always true that \m{⊨ (α ∨ (¬α))}. But it does not follow that \m{⊨ α} or \m{⊨ (¬α)}.
+
+					For an explicit example, consider two truth assignments \m{v_1} and \m{v_2}, such that \m{v_1(α) = T} and \m{v_2(α) = F}. In this case, \m{⊨ α} is not true since \m{v_2} does not satisfy \m{α}, and \m{⊨ (¬α)} is not true since \m{v_1} does not satisfy \m{(¬α)}.
 				\stopsolution
 		\stopitemize
 	\stopexercise
 
 
-	% \page
-	\startexercise [title={Compactness}]
+	\startexercise [title={Enderton, 1.2.6}]
+		\comment{See Roland's solution for this problem.}
 
-		Recall the Compactness Theorem: \emph{A set of wffs is satisfiable iff it is finitely satisfiable.}
-	
-		Recall Corollary 17A: \emph{If \m{Σ ⊨ τ}, then \m{Σ_0 ⊨ τ} for some finite \m{Σ_0 ⊆ Σ}.}
-	
-		Prove that they are equivalent, i.e., prove that the Compactness Theorem holds iff Corollary 17A holds.
+		\startitemize [a, joinedup]
 
-		(Hint: Use the fact that \m{Γ ⊨ σ} iff \m{Γ ∪ \bcrl[¬σ]} is unsatisfiable and 3.3.\in[satisfiability] above.) 20 points.
+			\item[uniqueness]  Show that if \m{v_1} and \m{v_2} are truth assignments which agree on all the sentence symbols in the wff \m{α}, then \m{\bar{v}_1(α)} = \m{\bar{v}_2(α)}.
+
+				\startsolution
+					
+					Let \m{G} be the set of sentence symbols used in \m{α}, and let \m{B = \bcrl[ϕ \text{ wff}: \bar{v}_1(ϕ) = \bar{v}_2(ϕ)]}. All we need to show is that \m{α ∈ B}.
+
+					Firstly, \m{G ⊆ B} since \m{v_1} and \m{v_2} agree on the sentence symbols used in \m{α}.
+
+					Secondly, let \m{ϕ, ψ ∈ B} (arbitrary), so \m{v_1} and \m{v_2} agree on \m{ϕ} and \m{ψ}. Let \m{⊡ ∈ \bcrl[∧, ∨, →, ↔]}. Since conditions 1–5 on page 20–21 are the same for \m{\bar{v}_1} and \m{\bar{v}_2}, we have \m{\bar{v}_1(¬ ϕ) = \bar{v}_2(¬ ϕ)} and \m{\bar{v}_1(ϕ ⊡ ψ) = \bar{v}_2(ϕ ⊡ ψ)}. Hence \m{(¬ϕ), (ϕ ⊡ ψ) ∈ B}, that is, \m{B} is closed with respect to the formula building operations.
+
+					Therefore, by the induction principle, \m{B} is the set of \emph{all} wffs generated by the formula building operations. So \m{α ∈ B}, and we are done.
+				\stopsolution
+			
+			\item  Let \m{S} be a set of sentence symbols that includes those in \m{Σ} and \m{τ} (and possibly more). Show that \m{Σ ⊨ τ} iff every truth assignment for \m{S} which satisfies every member of \m{Σ} also satisfies \m{τ}.
+
+				\startsolution
+					In this part, we use \m{v} to denote truth assignments and \quotation{\m{v} on a set} means \m{v} is defined on that set. Let \m{G} be the set of sentence symbols used in \m{Σ} and \m{τ}. Clearly, \m{G ⊆ S}.
+
+					We show each direction separately.
+
+					\bold{(\m{⟹})}  \qquad
+					From the definition of tautological implication,
+					\startformula  \startalign[n=3]
+						\NC     \NC  Σ ⊨ τ  \NR
+						\NC  ⟺  \NC  (∀ v \text{ on } G) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
+						\NC  ⟹  \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NC  \text{[Part (\in[uniqueness])]}  \NR
+					\stopalign  \stopformula
+					
+					\bold{(\m{⟸})}  \qquad
+					Since \m{Σ} and \m{τ} does not depend on any element of \m{S ∖ G}, restricting the definition of \m{v} from \m{S} to \m{G} will not change anything on \m{Σ} and \m{τ}. Therefore,
+					\startformula  \startalign
+						\NC     \NC  (∀ v \text{ on } S) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
+						\NC  ⟹  \NC  (∀ v \text{ on } G) ((v \text{ satisfies } Σ) → (v \text{ satisfies } τ))  \NR
+						\NC  ⟺  \NC  Σ ⊨ τ  \NR
+					\stopalign  \stopformula
+				  
+				\stopsolution
+		\stopitemize
 	\stopexercise
-	\startsolution
-		The proof of Corollary 17A in the book shows that the Compactness Theorem implies Corollary 17A. Therefore, we are left to show that Corollary 17A implies the Compactness Theorem.
-		
-		For this, we assume Corollary 17A and prove Compactness Theorem. Note that if a set of wffs is satisfiable with a truth assignment, then it is finitely satified with the same truth assignment. Therefore, we only have to show that finite satisfiability implies satisfiability.
 
-		Suppose not. That is, assume that \m{Σ} is a set of wffs such that \m{Σ} is finitely satisfiable but \m{Σ} is unsatisfiable. Fix a wff \m{τ}. Since \m{Σ} is unsatisfiable, it is vacously true that \m{Σ ⊨ τ} and \m{Σ ⊨ ¬τ} (as in page 23 of Enderton). Since \m{Σ ⊨ τ}, using Corollary 17A, there is a finite subset \m{Σ_1 ⊆ Σ} such that \m{Σ_1 ⊨ τ}. Similarly, there exists \m{Σ_2 ⊆ Σ} finite such that \m{Σ_2 ⊨ ¬τ}. Now, since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it is satisfiable by a truth assignment, say \m{v}. Clearly, since \m{Σ_1, Σ_2 ⊆ Σ}, the assignment \m{v} satisfies both \m{Σ_1} and \m{Σ_2}. Then \m{v} satisfies both \m{τ} and \m{¬τ}, which is an impossibility. This contradiction shows that if \m{Σ} is finitely satisfiable then \m{Σ} is satisfiable. This concludes the proof.
-	\stopsolution
 
-	
-	\startexercise [title={Substitution}]
+	\startexercise [title={Enderton, 1.2.8(a) (Substitution)}]
 		Let \m{α_1, α_2, …} be a sequence of wffs. For each wff \m{ϕ} and \m{n ∈ ℕ}, let \m{ϕ^∗} be the result of replacing the sentence symbol \m{A_n} in \m{ϕ} by the wff \m{α_n}. Suppose that \m{v} is a truth assignment for the set of all sentence symbols and that \m{u} is a truth assignment defined by \m{u(A_n) = \bar{v}(α_n)}. Show that \m{\bar{u}(ϕ) = \bar{v}(ϕ^∗)}. 
 
-		(Hint: Use the induction principle.)  20 points
+		(Hint: Use the induction principle.)
 	\stopexercise
 	\startsolution
 		We show this via induction on the complexity of any arbitrary wff \m{ϕ}.
@@ -463,9 +344,156 @@
 		Therefore, the induction step holds under all the formula building operations. By the method of induction, \m{\bar{u}(ϕ) = \bar{v}(ϕ)} for every wff \m{ϕ}.
 	\stopsolution
 
-\stopexercises
 
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS3  \hfill  2019-10-15}]
+	\startexercise [title={Enderton, 1.2.14}]
+		\startitemize [i]
+
+			\item  Let \m{S} be the set of all sentence symbols, and assume that \m{v : S → \bcrl[F, T]} is a truth assignment. Show there is at most one extension \m{v} meeting conditions 0–5 on pp. 20–21.
+
+				(Hint: Show that if \m{v_1} and \m{v_2} are such extensions, then \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}. Use the induction principle.)
+
+				\startsolution
+					We show this via induction on the complexity of any arbitrary wff \m{α}.
+					\startitemize [1]
+						
+						\item  \bold{(Base case)}  \qquad
+							Assume \m{α} is a sentence symbol. Then \m{\bar{v}_1(α) = v(α) = \bar{v}_2(α)} since \m{\bar{v}_1} and \m{\bar{v}_2} are both extensions of \m{v}.
+
+						\item  \bold{(Induction step)}  \qquad
+							We assume that the result holds for all wffs less complex than \m{α} (induction hypothesis). Now, we show that the result holds under all the formula building operations.
+							\startitemize
+								\sym{(¬)}  \qquad
+									Assume \m{α = (¬β)} for some wff \m{β}. Then
+									\startformula  \startalign[n=4, align={left, right, left, left}]
+										\NC     \NC  \bar{v}_1( α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_1( β)  \NC  =  F  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( β)  \NC  =  F  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(¬β)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{¬}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2( α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(∧)}  \qquad
+									Assume \m{α = (β ∧ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ and }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ and }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∧ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∧}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(∨)}  \qquad
+									Assume \m{α = (β ∨ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = T  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = T  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ∨ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{∨}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(→)}  \qquad
+									Assume \m{α = (β → γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_1(β) = F  \NC  \text{ or }  \bar{v}_1(γ) = T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(β) = F  \NC  \text{ or }  \bar{v}_2(γ) = T  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β → γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{→}}]  \NR
+										\NC  ⟺  \NC   \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+								\sym{(↔)}  \qquad
+									Assume \m{α = (β ↔ γ)} for some wffs \m{β, γ}. Then
+									\startformula  \startalign[n=4, align={right, right, left, left}]
+										\NC     \NC  \bar{v}_1(α)  \NC  =  T  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_1(β)  \NC  =  \bar{v}_1(γ)  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β)  \NC  =  \bar{v}_2(γ)  \NC  \qquad  [\text{Induction hypothesis}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(β ↔ γ)  \NC  =  T  \NC  \qquad  [\text{Def of \m{\bar{v}} under \m{↔}}]  \NR
+										\NC  ⟺  \NC  \bar{v}_2(α)  \NC  =  T  \NC  \qquad  [\text{Def of \m{α}}]  \NR
+									\stopalign  \stopformula
+							\stopitemize
+					\stopitemize
+					Therefore, the induction step holds under all the formula building operations. By the method of induction, \m{\bar{v}_1(α) = \bar{v}_2(α)} for every wff \m{α}, which proves the uniqueness of the extension.
+				\stopsolution
+
+			\item[satisfiability]  Show that for a set of wffs \m{Σ} and a wff \m{α}: \m{Σ ∪ \bcrl[¬¬α]} is satisfiable ⟺ \m{Σ ∪ \bcrl[α]} is satisfiable.
+
+				\startsolution
+					First, note that for any wff \m{α} and truth assignment \m{v},
+					\startformula
+						\bar{v}(α) = T  \quad ⟺ \quad  \bar{v}(¬α) = F  \quad ⟺ \quad  \bar{v}(¬¬α) = T .
+					\stopformula
+					Therefore, we have the following (\m{v} always represents a truth assignment):
+					\startitemize [joinedup]
+						\sym{ }  \qquad  \m{Σ ∪ \bcrl[α]} is satisfiable.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(α) = T}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬α) = F}.
+						\sym{⟺}  \qquad  \m{∃v} such that \m{v} satisfies \m{Σ} and \m{\bar{v}(¬¬α) = T}.
+						\sym{⟺}  \qquad  \m{Σ ∪ \bcrl[¬¬α]} is satisfiable.
+					\stopitemize
+				\stopsolution
+		\stopitemize
+	\stopexercise
+
+
+	\startexercise [title={Enderton, 1.7.1}]
+		Assume that every finite subset of \m{Σ} is satisfiable. Show that the same is true of at least one of the sets \m{Σ ∪ \bcrl[α]} and \m{Σ ∪ \bcrl[¬α]}.
+
+		(This is part of the proof of the compactness theorem.)
+
+		\emph{Suggestion}: If not, then \m{Σ_1 ∪ \bcrl[α]} and \m{Σ_2 ∪ \bcrl[¬α]} are unsatisfiable for some finite \m{Σ_1 ⊆ Σ} and \m{Σ_2 ⊆ Σ}. Look at \m{Σ_1 ∪ Σ_2}.
+	\stopexercise
+	\startsolution
+		Since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it must be satisfiable with some truth assignment, say \m{v}. But then \m{v} satisfies \m{Σ_1} since \m{Σ_1 ⊆ Σ_1 ∪ Σ_2}. Therefore the only way to make \m{Σ_1 ∪ \bcrl[α]} unsatisfiable would be to have \m{\bar{v}(α) = F}. By arguing similarly about \m{Σ_2}, we get \m{\bar{v}(¬α) = F}, which gives a contradiction.
+	\stopsolution
+
+
+	\startexercise [title={Enderton, 1.7.2}]
+		Let \m{Δ} be a set of wffs such that (i) every finite subset of \m{Δ} is satisfiable, and (ii) for every wff \m{α}, either \m{α ∈ Δ} or \m{(¬ α) ∈ Δ}. Define the truth assignment \m{v}:
+		\startformula
+			v(A)  =
+			\startmathcases
+				\NC  T  \MC  \text{if } A ∈ Δ  \NR
+				\NC  F  \MC  \text{if } A ∉ Δ  \NR
+			\stopmathcases
+		\stopformula
+		for each sentence symbol \m{A}. Show that for every wff \m{ϕ}, \m{v(ϕ) = T} iff \m{ϕ ∈ Δ}.
+
+		(This is part of the proof of the compactness theorem.)
+
+		\emph{Suggestion}: Use induction on \m{ϕ}.
+	\stopexercise
+	\startsolution
+		This has to be copied from the notes. TODO!
+	\stopsolution
+
+
+
+	\startexercise [title={Enderton, 1.7.3}]
+
+		Recall the Compactness Theorem: \emph{A set of wffs is satisfiable iff it is finitely satisfiable.}
+	
+		Recall Corollary 17A: \emph{If \m{Σ ⊨ τ}, then \m{Σ_0 ⊨ τ} for some finite \m{Σ_0 ⊆ Σ}.}
+	
+		Prove that they are equivalent, i.e., prove that the Compactness Theorem holds iff Corollary 17A holds.
+
+		(Hint: Use the fact that \m{Γ ⊨ σ} iff \m{Γ ∪ \bcrl[¬σ]} is unsatisfiable and 3.3.\in[satisfiability] above.)
+	\stopexercise
+	\startsolution
+		The proof of Corollary 17A in the book shows that the Compactness Theorem implies Corollary 17A. Therefore, we are left to show that Corollary 17A implies the Compactness Theorem.
+		
+		For this, we assume Corollary 17A and prove Compactness Theorem. Note that if a set of wffs is satisfiable with a truth assignment, then it is finitely satified with the same truth assignment. Therefore, we only have to show that finite satisfiability implies satisfiability.
+
+		Suppose not. That is, assume that \m{Σ} is a set of wffs such that \m{Σ} is finitely satisfiable but \m{Σ} is unsatisfiable. Fix a wff \m{τ}. Since \m{Σ} is unsatisfiable, it is vacously true that \m{Σ ⊨ τ} and \m{Σ ⊨ ¬τ} (as in page 23 of Enderton). Since \m{Σ ⊨ τ}, using Corollary 17A, there is a finite subset \m{Σ_1 ⊆ Σ} such that \m{Σ_1 ⊨ τ}. Similarly, there exists \m{Σ_2 ⊆ Σ} finite such that \m{Σ_2 ⊨ ¬τ}. Now, since \m{Σ_1 ∪ Σ_2 ⊆ Σ} is finite, it is satisfiable by a truth assignment, say \m{v}. Clearly, since \m{Σ_1, Σ_2 ⊆ Σ}, the assignment \m{v} satisfies both \m{Σ_1} and \m{Σ_2}. Then \m{v} satisfies both \m{τ} and \m{¬τ}, which is an impossibility. This contradiction shows that if \m{Σ} is finitely satisfiable then \m{Σ} is satisfiable. This concludes the proof.
+	\stopsolution
+
+\stopchapter
+
+
+
+
+\startchapter [title={First-order logic}]
 	
 	\emph{Note}: \m{∄} abbreviates \m{¬∃}, and \m{∉} abbreviates \m{¬∈}. We shall also use the convention that grouping for conditionals is from the right. That is, \m{(p → q → r) = ((p → (q → r)))}.
 
@@ -508,23 +536,23 @@
 			\item  There is no number such that all numbers are less than it.
 				\startsolution
 					\startformula  \startalign
-						\NC     \NC  ∄x (Nx → ∀y\,(Ny → (x < y)))  \NR
-						\NC  ⟺   \NC  ¬∃x (Nx → ∀y\,(Ny → <xy))  \NR
-						\NC  ⟺  \NC  ¬¬∀x\,¬(Nx → ∀y\,(Ny → <xy))  \NR
-						\NC  ⟺  \NC  ∀x\,¬(Nx → ∀y\,(Ny → <xy))  \NR
+						\NC     \NC  ∄x (Nx ∧ ∀y\,(Ny → <xy))  \NR
+						\NC  ⟺   \NC  ¬∃x (¬(Nx → ¬∀y\,(Ny → <xy)))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,¬(¬(Nx → ¬∀y\,(Ny → <xy)))  \NR
+						\NC  ⟺  \NC  ∀x (Nx → ¬∀y\,(Ny → <xy))  \NR
 					\stopalign  \stopformula
 				\stopsolution
 
 			\item  There is no number such that no number is less than it.
 				\startsolution
 					\startformula  \startalign
-						\NC     \NC  ∄x (Nx → ∄y (Ny → (y < x)))  \NR
-						\NC  ⟺  \NC  ¬∃x (Nx → ¬∃y (Ny → <xy))  \NR
-						\NC  ⟺  \NC  ¬¬∀x\,¬(Nx → ¬¬∀y\,¬(Ny → <xy))  \NR
-						\NC  ⟺  \NC  ∀x\,¬(Nx → ∀y\,¬(Ny → <xy))  \NR
+						\NC     \NC  ∄x (Nx ∧ ∄y (Ny → (y < x)))  \NR
+						\NC  ⟺  \NC  ¬∃x (Nx ∧ ¬∃y (Ny → <xy))  \NR
+						\NC  ⟺  \NC  ¬¬∀x\,¬(¬(Nx → ¬¬∃y (Ny → <xy)))  \NR
+						\NC  ⟺  \NC  ∀x (Nx → ∃y (Ny → <xy))  \NR
+						\NC  ⟺  \NC  ∀x (Nx → ¬∀y\,¬(Ny → <xy))  \NR
 					\stopalign  \stopformula
 				\stopsolution
-
 		\stopitemize
 	\stopexercise
 
@@ -548,21 +576,17 @@
 
 
 	\startexercise [title={Enderton, page 87}]
-		Prove that \m{\sementl[𝔄][s]{α ∨ β}} iff \m{\sementl[𝔄][s]{α}} or \m{\sementl[𝔄][s]{β}}.
+		Prove that \m{\logicimpl[𝔄][s]{α ∨ β}} iff \m{\logicimpl[𝔄][s]{α}} or \m{\logicimpl[𝔄][s]{β}}.
 	\stopexercise
 	\startsolution
 		\startformula  \startalign[n=3]
-			\NC     \NC  \sementl[𝔄][s]{(α ∨ β)}  \NR
-			\NC  ⟺  \NC  \sementl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \nsementl[𝔄][s]{¬α}  \text{ or }  \sementl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
-			\NC  ⟺  \NC  \text{either }  \sementl[𝔄][s]{α} \text{ or }  \sementl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
+			\NC     \NC  \logicimpl[𝔄][s]{(α ∨ β)}  \NR
+			\NC  ⟺  \NC  \logicimpl[𝔄][s]{(¬α →β)}  \NC  \qquad  [\text{Expansion of \m{∨}}]  \NR
+			\NC  ⟺  \NC  \nlogicimpl[𝔄][s]{¬α}  \text{ or }  \logicimpl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{→}}]  \NR
+			\NC  ⟺  \NC  \logicimpl[𝔄][s]{α} \text{ or }  \logicimpl[𝔄][s]{β} \NC  \qquad  [\text{Definition of \m{s} for \m{¬}}]  \NR
 		\stopalign  \stopformula
 	\stopsolution
-\stopexercises
 
-
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS4  \hfill  2019-10-29}]
 	
 	\startexercise [title={Enderton, 2.2.1}]
 		Show that
@@ -573,26 +597,26 @@
 					\startitemize
 
 						\sym{\bold{(⟹)}}  \qquad
-							\m{Γ ∪ \bcrl[α] ⊨ ϕ} means that any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, the structure \m{𝔄} also satisfies \m{ϕ} with \m{s}. Now, let \m{𝔄} and \m{s} be such a combination. Now, either \m{\nsementl[𝔄][s]{α}} or \m{\sementl[𝔄][s]{α}}. If \m{\nsementl[𝔄][s]{α}}, then \m{\sementl[𝔄][s]{α → ϕ}} by definition. If \m{\sementl[𝔄][s]{α}}, then \m{Γ ∪ \bcrl[α] ⊨ ϕ} and \m{\sementl[𝔄][s]{α}} implies \m{\sementl[𝔄][s]{(α → ϕ)}}. Therefore, \m{Γ ⊨ (α → ϕ)}.
+							\m{Γ ∪ \bcrl[α] ⊨ ϕ} means that any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, the structure \m{𝔄} also satisfies \m{ϕ} with \m{s}. Now, let \m{𝔄} and \m{s} be such a combination. Now, either \m{\nlogicimpl[𝔄][s]{α}} or \m{\logicimpl[𝔄][s]{α}}. If \m{\nlogicimpl[𝔄][s]{α}}, then \m{\logicimpl[𝔄][s]{α → ϕ}} by definition. If \m{\logicimpl[𝔄][s]{α}}, then \m{Γ ∪ \bcrl[α] ⊨ ϕ} and \m{\logicimpl[𝔄][s]{α}} implies \m{\logicimpl[𝔄][s]{(α → ϕ)}}. Therefore, \m{Γ ⊨ (α → ϕ)}.
 
 						\sym{\bold{(⟸)}}  \qquad
-							Since we have \m{Γ ⊨ (α → ϕ)}, any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, since we have \m{\sementl[𝔄][s]{α}} and \m{Γ ⊨ (α → ϕ)}, it must be that \m{\sementl[𝔄][s]{ϕ}}.
+							Since we have \m{Γ ⊨ (α → ϕ)}, any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]} such that \m{𝔄} satisfies every member of \m{Γ} and \m{α} with \m{s}, since we have \m{\logicimpl[𝔄][s]{α}} and \m{Γ ⊨ (α → ϕ)}, it must be that \m{\logicimpl[𝔄][s]{ϕ}}.
 					\stopitemize
 				\stopsolution
 
 			\item  \m{ϕ ⟚ ψ} iff \m{⊨ (ϕ ↔ ψ)}.
 				\startsolution
-					% For any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]}, either \m{\nsementl[𝔄][s]{ϕ}} or \m{\sementl[𝔄][s]{ϕ}}.
+					% For any structure \m{𝔄} and satisfaction function \m{s: V → \abs[𝔄]}, either \m{\nlogicimpl[𝔄][s]{ϕ}} or \m{\logicimpl[𝔄][s]{ϕ}}.
 
-					% If \m{\nsementl[𝔄][s]{ϕ}}, we have \m{\nsementl[𝔄][s]{ψ}}, so \m{\sementl[𝔄][s]{ϕ ↔ ψ}}.
+					% If \m{\nlogicimpl[𝔄][s]{ϕ}}, we have \m{\nlogicimpl[𝔄][s]{ψ}}, so \m{\logicimpl[𝔄][s]{ϕ ↔ ψ}}.
 
-					% If \m{\sementl[𝔄][s]{ϕ}}, we have \m{\sementl[𝔄][s]{ψ}}, so \m{\sementl[𝔄][s]{ϕ ↔ ψ}}.
+					% If \m{\logicimpl[𝔄][s]{ϕ}}, we have \m{\logicimpl[𝔄][s]{ψ}}, so \m{\logicimpl[𝔄][s]{ϕ ↔ ψ}}.
 					\startformula  \startalign[n=3]
 						\NC     \NC  ϕ ⟚ ψ  \NR
 						\NC  ⟺  \NC  ⊨ (ϕ → ψ) \text{ and }  ⊨ (ψ → ϕ)  \NC  [Using (a)]  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ → ψ)}  \text{ and }  \sementl[𝔄][s]{(ψ → ϕ)}  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ → ψ) ∧ (ψ → ϕ)}  \NC  [\text{Definition of } ∧]  \NR
-						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \sementl[𝔄][s]{(ϕ ↔ ψ)}  \NC  [\text{Definition of } ↔]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \logicimpl[𝔄][s]{(ϕ → ψ)}  \text{ and }  \logicimpl[𝔄][s]{(ψ → ϕ)}  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \logicimpl[𝔄][s]{(ϕ → ψ) ∧ (ψ → ϕ)}  \NC  [\text{Definition of } ∧]  \NR
+						\NC  ⟺  \NC  \text{for every } (𝔄, s),  \logicimpl[𝔄][s]{(ϕ ↔ ψ)}  \NC  [\text{Definition of } ↔]  \NR
 						\NC  ⟺  \NC  ⊨ (ϕ ↔ ψ)  \NR
 					\stopalign  \stopformula
 				\stopsolution
@@ -608,12 +632,12 @@
 
 		Now, by the definition of the satisfaction function,
 		\placeformula  \startformula  \startalign
-			\NC  \sementl[𝔄][s]{∀x\,α}        ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \sementl[𝔄][s(x∣a)]{α} , \qquad \text{ and }  \NR[eq:condition1]
-			\NC  \sementl[𝔄][s]{∀x\,(α → β)}  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \sementl[𝔄][s(x∣a)]{α → β}  \NR
-			\NC  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \nsementl[𝔄][s(x∣a)]{α} \text{ or } \sementl[𝔄][s(x∣a)]{β} .  \NR[eq:condition2]
+			\NC  \logicimpl[𝔄][s]{∀x\,α}        ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \logicimpl[𝔄][s(x∣a)]{α} , \qquad \text{ and }  \NR[eq:condition1]
+			\NC  \logicimpl[𝔄][s]{∀x\,(α → β)}  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \logicimpl[𝔄][s(x∣a)]{α → β}  \NR
+			\NC  ⟺  \NC  \text{for every } a ∈ \abs[𝔄], \nlogicimpl[𝔄][s(x∣a)]{α} \text{ or } \logicimpl[𝔄][s(x∣a)]{β} .  \NR[eq:condition2]
 		\stopalign  \stopformula
 
-		Fix an arbitrary \m{a ∈ \abs[𝔄]}. If \m{\nsementl[𝔄][s(x∣a)]{α}} in (\in[eq:condition2]), then combining it with (\in[eq:condition1]) gives a contradiction. Therefore, we must have \m{ \sementl[𝔄][s(x∣a)]{β}}. This means for every \m{a ∈ \abs[𝔄]}, we have \m{ \sementl[𝔄][s(x∣a)]{β}}, which says \m{\sementl[𝔄][s]{∀x\,β}}.
+		Fix an arbitrary \m{a ∈ \abs[𝔄]}. If \m{\nlogicimpl[𝔄][s(x∣a)]{α}} in (\in[eq:condition2]), then combining it with (\in[eq:condition1]) gives a contradiction. Therefore, we must have \m{ \logicimpl[𝔄][s(x∣a)]{β}}. This means for every \m{a ∈ \abs[𝔄]}, we have \m{ \logicimpl[𝔄][s(x∣a)]{β}}, which says \m{\logicimpl[𝔄][s]{∀x\,β}}.
 	\stopsolution
 
 
@@ -621,7 +645,7 @@
 		Show that if \m{x} does not occur free in \m{α}, then \m{α ⊨ ∀x\,α}.
 	\stopexercise
 	\startsolution
-		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{α} with \m{s}. Now, fix an arbitrary \m{a ∈ \abs[𝔄]}. Then the satisfaction functions \m{s} and \m{s(x∣a)} agree on all variables except possibly at \m{x}. But \m{x} does not occur free in \m{α}, so \m{s} and \m{s(x∣a)} agree on all variables that occur free in \m{α}. Now by Theorem 22A, \m{\sementl[𝔄][s(x∣a)]{α}}. Since \m{a} was arbitrary, this holds for every \m{a ∈ \abs[𝔄]}. Therefore by the definition of satisfaction function, \m{\sementl[𝔄][s]{∀x\,α}}. Therefore \m{α ⊨ ∀x\,α}.
+		Let \m{𝔄} be an arbitrary structure and \m{s: V → \abs[𝔄]} be an arbitrary satisfaction function such that \m{𝔄} satisfies \m{α} with \m{s}. Now, fix an arbitrary \m{a ∈ \abs[𝔄]}. Then the satisfaction functions \m{s} and \m{s(x∣a)} agree on all variables except possibly at \m{x}. But \m{x} does not occur free in \m{α}, so \m{s} and \m{s(x∣a)} agree on all variables that occur free in \m{α}. Now by Theorem 22A, \m{\logicimpl[𝔄][s(x∣a)]{α}}. Since \m{a} was arbitrary, this holds for every \m{a ∈ \abs[𝔄]}. Therefore by the definition of satisfaction function, \m{\logicimpl[𝔄][s]{∀x\,α}}. Therefore \m{α ⊨ ∀x\,α}.
 	\stopsolution
 
 
@@ -631,9 +655,9 @@
 	\startsolution
 		\startformula  \startalign
 			\NC     \NC  θ \text{ is valid }  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \sementl[𝔄][s]{θ}  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄] \text{ and } a ∈ \abs[𝔄], \text{ we have } \sementl[𝔄][s(x∣a)]{θ}  \NR
-			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \sementl[𝔄][s]{∀x\,θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \logicimpl[𝔄][s]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄] \text{ and } a ∈ \abs[𝔄], \text{ we have } \logicimpl[𝔄][s(x∣a)]{θ}  \NR
+			\NC  ⟺  \NC  \text{for every } 𝔄 \text{ and } s: V → \abs[𝔄], \text{ we have } \logicimpl[𝔄][s]{∀x\,θ}  \NR
 			\NC  ⟺  \NC  ∀x\,θ \text{ is valid }  \NR
 		\stopalign  \stopformula
 		The second \m{⟺} above works because
@@ -647,11 +671,7 @@
 		\stopitemize
 		
 	\stopsolution
-\stopexercises
 
-
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS5  \hfill  2019-11-05}]
 
 	\startexercise [title={Enderton, 2.2.8}]
 		Assume that \m{Σ} is a set of sentences such that for any sentence \m{τ}, either \m{Σ ⊨ τ} or \m{Σ ⊨ ¬τ}. Assume that \m{𝔄} is a model of \m{Σ}. Show that for any sentence \m{τ}, we have \m{⊨_𝔄 τ} iff \m{Σ ⊨ τ}.
@@ -712,18 +732,18 @@
 		A universal (\m{∀_1}) formula is one of the form \m{∀ x_1 ⋯ ∀ x_n \, θ}, where \m{θ} is quantifier-free. An existential (\m{∃_1}) formula is of the dual form \m{∃ x_1 ⋯ ∃ x_n θ}. Let \m{𝔄} be a substructure of \m{𝔅}, and let \m{s : V → \abs[𝔄]}.
 		\startitemize [a]
 
-			\item  Show that if \m{\sementl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\sementl[𝔅][s]{ψ}}. And if \m{\sementl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\sementl[𝔄][s]{ϕ}}.
+			\item  Show that if \m{\logicimpl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\logicimpl[𝔅][s]{ψ}}. And if \m{\logicimpl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\logicimpl[𝔄][s]{ϕ}}.
 				\startsolution
 					Firstly, note that since \m{𝔄} be a substructure of \m{𝔅}, the identity map \m{i: \abs[𝔄] → \abs[𝔅]} is a isomorphism. Therefore, parts (a), (b), and (c) of the Homomorphism Theorem are true.
 					\startitemize [i]
 						
-						\item  \bold{If \m{\sementl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\sementl[𝔄][s]{ϕ}}.}
+						\item  \bold{If \m{\logicimpl[𝔅][s]{ϕ}} and \m{ϕ} is universal, then \m{\logicimpl[𝔄][s]{ϕ}}.}
 
-							Since \m{ϕ} is universal, \m{ϕ = ∀ x_1 ⋯ ∀ x_n \, θ} for some quantifier-free wff \m{θ}. Therefore, \m{\sementl[𝔅][s]{∀ x_1 ⋯ ∀ x_n \, θ}} means that for every \m{b_1, …, b_n ∈ \abs[𝔅]}, we have \m{\sementl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[b_1, …, b_n]}]}] {θ}}. Therefore, in particular, for every \m{a_1, …, a_n ∈ \abs[𝔄] ⊆ \abs[𝔅]}, we have \m{\sementl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}. By the Homomorphism Theorem, for every \m{a_1, …, a_n ∈ \abs[𝔄]}, we have \m{\sementl[𝔄][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}, that is, \m{\sementl[𝔄][s]{∀ x_1 ⋯ ∀ x_n \, θ}}.
+							Since \m{ϕ} is universal, \m{ϕ = ∀ x_1 ⋯ ∀ x_n \, θ} for some quantifier-free wff \m{θ}. Therefore, \m{\logicimpl[𝔅][s]{∀ x_1 ⋯ ∀ x_n \, θ}} means that for every \m{b_1, …, b_n ∈ \abs[𝔅]}, we have \m{\logicimpl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[b_1, …, b_n]}]}] {θ}}. Therefore, in particular, for every \m{a_1, …, a_n ∈ \abs[𝔄] ⊆ \abs[𝔅]}, we have \m{\logicimpl[𝔅][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}. By the Homomorphism Theorem, for every \m{a_1, …, a_n ∈ \abs[𝔄]}, we have \m{\logicimpl[𝔄][s {\brnd[{\tuple[x_1, …, x_n]} ∣ {\tuple[a_1, …, a_n]}]}] {θ}}, that is, \m{\logicimpl[𝔄][s]{∀ x_1 ⋯ ∀ x_n \, θ}}.
 
-						\item  \bold{If \m{\sementl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\sementl[𝔅][s]{ψ}}.}
+						\item  \bold{If \m{\logicimpl[𝔄][s]{ψ}} and \m{ψ} is existential, then \m{\logicimpl[𝔅][s]{ψ}}.}
 
-							Since \m{ψ} is existential, \m{ψ = ∃ x_1 ⋯ ∃ x_n θ = ¬∀x_1¬ ¬∀x_2¬ ⋯ ¬∀x_2¬ θ}, which is logically equivalent to saying \m{ψ = ¬∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}. Therefore, \m{\sementl[𝔄][s]{ψ}} is the same as \m{\sementl[𝔄][s]{¬ ∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}, which is in turn the same as \m{\nsementl[𝔄][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Now, using the above result, we get that this implies \m{\nsementl[𝔅][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Reversing the above steps, we get \m{\sementl[𝔅][s]{ψ}}.
+							Since \m{ψ} is existential, \m{ψ = ∃ x_1 ⋯ ∃ x_n θ = ¬∀x_1¬ ¬∀x_2¬ ⋯ ¬∀x_2¬ θ}, which is logically equivalent to saying \m{ψ = ¬∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}. Therefore, \m{\logicimpl[𝔄][s]{ψ}} is the same as \m{\logicimpl[𝔄][s]{¬ ∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}, which is in turn the same as \m{\nlogicimpl[𝔄][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Now, using the above result, we get that this implies \m{\nlogicimpl[𝔅][s]{∀x_1 ∀x_2 ⋯ ∀x_n ¬θ}}. Reversing the above steps, we get \m{\logicimpl[𝔅][s]{ψ}}.
 
 					\stopitemize
 					
@@ -753,11 +773,6 @@
 		\stopitemize
 	\stopsolution
 
-\stopexercises
-
-
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS6  \hfill  2019-11-19}]
 	
 	\startexercise [title={Enderton, 2.4.2}]
 		To which axiom groups, if any, do each of the following formulas belong?
@@ -793,41 +808,40 @@
 	\stopsolution
 
 
-	\page
 	\startexercise [title={Enderton, 2.4.3}]
 		\startitemize [a]
 
 			\item[ex2.4.3a]   Let \m{𝔄} be a structure and let \m{s: V → \abs[𝔄]}. Define a truth assignment \m{v} on the set of prime formulas by
 				\startformula
-					v(α) = T  \qquad  \text{iff}  \qquad  \sementl[𝔄][s]{α} . 
+					v(α) = T  \qquad  \text{iff}  \qquad  \logicimpl[𝔄][s]{α} . 
 				\stopformula
 				Show that for any formula (prime or not),
 				\startformula
-					\bar{v}(α) = T  \qquad  \text{iff}  \qquad  \sementl[𝔄][s]{α} . 
+					\bar{v}(α) = T  \qquad  \text{iff}  \qquad  \logicimpl[𝔄][s]{α} . 
 				\stopformula
 				\startsolution
 					We show this by induction on the complexity of \m{α}, with the induction hypothesis that the result holds for all wffs less complex than \m{α}.
 					\startitemize [i]
 						
 						\item  \bold{Base case: \m{α} is prime.}  \qquad
-							In this case, \m{\bar{v}(α) = v(α) = T} iff \m{\sementl[𝔄][s]{α}} by the given condition.
+							In this case, \m{\bar{v}(α) = v(α) = T} iff \m{\logicimpl[𝔄][s]{α}} by the given condition.
 
 						\item  \bold{Induction step: \m{α} is \m{¬β} for some \m{β}.}  \qquad
 							\startformula  \startalign[n=3]
 								\NC  \bar{v}(α) = T  ⟺  \NC  \bar{v}(¬β) = T  \NR
 								\NC  ⟺  \NC  \bar{v}(β) = F  \NC  [\text{Definition of } \bar{v}]  \NR
-								\NC  ⟺  \NC  \nsementl[𝔄][s]{β}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
-								\NC  ⟺  \NC  \sementl[𝔄][s]{¬β}  \NC  [\text{Definition of satisfaction}]  \NR
-								\NC  ⟺  \NC  \sementl[𝔄][s]{α}  \NR
+								\NC  ⟺  \NC  \nlogicimpl[𝔄][s]{β}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
+								\NC  ⟺  \NC  \logicimpl[𝔄][s]{¬β}  \NC  [\text{Definition of satisfaction}]  \NR
+								\NC  ⟺  \NC  \logicimpl[𝔄][s]{α}  \NR
 							\stopalign  \stopformula
 
 						\item  \bold{Induction step: \m{α} is \m{β → γ} for some \m{β} and \m{γ}.}  \qquad
 							\startformula  \startalign[n=3]
 								\NC  \bar{v}(α) = T  ⟺  \NC  \bar{v}(β → γ) = T  \NR
 								\NC  ⟺  \NC  \bar{v}(β) = F  \text{ or }  \bar{v}(γ) = T  \NC  [\text{Definition of } \bar{v}]  \NR
-								\NC  ⟺  \NC  \nsementl[𝔄][s]{β}  \text{ or }  \sementl[𝔄][s]{γ}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
-								\NC  ⟺  \NC  \sementl[𝔄][s]{β → γ}  \NC  [\text{Definition of satisfaction}]  \NR
-								\NC  ⟺  \NC  \sementl[𝔄][s]{α}  \NR
+								\NC  ⟺  \NC  \nlogicimpl[𝔄][s]{β}  \text{ or }  \logicimpl[𝔄][s]{γ}  \qquad  \NC  [\text{Induction hypothesis}]  \NR
+								\NC  ⟺  \NC  \logicimpl[𝔄][s]{β → γ}  \NC  [\text{Definition of satisfaction}]  \NR
+								\NC  ⟺  \NC  \logicimpl[𝔄][s]{α}  \NR
 							\stopalign  \stopformula
 					\stopitemize
 				\stopsolution
@@ -852,7 +866,6 @@
 	\stopexercise
 
 
-	\page
 	\startexercise [title={Enderton, 2.4.9(b)}]
 		Show that if \m{y} does not occur at all in \m{ϕ}, then \m{x} is substitutable for \m{y} in \m{ϕ^x_y} and \m{(ϕ^x_y)^y_x = ϕ}.
 	\stopexercise
@@ -900,11 +913,7 @@
 				\stopitemize
 		\stopitemize
 	\stopsolution
-\stopexercises
 
-
-
-\startexercises [title={\getvariable{document}{author}  \hfill  \getvariable{document}{course}: PS7  \hfill  2019-11-19}]
 
 	\startexercise [title={Enderton, 2.4.12}]
 		Show that any consistent set \m{Γ} of formulas can be extended to a consistent set \m{Δ} having the property that for any formula \m{α}, either \m{α ∈ Δ} or \m{(¬α) ∈ Δ}.
@@ -927,7 +936,6 @@
 	\stopsolution
 
 
-	\page
 	\startexercise [title={Enderton, 2.5.2}]
 		Prove the equivalence of parts (a) and (b) of the completeness theorem.
 
@@ -939,18 +947,18 @@
 		First we prove the suggestion. That is, we prove that \m{Γ ⊨ ϕ} iff \m{Γ ∪ ¬ϕ} is unsatisfiable. This is equivalent to proving \m{Γ ⊭ ϕ} iff \m{Γ ∪ ¬ϕ} is satisfiable.
 
 		\startlemma
-			\m{Γ ⊨ ϕ} iff \m{Γ ∪ ¬ϕ} is unsatisfiable
+			\m{Γ ⊨ ϕ} iff \m{Γ ∪ \bcrl[¬ϕ]} is unsatisfiable.
 		\stoplemma
 		\startproof
-			\emph{Notation}: In what follows, we use \m{∃ \tuple[𝔄, s] \ P} to denote \quotation{there exists a structure \m{𝔄} and a satisfaction function \m{s:V → \abs[𝔄]} such that \m{P}}. We shall also write \m{\sementl[𝔄][s]{Γ}} to mean that \m{\sementl[𝔄][s]{γ}} for every \m{γ ∈ Γ}.
+			\emph{Notation}: In what follows, we use \quotation{\m{∃ \tuple[𝔄, s] \ P}} to denote \quotation{there exists a structure \m{𝔄} and a satisfaction function \m{s:V → \abs[𝔄]} such that \m{P}}. We shall also write \m{\logicimpl[𝔄][s]{Γ}} to mean that \m{\logicimpl[𝔄][s]{γ}} for every \m{γ ∈ Γ}.
 			
 			\startformula  \startalign[n=3]
-				\NC  Γ ⊭ ϕ  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ}  \text{ and }  \nsementl[𝔄][s]{ϕ})  \NC  [\text{Definition of satisfiability}]  \NR
-				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ}  \text{ and }  \sementl[𝔄][s]{¬ϕ})  \NC  [\text{Definition of satisfaction function}]  \NR
-				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\sementl[𝔄][s]{Γ ∪ \bcrl[ϕ]}  \NR
-				\NC  ⟺  \NC  Γ ∪ \bcrl[ϕ] \text{ is satisfiable} .  \NC  [\text{Definition of satisfiability}]  \NR
+				\NC  Γ ⊭ ϕ  ⟺  \NC  ∃ \tuple[𝔄, s] (\logicimpl[𝔄][s]{Γ}  \text{ and }  \nlogicimpl[𝔄][s]{ϕ})  \NC  [\text{Definition of satisfiability}]  \NR
+				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\logicimpl[𝔄][s]{Γ}  \text{ and }  \logicimpl[𝔄][s]{¬ϕ})  \NC  [\text{Definition of satisfaction function}]  \NR
+				\NC  ⟺  \NC  ∃ \tuple[𝔄, s] (\logicimpl[𝔄][s]{Γ ∪ \bcrl[¬ϕ]}  \NR
+				\NC  ⟺  \NC  Γ ∪ \bcrl[¬ϕ] \text{ is satisfiable} .  \NC  [\text{Definition of satisfiability}]  \NR
 			\stopalign  \stopformula
-			Moreover, \m{Δ} is satisfiable iff \m{Δ ∪ \bcrl[¬⊥]} is satisfiable iff \m{Δ ⊭ ⊥}.		  
+			Moreover, \m{Δ} is satisfiable iff \m{Δ ∪ \bcrl[¬⊥]} is satisfiable iff \m{Δ ⊭ ⊥}, since \m{¬⊥} is always satisfiable.
 		\stopproof
 
 		Now we prove the equivalence.
@@ -962,7 +970,7 @@
 				Let \m{Γ ⊨ ϕ}. So \m{Γ ∪ \bcrl[¬ϕ]} is unsatisfiable. Using the contrapositive of (b), we have \m{Γ ∪ \bcrl[¬ϕ]} is inconsistent. Using RAA and Rule T, we get \m{Γ ⊢ ϕ}.
 		\stopitemize
 	\stopsolution
-\stopexercises
+\stopchapter
 
 \stopcomponent
 

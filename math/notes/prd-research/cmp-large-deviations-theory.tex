@@ -26,57 +26,50 @@
 	\startformula
 		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{W_T - W_s}{T - s} \d s .
 	\stopformula
-	Let \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then \m{X_t^ε} is given by
-	\startformula
-		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + ∫_0^t σ(X_t^ε) \frac{Y_s^ε}{T - s} \d s .
-	\stopformula
 
-	Moreover,
+	Let \m{\tilde{X}_t^ε = X_t^ε - W_T} and \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then we have
 	\startformula  \startalign
-		\NC  Y_t^ε  \NC  =  \sqrt{ε} W_T - \sqrt{ε} W_t  \NR
-		\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \brnd[\tilde{W}_t + ∫_0^t \frac{W_T - W_s}{T - s} \d s]  \NR
-		\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
+		\NC  \tilde{X}_t^ε  =  \NC  \sqrt{ε} ∫_0^t σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}] \d \tilde{W}_t + ∫_0^t σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}] \frac{Y_s^ε}{T - s} \d s , \text{ and}  \NR
+		\NC  Y_t^ε  =  \NC  \sqrt{ε} W_T - \sqrt{ε} ∫_0^t \d \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s .
 	\stopalign  \stopformula
+
+	% Since
+	% \startformula  \startalign
+	% 	\NC  Y_t^ε  \NC  =  \sqrt{ε} W_T - \sqrt{ε} W_t  \NR
+	% 	\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \brnd[\tilde{W}_t + ∫_0^t \frac{W_T - W_s}{T - s} \d s]  \NR
+	% 	\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} ∫_0^t \d \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
+	% \stopalign  \stopformula
 
 	Therefore, we have the joint process
 	\startformula
+		Z_t^ε :=
 		\startrndmatrix
-			X_t^ε  \NR  Y_t^ε  \NR
+			\tilde{X}_t^ε  \NR  Y_t^ε  \NR
 		\stoprndmatrix
 		=
 		\startrndmatrix
-			1  \NR  \sqrt{ε}  \NR
+			0  \NR  \sqrt{ε} W_T  \NR
 		\stoprndmatrix
-		W_T  +  \sqrt{ε} ∫_0^t
+		+  \sqrt{ε} ∫_0^t
 		\startrndmatrix
-			σ(X_s^ε)  \NR  -1  \NR
+			σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}]  \NR  -1  \NR
 		\stoprndmatrix
 		\d \tilde{W}_s  +  ∫_0^t
 		\startrndmatrix
-			σ(X_s^ε)  \NR  -1  \NR
+			σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}]  \NR  -1  \NR
 		\stoprndmatrix
 		\frac{Y_s^ε}{T - s} \d s .
 	\stopformula
 
-	Firstly, we show that there is a unique solution to the above system of SDEs. For convinience, let \m{\tilde{σ}(x, y) = (σ(x), -1)} and \m{\tilde{b}(x, y) = \frac{y}{T - s} (σ(x), -1)}.
+	Note that we expect \m{Z_t^ε → 0} as \m{ε → 0}. In order to obtain a large deviation principle for \m{X_t^ε}, we first obtain the LDP for \m{Z_t^ε}.
+
+	Firstly, we show that there is a unique solution of \m{Z_t^ε}. For convinience, let \m{\tilde{σ}_t (x, y) = (σ(x), -1)} and \m{\tilde{b}(x, y) = \frac{y}{T - s} (σ(x), -1)}.
 	\startproposition
 		\m{\tilde{σ}} and \m{\tilde{b}} satisfy the linear growth and Lipshitz conditions.
 	\stopproposition
 	\startproof
 		
 	\stopproof
-
-	Note that \m{Y_t^ε → 0} as \m{ε → 0}. Therefore, we expect
-	\startformula
-		\startrndmatrix
-			X_t^ε - W_T  \NR  Y_t^ε  \NR
-		\stoprndmatrix
-		→
-		\startrndmatrix
-			0  \NR  0  \NR
-		\stoprndmatrix
-		\text{ as } ε → 0 .
-	\stopformula
 
 	We want a large deviation principle of the joint process \m{Z_t^ε = (X_t^ε - W_T, Y_t^ε)}.
 

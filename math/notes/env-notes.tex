@@ -178,11 +178,8 @@
 
 % Logic
 \def \tuple[#arguments]{\delim[#arguments][⟨][⟩]}
-\def \sementl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
-\def \nsementl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
-% \def \synentl[#structure][#satisfaction]#arguments{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
-% \def \nsynentl[#structure][#satisfaction]#arguments{⊬_{#structure} #arguments \ \bsqr[#satisfaction]}
-% \def \symentl[#arguments][#structure][#satisfaction]{⊢_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \logicimpl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \nlogicimpl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
 
 % Algebra
 \def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
