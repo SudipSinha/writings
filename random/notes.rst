@@ -16,3 +16,36 @@ Wiener Integral
 This is used to refer to two unrelated concepts.
 1. Lebesgue Integral w.r.t. the Wiener Measure
 2. Stochastic Integral when the integrand is deterministic
+
+
+SIAM Student chapter roles
+==========================
+
+0. President
+   *  Come up with event ideas
+   *  Discuss event idea with Faculty Advisor
+   *  Send poster idea to secretary
+   *  Remind members to renew membership every year
+
+0. Vice-president
+   *  Send reminder emails three days and one day before the event
+   *  Manage the mailing list
+
+0. Secretary
+   *  Make poster
+   *  Get it approved by the president and Faculty Advisor
+   *  Print poster and put in on the 12 doors
+
+0. Treasurer
+   *  Handle finances
+   *  Pass attendance sheets for every event
+   *  Interact with Jolie to get food
+
+0. Webmaster
+   *  Handle the website
+   *  Upload the event posters to the website
+   *  Print poster and put in on the 12 doors
+
+0. Liaison officer
+   *  Print poster and put in on the 12 doors
+   *  Recruit members

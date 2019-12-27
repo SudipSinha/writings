@@ -1,68 +1,294 @@
+%%  Useful links
+% https://wiki.contextgarden.net/Command/framed
+% https://wiki.contextgarden.net/Framed
+% https://wiki.contextgarden.net/Overlays
+% https://wiki.contextgarden.net/Tables_Overview
+% https://wiki.contextgarden.net/TextBackground
+% https://tex.stackexchange.com/questions/486078/is-there-any-alternative-for-tcolorbox-in-context
+% https://tex.stackexchange.com/questions/135790/how-to-wrap-text-around-framed-floats-in-context
+% https://tex.stackexchange.com/questions/486078/is-there-any-alternative-for-tcolorbox-in-context
+% https://tex.stackexchange.com/questions/30427/simplest-way-to-overlay-a-text-rectangle-label-an-image/30435
+% https://meeting.contextgarden.net/2008/talks/2008-08-22-hartmut-metapost/mptut-context2008.pdf
+% http://www.pragma-ade.com/general/manuals/details.pdf
+% https://mailman.ntg.nl/pipermail/ntg-context/2012/069802.html
+% https://en.wikipedia.org/wiki/X11_color_names
+
 \setupcolors [state=start]       % otherwise you get greyscale
 \usecolors [x11]    % X11 colors, use \showcolor[x11] to get a list
 
-% See wiki/Command/setupinteraction
-\setupinteraction [
-	state=start,  % make hyperlinks active
-	menu=on,
-	click=yes,
-	style=normal,
-	color=\getvariable{document}{color-link-external},   % Seems like this is the only color working
-	contrastcolor=\getvariable{document}{color-link-internal},   % This is not working
-	openaction=FitWidth,    % Make the PDF open in 'fit width' mode
-	focus=standard,    % stop switching to 'fit page' mode when clicking an interdocument hyperlink
-	title={Résumé},
-	subtitle={Industrial},
-	author={Sudip Sinha},
-	date={2019-08-31},
-	keyword={résumé, curriculum vitae}]
-\setupinteractionscreen [option=bookmark]    % wiki/Command/setupinteractionscreen
+% % See wiki/Command/setupinteraction
+% \setupinteraction [
+% 	state=start,  % make hyperlinks active
+% 	menu=on,
+% 	click=yes,
+% 	style=normal,
+% 	color=\getvariable{document}{color-link-external},   % Seems like this is the only color working
+% 	contrastcolor=\getvariable{document}{color-link-internal},   % This is not working
+% 	openaction=FitWidth,    % Make the PDF open in 'fit width' mode
+% 	focus=standard,    % stop switching to 'fit page' mode when clicking an interdocument hyperlink
+% 	title={Résumé},
+% 	subtitle={Industrial},
+% 	author={Sudip Sinha},
+% 	date={2019-08-31},
+% 	keyword={résumé, curriculum vitae}]
+% \setupinteractionscreen [option=bookmark]    % wiki/Command/setupinteractionscreen
 
 
-% \setupframed[offset=5pt]
+% % \setupframed[offset=5pt]
+
+% \starttext
+
+% \noindent % leave vertical mode
+% \startframed[align=normal,width=0.75\textwidth,location=lohi]
+% 	\framed[]{\tfd \sc Sudip Sinha}
+% 	\quad
+% 	\startframed[width=local, align=normal]
+% 		Random bullshit
+% 	\stopframed
+	
+% 	% \externalfigure[LaTeX/pic.jpg][width=.1\hsize,frame=on,location=lohi]
+% 	% \startframed[align=middle,width=.8\hsize,location=lohi]
+% 	% 	Lorem Ipsum
+
+% 	% 	Neque porro quisquam est qui dolorem
+% 	% \stopframed
+	
+% 	\startframed[align=normal,width=.95\hsize]
+% 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+% 		luctus augue augue, vitae vulputate ligula mattis vel. Praesent
+% 		efficitur massa et neque vehicula, quis ultricies mi
+% 		vestibulum. Donec facilisis, nibh eu mollis consectetur, justo
+% 		elit faucibus leo, ut viverra dolor ante sit amet lorem
+% 	\stopframed
+% \stopframed
+% \quad
+% \startframed[align=normal,width=.2\textwidth,location=lohi]
+% 	\starttabulate[|c|c|]
+% 		\NC Lorem \NC Ipsum \NC\NR\HL
+% 		\NC Lorem \NC Ipsum \NC\NR\HL
+% 		\NC Lorem \NC Ipsum \NC\NR\HL
+% 		\NC Lorem \NC Ipsum \NC\NR\HL
+% 		\NC Lorem \NC Ipsum \NC\NR\HL
+% 	\stoptabulate
+% \stopframed
+% \par\noindent
+% \startframed[align=normal,width=\textwidth]
+% 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus
+% 	augue augue, vitae vulputate ligula mattis vel. Praesent efficitur
+% 	massa et neque vehicula, quis ultricies mi vestibulum. Donec
+% 	facilisis, nibh eu mollis consectetur, justo elit faucibus leo, ut
+% 	viverra dolor ante sit amet lorem
+% \stopframed
+
+
+% \page
+
+% \hbox{
+% \startframedtext
+% 	[width=0.75\textwidth, align=left, frame=off,
+% 	background=color,backgroundcolor=beige,
+% 	foreground=color,foregroundcolor=brown]
+	
+% 	\startsubject[title={Education}]
+% 		Here goes my educational details
+% 	\stopsubject
+
+% \stopframedtext
+
+% \startframed [width=0.25\textwidth]
+% 	Skills
+% \stopframed
+% }
+
+% \hbox
+% {
+% 	\framed[width=2cm, align=middle, location=line] {Education}
+% 	\framed[width=2cm, align=middle, location=line] {Skills}
+% }
+
+% % \ruledhbox
+% %   {A
+% %    \framed[width=2cm,align=middle,location=low]    {location\\equals\\low}
+% %    \framed[width=2cm,align=middle,location=line]   {location\\equals\\line}
+% %    \framed[width=2cm,align=middle,location=high]   {location\\equals\\high}
+% %    B}
+
+% \stoptext
+
+
+%  Randomized frame
+% \startuseMPgraphic{background:mathematicalargumentframe}
+% 	path p;
+% 	for i = 1 upto nofmultipars :
+% 		p = (multipars[i]  topenlarged 1pt  bottomenlarged 1pt)  randomized 1pt;
+% 		fill p withcolor green + 0.9375 * white;    % hard to change (works: red, green, blue, white, lightgray + linear combinations)
+% 		draw p withcolor \MPvar{linecolor}
+% 		withpen pencircle scaled \MPvar{linewidth};
+% 	endfor;
+% \stopuseMPgraphic
+
+% \definetextbackground [mathematicalargumentframe] [
+% 	mp=background:mathematicalargumentframe,
+% 	location=paragraph,
+% 	rulethickness=0.5pt,
+% 	framecolor=green,    % hard to change (works: red, green, blue, white, lightgray)
+% 	width=broad,
+% 	leftoffset=4pt,
+% 	rightoffset=4pt,
+% 	before={\testpage[3]\blank[small]},
+% 	after={\blank[small]}]
+
+
+
+% %  https://mailman.ntg.nl/pipermail/ntg-context/2012/069802.html
+% \usemodule[tikz]
+% \usetikzlibrary[decorations.pathmorphing]
+
+% \def\TIKZdecorationoverlay {
+% 	\starttikzpicture
+% 		\expanded{
+% 			\draw[\overlaylinecolor, line width=\overlaylinewidth, decorate, decoration={\framedparameter{decoration}}]
+% 			(0, 0)--(\overlaywidth, 0) -- (\overlaywidth, \overlayheight) -- (0, \overlayheight) -- cycle;}
+% 	\stoptikzpicture}
+
+% \defineoverlay[decoration][\TIKZdecorationoverlay]
+
+% % \setupframed
+% %    [decoration=snake]
+
+% \starttext
+
+% \framed[frame=off, rulethickness=3bp, background=decoration,
+%           backgroundoffset=3mm, framecolor=red, align=normal]
+%           {\input ward \endgraf}
+
+% \blank[2*big]
+
+% \externalfigure
+%    [cow]
+%    [frame=off, frameoffset=5pt, backgroundoffset=frame,
+%    background=decoration,
+%    decoration={coil, amplitude=4pt, segment length=5pt}]
+
+
+
+
+
+%  https://tex.stackexchange.com/questions/486078/is-there-any-alternative-for-tcolorbox-in-context
+\startuseMPgraphic{mp:cvblock}
+	path p ; numeric w, h, o ;
+	w := OverlayWidth ; h := OverlayHeight ; o := BodyFontSize*1/2 ;
+
+	% Full box
+	p := ((0,0) -- (0,h+2o) -- (w,h+2o) -- (w,0) -- cycle) cornered (o) ;
+	fill p withcolor OverlayColor ;
+	draw p withcolor OverlayLineColor withpen pencircle scaled OverlayLineWidth ;
+
+	% Title box
+	p := ((0,h) -- (0,h+2o) -- (w,h+2o) -- (w,h) -- cycle) cornered (o) ;
+	filldraw p -- cycle withcolor OverlayLineColor ;
+	draw textext.rt(\MPstring{cvblock}) shifted (o,h+o) withcolor OverlayColor ;
+
+	setbounds currentpicture to OverlayBox ;
+\stopuseMPgraphic
+
+\defineoverlay[cvblock][\useMPgraphic{mp:cvblock}]
+
+\define\setframetitle
+  {\setMPtext{cvblock}{\strut\framedparameter{title}}}
+
+\defineframedtext [cvsection] [
+	frame=off,
+	width=\textwidth,
+	background=cvblock,
+	backgroundcolor=whitesmoke,
+	framecolor=firebrick4,
+	% rulethickness=1pt,
+	extras=\setframetitle]
+
+\defineframedtext [cvsubsection] [
+	frame=off,
+	width=\textwidth,
+	background=cvblock,
+	backgroundcolor=white,
+	framecolor=darkblue,
+	% rulethickness=1pt,
+	extras=\setframetitle]
+
+
+% \definetextbackground[secondary][
+%   location=paragraph,
+%   background=color,
+%   backgroundcolor=lightgray,
+%   leftoffset=.5\bodyfontsize,
+%   rightoffset=.5\bodyfontsize,
+%   topoffset=.5\bodyfontsize,
+%   bottomoffset=.5\bodyfontsize,
+%   before={\startnarrower\switchtobodyfont[small]},
+%   after={\stopnarrower},
+%   frame=off,]
+
+
 
 \starttext
 
-\noindent % leave vertical mode
-\startframed[align=normal,width=0.75\textwidth,location=lohi]
-	\framed[]{\tfd \sc Sudip Sinha}
-	\quad
-	\startframed[width=local, align=normal]
-		Random bullshit
-	\stopframed
-	
-	% \externalfigure[LaTeX/pic.jpg][width=.1\hsize,frame=on,location=lohi]
-	% \startframed[align=middle,width=.8\hsize,location=lohi]
-	% 	Lorem Ipsum
+\startcvsection [title={Education},% width=0.75\textwidth,
+	backgroundcolor=lightgray]
 
-	% 	Neque porro quisquam est qui dolorem
-	% \stopframed
+	\startcvsubsection [title={LSU}]
+		\startitemize [n, joinedup]
+			\item  Specializing in stochastic analysis and mathematical finance
+			\item  Vice President of the LSU SIAM chapter
+			\item  Teaching assistant for Capstone Course, Probability Theory, Interest Theory, Linear Algebra, Calculus and Pre-calculus. The capstone course is a upper level undergraduate course in which the aim is to solve real-world problems. Previous projects include understanding kinesiology data using recurrence quantification analysis, building a dashboard for analyzing data for athletes, and analyzing 3D body shapes to get health metrics.
+		\stopitemize
+	\stopcvsubsection
 	
-	\startframed[align=normal,width=.95\hsize]
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-		luctus augue augue, vitae vulputate ligula mattis vel. Praesent
-		efficitur massa et neque vehicula, quis ultricies mi
-		vestibulum. Donec facilisis, nibh eu mollis consectetur, justo
-		elit faucibus leo, ut viverra dolor ante sit amet lorem
-	\stopframed
-\stopframed
-\quad
-\startframed[align=normal,width=.2\textwidth,location=lohi]
-	\starttabulate[|c|c|]
-		\NC Lorem \NC Ipsum \NC\NR\HL
-		\NC Lorem \NC Ipsum \NC\NR\HL
-		\NC Lorem \NC Ipsum \NC\NR\HL
-		\NC Lorem \NC Ipsum \NC\NR\HL
-		\NC Lorem \NC Ipsum \NC\NR\HL
-	\stoptabulate
-\stopframed
-\par\noindent
-\startframed[align=normal,width=\textwidth]
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras luctus
-	augue augue, vitae vulputate ligula mattis vel. Praesent efficitur
-	massa et neque vehicula, quis ultricies mi vestibulum. Donec
-	facilisis, nibh eu mollis consectetur, justo elit faucibus leo, ut
-	viverra dolor ante sit amet lorem
-\stopframed
+	\samplefile{knuth}
+
+\stopcvsection
+
+\stoptext
+
+% \input knuth
+
+% \startsecondary [title={Title}]
+% \input knuth
+% \stopsecondary
+
+% \input knuth
+
+% \definehead [slide] [subject] [    % default formatting = subject formatting
+% 	% number=no,
+% 	% page=yes,
+% 	style=\tfb,
+% 	alternative=middle,
+% 	before=,    % Negates the effect of setuphead [section].
+% 	aligntitle=yes]
+
+% \definecolor [transparentred]  [r=1,t=.05,a=1]    % TODO: remove this with a proper color
+% \definetextbackground
+% 	[intro]
+% 	[state=start,
+% 	backgroundcolor=transparentred,
+% 	% backgroundoffset=.25cm,
+% 	frame=off,
+% 	location=paragraph,
+% 	color=red]
+
+% \starttext
+
+% \startslide [title={Education}]
+% 	A rather common way to draw attention to a passage, is to add a background. In this chapter we will therefore discuss how to enhance your document with \starttextbackground [subintro] those colorful areas that either or not follow the shape of your paragraph. \stoptextbackground\ Be warned: this chapter has so many backgrounds that you might start to dislike them.
+% \stopslide
+
+% \starttextbackground[intro]
+% 	A rather common way to draw attention to a passage, is to add a background. In this chapter we will therefore discuss how to enhance your document with \starttextbackground [subintro] those colorful areas that either or not follow the shape of your paragraph. \stoptextbackground\ Be warned: this chapter has so many backgrounds that you might start to dislike them.
+% \stoptextbackground
+
+
+
+
+\starttext
+
 
 \stoptext
