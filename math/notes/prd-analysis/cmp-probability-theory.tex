@@ -27,6 +27,49 @@
 		See Folland - Real Analysis Theorem (2.43).
 	\stopsection
 
+
+	\startsection [title={Bounds for Gaussian measure}]
+		These ideas are from the following sources:
+		\startitemize [1, joinedup]
+			\item  \goto{John D. Cook --- Upper and lower bounds for the normal distribution function}[url(https://www.johndcook.com/blog/norm-dist-bounds)]
+			\item  \goto{Dominic Yeo --- Gaussian tail bounds}[url(https://eventuallyalmosteverywhere.wordpress.com/2012/11/20/gaussian-tail-bounds-and-a-word-of-caution-about-clt)]
+			\item  \goto{MSx post}[url(https://math.stackexchange.com/questions/518771)]
+		\stopitemize
+
+		Suppose \m{Z ∼ N(0, 1)}, and denote \m{G(z) = ℙ\bcrl[Z > z]} for \m{z ∈ [0, ∞)}. Then
+		\startformula
+			\frac{z}{z^2 + 1} < \sqrt{2π} e^{-\frac12 z^2} G(z) < \frac1z .
+		\stopformula
+
+		\startsubsubject [title={Upper bound}]
+			\startformula
+				G(z)
+				=  ∫_z^∞ \frac{1}{\sqrt{2π}} e^{-\frac12 x^2} \d x
+				≤  \frac{1}{\sqrt{2π} z} ∫_z^∞ e^{-\frac12 x^2} x \d x
+				=  \frac{1}{\sqrt{2π} z} ∫_z^∞ e^{-\frac12 x^2} \d \brnd[\frac12 x^2]
+				=  \frac{1}{\sqrt{2π} z} e^{-\frac12 z^2} .
+			\stopformula
+		\stopsubsubject
+
+		\startsubsubject [title={Lower bound}]
+			In this case, consider the function \m{h(z) = G(z) - \frac{1}{\sqrt{2π}} \frac{z}{z^2 + 1} e^{-\frac12 z^2}}. We shall show that \m{h > 0} on the domain. First we calculate \m{h'(z)}.
+			\startformula  \startalign
+				\NC  h'(z) =  \NC  G'(z) - \frac{1}{\sqrt{2π} (z^2 + 1)^2} \brnd[{\brnd[e^{-\frac12 z^2} + z e^{-\frac12 z^2} (-z)]}(z^2 + 1) - z e^{-\frac12 z^2} (2z)]  \NR
+				\NC  =  \NC  \frac{e^{-\frac12 z^2}}{\sqrt{2π}} - \frac{e^{-\frac12 z^2}}{\sqrt{2π} (z^2 + 1)^2} \brnd[(1 - z^2)(z^2 + 1) - 2 z^2)]  \NR
+				\NC  =  \NC  -\frac{e^{-\frac12 z^2}}{\sqrt{2π} (z^2 + 1)^2} .  \NR
+			\stopalign  \stopformula
+
+			Therefore, we have
+			\startitemize [1, joinedup]
+				\item  \m{h(0) = \frac12 > 0},
+				\item  \m{h'(z) < 0} on the domain, and
+				\item  \m{\lim_{z → ∞} h(z) = 0},
+			\stopitemize
+			which imply that \m{h > 0} on the domain.
+		\stopsubsubject
+
+	\stopsection
+
 \stopchapter
 
 
