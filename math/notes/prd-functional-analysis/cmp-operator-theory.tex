@@ -1,3 +1,7 @@
+\startcomponent *
+
+\product  prd-functional-analy_0sis
+
 \startchapter [title={Elementary ideas}]
 
 	\startsection [title={Definitions}]
@@ -29,7 +33,9 @@
 	\startsection [title={For \m{T ∈ 𝓑^∞}, \m{\norm[T]_∞ = \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}}]
 		\dscr{(≤)}  Since \m{\norm[Tx]  =  \frac{\norm[Tx]^2}{\norm[Tx]}  =  \frac{\inn[Tx, Tx]}{\norm[Tx]}  =  \inn[Tx, \frac{Tx}{\norm[Tx]}]}, we have \m{\norm[T]_∞  =  \sup\bcrl[{\norm[Tx] : \norm[x] = 1}]  ≤  \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}.
 
-		\dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]  ≤  \norm[T]_∞}.
+		% \dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]  ≤  \norm[T]_∞}.    % For some reason, this does not work.
+		\dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\{\abs[{\inn[Tx, y]}] : \norm[x] = 1, \norm[y] = 1 \}  ≤  \norm[T]_∞}.
+
 	\stopsection
 
 	\startsection [title={\m{\norm[P]_∞ ≤ 1}}]
@@ -42,4 +48,41 @@
 		\dscr{(⟸)}  Since the image is finite dimensional, fix an orthonormal basis \m{e_1, …, e_n} of \m{\im T}.
 	\stopsection
 
+\stopchapter
+
+
+
+\startchapter [title={Optimization}]
+	
+	\startsection [title={Duality in optimization is the same as duality in functional analysis}]
+
+		For an various intuitions of duality in optimization, see \goto{MSx223235}[url(https://math.stackexchange.com/questions/223235/please-explain-the-intuition-behind-the-dual-problem-in-optimization)].
+
+		Let \m{X} and \m{Y} be Banach spaces, and \m{X^*} and \m{Y^*} be their (algebraic?) duals.
+		Consider the two problems, with \m{ϕ_0, y_0} fixed. Here \m{(⋅, ⋅)} denotes the canonical duality pairing.
+
+		\startcolumns [n=2]
+		
+		\startformula \startalign
+			\NC  \max  \qquad  \NC  (ϕ_0, x)  \NR
+			\NC  \comment{\text{(Primal)}}  \qquad  \text{s.t.}  \qquad  \NC  T x ≤ y_0  \NR
+			\NC  \NC  \ \ \  x ≥ 0  \NR
+		\stopalign \stopformula
+		\startformula \startalign
+			\NC  \min  \qquad  \NC  (ψ, y_0)  \NR
+			\NC  \comment{\text{(Dual)}}  \qquad  \text{s.t.}  \qquad  \NC  T^* ψ ≥ ϕ_0  \NR
+			\NC  \NC  \quad  ψ ≥ 0  \NR
+		\stopalign \stopformula
+		\stopcolumns
+		
+		See the following diagram for more details.
+		
+		\starttikzcd [sep=tiny]
+			\NC  x \arrow[rrrrrrrr, darkblue, mapsto, "T"]  \NC  \NC  \NC  \NC  \NC  \NC  \NC  \NC  T x  \NR
+			x ∈  \NC  X \arrow[rrrrrrrr, darkblue, "T"]  \arrow[ddd, middlegreen, dash]  \NC  \NC  \NC  \NC  \NC  \NC  \NC  \NC  y_0 \arrow[ddd, middlegreen, dash]  \NC  ∋ T x, y_0  \NR
+			\NR  \NR
+			ϕ_0, T^* ψ ∈  \NC  X^*  \NC  \NC  \NC  \NC  \NC  \NC  \NC  \NC  y_0^*  \arrow[llllllll, red, "T^*"]  \NC  ∋ ψ  \NR
+			\NC  T^* ψ  \NC  \NC  \NC  \NC  \NC  \NC  \NC  \NC  ψ  \arrow[llllllll, red, mapsto, "T^*"]  \NR
+		\stoptikzcd
+	\stopsection
 \stopchapter

@@ -174,46 +174,46 @@
 
 
 
-%  https://tex.stackexchange.com/questions/486078/is-there-any-alternative-for-tcolorbox-in-context
-\startuseMPgraphic{mp:cvblock}
-	path p ; numeric w, h, o ;
-	w := OverlayWidth ; h := OverlayHeight ; o := BodyFontSize*1/2 ;
+% %  https://tex.stackexchange.com/questions/486078/is-there-any-alternative-for-tcolorbox-in-context
+% \startuseMPgraphic{mp:cvblock}
+% 	path p ; numeric w, h, o ;
+% 	w := OverlayWidth ; h := OverlayHeight ; o := BodyFontSize*1/2 ;
 
-	% Full box
-	p := ((0,0) -- (0,h+2o) -- (w,h+2o) -- (w,0) -- cycle) cornered (o) ;
-	fill p withcolor OverlayColor ;
-	draw p withcolor OverlayLineColor withpen pencircle scaled OverlayLineWidth ;
+% 	% Full box
+% 	p := ((0,0) -- (0,h+2o) -- (w,h+2o) -- (w,0) -- cycle) cornered (o) ;
+% 	fill p withcolor OverlayColor ;
+% 	draw p withcolor OverlayLineColor withpen pencircle scaled OverlayLineWidth ;
 
-	% Title box
-	p := ((0,h) -- (0,h+2o) -- (w,h+2o) -- (w,h) -- cycle) cornered (o) ;
-	filldraw p -- cycle withcolor OverlayLineColor ;
-	draw textext.rt(\MPstring{cvblock}) shifted (o,h+o) withcolor OverlayColor ;
+% 	% Title box
+% 	p := ((0,h) -- (0,h+2o) -- (w,h+2o) -- (w,h) -- cycle) cornered (o) ;
+% 	filldraw p -- cycle withcolor OverlayLineColor ;
+% 	draw textext.rt(\MPstring{cvblock}) shifted (o,h+o) withcolor OverlayColor ;
 
-	setbounds currentpicture to OverlayBox ;
-\stopuseMPgraphic
+% 	setbounds currentpicture to OverlayBox ;
+% \stopuseMPgraphic
 
-\defineoverlay[cvblock][\useMPgraphic{mp:cvblock}]
+% \defineoverlay[cvblock][\useMPgraphic{mp:cvblock}]
 
-\define\setframetitle
-  {\setMPtext{cvblock}{\strut\framedparameter{title}}}
+% \define\setframetitle
+%   {\setMPtext{cvblock}{\strut\framedparameter{title}}}
 
-\defineframedtext [cvsection] [
-	frame=off,
-	width=\textwidth,
-	background=cvblock,
-	backgroundcolor=whitesmoke,
-	framecolor=firebrick4,
-	% rulethickness=1pt,
-	extras=\setframetitle]
+% \defineframedtext [cvsection] [
+% 	frame=off,
+% 	width=\textwidth,
+% 	background=cvblock,
+% 	backgroundcolor=whitesmoke,
+% 	framecolor=firebrick4,
+% 	% rulethickness=1pt,
+% 	extras=\setframetitle]
 
-\defineframedtext [cvsubsection] [
-	frame=off,
-	width=\textwidth,
-	background=cvblock,
-	backgroundcolor=white,
-	framecolor=darkblue,
-	% rulethickness=1pt,
-	extras=\setframetitle]
+% \defineframedtext [cvsubsection] [
+% 	frame=off,
+% 	width=\textwidth,
+% 	background=cvblock,
+% 	backgroundcolor=white,
+% 	framecolor=darkblue,
+% 	% rulethickness=1pt,
+% 	extras=\setframetitle]
 
 
 % \definetextbackground[secondary][
@@ -230,24 +230,24 @@
 
 
 
-\starttext
+% \starttext
 
-\startcvsection [title={Education},% width=0.75\textwidth,
-	backgroundcolor=lightgray]
+% \startcvsection [title={Education},% width=0.75\textwidth,
+% 	backgroundcolor=lightgray]
 
-	\startcvsubsection [title={LSU}]
-		\startitemize [n, joinedup]
-			\item  Specializing in stochastic analysis and mathematical finance
-			\item  Vice President of the LSU SIAM chapter
-			\item  Teaching assistant for Capstone Course, Probability Theory, Interest Theory, Linear Algebra, Calculus and Pre-calculus. The capstone course is a upper level undergraduate course in which the aim is to solve real-world problems. Previous projects include understanding kinesiology data using recurrence quantification analysis, building a dashboard for analyzing data for athletes, and analyzing 3D body shapes to get health metrics.
-		\stopitemize
-	\stopcvsubsection
+% 	\startcvsubsection [title={LSU}]
+% 		\startitemize [n, joinedup]
+% 			\item  Specializing in stochastic analysis and mathematical finance
+% 			\item  Vice President of the LSU SIAM chapter
+% 			\item  Teaching assistant for Capstone Course, Probability Theory, Interest Theory, Linear Algebra, Calculus and Pre-calculus. The capstone course is a upper level undergraduate course in which the aim is to solve real-world problems. Previous projects include understanding kinesiology data using recurrence quantification analysis, building a dashboard for analyzing data for athletes, and analyzing 3D body shapes to get health metrics.
+% 		\stopitemize
+% 	\stopcvsubsection
 	
-	\samplefile{knuth}
+% 	\samplefile{knuth}
 
-\stopcvsection
+% \stopcvsection
 
-\stoptext
+% \stoptext
 
 % \input knuth
 
@@ -287,8 +287,28 @@
 
 
 
+\defineparagraphs[AsymmetricColumns][n=2]
+
+% The width of the second paragraph is automatically calculated if unspecified.
+\setupparagraphs[AsymmetricColumns][1][width=.66\textwidth, rule=on]
+% \setupparagraphs[AsymmetricColumns][2][rule=on]
 
 \starttext
-
-
+\startAsymmetricColumns
+	\startsubject [title={Education}]
+		\startitemize [n, joinedup]
+			\item  Specializing in stochastic analysis and mathematical finance
+			\item  Vice President of the LSU SIAM chapter
+			\item  Teaching assistant for Capstone Course, Probability Theory, Interest Theory, Linear Algebra, Calculus and Pre-calculus. The capstone course is a upper level undergraduate course in which the aim is to solve real-world problems. Previous projects include understanding kinesiology data using recurrence quantification analysis, building a dashboard for analyzing data for athletes, and analyzing 3D body shapes to get health metrics.
+		\stopitemize
+	\stopsubject
+	\quotation{...{\it why is there something rather than nothing?}
+	For nothing is simpler and easier than something.
+	Furthermore, assuming that things must exist,
+	one must be able to explain
+	{\it why they must exist thus,}
+	and not otherwise.}
+\nextAsymmetricColumns
+	G. W. Leibniz, {\it\fr Principes de la nature et de la grâce fondés en raison,} 1714.
+\stopAsymmetricColumns
 \stoptext
