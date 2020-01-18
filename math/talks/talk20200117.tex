@@ -16,7 +16,7 @@
 \setvariables [document] [color-background-0=white]
 \setvariables [document] [color-background-1=mistyrose]
 \setvariables [document] [color-background-2=whitesmoke]
-\setvariables [document] [color-foreground-0=deepskyblue4]
+\setvariables [document] [color-foreground-0=black]
 \setvariables [document] [color-foreground-1=firebrick4]
 \setvariables [document] [color-foreground-2=darkslategray]
 
@@ -54,10 +54,10 @@
 %%%%%%%%%%%%%%%%
 \startfrontmatter
 
-\setupbackgrounds [page] [
-	background={color,backgraphics,foreground},
-	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+% \setupbackgrounds [page] [
+% 	background={color,backgraphics,foreground},
+% 	backgroundcolor=\getvariable{document}{color-background-0}]
+% \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
 
 % \startmode [handout]
@@ -119,63 +119,74 @@
 %%%%%%%%%%%%%%%
 \startbodymatter
 
-\setupbackgrounds [page] [
-	background={color,backgraphics,foreground},
-	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+% \setupbackgrounds [page] [
+% 	background={color,backgraphics,foreground},
+% 	backgroundcolor=\getvariable{document}{color-background-0}]
+% \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
 \startsection [title={Introduction and motivation}, reference=sec:intro]
 \startmode [presentation]
 
-\startslide [title={Quick revision and notations}]
+\startslide [title={Review and notations}]
 
 	\startitemize [4]
 
-		\item  Let \m{T ∈ (0, ∞)}, \m{t ∈ [0, T]}, and \m{(Ω, ℱ, ℱ_{\argdotsub}, ℙ)} be a filtered probability space with a Brownian motion \m{B_{\argdotsub}}.
+		\item  Let \m{T ∈ (0, ∞)}, \m{t ∈ [0, T]}, and \m{B_t} is a Brownian motion.
 
-		\item  The Itô integral
-		\startitemize [n, joinedup]
-			\item  For \important{adapted} step processes \m{X_t(ω) = ∑_{j = 0}^{n-1} ξ_j(ω) 𝟙_{[t_j, t_{j + 1})}(t)}, define \m{∫_0^T X_t \d B_t  =  ∑_{j = 0}^{n-1} ξ_j Δ B_j}.
-			\item  For \important{adapted} process \m{X_{\argdotsub}} such that \m{∫_0^T \abs[X_t]^2 \d t < ∞} a.s., use adapted step processes approximating \m{X} to extend the integral using limit in probability.
-		\stopitemize
+		\item  The \good{Itô integral} for an \good{adapted} process \m{X_t} w.r.t. \m{B_t} is defined as
+			\startformula
+				∫_0^t X_s \d B_s = \ℙlim_{\norm[Δ_n] → 0}  ∑_{j = 0}^{n - 1} X_{t_j} Δ B_j , \ \text{ where \m{Δ_n} is a partition of \m{[0, t]} and \m{Δ B_j = B_{t_{j + 1}} - B_{t_j}}} .
+			\stopformula
+		% \startitemize [n, joinedup]
+		% 	\item  For \good{adapted} step processes \m{X_t(ω) = ∑_{j = 0}^{n-1} ξ_j(ω) 𝟙_{[t_j, t_{j + 1})}(t)}, define \m{∫_0^T X_t \d B_t  =  ∑_{j = 0}^{n-1} ξ_j Δ B_j}.
+		% 	\item  For \good{adapted} process \m{X_t} such that \m{∫_0^T \abs[X_t]^2 \d t < ∞} a.s., use adapted step processes approximating \m{X} to extend the integral using limit in probability.
+		% \stopitemize
 
-		\item  An \important{Itô process} is a process of the form \m{X_{\argdotsub} = X_0 + ∫_0^{\argdotsup} α_t \d t + ∫_0^{\argdotsup} β_t \d B_t}, equivalently expressed as \m{\d X_t = α_t \d t + β_t \d B_t}.
+		\item  The process \m{Y_t = ∫_0^t X_s \d B_s} is a martingale.
 
-		\item  \important{Itô formula}:  If \m{X_{\argdotsub}} is an Itô process and \m{f(t, x) ∈ C^{1, 2}(ℝ × ℝ)}, then \m{f(t, X_t)} is also an Itô process given by \m{	\d f(t, X_t)  =  \D_t f (t, X_t) \d t  +  \D_x f (t, X_t) \d X_t  +  \frac12 \D_x^2 f (t, X_t) \, (\d X_t)^2}, where \m{(\d B_t)^2 = \d t} with all other products being zero.
+		\item  An \good{Itô process} is an \good{adapted} process of the form \m{X_t = X_0 + ∫_0^t m_s \d s + ∫_0^t σ_s \d B_s}.
+
+			Equivalently expressed as \m{\d X_t = m_t \d t + σ_t \d B_t}.
+
+		\item  \good{Itô formula}:  If \m{X_t} is an Itô process and \m{f(t, x) ∈ C^{1, 2}(ℝ × ℝ)}, then \m{Y_t = f(t, X_t)} is also an Itô process given by
+			\startformula
+				\d Y_t = \d f(t, X_t)  =  ∂_t f (t, X_t) \d t  +  ∂_x f (t, X_t) \d X_t  +  \frac12 ∂_x^2 f (t, X_t) \, (\d X_t)^2 .
+			\stopformula
+
 	\stopitemize
 \stopslide
 
-\startslide [title={Limitations of the Itô integral}]
+\startslide [title={Remarks on the Itô integral}]
 
 	\startitemize [4]
 
-		\item  Adaptedness of the integrand is a primary requirement in Itô theory.
+		\item  The integrand must an \good{adapted} stochastic process.
 
-		\item  Iterated integrals: Consider the iterated integral \m{∫_0^t ∫_0^t \d B_u \d B_v \ugly{= ∫_0^t B_t \d B_v ≟ B_t^2}}.
+		\item  Iterated integrals: \m{∫_0^T ∫_0^T \d B_u \d B_v \ugly{= ∫_0^T B_T \d B_v = ?}}
 
-		\item  Note that \m{𝔼(B_t^2) = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
+		% \item  Note that \m{𝔼(B_t^2) = \ugly{t ≠ 0}}, so \ugly{no martingale property} \frown.
 
-		\item  Stochastic differential equations with anticipation
+		\item  What about anticipating stochastic differential equations like
 
 			\startcombination [2*1]
 				{\startframed[width=0.5\textwidth, frame=off]
 					\startformula
 						\startmathcases
 							\NC   \d X_t =  \MC  X_t \d B_t \NR
-							\NC  \ \ X_0 =  \MC  \important{B_T}  \NR
+							\NC  \ \ X_0 =  \MC  \okay{B_T}  \NR
 						\stopmathcases  \qquad \qquad  \text{or}
 					\stopformula
 				\stopframed}{}
 				{\startframed[width=0.5\textwidth, frame=off]
 					\startformula
 						\startmathcases
-							\NC   \d Y_t =  \MC  \important{B_T} \d B_t \NR
+							\NC   \d Y_t =  \MC  \okay{B_T} \d B_t \NR
 							\NC  \ \ Y_0 =  \MC  1  \NR
-						\stopmathcases .
+						\stopmathcases ?
 					\stopformula
 				\stopframed}{}
 			\stopcombination
-		\item  Problem: We want to define \m{∫_0^T Z(t) \d B_t}, where \m{Z(\argdotmid)} is not (necessarily) adapted.
+		\item  Problem: We want to define \m{∫_0^T Z_t \d B_t}, where \m{Z_t} is not (necessarily) adapted.
 
 		\item  Some approaches
 		\startitemize [5, joinedup, columns]
@@ -195,9 +206,9 @@
 	
 	\startitemize [4]
 
-		\item  A process \m{Y^{\argdotsup}} and filtration \m{ℱ_{\argdotsub}} are called \important{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
+		\item  A process \m{Y^t} and filtration \m{ℱ_t} are called \okay{instantly independent} if \m{Y^t} and \m{ℱ_t} are independent \m{∀ t}.
 
-			Example: The process \m{(B_T - B_{\argdotsub})} is instantly independent of the filtration generated by \m{B_{\argdotsub}}.
+			Example: The process \m{B_T - B_t} is instantly independent of the filtration generated by \m{B_t}.
 
 		\item  Idea
 			\startitemize[n, joinedup]
@@ -208,7 +219,7 @@
 
 			\stopitemize
 
-		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_{\argdotsub}}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
+		\item  Consider two continuous stochastic processes, \good{\m{X_t} adapted} and \okay{\m{Y^t} instantly independent} w.r.t. \m{ℱ_t}. Then the integral \m{∫_0^T \good{X_t} \okay{Y^t} \d B_t} is \important{defined} as
 			\startformula
 				∫_0^T \good{X_t} \okay{Y^t} \d B_t  ≜  \ℙlim_{\norm[Δ_n] → 0}  ∑_{j = 0}^{n - 1} \good{X_{t_{j}}} \okay{Y^{t_{j+1}}} ΔB_j .
 			\stopformula
@@ -223,9 +234,9 @@
 \startslide [title={A simple example}]
 	
 	\startformula \startalign
-		\NC  ∫_0^t B_T \d B_t
-			\NC =  ∫_0^t (\good{B_t} + \okay{(B_T - B_t)}) \d B_t
-			    =  \good{∫_0^t B_t \d B_t}  +  \okay{∫_0^t (B_T - B_t) \d B_t}
+		\NC  ∫_0^t B_T \d B_s
+			\NC =  ∫_0^t (\good{B_s} + \okay{(B_T - B_s)}) \d B_s
+			    =  \good{∫_0^t B_s \d B_s}  +  \okay{∫_0^t (B_T - B_s) \d B_s}
 		\NR \NC
 			\NC =  \good{\Ltwolim_{\norm[Δ_n] → 0} ∑_{j = 0}^{n - 1} B_{t_j} Δ B_j}
 				+  \okay{\Ltwolim_{\norm[Δ_n] → 0} ∑_{j = 0}^{n - 1} (B_T - B_{t_{j + 1}}) Δ B_j}
@@ -233,15 +244,51 @@
 			\NC =  \Ltwolim_{\norm[Δ_n] → 0} ∑_{j = 0}^{n - 1} \brnd[B_T - Δ B_j] Δ B_j
 		\NR \NC
 			\NC =  B_T ⋅ \Ltwolim_{\norm[Δ_n] → 0} ∑_{j = 0}^{n - 1} Δ B_j - \Ltwolim_{\norm[Δ_n] → 0} ∑_{j = 0}^{n - 1} (Δ B_j)^2
-			    =  B_T B_t - t .
+		\NR \NC
+			\NC =  B_T B_t - t
 	\stopalign \stopformula
+
+	% \startitemize [4]
+
+	% 	\item  Note that \m{𝔼(B_T B_t - t) = 0}.
+
+	% 	\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
+	% \stopitemize
+\stopslide
+
+\startslide [title={The near-martingale property}]
 
 	\startitemize [4]
 
-		\item  Note that \m{𝔼(B_T B_t - t) = 0}.
+		\item  Question: What is the analogues of the martingale property?
 
-		\item  In general, \m{𝔼 ∫_0^t Z(s) \d B_s = 0}. \good{\smile}
+		% \item  Answer for martingales: near-martingales \cite[short][KuoSaeTangSzozda2012].
+
+		\item  Example: \m{𝔼(B_T B_t - t ∣ ℱ_s) = B_s^2 - s ≠ B_T B_s - s}. \frown
+
+			But \m{𝔼(B_T B_s - s ∣ ℱ_s) = B_s^2 - s}. \smile
+
+		\item  Let \m{Z_t} be a process such that \m{𝔼\abs[Z_t] < ∞ \ ∀ t}, and \m{0 ≤ s ≤ t ≤ T}. Then \m{Z_t} is called a \important{near-martingale} if \m{𝔼(Z_t ∣ ℱ_s) = 𝔼(Z_s ∣ ℱ_s)}.
+			% \startitemize [5, joinedup]
+			% 	\item  \important{near-martingale} if \m{𝔼(Z(t) ∣ ℱ_s) = 𝔼(Z(s) ∣ ℱ_s)},
+			% 	\item  \important{near-submartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≥ 𝔼(Z(s) ∣ ℱ_s)},
+			% 	\item  \important{near-supermartingale} if \m{𝔼(Z(t) ∣ ℱ_s) ≤ 𝔼(Z(s) ∣ ℱ_s)}.
+			% \stopitemize
 	\stopitemize
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{f} and \m{ϕ} be continuous functions on \m{ℝ}. Under integrability conditions, the processes \m{X_t = ∫_0^t f(B_t) ϕ(B_T - B_t) \d B_t} and \m{Y^t = ∫_t^T f(B_t) ϕ(B_T - B_t) \d B_t} are near-martingales.
+		% \startformula
+		% 	X_t = ∫_0^t f(B_t) ϕ(B_T - B_t) \d B_t
+		% 	\qquad \text{ and } \qquad
+		% 	Y^t = ∫_t^T f(B_t) ϕ(B_T - B_t) \d B_t
+		% \stopformula
+		% are near-martingales.
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][HwangKuoSaitôZhai2017]}]
+		Let \m{Z_t} be a stochastic process bounded in \m{L^1}, and \m{X_t = 𝔼(Z_t ∣ ℱ_t)}. Then \m{X_t} is a martingale if and only if \m{Z_t} is a near-martingale.
+	\stoptheorem
 \stopslide
 
 \startslide [title={The general Itô formula \cite[short][HwangKuoSaitôZhai2016]}]
@@ -255,13 +302,13 @@
 		\FL
 
 		\NC  \good{Itô}
-		\NC  \good{X_{\argdotsub} = X_0 + ∫_0^{\argdotsup} α_t \d t + ∫_0^{\argdotsup} β_t \d B_t}
-		\NC  \good{\d X_t = \ \ α_t \d t + β_t \d B_t}
+		\NC  \good{X_t = X_0 + ∫_0^t m_s \d s + ∫_0^t σ_s \d B_s}
+		\NC  \good{\d X_t = \ \ m_t \d t + σ_t \d B_t}
 
 		\NR
 
 		\NC  \okay{instantly independent}
-		\NC  \okay{Y^{\argdotsup} = Y^0 + ∫_{\argdotsub}^T η^t \d t + ∫_{\argdotsub}^T ς^t \d B_t}
+		\NC  \okay{Y^t = Y^T + ∫_t^T η^s \d s + ∫_t^T ς^s \d B_s}
 		\NC  \okay{\d Y^t = - η^t \d t - ς^t \d B_t}
 
 		\NR
@@ -271,12 +318,11 @@
 	Here \m{η^t} and \m{ς^t} are instantly independent such that \m{Y^t} is also instantly independent.
 
 	\starttheorem[title={\cite[short][HwangKuoSaitôZhai2016]}]
-		Let \good{\m{\d X_t = α_t \d t + β_t \d B_t}} be an \good{Itô} process, and \okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \okay{instantly independent} process. If \m{f(t, x, y) ∈ C^{1, 2, 2}(ℝ × ℝ × ℝ)}, then
+		Let \good{\m{\d X_t = m_t \d t + σ_t \d B_t}} be an \good{Itô} process, and \okay{\m{\d Y^t = - η^t \d t - ς^t \d B_t}} be a \okay{instantly independent} process. If \m{f(t, x, y) ∈ C^{1, 2, 2}(ℝ × ℝ × ℝ)}, then
 		\startformula \startalign[n=3]
-			\NC  \d f(t, X_t, Y^t)  = \NC  \D_t f (t, X_t, Y^t) \d t  \NC  +  \good{\D_x f (t, X_t, Y^t) \d X_t + \frac12 \D_x^2 f (t, X_t, Y^t) (\d X_t)^2}  \NR
-			\NC  \NC  \NC  + \okay{\D_y f (t, X_t, Y^t) \d Y^t - \frac12 \D_y^2 f (t, X_t, Y^t) (\d Y^t)^2} ,  \NR
+			\NC  \d f(t, X_t, Y^t)  = \NC  ∂_t f (t, X_t, Y^t) \d t  \NC  +  \good{∂_x f (t, X_t, Y^t) \d X_t + \frac12 ∂_x^2 f (t, X_t, Y^t) (\d X_t)^2}  \NR
+			\NC  \NC  \NC  + \okay{∂_y f (t, X_t, Y^t) \d Y^t - \frac12 ∂_y^2 f (t, X_t, Y^t) (\d Y^t)^2} .  \NR
 		\stopalign \stopformula
-		where \m{(\d B_t)^2 = \d t} with all other products being zero.
 	\stoptheorem
 \stopslide
 
@@ -284,26 +330,6 @@
 
 \startsection [title={Conditional expectation}, reference=sec:conditional-expectation-sde]
 \startmode [presentation]
-
-\startslide [title={Motivating question}]
-	
-	What can we say about the conditional expectation of the solution of the stochastic differential equation
-	\startformula
-		\startmathcases
-			\NC   \d X_t =  \MC  α_t X_t \d B_t + β_t X_t \d t \NR
-			\NC  \ \ X_0 =  \MC  ψ(B_T)  \NR
-		\stopmathcases ?
-	\stopformula
-
-	In particular, if \m{Y_t = 𝔼(X_t ∣ ℱ_t)}, can we expect \m{Y_{\argdotsub}} to be the solution of the stochastic differential equation
-	\startformula
-		\startmathcases
-			\NC   \d Y_t =  \MC  α_t Y_t \d B_t + β_t Y_t \d t \NR
-			\NC  \ \ Y_0 =  \MC  𝔼ψ(B_T)  \NR
-		\stopmathcases
-		?
-	\stopformula
-\stopslide
 
 \startslide [title={Linear stochastic differential equations}]
 
@@ -322,14 +348,34 @@
 				\NC  \ \ X_0 =  \MC  ψ(B_T)  \NR
 			\stopmathcases
 		\stopformula
-		is given by \m{X_t  =  ψ\brnd[B_T - ∫_0^t α_s \d s] ℰ^{(α, β)}_t}. 
+		is given by \m{X_t  =  ψ\brnd[B_T - \important{∫_0^t α_s \d s}] ℰ^{(α, β)}_t}. 
 	\stoptheorem
+\stopslide
+
+\startslide [title={Motivating question}]
+	
+	What can we say about the conditional expectation of the solution of the stochastic differential equation
+	\startformula
+		\startmathcases
+			\NC   \d X_t =  \MC  α_t X_t \d B_t + β_t X_t \d t \NR
+			\NC  \ \ \, X_0 =  \MC  ψ(B_T)  \NR
+		\stopmathcases ?
+	\stopformula
+
+	In particular, if \m{Y_t = 𝔼(X_t ∣ ℱ_t)}, can we expect \m{Y_t} to be the solution of the stochastic differential equation
+	\startformula
+		\startmathcases
+			\NC   \d Y_t =  \MC  α_t Y_t \d B_t + β_t Y_t \d t \NR
+			\NC  \ \ \, Y_0 =  \MC  𝔼ψ(B_T)  \NR
+		\stopmathcases
+		?
+	\stopformula
 \stopslide
 
 \startslide [title={Unexpected behaviour}]
 	
 	\starttheorem [title={\cite[short][KuoSinhaZhai2018]}]
-		Suppose \m{α_{\argdotsub} ∈ L^2[0, T]}, \m{β_{\argdotsub}} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}, and \m{ψ: ℝ → ℝ} has power series expansion at \m{0} with infinite radius of convergence, and \m{ψ'} denotes the derivative of \m{ψ}.
+		Suppose \m{α_t ∈ L^2[0, T]}, \m{β_t} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}, and \m{ψ: ℝ → ℝ} has power series expansion at \m{0} with infinite radius of convergence, and \m{ψ'} denotes the derivative of \m{ψ}.
 
 		Consider the two stochastic differential equations
 		
@@ -353,7 +399,7 @@
 		\stopcombination
 		Denote \m{Y_t = 𝔼(X_t ∣ ℱ_t)} and \m{\overline{Y}_t = 𝔼(\overline{X}_t ∣ ℱ_t)}.
 
-		Then \m{Y_{\argdotsub}} satisfies the stochastic differential equation
+		Then \m{Y_t} satisfies the stochastic differential equation
 		\startformula
 			\startmathcases
 				\NC   \d Y_t =  \MC  α_t Y_t \d B_t + β_t Y_t \d t + \important{\overline{Y}_t \d B_t} \NR
@@ -369,29 +415,31 @@
 
 		\item  An Hermite polynomial of degree \m{n} with parameter \m{ρ} is given by
 			\startformula
-				H_n(x; ρ) = (-ρ)^n e^{\frac{x^2}{2ρ}} \D_x^n e^{-\frac{x^2}{2ρ}} .
+				H_n(x; ρ) = (-ρ)^n e^{\frac{x^2}{2ρ}} ∂_x^n e^{-\frac{x^2}{2ρ}} .
 			\stopformula
 
-		\item  Some useful equalities for Hermite polynomials:
-		\startitemize [m, joinedup]
-			\item  \m{\D_x H_n(x; ρ) = n H_{n−1}(x; ρ)}
-			\item  \m{\D_x^2 H_n(x; ρ) = -2 \D_ρ H_n(x; ρ)}
-			\item  \m{H_n(x + y; ρ) = ∑_{k=0}^n \binom{n}{k} H_{n−k}(x; ρ) y^k}
-		\stopitemize
+		% \item  Some useful equalities for Hermite polynomials:
+		% \startitemize [m, joinedup]
+		% 	\item  \m{∂_x H_n(x; ρ) = n H_{n−1}(x; ρ)}
+		% 	\item  \m{∂_x^2 H_n(x; ρ) = -2 ∂_ρ H_n(x; ρ)}
+		% 	\item  \m{H_n(x + y; ρ) = ∑_{k=0}^n \binom{n}{k} H_{n−k}(x; ρ) y^k}
+		% \stopitemize
+
+		\item  The first few Hermite polynomials are: \m{1, x, x^2 - ρ, x^3 - 3ρx, x^4 - 6 ρ x^2 + 3 ρ^2, …}.
+
+		\item  Hermite polynomials form an orthonormal basis of \m{L^2(ℝ, γ)}, where \m{γ} is the Gaussian measure with mean \m{0} and variance \m{ρ}.
 
 		\item  For fixed \m{n ∈ ℕ}, the stochastic process \m{X_t = H_n(B_t; t)} is a martingale, and %\m{\d X_t = n H_{n-1}(B_t; t) \d B_t}.
 			\startformula
 				\d X_t = n H_{n-1}(B_t; t) \d B_t .
 			\stopformula
-		
-		\item  Hermite polynomials form an orthonormal basis of \m{L^2(ℝ, γ)}, where \m{γ} is the Gaussian measure with mean \m{0} and variance \m{ρ}.
 	\stopitemize
 \stopslide
 
 \startslide [title={Initial condition: Hermite polynomials}]
 	
 	\starttheorem [title={\cite[short][KuoSinhaZhai2018]}]
-		Suppose \m{α_{\argdotsub} ∈ L^2[0, T]}, \m{β_{\argdotsub}} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}, and let \m{n} be a fixed natural number. Let \m{X_{\argdotsub}} be the solution of
+		Suppose \m{α_t ∈ L^2[0, T]}, \m{β_t} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}, and let \m{n} be a fixed natural number. Let \m{X_t} be the solution of
 		\startformula
 			\startmathcases
 				\NC   \d X_t =  \MC  α_t X_t \d B_t + β_t X_t \d t  \NR
@@ -400,24 +448,24 @@
 		\stopformula
 		and \m{Y_t = 𝔼(X_t ∣ ℱ_t)}.
 
-		Then \m{Y_{\argdotsub}} satisfies the stochastic differential equation
+		Then \m{Y_t} satisfies the stochastic differential equation
 		\startformula
 			\startmathcases
-				\NC   \d Y_t =  \MC  \bsqr[α_t Y_t + n H_{n-1}{\brnd[B_t - ∫_0^t α_s \d s;\ t]} ℰ^{(α, β)}_t] \d B_t + β_t Y_t \d t \NR
+				\NC   \d Y_t =  \MC  α_t Y_t \d B_t + β_t Y_t \d t + \important{n H_{n-1}{\brnd[B_t - ∫_0^t α_s \d s;\ t]} ℰ^{(α, β)}_t \d B_t} \NR
 				\NC  \ \ Y_0 =  \MC  0  \NR
 			\stopmathcases ,
 		\stopformula
 		and is explicitly given by
 		\startformula
-			Y_t = H_n \brnd[B_t - ∫_0^t α_s \d s;\ t] ℰ^{(α, β)}_t .
+			Y_t = H_n \brnd[B_t - \important{∫_0^t α_s \d s};\ t] ℰ^{(α, β)}_t .
 		\stopformula
 	\stoptheorem
 \stopslide
 
-\startslide [title={Initial condition: \m{ψ ∈ L^2(ℝ, γ)} with \m{ψ} differentiable}]
+\startslide [title={Initial condition: differentiable function in \m{L^2(ℝ, γ)}}]
 	
 	\starttheorem [title={\cite[short][KuoSinhaZhai2018]}]
-		Suppose \m{α_{\argdotsub} ∈ L^2[0, T]}, \m{β_{\argdotsub}} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}.
+		Suppose \m{α_t ∈ L^2[0, T]}, \m{β_t} is adapted with \m{𝔼∫_0^T \abs[β_t]^2 \d t < ∞}.
 
 		Let \m{ψ(x) = ∑_{n = 0}^∞ c_n H_n(x; T)} be a differentiable function in \m{L^2(ℝ, γ)}.
 
@@ -443,7 +491,7 @@
 		\stopcombination
 		Denote \m{Y_t = 𝔼(X_t ∣ ℱ_t)} and \m{\overline{Y}_t = 𝔼(\overline{X}_t ∣ ℱ_t)}.
 
-		Then \m{Y_{\argdotsub}} satisfies the stochastic differential equation
+		Then \m{Y_t} satisfies the stochastic differential equation
 		\startformula
 			\startmathcases
 				\NC   \d Y_t =  \MC  α_t Y_t \d B_t + β_t Y_t \d t + \important{\overline{Y}_t \d B_t} \NR
@@ -452,7 +500,7 @@
 		\stopformula
 		and is explicitly given by
 		\startformula
-			Y_t = ∑_{n = 0}^∞ c_n H_n \brnd[B_t - ∫_0^t α_s \d s;\ t] ℰ^{(α, β)}_t .
+			Y_t = ∑_{n = 0}^∞ c_n H_n \brnd[B_t - \important{∫_0^t α_s \d s};\ t] ℰ^{(α, β)}_t .
 		\stopformula
 	\stoptheorem
 \stopslide
@@ -465,12 +513,12 @@
 \startsection [title={A larger class of initial conditions}, reference=sec:ic-Wiener]
 \startmode [presentation]
 
-\startslide [title={Wiener integrals as initial conditions}]
+\startslide [title={Initial condition: Wiener integral}]
 	
 	\bold{Question}: Can we extend the class of initial conditions?
 
 	\starttheorem [title={\cite[short][KuoSinhaZhai2018]}]
-		Let \m{α_{\argdotsub} ∈ L^2[0, T], β_{\argdotsub} ∈ L^1[0, T], h_{\argdotsub} ∈ L^2[0, T], ψ(\argdotmid) ∈ C^2(ℝ)}. Then the (unique) solution of the stochastic differential equation
+		Let \m{α_t ∈ L^2[0, T], β_t ∈ L^1[0, T], h_t ∈ L^2[0, T], ψ(t) ∈ C^2(ℝ)}. Then the (unique) solution of the stochastic differential equation
 		\startformula
 			\startmathcases
 				\NC   \d X_t =  \MC  α_t X_t \d B_t + β_t X_t \d t  \NR
@@ -479,12 +527,12 @@
 		\stopformula
 		is given by
 		\startformula
-			X_t = ψ\brnd[∫_0^T h_s \d B_s - ∫_0^t α_s h_s \d s] ℰ^{(α, β)}_t .
+			X_t = ψ\brnd[∫_0^T h_s \d B_s - \important{∫_0^t α_s h_s \d s}] ℰ^{(α, β)}_t .
 		\stopformula
 	\stoptheorem
 \stopslide
 
-\startslide [title={A simple example}]
+\startslide [title={An example}]
 	
 	Consider the stochastic differential equation
 	\startformula
@@ -494,7 +542,9 @@
 		\stopmathcases .	
 	\stopformula
 
-	Using Itô lemma, we rewrite \m{∫_0^T B_s \d s = ∫_0^T (T - s) \d B_s}, we get
+	Using Itô lemma, we rewrite \m{∫_0^T B_s \d s = ∫_0^T (T - s) \d B_s}.
+	
+	Now using the previous theorem, we get
 	\startformula
 		X_t = ψ\brnd[∫_0^T B_s \d s - {\brnd[Tt - \frac12 t^2]}] e^{B_t - \frac12 t} .
 	\stopformula
@@ -513,10 +563,10 @@
 %%%%%%%%%%%%%%%
 \startbackmatter
 
-\setupbackgrounds [page] [
-	background={color,backgraphics,foreground},
-	backgroundcolor=\getvariable{document}{color-background-0}]
-\startcolor [\getvariable{document}{color-foreground-0}]    % text color
+% \setupbackgrounds [page] [
+% 	background={color,backgraphics,foreground},
+% 	backgroundcolor=\getvariable{document}{color-background-0}]
+% \startcolor [\getvariable{document}{color-foreground-0}]    % text color
 
 \startmode [presentation]
 
@@ -533,44 +583,69 @@
 
 \startsubject [title={Appendix}]
 
-\startslide [title={Misc results on nearmartingales, Girsanov theorem, exponential processes}]
-	
-	\startitemize [m]
-		
-		\item  	
-		\item  
-	\stopitemize
+\startslide [title={Iterated integrals}]
+
+	\starttheorem[title={\cite[short][Itô1951MWI]}]
+		Let \m{f ∈ L^2([0, T]^n)} and \m{\bad{\hat{f}}} be its symmetrization. Then
+		\startformula
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  \bad{n!} ∫_0^T ⋯ ∫_0^{\bad{t_{n-2}}} \brnd[∫_0^{\bad{t_{n-1}}} \bad{\hat{f}}(t_1, …, t_n) \d B_{t_n}] \d B_{t_{n-1}} … \d B_{t_1} .
+		\stopformula
+		% \m{\hat{f}(t_1, …, t_n)  =  \frac{1}{n!} ∑_{σ ∈ S_n} f(t_{σ(1)}, …, t_{σ(n)})}
+	\stoptheorem
+
+	\starttheorem[title={\cite[short][AyedKuo2010]}]
+		Let \m{f ∈ L^2([0, T]^n)}. Then
+		\startformula
+			∫_{[0, T]^n} f(t_1, …, t_n) \d B_{t_1} … \d B_{t_n}  =  ∫_0^T ⋯ ∫_0^T f(t_1, …, t_n) \d B_{t_n} … \d B_{t_1} .
+		\stopformula
+	\stoptheorem
+
+	Example\cite[short][HwangKuoSaitôZhai2016]: For the new integral, \m{∫_0^T \brnd[∫_0^T B_u \d u] \d B_v = ∫_0^T \brnd[∫_0^T B_u \d B_v] \d u}.
+\stopslide
+
+\startslide [title={A generalization of Itô isometry}]
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2012]}]
+		Let \m{ϕ} be an analytic function on \m{ℝ}. Then under integrability conditions and for each \m{t},
+		\startformula
+			𝔼\bsqr[{\brnd[∫_0^t ϕ(B_T - B_s) \d B_s]}^2]  =  ∫_0^t 𝔼\bsqr[{\brnd[ϕ(B_T - B_s)]}^2] \d s
+		\stopformula
+	\stoptheorem
+
+	\starttheorem [title={\cite[short][KuoSaeTangSzozda2013]}]
+		Let \m{f} and \m{ϕ} be \m{C^1} functions on \m{ℝ}. Then
+		\startformula \startalign
+			\NC  𝔼\bsqr[{\brnd[∫_0^T f(B_t) ϕ(B_T - B_t) \d B_t]}^2]
+			\NC  =  ∫_0^T 𝔼\bsqr[{\brnd[f(B_t) ϕ(B_T - B_t)]}^2] \d t
+			\NR  \NC  \NC  \quad + 2 ∫_0^T∫_0^{\bad{t}} 𝔼\bsqr[f(B_s) ϕ'(B_T - B_s) f'(B_s) ϕ(B_T - B_s)] \d s \d t .
+		\stopalign \stopformula
+	\stoptheorem
+\stopslide
+
+\startslide [title={A generalization of Girsanov theorem}]
+
+	\starttheorem[title={\cite[short][KuoPengSzozda2013b]}]
+		Let \m{X_t} and \m{Y^t} be continuous square-integrable stochastic processes such that \m{X_t} is adapted and \m{Y^t} is instantly independent.
+
+		Then the translated stochastic process \m{W_t = B_t - ∫_0^t (X_t + Y^t) \d t} is a near-martingale under the probability measure \m{\widetilde{ℙ}} defined by the Radon-Nikodym derivative \m{\frac{\d \widetilde{ℙ}}{\d ℙ} = 𝓔^{(X + Y, 0)}_T}.
+	\stoptheorem
 \stopslide
 \stopsubject
+
+\startslide
+
+	\startalign [middle]
+
+		\blank[4*line]
+
+		{\tfd Thank you!}
+
+	\stopalign
+\stopslide
 
 \startslide [title={Bibliography}]
 	\placelistofpublications
 \stopslide
-
-\startslide [title={Anticipated questions}]
-	
-	\startitemize [m]
-		
-		\item  Look at Theorem 4.7 of \cite[short][HwangKuoSaitôZhai2017]!
-
-		\item  How to prove the uniqueness of solution stochastic differential equations? Standard method?
-		
-		\item  In Section \in[sec:ic-Wiener], how much can we extend? In particular, can we have an Itô or anticipating integral? Is that even meaningful?
-		
-		\item  In Section \in[sec:conditional-expectation-sde], what is the difference between \m{ψ} analytic and \m{ψ: ℝ → ℝ} has power series expansion at \m{0} with infinite radius of convergence?
-
-		\item  In Section \in[sec:conditional-expectation-sde], why do we need \m{α} to be deterministic?
-
-		\item  In Section \in[sec:conditional-expectation-sde], why does the extra term appear intuitively?
-
-		\item  What results go in the Appendix?
-
-		\item  Applications apart from modeling insider trading in finance
-
-		\item  Better motivation for the conditional expectation part
-	\stopitemize
-\stopslide
-
 \stopmode
 \stopbackmatter
 
