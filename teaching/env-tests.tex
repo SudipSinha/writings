@@ -19,12 +19,14 @@
 
 %% Possibility 3
 \startsetups[headertext]
-  \startframed[frame=off, bottomframe=on, framecolor=\getvariable{document}{color-headings}, align=middle]
-    {\tfc MATH 1550}\\
-    \blank[big]
-    {\tfb \sc Name: \color[white]{Print your name here in capitals}} \hfill {\tfa \getvariable{document}{date}}
-    \blank[small]
-  \stopframed
+	\startframed[frame=on, corner=03, width=\hsize, frameoffset=4pt, framecolor=\getvariable{document}{color-headings}, align=middle]
+		% \blank[small]
+		{\tfa MATH 1550} \qquad \qquad {\tfa \getvariable{document}{date}}
+		\blank[medium]
+		{\tfc \sc Name: \color[\getvariable{document}{color-background}]{Print your name here in capitals}}    % Dummy text to left align
+		% \blank[small]
+	\stopframed
+	\blank[small]
 \stopsetups
 \setupheadertexts[\directsetup{headertext}]
 
