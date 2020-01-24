@@ -1,0 +1,176 @@
+% macros=mkvi    % https://wiki.contextgarden.net/MkVI
+
+\startenvironment *
+
+\setuppapersize[letter]
+
+\usecolors [x11]    % X11 colors, use \showcolor[x11] to get a list
+
+%% Header and footer
+% \setupheadertexts[\framed{\tfd Name: } \hfill \getvariable{document}{date}]    % Possibility 1
+
+%% Possibility 2
+% \setupheader
+%   [text]
+%   [before={\startframed[frame=off, bottomframe=on, framecolor=\getvariable{document}{color-headings}]},
+%    after={\stopframed}]
+% \setupheadertexts[]    % Clear the header
+% \setupheadertexts[\tfb \sc Name: ][{\tfc MATH 1550} \qquad \getvariable{document}{date}]
+
+%% Possibility 3
+\startsetups[headertext]
+  \startframed[frame=off, bottomframe=on, framecolor=\getvariable{document}{color-headings}, align=middle]
+    {\tfc MATH 1550}\\
+    \blank[big]
+    {\tfb \sc Name: \color[white]{Print your name here in capitals}} \hfill {\tfa \getvariable{document}{date}}
+    \blank[small]
+  \stopframed
+\stopsetups
+\setupheadertexts[\directsetup{headertext}]
+
+
+%% Mathematics
+
+% I have not completely figured out a way to create a dot between \cdot and \bullet
+% The following might provide a way, but is too primitive.
+% The problem is that the scaling is about the bottom of the line.
+\def \argdotsub{\scale[factor=2]{∙}}    % wiki/Command/scale
+\def \argdotmid{\raisebox{0.125em}\vbox{\scale[factor=2]{∙}}}
+\def \argdotsup{\raisebox{0.125em}\vbox{\scale[factor=2]{∙}}}
+% \def \argdot{\raisebox{-0.2em}\vbox{\scale[factor=6]{⋅}}}
+% \def \argdotu{\raisebox{-0em}\vbox{\scale[factor=6]{⋅}}}
+% \def \argdot{\raisebox{-0.2em}\vbox{\scale[factor=6]{⋅}}}
+% \scale[scale=2]{\cdot}} + Z(\scale[sx=3, sy=2]{⋅})
+
+% Caution: spaces do not work between the elements)
+\def \delim[#arguments][#left][#right]{\left#left #arguments \right#right}
+
+% Intervals
+\def \intoo[#arguments]{\delim[#arguments][(][)]}
+\def \intoc[#arguments]{\delim[#arguments][(][]]}
+\def \intco[#arguments]{\delim[#arguments][[][]]}
+\def \intcc[#arguments]{\delim[#arguments][[][]]}
+
+% Brackets
+\def \brnd[#arguments]{\delim[#arguments][(][)]}
+\def \bcrl[#arguments]{\delim[#arguments][\{][\}]}
+\def \bsqr[#arguments]{\delim[#arguments][[][]]}
+\def \bngl[#arguments]{\delim[#arguments][⟨][⟩]}
+
+% Commonly used delimiters
+\def \inn[#arguments]{\delim[#arguments][⟨][⟩]}
+\def \norm[#arguments]{\delim[#arguments][‖][‖]}
+\def \abs[#arguments]{\delim[#arguments][|][|]}
+\def \floor[#arguments]{\delim[#arguments][⌊][⌋]}
+\def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
+
+% Logic
+\def \tuple[#arguments]{\delim[#arguments][⟨][⟩]}
+\def \logicimpl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \nlogicimpl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
+
+% Algebra
+\def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
+\def \inv[#arguments]{#arguments^{-1}}
+
+% Differentials  (We cannot use space before differentials here because we might want to use μ(\d x).)
+\def \d{\text{d}}
+\def \D{\text{D}}
+
+% Topology
+\def \clsr[#set]{\overline{#set}}
+\def \intr[#set]{{#set}^°}
+% \def \intr[#set]{\mathring{#set}}
+\def \bdy[#set]{∂ #set}
+
+% Limits
+\definemathcommand [ess] [limop] {\mfunction{ess}}
+\definemathcommand [limsupm] [limop] {\overline{\lim}}
+\definemathcommand [liminfm] [limop] {\underline{\lim}}
+
+% Algebra
+\definemathcommand [ker] [nolop] {\mfunction{ker}}
+\definemathcommand [im] [nolop] {\mfunction{im}}
+
+% Arithmetic
+\definemathcommand [gcd] [nolop] {\mfunction{gcd}}
+\definemathcommand [lcm] [nolop] {\mfunction{lcm}}
+\definemathcommand [dim] [limop] {\mfunction{dim}}
+% \def \congruent[#modulus]{≡_{#modulus}}
+
+% Probability
+\definemathcommand [infinitelyoften] [nolop] {\,\mfunction{i.o.}}
+\definemathcommand [eventually] [nolop] {\,\mfunction{ev}}
+
+% Matrices
+\definemathmatrix
+	[rndmatrix]
+	[left={\,\left(\,},right={\,\right)\,}]
+
+
+% Styling for mathematical environments
+
+%  Randomized frame
+\startuseMPgraphic{background:mathematicalargumentframe}
+	path p;
+	for i = 1 upto nofmultipars :
+		p = (multipars[i]  topenlarged 1pt  bottomenlarged 1pt)  randomized 1pt;
+		fill p withcolor green + 0.9375 * white;    % hard to change (works: red, green, blue, white, lightgray + linear combinations)
+		draw p withcolor \MPvar{linecolor}
+		withpen pencircle scaled \MPvar{linewidth};
+	endfor;
+\stopuseMPgraphic
+
+\definetextbackground [mathematicalargumentframe] [
+	mp=background:mathematicalargumentframe,
+	location=paragraph,
+	rulethickness=0.5pt,
+	framecolor=green,    % hard to change (works: red, green, blue, white, lightgray)
+	width=broad,
+	leftoffset=4pt,
+	rightoffset=4pt,
+	before={\testpage[3]\blank[small]},
+	after={\blank[small]}]
+
+
+%% Mathematical environments
+
+\definereferenceformat [eqref] [left=(, right=)]    % Referencing formulas
+
+\defineenumeration [mathematicalstatement] [
+	title=yes,    % now we can use title={}
+	% number=no,    % uncomment if statements shoud not be numbered
+	way=bychapter,    % eg wiki/Command/defineenumeration
+	prefix=chapter,    % eg wiki/Command/defineenumeration
+	headstyle=bold,
+	headcolor=\getvariable{document}{color-headings},
+	width=fit,
+	alternative=hanging,  % top
+	hang=fit]
+
+\defineenumeration [mathematicalargument] [
+	title=yes,    % now we can use title={}
+	number=no,    % removes numbering
+	headstyle=italic,
+	titlestyle=italic,
+	style=normal,
+	headcolor=\getvariable{document}{color-headings},
+	width=fit,
+	alternative=hanging,  % top
+	hang=fit,
+	% before={\startmathematicalargumentframe},
+	% after={\stopmathematicalargumentframe},
+	% before=,
+	% after=,
+	closesymbol={□}]
+
+\defineenumeration [exercise] [mathematicalstatement] [
+	text=Exercise,
+	list=all,
+	listtext={Exercise }]
+
+\defineenumeration [solution] [mathematicalargument] [
+	text=Solution.]
+
+
+\stopenvironment

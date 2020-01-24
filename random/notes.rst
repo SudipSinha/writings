@@ -49,3 +49,10 @@ SIAM Student chapter roles
 0. Liaison officer
    *  Print poster and put in on the 12 doors
    *  Recruit members
+
+
+Po-Han's suggestions for learning infinite-dimensional analysis
+===============================================================   
+
+0. Prévôt, Röckner - A Concise Course on Stochastic Partial Differential Equations (2007) (A -> B -> C -> 2)
+0. (Advances in applied mathematics) Chow, Pao Liu-Stochastic Partial Differential Equations-CRC Press (2014) - Only 6.1 -- 6.4.

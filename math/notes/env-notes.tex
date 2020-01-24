@@ -2,10 +2,6 @@
 
 \startenvironment *
 
-%%%%%%%%%%%%
-% Preamble %
-%%%%%%%%%%%%
-
 % mode=mkiv
 \mainlanguage[\getvariable{document}{language}]
 \version [\getvariable{document}{version}]
@@ -255,7 +251,7 @@
 	way=bychapter,    % eg wiki/Command/defineenumeration
 	prefix=chapter,    % eg wiki/Command/defineenumeration
 	headstyle=bold,
-	headcolor=\getvariable{document}{color-foreground-0},
+	headcolor=\getvariable{document}{color-foreground},
 	width=fit,
 	alternative=hanging,  % top
 	hang=fit,
@@ -267,7 +263,7 @@
 	headstyle=italic,
 	titlestyle=italic,
 	style=normal,
-	headcolor=\getvariable{document}{color-foreground-0},
+	headcolor=\getvariable{document}{color-foreground},
 	width=fit,
 	alternative=hanging,  % top
 	hang=fit,
@@ -363,7 +359,7 @@
 
 % Arabic numerals for body matter page numbering
 \startsectionblockenvironment [bodypart]
-  \setcounter [userpage] [1]
+	\setcounter [userpage] [1]
 \stopsectionblockenvironment
 
 
