@@ -1,8 +1,69 @@
 \startcomponent *
 
-\product  prd-functional-analy_0sis
+\product  prd-functional-analysis
 
 \startchapter [title={Elementary ideas}]
+
+	\startsection [title={Weak and weak* convergence}]
+		
+		\emph{Disclaimer}: This section is shamelessly copied from \goto{Christopher Heil's notes}[url(https://people.math.gatech.edu/~heil/handouts/weak.pdf)].
+
+		\startdefinition
+			Let \m{X} be a normed vector space, and \m{x_n, x ∈ X}. We define the following convergences as \m{n → ∞}.
+			\startformula \startalign
+				\NC  \text{(strong)} \qquad  x_n → x  \qquad ⟺ \qquad  \NC  \norm{x_n - x} → 0  \NR
+				\NC  \text{(weak)} \qquad  x_n \xrightarrow{w} x  \qquad ⟺ \qquad  \NC  ∀ϕ ∈ X^*, \quad  \pair{x_n - x, ϕ} → 0  \NR
+			\stopalign \stopformula
+		\stopdefinition
+
+		\startdefinition
+			Let \m{X} be a normed vector space, and \m{ϕ_n, ϕ ∈ X^*}. We define the following convergences as \m{n → ∞}.
+			\startformula \startalign
+				\NC  \text{(strong)} \qquad  ϕ_n → ϕ  \qquad ⟺ \qquad  \NC  \norm{ϕ_n - ϕ} → 0  \NR
+				\NC  \text{(weak)} \qquad  ϕ_n \xrightarrow{w} ϕ  \qquad ⟺ \qquad  \NC  ∀ξ ∈ X^{**}, \quad  \pair{ϕ_n - ϕ, ξ} → 0  \NR
+				\NC  \text{(weak*)} \qquad  ϕ_n \xrightarrow{w^*} ϕ  \qquad ⟺ \qquad  \NC  ∀x ∈ X, \quad  \pair{x, ϕ_n - ϕ} → 0  \NR
+			\stopalign \stopformula
+		\stopdefinition
+
+		\startremark
+			Weak* convergence is simply \emph{pointwise convergence} for the functionals \m{ϕ_n}.
+		\stopremark
+
+		\startproposition [title={strong ⟹ weak ⟹ weak* for convergence}]
+			Suppose \m{ϕ_n, ϕ ∈ X^*}. Then \m{ϕ_n → ϕ  ⟹  ϕ_n \xrightarrow{w} ϕ  ⟹  ϕ_n \xrightarrow{w^*} ϕ}.
+			
+			The second implication reverses if \m{X} is reflexive.
+		\stopproposition
+		\startproof
+			\emph{strong ⟹ weak}: \qquad
+			\m{\pair{x_n - x, ϕ} ≤ \norm{x_n - x} \norm{ϕ} → 0}.
+		
+			\emph{weak ⟹ weak*}: \qquad
+			\m{\pair{x, ϕ_n - ϕ} = \pair{ϕ_n - ϕ, x^{**}} → 0}.
+
+			The claim about the reverse implication is now obvious.
+
+			\emph{Counterexample for converse of the first implication}: Suppose \m{X = ℓ^2(ℕ)}. Then \m{e_n \xrightarrow{w} 0}, but \m{\norm{e_n - 0} = 1 ↛ 0}.
+		\stopproof
+
+		\startproposition
+			In Hilbert spaces, weak convergence plus convergence of norms (\m{\norm{x_n} → \norm{x}}) is equivalent to strong convergence.
+		\stopproposition
+		\startproof
+			\m{\norm{x_n - x}^2 = \inn{x_n - x, x_n - x} = \inn{x_n - x, x_n} - \inn{x_n - x, x} → 0}.
+		\stopproof
+
+		\startproposition
+			Let \m{H} and \m{K} be Hilbert spaces, and let \m{T ∈ B(H, K)} be a compact operator. Show that \m{x_n \xrightarrow{w} x ⟹ T x_n → T x}.
+			
+			Thus, a compact operator maps weakly convergent sequences to strongly convergent sequences.
+		\stopproposition
+		\startproof
+			\emph{Disclaimer}: Stolen from \goto{MSx1142451}[url(https://math.stackexchange.com/questions/1142451/compact-operators-weak-convergence)].
+
+			\m{T x_n \xrightarrow{w} T x} by continuity. Thus if any subsequence has a strong limit, it certainly is \m{T x}. But compactness guarantees every subsequence has a subsequence that converges to something: that something is \m{T x} by uniqueness, and so by our above equivalence with convergence, we have \m{T x_n → T x}.
+		\stopproof
+	\stopsection
 
 	\startsection [title={Definitions}]
 		\dscr{Compact}  \m{T ∈ 𝓚 ⟺ λ → 0}
@@ -14,10 +75,10 @@
 
 	\startsection [title={Inclusions: \m{𝓓 ⊂ 𝓑^1 ⊂ 𝓑^2 ⊂ 𝓚 ⊂ 𝓑^∞}}]
 		\dscr{\m{𝓚 ⊆ 𝓑^∞}}
-			(\cite[authoryear][BMC2009], Proposition 4.6) If \m{T} is unbounded, we can find a sequence of unit vectors \m{(e_n)} such that \m{\norm[T e_n] ↗ ∞}. So \m{T e_n} cannot have a convergent subsequence, for if \m{T e_n → x}, then \m{\norm[T e_n] → \norm[x]}.
+			(\cite[authoryear][BMC2009], Proposition 4.6) If \m{T} is unbounded, we can find a sequence of unit vectors \m{(e_n)} such that \m{\norm{T e_n} ↗ ∞}. So \m{T e_n} cannot have a convergent subsequence, for if \m{T e_n → x}, then \m{\norm{T e_n} → \norm{x}}.
 
 		\dscr{\m{𝓚 ≠ 𝓑^∞}}
-			The identity operator \m{I ∈ 𝓑^∞} is not compact because for the bounded sequence of unit vectors \m{(e_n)}, \m{I e_n = e_n} does not converge as \m{\norm[e_n - e_m] = \sqrt2 \ ∀ n ≠ m}.
+			The identity operator \m{I ∈ 𝓑^∞} is not compact because for the bounded sequence of unit vectors \m{(e_n)}, \m{I e_n = e_n} does not converge as \m{\norm{e_n - e_m} = \sqrt2 \ ∀ n ≠ m}.
 
 		\dscr{\m{𝓑^2 ⊆ 𝓚}}  TODO
 
@@ -30,16 +91,15 @@
 			\m{T: ℓ^2 → ℓ^2, T e_n = \frac{1}{n} e_n; T ∈ 𝓑^2 ∖ 𝓑^1}.
 	\stopsection
 
-	\startsection [title={For \m{T ∈ 𝓑^∞}, \m{\norm[T]_∞ = \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}}]
-		\dscr{(≤)}  Since \m{\norm[Tx]  =  \frac{\norm[Tx]^2}{\norm[Tx]}  =  \frac{\inn[Tx, Tx]}{\norm[Tx]}  =  \inn[Tx, \frac{Tx}{\norm[Tx]}]}, we have \m{\norm[T]_∞  =  \sup\bcrl[{\norm[Tx] : \norm[x] = 1}]  ≤  \sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]}.
+	\startsection [title={For \m{T ∈ 𝓑^∞}, \m{\norm{T}_∞ = \sup\bcrl{\abs{\inn{Tx, y}}} : \norm{x} = 1, \norm{y} = 1}}]
+		\dscr{(≤)}  Since \m{\norm{Tx}  =  \frac{\norm{Tx}^2}{\norm{Tx}}  =  \frac{\inn{Tx, Tx}}{\norm{Tx}}  =  \inn{Tx, \frac{Tx}{\norm{Tx}}}}, we have \m{\norm{T}_∞  =  \sup\bcrl{\norm{Tx} : \norm{x} = 1}  ≤  \sup\bcrl{\abs{\inn{Tx, y}} : \norm{x} = 1, \norm{y} = 1}}.
 
-		% \dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\bcrl[{\abs[{\inn[{Tx, y}]}] : \norm[x] = 1, \norm[y] = 1}]  ≤  \norm[T]_∞}.    % For some reason, this does not work.
-		\dscr{(≥)}  On the other hand, \m{\inn[Tx, y]  ≤  \norm[Tx] \norm[y]  ≤  \norm[T]_∞ \norm[x] \norm[y]}, so \m{\sup\{\abs[{\inn[Tx, y]}] : \norm[x] = 1, \norm[y] = 1 \}  ≤  \norm[T]_∞}.
-
+		% \dscr{(≥)}  On the other hand, \m{\inn{Tx, y}  ≤  \norm{Tx} \norm{y}  ≤  \norm{T}_∞ \norm{x} \norm{y}}, so \m{\sup \bcrl{\abs{\inn{Tx, y}} : \norm{x} = 1, \norm{y} = 1}  ≤  \norm{T}_∞}.  % For some reason, this \bcrl does not work.
+		\dscr{(≥)}  On the other hand, \m{\inn{Tx, y}  ≤  \norm{Tx} \norm{y}  ≤  \norm{T}_∞ \norm{x} \norm{y}}, so \m{\sup \{\abs{\inn{Tx, y}} : \norm{x} = 1, \norm{y} = 1 \}  ≤  \norm{T}_∞}.
 	\stopsection
 
-	\startsection [title={\m{\norm[P]_∞ ≤ 1}}]
-		Since \m{\norm[Px]^2 = \inn[Px, Px] = \inn[P^* P x, x] = \inn[P P x, x] = \inn[P x, x] ≤ \norm[Px] \norm[x]}, we have \m{\norm[P]_∞ ≤ 1}.
+	\startsection [title={\m{\norm{P}_∞ ≤ 1}}]
+		Since \m{\norm{Px}^2 = \inn{Px, Px} = \inn{P^* P x, x} = \inn{P P x, x} = \inn{P x, x} ≤ \norm{Px} \norm{x}}, we have \m{\norm{P}_∞ ≤ 1}.
 	\stopsection
 
 	\startsection [title={Projection operator is compact iff its image is finite dimensional}]

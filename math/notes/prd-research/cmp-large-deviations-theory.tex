@@ -10,70 +10,21 @@
 
 
 \startchapter [title={Friedlin-Wentzell theorem for anticipating initial condition with extension of filtration}, reference=chp:FW-anticipating-IC-extension-filtration]
-	
-	Our aim is to formulate a large deviations principle for an SDE with anticipating initial conditions. We start of with a very simple case
+
+	\emph{Notation}: In what follows, \m{T < ∞} and \m{t ∈ [0, T]}.
+
+	Our aim is to formulate a large deviations principle for a stochastic differential equation with anticipating initial conditions. Consider a very simple case
 	\startformula
-		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d W_t ,
+		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d W_t , \quad t ∈ [0, T],
 	\stopformula
-	where \m{t ∈ [0, T]} for some \m{T < ∞}, and conditions on \m{σ} shall be imposed as necessary.
+	and \m{σ} satisfies the following:
+	\startitemize [5, joinedup]
+		\item  \emph{bounded}: \qquad  \m{\abs{σ(x)} ≤ M_σ}.
+		\item  \emph{Lipschitz}: \qquad  \m{\abs{σ(x) - σ(y)} ≤ L_σ \abs{x - y}}.
+		\item  \emph{linear growth}: \qquad  \m{\abs{σ(x)}^2 ≤ G_σ(1 + \abs{x}^2)}.
+	\stopitemize
 
 	We shall look at the method of enlargement of filtration by \cite[short][Itô1978]. We denote the enlarged filtration by \m{\tilde{ℱ}_t = ℱ_t ∨ σ(W_T)}. For \m{t ∈ [0, T]}, define the process \m{A_t = ∫_0^t \frac{W_T - W_u}{T - u} \d u}. Then \m{W_t = \tilde{W}_t + A_t}, where \m{\tilde{W}_⋅} is a Wiener process w.r.t. \m{\tilde{ℱ}_⋅}.
-
-	For now, we shall bound \m{t ∈ [0, T_b]}, where \m{T_b ∈ [0, T)}.
-	\comment{What happens when \m{t → T}?}
-
-	Using this, we write our original SDE as
-	\startformula
-		X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{W_T - W_s}{T - s} \d s .
-	\stopformula
-
-	Let \m{\tilde{X}_t^ε = X_t^ε - W_T} and \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then we have
-	\startformula  \startalign
-		\NC  \tilde{X}_t^ε  =  \NC  \sqrt{ε} ∫_0^t σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}] \d \tilde{W}_t + ∫_0^t σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}] \frac{Y_s^ε}{T - s} \d s , \text{ and}  \NR
-		\NC  Y_t^ε  =  \NC  \sqrt{ε} W_T - \sqrt{ε} ∫_0^t \d \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s .
-	\stopalign  \stopformula
-
-	% Since
-	% \startformula  \startalign
-	% 	\NC  Y_t^ε  \NC  =  \sqrt{ε} W_T - \sqrt{ε} W_t  \NR
-	% 	\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} \brnd[\tilde{W}_t + ∫_0^t \frac{W_T - W_s}{T - s} \d s]  \NR
-	% 	\NC  \NC  =  \sqrt{ε} W_T - \sqrt{ε} ∫_0^t \d \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s  \NR
-	% \stopalign  \stopformula
-
-	Therefore, we have the joint process
-	\startformula
-		Z_t^ε :=
-		\startrndmatrix
-			\tilde{X}_t^ε  \NR  Y_t^ε  \NR
-		\stoprndmatrix
-		=
-		\startrndmatrix
-			0  \NR  \sqrt{ε} W_T  \NR
-		\stoprndmatrix
-		+  \sqrt{ε} ∫_0^t
-		\startrndmatrix
-			σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}]  \NR  -1  \NR
-		\stoprndmatrix
-		\d \tilde{W}_s  +  ∫_0^t
-		\startrndmatrix
-			σ\brnd[\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}]  \NR  -1  \NR
-		\stoprndmatrix
-		\frac{Y_s^ε}{T - s} \d s .
-	\stopformula
-
-	Note that we expect \m{Z_t^ε → 0} as \m{ε → 0}. In order to obtain a large deviation principle for \m{X_t^ε}, we first obtain the LDP for \m{Z_t^ε}.
-
-	Firstly, we show that there is a unique solution of \m{Z_t^ε}. For convinience, let \m{\tilde{σ}_t (x, y) = (σ(x), -1)} and \m{\tilde{b}(x, y) = \frac{y}{T - s} (σ(x), -1)}.
-	\startproposition
-		\m{\tilde{σ}} and \m{\tilde{b}} satisfy the linear growth and Lipshitz conditions.
-	\stopproposition
-	\startproof
-		
-	\stopproof
-
-	We want a large deviation principle of the joint process \m{Z_t^ε = (X_t^ε - W_T, Y_t^ε)}.
-
-	We take a sequence of stopping times \m{(τ_n)} such that \m{τ_n ↗ T_b}. Then
 
 	\startsection [title={\m{\tilde{W}_⋅} is a Wiener process}]
 
@@ -86,7 +37,7 @@
 		\stoplemma
 
 		\startproof
-			For any Borel set \m{B}, the set \m{\bcrl[W_T ∈ B] = \bcrl[(W_T - W_t) + W_t ∈ B]}.
+			For any Borel set \m{B}, the set \m{\bcrl{W_T ∈ B} = \bcrl{(W_T - W_t) + W_t ∈ B}}.
 
 			TODO
 		\stopproof
@@ -99,19 +50,19 @@
 		\stoplemma
 
 		\startproof
-			We partition the interval \m{[0, T]} into \m{n = k n_0} equal parts, where \m{n_0 = \brnd[\min{\bcrl[s, t - s, T - t]}]^{-1}} and \m{k ∈ ℕ}. Let \m{n_s = s \frac{n}{T}} and \m{n_t = t \frac{n}{T}}. That is, the partition is
+			We partition the interval \m{[0, T]} into \m{n = k n_0} equal parts, where \m{n_0 = \brnd{\min\bcrl{s, t - s, T - t}}^{-1}} and \m{k ∈ ℕ}. Let \m{n_s = s \frac{n}{T}} and \m{n_t = t \frac{n}{T}}. That is, the partition is
 			\startformula
-				P = \bcrl[0, \frac{T}{n}, …, \frac{n_s T}{n} = s, …, \frac{n_t T}{n} = t, …, \frac{(n - 1)T}{n}, T] .
+				P = \bcrl{0, \frac{T}{n}, …, \frac{n_s T}{n} = s, …, \frac{n_t T}{n} = t, …, \frac{(n - 1)T}{n}, T} .
 			\stopformula
 
 			Let \m{Δ_i W = W_{\frac{(i + 1) T}{n}} - W_{\frac{i T}{n}}}.
 
 			Firstly, note that the \m{Δ_i W}s are independent and identically distributed from the definition of Wiener process. Now, using the linearity of conditional expectation, we have
 			\startformula  \startalign
-				\NC  𝔼(W_t - W_s ∣ W_T - W_s)  =  \NC  𝔼 \brnd[∑_{i = n_s}^{n_t - 1} Δ_i W ∣ ∑_{i = n_s}^{n_t - 1} Δ_i W]  \NR
-				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
-				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s} ∑_{i = n_s}^{n - 1} 𝔼 \brnd[Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
-				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  𝔼 \brnd[∑_{i = n_s}^{n - 1} Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W]  \NR
+				\NC  𝔼(W_t - W_s ∣ W_T - W_s)  =  \NC  𝔼 \brnd{∑_{i = n_s}^{n_t - 1} Δ_i W ∣ ∑_{i = n_s}^{n_t - 1} Δ_i W}  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} 𝔼 \brnd{Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W}  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s} ∑_{i = n_s}^{n - 1} 𝔼 \brnd{Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W}  \NR
+				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  𝔼 \brnd{∑_{i = n_s}^{n - 1} Δ_i W ∣ ∑_{i = n_s}^{n - 1} Δ_i W}  \NR
 				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  ∑_{i = n_s}^{n - 1} Δ_i W  \NR
 				\NC  =  \NC  ∑_{i = n_s}^{n_t - 1} \frac{1}{n - n_s}  (W_T - W_s)  \NR
 				\NC  =  \NC  \frac{n_t - n_s}{n - n_s}  (W_T - W_s)  \quad  =  \quad  \frac{t - s}{T - s}  (W_T - W_s) . \NR
@@ -128,21 +79,21 @@
 			\startformula
 				\tilde{W}_t - \tilde{W}_s
 				=  (W_t - W_s) - ∫_s^t \frac{W_T - W_u}{T - u} \d u
-				=  (W_t - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{W_u - W_s}{T - u}] \d u .
+				=  (W_t - W_s) - ∫_s^t \brnd{\frac{W_T - W_s}{T - u} - \frac{W_u - W_s}{T - u}} \d u .
 			\stopformula
 
 			Moreover, since \m{W_t - W_s} is independent of \m{ℱ_s} for every \m{t ≥ s}, using lemmas \in[lemma:equality-of-σalgebras] and \in[lemma:conditional-expectation-of-W_t-W_s], we get
 			\startformula
 				𝔼(W_t - W_s ∣ \tilde{ℱ}_s)
-				=  𝔼 \brnd[W_t - W_s ∣ ℱ_s ∨ σ(W_T - W_s)]
-				=  𝔼 \brnd[W_t - W_s ∣ W_T - W_s] = \frac{t - s}{T - s} (W_T - W_s) .
+				=  𝔼 \brnd{W_t - W_s ∣ ℱ_s ∨ σ(W_T - W_s)}
+				=  𝔼 \brnd{W_t - W_s ∣ W_T - W_s} = \frac{t - s}{T - s} (W_T - W_s) .
 			\stopformula
 
 			Therefore, using the fact that \m{W_T} and \m{W_s} are \m{\tilde{ℱ}_s}-measurable with conditional Fubini's theorem, we get
 			\startformula  \startalign
 				\NC  𝔼(\tilde{W}_t - \tilde{W}_s ∣ \tilde{ℱ}_s)
-				     =  \NC  𝔼 \brnd[W_t - W_s ∣ \tilde{ℱ}_s] - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{𝔼 \brnd[W_u - W_s ∣ \tilde{ℱ}_s]}{T - u}] \d u  \NR
-				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \brnd[\frac{W_T - W_s}{T - u} - \frac{u - s}{T - s} \frac{W_T - W_s}{T - u}] \d u  \NR
+				     =  \NC  𝔼 \brnd{W_t - W_s ∣ \tilde{ℱ}_s} - ∫_s^t \brnd{\frac{W_T - W_s}{T - u} - \frac{𝔼 \brnd{W_u - W_s ∣ \tilde{ℱ}_s}}{T - u}} \d u  \NR
+				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \brnd{\frac{W_T - W_s}{T - u} - \frac{u - s}{T - s} \frac{W_T - W_s}{T - u}} \d u  \NR
 				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - ∫_s^t \frac{W_T - W_s}{T - s} \d u  \NR
 				\NC  =  \NC  \frac{t - s}{T - s} (W_T - W_s) - \frac{t - s}{T - s} (W_T - W_s)  \quad  =  \quad  0 . \NR
 			\stopalign  \stopformula
@@ -155,10 +106,109 @@
 			The quadratic variation of \m{\tilde{W}_t} is \m{t}.
 		\stopproposition
 
-		% \startproof
-		% 	TODO
-		% \stopproof
+		\startproof
+			TODO
+		\stopproof
 
+	\stopsection
+
+
+	\startsection [title={Reformulating the problem}]
+
+		For now, we shall bound \m{t ∈ [0, T_b]}, where \m{T_b ∈ [0, T)}.
+		\comment{What happens when \m{t → T}?}
+
+		Using this, we write our original stochastic differential equation as
+		\startformula
+			X_t^ε = W_T + \sqrt{ε} ∫_0^t σ(X_t^ε) \d \tilde{W}_t + \sqrt{ε} ∫_0^t σ(X_t^ε) \frac{W_T - W_s}{T - s} \d s .
+		\stopformula
+
+		Let \m{\tilde{X}_t^ε = X_t^ε - W_T} and \m{Y_t^ε = \sqrt{ε} (W_T - W_t)}. Then we have
+		\startformula  \startalign
+			\NC  \tilde{X}_t^ε  =  \NC  \sqrt{ε} ∫_0^t σ\brnd{\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}} \d \tilde{W}_t + ∫_0^t σ\brnd{\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}} \frac{Y_s^ε}{T - s} \d s , \text{ and}  \NR
+			\NC  Y_t^ε  =  \NC  \sqrt{ε} W_T - \sqrt{ε} ∫_0^t \d \tilde{W}_t - ∫_0^t \frac{Y_s^ε}{T - s} \d s .
+		\stopalign  \stopformula
+
+		So together we have the joint process
+		\startformula
+			Z_t^ε :=
+			\startrndmatrix
+				\tilde{X}_t^ε  \NR  Y_t^ε  \NR
+			\stoprndmatrix
+			=
+			\startrndmatrix
+				0  \NR  \sqrt{ε} W_T  \NR
+			\stoprndmatrix
+			+  \sqrt{ε} ∫_0^t
+			\startrndmatrix
+				σ\brnd{\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}}  \NR  -1  \NR
+			\stoprndmatrix
+			\d \tilde{W}_s  +  ∫_0^t
+			\startrndmatrix
+				σ\brnd{\tilde{X}_t^ε + \frac{Y_0^ε}{\sqrt{ε}}}  \NR  -1  \NR
+			\stoprndmatrix
+			\frac{Y_s^ε}{T - s} \d s .
+		\stopformula
+
+		Note that we expect \m{Z_t^ε → 0} as \m{ε ↘ 0}. We first obtain a large deviation principle for \m{Z_t^ε}.
+
+		Fix \m{R > 0}, and define the exit time from the \m{R}-ball centered at the origin as
+		\startformula
+			τ_R = \inf\bcrl{t: Y^ε_0 > R} ∧ T_b .
+		\stopformula
+		Clearly \m{τ_R ↗ T_b} as \m{R ↗ ∞}.
+		
+		We now show that that there is a unique solution of \m{Z_t^ε} on \m{t ∈ \intcc{0, τ_R}}. For convenience, let
+		\startformula
+			\tilde{σ}^ε_{t, υ} (x, y) = \brnd{σ \brnd{x + \frac{υ}{\sqrt{ε}}}, -1}
+			\qquad \text{and} \qquad
+			\tilde{b}^ε_{t, υ} (x, y) = \frac{y}{T - s} \brnd{σ \brnd{x + \frac{υ}{\sqrt{ε}}}, -1} .
+		\stopformula
+
+		\startlemma
+			The process \m{Z_t^ε} exists and is unique for \m{t ∈ \intcc{0, τ_R}}.
+		\stoplemma
+		\startproof
+			Let \m{υ = Y^ε_0}. We first show that \m{\tilde{σ}} and \m{\tilde{b}} satisfy the linear growth and Lipshitz conditions locally.
+
+			\startitemize [5]
+				
+				\item  \emph{Lipschitz condition for \m{\tilde{σ}}}: \qquad
+					Since \m{σ} is Lipschitz, we have
+					\startformula  \startalign
+						\NC  \norm{\tilde{σ}^ε_{t, υ_2} (x_2, y_2) - \tilde{σ}^ε_{t, υ_1} (x_1, y_1)}  =  \NC  \abs{σ \brnd{x_2 + \frac{υ_2}{\sqrt{ε}}} - σ \brnd{x_1 + \frac{υ_1}{\sqrt{ε}}}}  \NR
+						\NC  ≤  \NC  L_σ \brnd{\abs{x_2 - x_1} + \frac{1}{\sqrt{ε}} \abs{υ_2 - υ_1}}  \NR
+						\NC  ≤  \NC  L_σ \brnd{1 ∨ \frac{1}{\sqrt{ε}}} \brnd{\abs{x_2 - x_1} + \abs{υ_2 - υ_1}} . \NR
+					\stopalign  \stopformula
+
+				\item  \emph{Lipschitz condition for \m{\tilde{b}}}: \qquad
+					Using the boundedness of \m{σ}, we get
+					\startformula  \startalign
+						\NC     \NC  \norm{\tilde{b}^ε_{t, υ_2} (x_2, y_2) - \tilde{b}^ε_{t, υ_1} (x_1, y_1)}  \NR
+						\NC  ≤  \NC  \frac{1}{T-t} \brnd{\abs{σ \brnd{x_2 + \frac{υ_2}{\sqrt{ε}}} y_2 - σ \brnd{x_1 + \frac{υ_1}{\sqrt{ε}}} y_1} + \abs{y_2 - y_1}}  \NR
+						\NC  ≤  \NC  \frac{1}{T-t} \brnd{\abs{σ \brnd{x_2 + \frac{υ_2}{\sqrt{ε}}}} \abs{y_2 - y_1} + \abs{σ \brnd{x_2 + \frac{υ_2}{\sqrt{ε}}} - σ \brnd{x_1 + \frac{υ_1}{\sqrt{ε}}}} \abs{y_1} + \abs{y_2 - y_1}}  \NR
+						\NC  ≤  \NC  \frac{1}{T-t} \brnd{M_σ \abs{y_2 - y_1} + L_σ \brnd{1 ∨ \frac{1}{\sqrt{ε}}} \abs{y_1} \brnd{\abs{x_2 - x_1} + \abs{υ_2 - υ_1}} + \abs{y_2 - y_1}}  \NR
+						\NC  ≤  \NC  \good{\frac{1}{T-t} \brnd{(M_σ + 1) ∨ \brnd{L_σ \brnd{1 ∨ \frac{1}{\sqrt{ε}}} R}}} \brnd{\abs{x_2 - x_1} + \abs{y_2 - y_1} + \abs{υ_2 - υ_1}} , \NR
+					\stopalign  \stopformula
+					where \m{\abs{y_1} ≤ R} since \m{t ∈ \intcc{0, τ_R}}.
+
+				\item  \emph{Linear growth condition for \m{\tilde{σ}}}: \qquad
+					\startformula  \startalign
+						\NC  \norm{\tilde{σ}^ε_{t, υ} (x, y)}^2  =  \NC  1 + \abs{σ \brnd{x + \frac{υ}{\sqrt{ε}}}}^2  \NR
+						\NC  ≤  \NC  1 + G_σ \brnd{1 + \abs{x + \frac{υ}{\sqrt{ε}}}^2}  \NR
+						\NC  ≤  \NC  1 + G_σ \brnd{1 + 2 \abs{x}^2 + 2\frac{\abs{υ}^2}{ε}}  \NR
+						\NC  ≤  \NC  \good{2 G_σ \brnd{1 ∨ \inv{ε}}} \brnd{1 + \abs{x}^2 + \abs{υ}^2} . \NR
+					\stopalign  \stopformula
+
+				\item  \emph{Linear growth condition for \m{\tilde{b}}}: \qquad
+					\startformula  \startalign
+						\NC  \norm{\tilde{b}^ε_{t, υ} (x, y)}^2  =  \NC  1 + \abs{σ \brnd{x + \frac{υ}{\sqrt{ε}}} \frac{y}{T - t}}^2  \NR
+						\NC  ≤  \NC  \good{\frac{1}{T - t} 2 G_σ \brnd{1 ∨ \inv{ε}} R^2} \brnd{1 + \abs{x}^2 + \abs{υ}^2} . \NR
+					\stopalign  \stopformula
+			\stopitemize
+
+			The above implies that \m{Z^ε_t} exists and is unique for \m{t ∈ \intcc{0, τ_R}}.
+		\stopproof
 	\stopsection
 
 \stopchapter

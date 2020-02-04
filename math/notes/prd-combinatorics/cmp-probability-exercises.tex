@@ -65,7 +65,7 @@
 			\stopitemize
 			If \m{F} is an event, then prove that
 			\startformula
-				ℙ(F)  =  ∑_{i = 1}^n \bsqr[ℙ(F ∣ E_i) ℙ(E_i)] .
+				ℙ(F)  =  ∑_{i = 1}^n \bsqr{ℙ(F ∣ E_i) ℙ(E_i)} .
 			\stopformula 
 		\stopexercise
 
@@ -114,7 +114,7 @@
 		\startexercise [title={Betting}]
 			Three balls are selected randomly without replacement from an urn containing 20 balls numbered 1 through 20. I bet that I win if if the maximum number is at least 17 (or more). What is the probability that I win?
 
-			\comment{Hint}: Let \m{X} denote the maximum number among the drawn balls. What is \m{ℙ\bcrl[X ≥ 17]}?
+			\comment{Hint}: Let \m{X} denote the maximum number among the drawn balls. What is \m{ℙ\bcrl{X ≥ 17}}?
 		\stopexercise
 
 		\startexercise [title={\emph{Binomial} random variables}]
@@ -122,18 +122,18 @@
 
 			Let \m{p} be the probability of turning up heads for each coin, so \m{p = \frac23}.
 
-			Let \m{X} be the number of heads in the experiment. Then \m{X} can vary from 0 to 7. We want to compute \m{ℙ\bcrl[X = k]} for each value of k.
+			Let \m{X} be the number of heads in the experiment. Then \m{X} can vary from 0 to 7. We want to compute \m{ℙ\bcrl{X = k}} for each value of k.
 
 			Help Jonathan fill up the table.
 			\startitemize [1, joinedup, columns]
-				\item  \m{ℙ\bcrl[X = 0] = }
-				\item  \m{ℙ\bcrl[X = 1] = }
-				\item  \m{ℙ\bcrl[X = 2] = }
-				\item  \m{ℙ\bcrl[X = 3] = }
-				\item  \m{ℙ\bcrl[X = 4] = }
-				\item  \m{ℙ\bcrl[X = 5] = }
-				\item  \m{ℙ\bcrl[X = 6] = }
-				\item  \m{ℙ\bcrl[X = 7] = }
+				\item  \m{ℙ\bcrl{X = 0} = }
+				\item  \m{ℙ\bcrl{X = 1} = }
+				\item  \m{ℙ\bcrl{X = 2} = }
+				\item  \m{ℙ\bcrl{X = 3} = }
+				\item  \m{ℙ\bcrl{X = 4} = }
+				\item  \m{ℙ\bcrl{X = 5} = }
+				\item  \m{ℙ\bcrl{X = 6} = }
+				\item  \m{ℙ\bcrl{X = 7} = }
 			\stopitemize
 
 			Having done all this work, Jonathan now wants to calculate the \emph{mean} of \m{X}. How can he do it?
@@ -148,7 +148,7 @@
 		\startexercise [title={Markov inequality}]
 			Let \m{X} be a random variable taking only non-negative values. Prove that
 			\startformula
-				ℙ\bcrl[X ≥ k] ≤ \frac1k 𝔼(X) .
+				ℙ\bcrl{X ≥ k} ≤ \frac1k 𝔼(X) .
 			\stopformula
 		\stopexercise
 

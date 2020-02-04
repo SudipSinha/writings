@@ -22,14 +22,14 @@
 	\stopsection
 
 	\startsection [title={Enumerations}]
-				
+		
 		\startitemize [1, joinedup]
 		
-			\item  Multiplication rule: if \m{E} and \m{F} are finite sets, then \m{|E × F| = |E| |F|}.
+			\item  Multiplication rule: if \m{E} and \m{F} are finite sets, then \m{\abs{E × F} = \abs{E} \abs{F}}.
 
 				Number of ways of constructing a 100 character string out of the 26 letters of the English alphabet.
 
-			\item  Addition rule: if \m{E} and \m{F} are finite \emph{disjoint} sets, then \m{|E ⊔ F| = |E| + |F|}.
+			\item  Addition rule: if \m{E} and \m{F} are finite \emph{disjoint} sets, then \m{\abs{E ⊔ F} = \abs{E} + \abs{F}}.
 
 				If there are two roads from Baton Rouge to New Orleans, and three roads from Baton Rouge to Lafayette, in how many ways can you go from Baton Rouge to either of the places?
 
@@ -56,7 +56,7 @@
 			\startitemize [m, joinedup]
 				\item  for \m{1 ≤ i ≤ 6}, \m{l_i} is an uppercase letter in the English alphabet;
 				\item  for \m{1 ≤ i ≤ 4}, \m{d_i} is a decimal digit;
-				\item  \m{l_2} is not a vowel (i.e., \m{l_2 ∉ \bcrl[A, E, I, O, U]}); and
+				\item  \m{l_2} is not a vowel (i.e., \m{l_2 ∉ \bcrl{A, E, I, O, U}}); and
 				\item  the digits \m{d_1}, \m{d_2}, and \m{d_3} are distinct (i.e., \m{d_1 ≠ d_2 ≠ d_3 ≠ d_1}).
 			\stopitemize
 		\stopexercise
@@ -69,7 +69,7 @@
 		\startexercise [title={AC Ex 2.9}]
 			A database uses 20-character strings as record identifiers. The valid characters in these strings are upper-case letters in the English alphabet and decimal digits. (Recall there are 26 letters in the English alphabet and 10 decimal digits.) How many valid record identifiers are possible if a valid record identifier must meet \emph{all} of the following criteria:
 			\startitemize [m, joinedup]
-				\item  Letter(s) from the set \m{\bcrl[A, E, I, O, U]} occur in \emph{exactly} three positions of the string.
+				\item  Letter(s) from the set \m{\bcrl{A, E, I, O, U}} occur in \emph{exactly} three positions of the string.
 				\item  The last three characters in the string are \emph{distinct} decimal digits that do not appear elsewhere in the string.
 				\item  The remaining characters of the string may be filled with any of the remaining letters or decimal digits.
 			\stopitemize

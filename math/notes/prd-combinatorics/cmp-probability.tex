@@ -11,19 +11,19 @@
 		\NC  Term  \NC  Description  \NC  \text{Symbol/Idea}  \NC  \text{Coin toss Example}  \NR
 		\ML  \ML
 
-		\NC  sample space  \NC  set of outcomes  \NC  Ω  \NC  \bcrl[H, T]  \NR  \ML
+		\NC  sample space  \NC  set of outcomes  \NC  Ω  \NC  \bcrl{H, T}  \NR  \ML
 
 		\NC  outcome  \NC  arbitrary outcome  \NC  ω ∈ Ω  \NC  H  \NR  \ML
 
-		\NC  event  \NC  subset of sample space  \NC  E  \NC  ∅, \bcrl[H], \bcrl[T], \bcrl[H, T]  \NR  \ML
+		\NC  event  \NC  subset of sample space  \NC  E  \NC  ∅, \bcrl{H}, \bcrl{T}, \bcrl{H, T}  \NR  \ML
 
-		\NC  mutually exclusive  \NC  events with  \NC  E_1 ∩ E_2 = ∅  \NC  \bcrl[H] and \bcrl[T]  \NR
+		\NC  mutually exclusive  \NC  events with  \NC  E_1 ∩ E_2 = ∅  \NC  \bcrl{H} and \bcrl{T}  \NR
 		\NC  events  \NC  empty intersection  \NC  \NC  \NR  \ML
 
 		\NC  probability mass  \NC  weightage of  \NC  p: Ω → [0, 1], \text{ with}  \NC  p(H) = \frac13, p(T) = \frac23  \NR
 		\NC  function  \NC   each outcome  \NC  ∑_ω p(ω) = 1  \NC  \NR  \ML
 
-		\NC  probability  \NC  (of an event)  \NC  ℙ: 2^Ω → [0, 1],  \NC  ℙ(∅) = 0, ℙ(\bcrl[H, T]) = 1  \NR
+		\NC  probability  \NC  (of an event)  \NC  ℙ: 2^Ω → [0, 1],  \NC  ℙ(∅) = 0, ℙ(\bcrl{H, T}) = 1  \NR
 		\NC  \NC  \NC  ℙ(E) = ∑_{ω ∈ Ω} p(ω)  \NC  \NR  \ML
 
 		\NC  random variable  \NC  a function  \NC  X: Ω → ℝ  \NC  X(H) = 1, X(T) = 0  \NR  \ML
@@ -70,7 +70,7 @@
 		A \emph{non-negative valued} function \m{ℙ} defined on the set of events is called a \emph{probability measure} if the following hold.
 		\startitemize [n, nowhite, after]
 			\item  (null empty set)  \m{ℙ(∅) = 0}.
-			\item[countable-additivity]  (countable additivity)  For any sequence of mutually exclusive events \m{E_1, E_2, ⋯}, we have \m{ℙ\brnd[⨆_{n=1}^∞ E_n] = ∑_{n=1}^∞ ℙ(E_n)}.
+			\item[countable-additivity]  (countable additivity)  For any sequence of mutually exclusive events \m{E_1, E_2, ⋯}, we have \m{ℙ\brnd{⨆_{n=1}^∞ E_n} = ∑_{n=1}^∞ ℙ(E_n)}.
 			\item  (probability)  \m{ℙ(Ω) = 1}.
 		\stopitemize
 	\stopdefinition

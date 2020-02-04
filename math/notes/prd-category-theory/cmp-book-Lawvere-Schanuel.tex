@@ -5,7 +5,7 @@
 
 		\dscr{(S)}  \m{f} is the inverse of \m{g}.
 
-		\dscr{(T)}  \m{\inv[(k f)] = \inv[f] \inv[k]}.
+		\dscr{(T)}  \m{\inv{(k f)} = \inv{f} \inv{k}}.
 	\stopsection
 
 	\startsection [title={Article II, Exercise 2}]
@@ -24,7 +24,7 @@
 
 	\startsection [title={Article II, Exercise 3}]
 		\startitemize [a, nowhite, after]
-			\item  Since \m{f} is invertible, \m{f h = f k}, so premultiplying by \m{\inv[f]} and using associativity of composition, we get \m{h = k}.
+			\item  Since \m{f} is invertible, \m{f h = f k}, so premultiplying by \m{\inv{f}} and using associativity of composition, we get \m{h = k}.
 			\item  Exact same steps as Part (a).
 			\item  Counterexample:
 				\starttikzcd [cramped, row sep = tiny]
@@ -37,16 +37,16 @@
 
 	\startsection [title={Article II, Exercise 4}]
 		\startitemize [n, nowhite, after]
-			\item  \m{\inv[f]: ℝ → ℝ: x ↦ \frac13(x - 7)}
-			\item  \m{\inv[g]: [0, ∞) → [0, ∞): x ↦ \sqrt{x}}
+			\item  \m{\inv{f}: ℝ → ℝ: x ↦ \frac13(x - 7)}
+			\item  \m{\inv{g}: [0, ∞) → [0, ∞): x ↦ \sqrt{x}}
 			\item  Not injective
 			\item  Not injective
-			\item  \m{\inv[l]: [0, ∞) → [0, ∞): x ↦ \brnd[\frac{1}{x} - 1]}
+			\item  \m{\inv{l}: [0, ∞) → [0, ∞): x ↦ \brnd{\frac{1}{x} - 1}}
 		\stopitemize
 	\stopsection
 
 	\startsection [title={Article II, Exercise 5}]
-		0 can be mapped to either b, p, or q. 1 can be mapped to either r, or s. So total number of possibilities = 3 × 2 = 6. In general, the number of sections is given by \m{∏_{b ∈ \im f} \inv[f](b)}, where \m{\inv[f]} represents the preimage of \m{f}.
+		0 can be mapped to either b, p, or q. 1 can be mapped to either r, or s. So total number of possibilities = 3 × 2 = 6. In general, the number of sections is given by \m{∏_{b ∈ \im f} \inv{f}(b)}, where \m{\inv{f}} represents the preimage of \m{f}.
 	\stopsection
 
 	\startsection [title={Article II, Exercise 6}]
@@ -88,14 +88,14 @@
 		\stopformula
 		showing that \m{e} is idempotent.
 
-		If \m{f} is an isomorphism, then \m{r = \inv[f]}, so \m{e = 1}.
+		If \m{f} is an isomorphism, then \m{r = \inv{f}}, so \m{e = 1}.
 	\stopsection
 
 	\startsection [title={Article II, Exercise 10}]
-		Let \m{f: A → B, g: B → C} has sections \m{\inv[f]: B → A, \inv[g]: C → B}, respectively. So
+		Let \m{f: A → B, g: B → C} has sections \m{\inv{f}: B → A, \inv{g}: C → B}, respectively. So
 		\startformula \startalign[align={left}]
-			\NC  (g f) (\inv[f]	 \inv[g])  =  g (f \inv[f])	 \inv[g]  =  g 1_B	 \inv[g]  =  g \inv[g]  =  1_C ,  \text{ and}  \NR
-			\NC  (\inv[f]	 \inv[g]) (g f)  =  \inv[f]	 (\inv[g] g) f  =  \inv[f] 1_B	 f  =  \inv[f] f  =  1_A .  \NR
+			\NC  (g f) (\inv{f}	 \inv{g})  =  g (f \inv{f})	 \inv{g}  =  g 1_B	 \inv{g}  =  g \inv{g}  =  1_C ,  \text{ and}  \NR
+			\NC  (\inv{f}	 \inv{g}) (g f)  =  \inv{f}	 (\inv{g} g) f  =  \inv{f} 1_B	 f  =  \inv{f} f  =  1_A .  \NR
 		\stopalign \stopformula
 	\stopsection
 
@@ -130,14 +130,14 @@
 					\NC h(a),  \NC if \m{b = f(a)} for some \m{a ∈ A}  \NR
 					\NC c_0 ,  \NC otherwise  \NR
 				\stopmathcases}.
-				Then \m{g f = h}. Note that in order to choose an element \m{a ∈ \inv[f](b)}, we have to invoke the axiom of choice.
+				Then \m{g f = h}. Note that in order to choose an element \m{a ∈ \inv{f}(b)}, we have to invoke the axiom of choice.
 		\stopitemize
 	\stopsection
 
 	\startsection [title={Session 5, Exercise 2}]
 		\startitemize [a, nowhite, after]
 			\item  Take \m{b = f(a)}.
-			\item  For each \m{a ∈ A}, using the axiom of choice, choose an element \m{f_a ∈ \inv[g](h(a))}. Now, define \m{f: A → B: a ↦ f_a}.
+			\item  For each \m{a ∈ A}, using the axiom of choice, choose an element \m{f_a ∈ \inv{g}(h(a))}. Now, define \m{f: A → B: a ↦ f_a}.
 		\stopitemize
 	\stopsection
 
@@ -239,9 +239,9 @@
 						\NC  1  \NC   1  \NR
 					\stoprndmatrix .  \NR
 				\stopalign \stopformula
-			\item  Use the \m{C^∞} bijection \m{f: I^2 → ℝ^2: (x, y) ↦ \brnd[\frac{x}{1 - x^2}, \frac{y}{1 - y^2}]} (or any bijection).
+			\item  Use the \m{C^∞} bijection \m{f: I^2 → ℝ^2: (x, y) ↦ \brnd{\frac{x}{1 - x^2}, \frac{y}{1 - y^2}}} (or any bijection).
 			\item  Use any bijection from \m{ℝ^2} to \m{ℝ}.
-			\item  Now we need a bijection from \m{ℝ} to \m{S^1}, or equivalently, from \m{S^1} to \m{ℝ}. We construct it as follows. Use \m{u: S^1 → (S^1 + (0, 1)): x ↦ x + (0, 1)} to push the 1-sphere upwards, and then use the stereographic projection to project \m{(S^1 + (0, 1)) ∖ \bcrl[(0, 2)]} onto the real line. We delete the north pole this because both the poles project onto the origin. Now compose this with the shift map
+			\item  Now we need a bijection from \m{ℝ} to \m{S^1}, or equivalently, from \m{S^1} to \m{ℝ}. We construct it as follows. Use \m{u: S^1 → (S^1 + (0, 1)): x ↦ x + (0, 1)} to push the 1-sphere upwards, and then use the stereographic projection to project \m{(S^1 + (0, 1)) ∖ \bcrl{(0, 2)}} onto the real line. We delete the north pole this because both the poles project onto the origin. Now compose this with the shift map
 			\startformula
 				s: ℝ → ℝ: x ↦
 				\startmathcases
@@ -286,7 +286,7 @@
 		\startitemize [n, nowhite, after][start=4]
 			\item  Involution, 0.
 			\item  Idempotent, \m{[0, ∞)}.
-			\item  Yes, \m{\inv[α](x) = x - 3}.
+			\item  Yes, \m{\inv{α}(x) = x - 3}.
 			\item  No, because nonmultiples of 5 do not have inverses.
 			\item  Idempotent means \m{α^2 = α}, so \m{α^3 = α α^2 = α α = α}.
 
@@ -355,10 +355,10 @@
 		% TODO: Put this in its appropriate place.
 		We use the following notation. Mor denotes set morphisms and Iso denotes set isomorphisms.
 		\startitemize [4, joinedup]
-			\item  \m{𝒞_0 = \brnd[{\bcrl[ℕ, ℤ]}, \text{Iso}{\bcrl[ℕ, ℤ]}]}.
-			\item  \m{𝒞_1 = \brnd[{\bcrl[ℕ]}, \text{Mor}{\bcrl[ℕ]}]}.
-			\item  \m{𝒞_2 = \brnd[{\bcrl[ℕ]}, \text{Iso}{\bcrl[ℕ]}]}.
-			\item  \m{𝒞_3 = \brnd[{\bcrl[ℕ]}, {\bcrl[𝟙_ℕ]}]}.
+			\item  \m{𝒞_0 = \brnd{\bcrl{ℕ, ℤ}}, \text{Iso}{\bcrl{ℕ, ℤ}}}.
+			\item  \m{𝒞_1 = \brnd{\bcrl{ℕ}}, \text{Mor}{\bcrl{ℕ}}}.
+			\item  \m{𝒞_2 = \brnd{\bcrl{ℕ}}, \text{Iso}{\bcrl{ℕ}}}.
+			\item  \m{𝒞_3 = \brnd{\bcrl{ℕ}}, {\bcrl{𝟙_ℕ}}}.
 		\stopitemize
 		Note that \m{𝒞_3 ⊂ 𝒞_2 ⊂ 𝒞_1}. Moreover, the following table holds.
 
