@@ -21,7 +21,7 @@
 \startsetups[headertext]
 	\startframed[frame=on, corner=03, width=\hsize, frameoffset=4pt, framecolor=\getvariable{document}{color-headings}, align=middle]
 		% \blank[small]
-		{\tfa MATH 1550} \qquad \qquad {\tfa \getvariable{document}{date}}
+		{\tfa MATH 1550}  \qquad \qquad {\tfb \getvariable{document}{assessment}}  \qquad \qquad  {\tfa \getvariable{document}{date}}
 		\blank[medium]
 		{\tfc \sc Name: \color[\getvariable{document}{color-background}]{Print your name here in capitals}}    % Dummy text to left align
 		% \blank[small]
@@ -68,43 +68,44 @@
 % \scale[scale=2]{\cdot}} + Z(\scale[sx=3, sy=2]{⋅})
 
 % Caution: spaces do not work between the elements)
-\def \delim[#arguments][#left][#right]{\left#left #arguments \right#right}
+\def \delim#left#right#arguments{\left#left #arguments \right#right}
 
 % Intervals
-\def \intoo[#arguments]{\delim[#arguments][(][)]}
-\def \intoc[#arguments]{\delim[#arguments][(][]]}
-\def \intco[#arguments]{\delim[#arguments][[][]]}
-\def \intcc[#arguments]{\delim[#arguments][[][]]}
+\def \intoo#arguments{\delim{(}{)}{#arguments}}
+\def \intoc#arguments{\delim{(}{]}{#arguments}}
+\def \intco#arguments{\delim{[}{)}{#arguments}}
+\def \intcc#arguments{\delim{[}{]}{#arguments}}
 
 % Brackets
-\def \brnd[#arguments]{\delim[#arguments][(][)]}
-\def \bcrl[#arguments]{\delim[#arguments][\{][\}]}
-\def \bsqr[#arguments]{\delim[#arguments][[][]]}
-\def \bngl[#arguments]{\delim[#arguments][⟨][⟩]}
+\def \brnd#arguments{\delim{(}{)}{#arguments}}
+\def \bcrl#arguments{\delim{\{}{\}}{#arguments}}
+\def \bsqr#arguments{\delim{[}{]}{#arguments}}
+\def \bngl#arguments{\delim{⟨}{⟩}{#arguments}}
 
 % Commonly used delimiters
-\def \inn[#arguments]{\delim[#arguments][⟨][⟩]}
-\def \norm[#arguments]{\delim[#arguments][‖][‖]}
-\def \abs[#arguments]{\delim[#arguments][|][|]}
-\def \floor[#arguments]{\delim[#arguments][⌊][⌋]}
-\def \ceil[#arguments]{\delim[#arguments][⌈][⌉]}
+\def \inn#arguments{\delim{⟨}{⟩}{#arguments}}
+\def \pair#arguments{\delim{(}{)}{#arguments}}
+\def \norm#arguments{\delim{‖}{‖}{#arguments}}
+\def \abs#arguments{\delim{|}{|}{#arguments}}
+\def \floor#arguments{\delim{⌊}{⌋}{#arguments}}
+\def \ceil#arguments{\delim{⌈}{⌉}{#arguments}}
 
 % Logic
-\def \tuple[#arguments]{\delim[#arguments][⟨][⟩]}
-\def \logicimpl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr[#satisfaction]}
-\def \nlogicimpl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr[#satisfaction]}
+\def \ntuple#arguments{\delim{⟨}{⟩}{#arguments}}
+\def \logicimpl[#structure][#satisfaction]#arguments{⊨_{#structure} #arguments \ \bsqr{#satisfaction}}
+\def \nlogicimpl[#structure][#satisfaction]#arguments{⊭_{#structure} #arguments \ \bsqr{#satisfaction}}
 
 % Algebra
-\def \linspan[#arguments]{\mfunction{span} \delim[#arguments][\{][\}]}
-\def \inv[#arguments]{#arguments^{-1}}
+\def \linspan#arguments{\mfunction{span} \delim{\{}{\}}{#arguments}}
+\def \inv#arguments{#arguments^{-1}}
 
 % Differentials  (We cannot use space before differentials here because we might want to use μ(\d x).)
 \def \d{\text{d}}
 \def \D{\text{D}}
 
 % Topology
-\def \clsr[#set]{\overline{#set}}
-\def \intr[#set]{{#set}^°}
+\def \clsr#set{\overline{#set}}
+\def \intr#set{{#set}^°}
 % \def \intr[#set]{\mathring{#set}}
 \def \bdy[#set]{∂ #set}
 
