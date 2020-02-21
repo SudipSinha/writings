@@ -130,7 +130,7 @@
 		\stopalign  \stopformula
 
 		So together we have the joint process
-		\startformula
+		\placeformula[eq:Z] \startformula
 			Z_t^ε :=
 			\startrndmatrix
 				\tilde{X}_t^ε  \NR  Y_t^ε  \NR
@@ -152,7 +152,11 @@
 
 		Note that we expect \m{Z_t^ε → 0} as \m{ε ↘ 0}. We first obtain a large deviation principle for \m{Z_t^ε}.
 
-		Fix \m{R > 0}, and define the exit time from the \m{R}-ball centered at the origin as
+	\stopsection
+
+	\startsection [title={Existence and uniqueness of \m{Z^ε} in \ineq[eq:Z]}]
+
+		First we aim for local existence. Fix \m{R > 0}, and define the exit time from the \m{R}-ball centered at the origin as
 		\startformula
 			τ_R = \inf\bcrl{t: Y^ε_0 > R} ∧ T_b .
 		\stopformula
@@ -209,6 +213,12 @@
 
 			The above implies that \m{Z^ε_t} exists and is unique for \m{t ∈ \intcc{0, τ_R}}.
 		\stopproof
+
+		\blank[big]
+		Now, let \m{η} be a smooth function such that \m{η(x) ≡ 1} for \m{\abs{x} ≤ R} and \m{η ≡ 0} for \m{\abs{x} > R+1}. Define \m{\hat{σ}_R(z) = η(z) \tilde{σ}^ε_{t, υ} (z)} and \m{\hat{b}_R(z) = η(z) \tilde{b}^ε_{t, υ} (z)}. Now consider the equation
+		\startformula
+			\hat{Z}^ε_t = Z_0
+		\stopformula
 	\stopsection
 
 \stopchapter

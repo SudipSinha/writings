@@ -3,6 +3,41 @@
 \product  prd-analysis
 
 
+\startchapter [title={Brownian motion}]
+	
+	In the following, let
+	\startitemize [5, joinedup]
+		\item  \m{Δ_i t = t_i - t_{i-1}} with \m{Δ_1 t = t_1},
+		\item  \m{Δ_i x = x_i - x_{i-1}}, with  and \m{Δ_1 x = x_1},
+		\item  \m{Δ_i X = X_{t_i} - X_{t_{i-1}}}, with  and \m{Δ_1 X = X_{t_1}}.
+	\stopitemize
+
+	\starttheorem
+		The following are equivalent
+		\startitemize [m, joineup]
+			\item[bm-increment]  \m{X_t} is a stochastic process having independent Gaussian increments.
+			\item[bm-marginal]  \m{X_t} is a stochastic process with marginal distributions given by
+				\startformula
+					μ_{t_1, …, t_n}(A) = \frac{1}{(2π)^{\frac{n}{2}} ∏ Δ_i t} ∫_A \exp \brnd{-\frac12 ∑ \frac{(Δ_i x)^2}{Δ_i t}} ∏ \d x_i
+				\stopformula
+				for any \m{0 < t_1 < ⋯ < t_n} and \m{n ∈ ℕ}.
+			\item[bm-Fourier]  \m{X_t} is a stochastic process such that for any \m{0 < t_1 < ⋯ < t_n} and \m{λ_1, ⋯, λ_n ∈ ℝ},
+				\startformula
+					𝔼 \exp \brnd{i ∑ λ_i Δ_i X_i} = \exp\brnd{-\frac12 ∑ λ_i^2 Δ_i t} .
+				\stopformula
+		\stopitemize
+	\stoptheorem
+
+	\startproof
+		\startitemize [i]
+			\item  \in[bm-increment] ⟹ \in[bm-marginal]
+
+				TODO
+		\stopitemize
+	\stopproof
+\stopchapter
+
+
 \startchapter [title={Classification of stochastic processes}]
 
 	This is well written in Cosma Rohilla Shalizi - Almost None of the Theory of Stochastic (2010), Chapter 1. Let \m{X} be a stochastic process given by

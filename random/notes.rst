@@ -56,3 +56,21 @@ Po-Han's suggestions for learning infinite-dimensional analysis
 
 0. Prévôt, Röckner - A Concise Course on Stochastic Partial Differential Equations (2007) (A -> B -> C -> 2)
 0. (Advances in applied mathematics) Chow, Pao Liu-Stochastic Partial Differential Equations-CRC Press (2014) - Only 6.1 -- 6.4.
+
+
+SIAM event ideas
+================
+
+*  Louisiana Art & Science Museum on Sunday, March 1
+*  Louisiana State University Rural Life Museum
+*  Job talk in April
+*  Game night: poker, casino, Cochran talk
+*  Movie: Beautiful Mind, Imitation Game
+*  Invite a speaker
+*  Collaboration with Tulane chapter
+
+Recruiting new members
+======================
+
+*  Recruit from first year's communicating mathematics class (Jinpu)
+*  Edit poster (SeongHee)

@@ -97,7 +97,6 @@
 % Contents (https://www.contextgarden.net/Table_of_Contents)
 \setupcombinedlist [content] [list={part, chapter, section, exercises}]
 
-% Bibliography
 % Bibliography (https://www.contextgarden.net/Bibliography_mkiv)
 \usebtxdataset[../bibliographies/default.bib]
 \usebtxdataset[../bibliographies/logic.bib]
@@ -137,6 +136,9 @@
 
 
 % Mathematics
+
+% Referencing equations using \ineq    % wiki/References
+\definereferenceformat [ineq] [left=(,right=),text={equation }]
 
 % I have not completely figured out a way to create a dot between \cdot and \bullet
 % The following might provide a way, but is too primitive.
@@ -195,6 +197,8 @@
 \definemathcommand [ess] [limop] {\mfunction{ess}}
 \definemathcommand [limsupm] [limop] {\overline{\lim}}
 \definemathcommand [liminfm] [limop] {\underline{\lim}}
+\definemathcommand [ℙlim] [limop] {ℙ\lim}
+\definemathcommand [Ltwolim] [limop] {L^2\lim}
 
 % Algebra
 \definemathcommand [ker] [nolop] {\mfunction{ker}}
