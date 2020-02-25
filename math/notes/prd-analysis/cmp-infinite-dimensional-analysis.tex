@@ -26,8 +26,8 @@
 		Let \m{H ≃ ℝ^d} \m{a ∈ H}, \m{Q ∈ L_+(H)}, and \m{μ = N_{a, Q}}. Then
 		\startitemize [i, joinedup]
 			\item[fd-mean]  \m{∫_H x N_{a, Q}(\d x) = a},
-			\item[fd-cov]  \m{∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x) = \inn[Qy, z]}, and
-			\item[fd-Fourier]  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x) = e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]}}, \m{h ∈ H}.
+			\item[fd-cov]  \m{∫_H \inn{y, x - a} \inn{z, x - a} N_{a, Q}(\d x) = \inn{Qy, z}}, and
+			\item[fd-Fourier]  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn{h, x}} N_{a, Q}(\d x) = e^{𝚤 \inn{a, h} - \frac12 \inn{Qh, h}}}, \m{h ∈ H}.
 		\stopitemize
  	\stopproposition
 	\startproof
@@ -36,32 +36,32 @@
 
 			\item  \m{∫_H x N_{a, Q}(\d x) = a}.
 				\startformula  \startalign[n=3]
-					\NC  ∫_H x N_{a, Q}(\d x)  =  \NC  ∫_H x ⨉_j N_{a_j, λ_j} \brnd[⨉_i \d x_i]  \NR
+					\NC  ∫_H x N_{a, Q}(\d x)  =  \NC  ∫_H x ⨉_j N_{a_j, λ_j} \brnd{⨉_i \d x_i}  \NR
 					\NC  =  \NC  ∫_H ∑_k(x_k e_k) ∏_j N_{a_j, λ_j}(\d x_j)  \NC  [\text{Fubini}]  \NR
-					\NC  =  \NC  ∑_k \brnd[∫_ℝ ⋯ ∫_ℝ x_k ∏_j N_{a_j, λ_j}(\d x_j)] e_k  \qquad  \NC  [\text{Fubini}]  \NR
-					\NC  =  \NC  ∑_k ∫_ℝ x_k N_{a_k, λ_k}(\d x_k) e_k  \NC  \bsqr[∫_ℝ N_{a_j, λ_j}(\d x_j) = 1 \ ∀j]  \NR
+					\NC  =  \NC  ∑_k \brnd{∫_ℝ ⋯ ∫_ℝ x_k ∏_j N_{a_j, λ_j}(\d x_j)} e_k  \qquad  \NC  [\text{Fubini}]  \NR
+					\NC  =  \NC  ∑_k ∫_ℝ x_k N_{a_k, λ_k}(\d x_k) e_k  \NC  \bsqr{∫_ℝ N_{a_j, λ_j}(\d x_j) = 1 \ ∀j}  \NR
 					\NC  =  \NC  ∑_k a_k e_k  \quad  =  a .  \NC  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-mean])}]  \NR
 				\stopalign  \stopformula
 
-			\item  \m{∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x) = \inn[Qy, z]}.
+			\item  \m{∫_H \inn{y, x - a} \inn{z, x - a} N_{a, Q}(\d x) = \inn{Qy, z}}.
 				\startformula  \startalign
-					\NC     \NC  ∫_H \inn[y, x - a] \inn[z, x - a] N_{a, Q}(\d x)  \NR
+					\NC     \NC  ∫_H \inn{y, x - a} \inn{z, x - a} N_{a, Q}(\d x)  \NR
 					\NC  =  \NC  ∫_H ∑_k y_k (x_k - a_k) ∑_l z_l (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
 					\NC  =  \NC  ∑_k ∑_l y_k z_l ∫_H (x_k - a_k) (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
 					\NC  =  \NC  ∑_k y_k z_k ∫_H (x_k - a_k)^2 ∏_j N_{a_j, λ_j}(\d x_j)  +  ∑_{i ≠ j} y_k z_l ∫_H (x_k - a_k) (x_l - a_l) ∏_j N_{a_j, λ_j}(\d x_j)  \NR
 					\NC  =  \NC  ∑_k y_k z_k ∫_ℝ (x_k - a_k)^2 N_{a_k, λ_k}(\d x_k)  +  ∑_{i ≠ j} y_k z_l ∫_ℝ (x_k - a_k) N_{a_k, λ_k} (\d x_k) ∫_ℝ (x_l - a_l) N_{a_l, λ_l}(\d x_l)  \NR
-					\NC  =  \NC  ∑_k y_k z_k λ_k  \quad = \inn[Qy, z] .  \qquad  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-cov])}]  \NR
+					\NC  =  \NC  ∑_k y_k z_k λ_k  \quad = \inn{Qy, z} .  \qquad  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-cov])}]  \NR
 				\stopalign  \stopformula
 
-			\item  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x) = e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]}}, \m{h ∈ H}.
+			\item  \m{\widehat{N_{a, Q}}(h) := ∫_H e^{𝚤 \inn{h, x}} N_{a, Q}(\d x) = e^{𝚤 \inn{a, h} - \frac12 \inn{Qh, h}}}, \m{h ∈ H}.
 				\startformula  \startalign[n=3]
-					\NC  \widehat{N_{a, Q}}(h)  =  \NC  ∫_H e^{𝚤 \inn[h, x]} N_{a, Q}(\d x)  \NR
+					\NC  \widehat{N_{a, Q}}(h)  =  \NC  ∫_H e^{𝚤 \inn{h, x}} N_{a, Q}(\d x)  \NR
 					\NC  =  \NC  ∫_H e^{𝚤 ∑_k h_k x_k} ∏_j N_{a_j, λ_j}(\d x_j)  \NR
 					\NC  =  \NC  ∫_H ∏_k e^{𝚤 h_k x_k} ∏_j N_{a_j, λ_j}(\d x_j)  \NR
 					\NC  =  \NC  ∏_k ∫_H e^{𝚤 h_k x_k} N_{a_k, λ_k}(\d x_k)  \NC  [\text{\comment{Why? This is false in general!}}]  \NR
 					\NC  =  \NC  ∏_k e^{𝚤 a_k h_k - \frac12 λ_k h_k^2}  \qquad  \NC  [\text{Proposition \in[prp:1d-Gaussian-measure](\in[1d-Fourier])}]  \NR
 					\NC  =  \NC  e^{𝚤 ∑_k a_k h_k - \frac12 ∑_k λ_k h_k h_k}  \NR
-					\NC  =  \NC  e^{𝚤 \inn[a, h] - \frac12 \inn[Qh, h]} .  \NR
+					\NC  =  \NC  e^{𝚤 \inn{a, h} - \frac12 \inn{Qh, h}} .  \NR
 				\stopalign  \stopformula
 		\stopitemize
 	\stopproof
@@ -73,11 +73,11 @@
 	\startproof
 		Firstly, note that for the operator
 		
-		Since \m{ε < \frac1λ_1}, we have \m{1 > ε λ_1}. Combining this with \m{λ_1 ≥ λ_2 ≥ ⋯}, we get \m{1 > ε λ_1 ≥ ε λ_2 ≥ ⋯}, which futher implies \m{∞ > \inv[(1 - ε λ_1)] ≥ \inv[(1 - ε λ_2)] ≥ ⋯}. Therefore the operator \m{1 - εQ} is invertible and \m{\inv[(1 - εQ)]} is bounded.
+		Since \m{ε < \frac1λ_1}, we have \m{1 > ε λ_1}. Combining this with \m{λ_1 ≥ λ_2 ≥ ⋯}, we get \m{1 > ε λ_1 ≥ ε λ_2 ≥ ⋯}, which futher implies \m{∞ > \inv{(1 - ε λ_1)} ≥ \inv{(1 - ε λ_2)} ≥ ⋯}. Therefore the operator \m{1 - εQ} is invertible and \m{\inv{(1 - εQ)}} is bounded.
 
-		Now, since \m{(1 - ε Q) e_k = (1 - ε λ_k) e_k} for every \m{k ∈ ℕ}, we have \m{\inv[(1 - ε Q)] e_k = \inv[(1 - ε λ_k)] e_k} for every \m{k ∈ ℕ}. This gives us for every \m{x ∈ H},
+		Now, since \m{(1 - ε Q) e_k = (1 - ε λ_k) e_k} for every \m{k ∈ ℕ}, we have \m{\inv{(1 - ε Q)} e_k = \inv{(1 - ε λ_k)} e_k} for every \m{k ∈ ℕ}. This gives us for every \m{x ∈ H},
 		\startformula
-			\inv[(1 - εQ)]x = ∑_{k = 1}^∞ \frac{1}{1 - ε λ_k} \inn[x, e_k] e_k .
+			\inv{(1 - εQ)} x = ∑_{k = 1}^∞ \frac{1}{1 - ε λ_k} \inn{x, e_k} e_k .
 		\stopformula
 
 		\comment{Why is the infinite product finite and positive?}
@@ -85,24 +85,24 @@
 
 	\startlemma [title={Lemma for Proposition 1.13}]
 		\startformula
-			∫_ℝ e^{\frac{ε}{2} \abs[x]^2} N_{a, λ}(\d x)  =  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}} .
+			∫_ℝ e^{\frac{ε}{2} \abs{x}^2} N_{a, λ}(\d x)  =  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}} .
 		\stopformula
 	\stoplemma
 	\startproof
 		First, note that using completion of squares, we get
 		\startformula  \startalign
-			\NC  \frac{ε}{2} x^2 - \frac{1}{2 λ} (x - a)^2  =  \NC  - \frac{1}{2 λ} \brnd[(1 - ε λ) x^2 - 2 a x + a^2]  \NR
-			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr[x^2 - 2 \frac{a}{1 - ε λ} x + \frac{a^2}{(1 - ε λ)^2} - \frac{a^2}{(1 - ε λ)^2} + \frac{a^2}{1 - ε λ}]  \NR
-			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr[{\brnd[x - \frac{a}{1 - ε λ}]^2} - \frac{ε λ a^2}{(1 - ε λ)^2}]  \NR
-			\NC  =  \NC  - \frac12 \frac{\brnd[x - \frac{a}{1 - ε λ}]^2}{\frac{λ}{1 - ε λ}} + \frac{ε a^2}{2 (1 - ε λ)} .  \NR
+			\NC  \frac{ε}{2} x^2 - \frac{1}{2 λ} (x - a)^2  =  \NC  - \frac{1}{2 λ} \brnd{(1 - ε λ) x^2 - 2 a x + a^2}  \NR
+			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr{x^2 - 2 \frac{a}{1 - ε λ} x + \frac{a^2}{(1 - ε λ)^2} - \frac{a^2}{(1 - ε λ)^2} + \frac{a^2}{1 - ε λ}}  \NR
+			\NC  =  \NC  - \frac{1 - ε λ}{2 λ} \bsqr{\brnd{x - \frac{a}{1 - ε λ}}^2 - \frac{ε λ a^2}{(1 - ε λ)^2}}  \NR
+			\NC  =  \NC  - \frac12 \frac{\brnd{x - \frac{a}{1 - ε λ}}^2}{\frac{λ}{1 - ε λ}} + \frac{ε a^2}{2 (1 - ε λ)} .  \NR
 		\stopalign  \stopformula
 		Therefore,
 		\startformula \startalign
 			\NC  ∫_ℝ e^{\frac{ε}{2} x} N_{a, λ}(\d x)
-			     =  \NC  ∫_ℝ e^{\frac{ε}{2} x^2} \frac{1}{\sqrt{2 π λ}} e^{-\frac{1}{2 λ} \brnd[x - a]^2} \d x  \NR
+			     =  \NC  ∫_ℝ e^{\frac{ε}{2} x^2} \frac{1}{\sqrt{2 π λ}} e^{-\frac{1}{2 λ} \brnd{x - a}^2} \d x  \NR
 			\NC  =  \NC  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}}
 			             ∫_ℝ \frac{1}{\sqrt{2 π \frac{λ}{1 - ε λ}}}
-			                 e^{- \frac12 \frac{\brnd[x - \frac{a}{1 - ε λ}]^2}{\frac{λ}{1 - ε λ}}} \d x  \NR
+			                 e^{- \frac12 \frac{\brnd{x - \frac{a}{1 - ε λ}}^2}{\frac{λ}{1 - ε λ}}} \d x  \NR
 			\NC  =  \NC  \frac{e^{\frac{ε a^2}{2 (1 - ε λ)}}}{\sqrt{1 - ε λ}} .  \NR
 		\stopalign \stopformula
 	\stopproof
@@ -110,14 +110,14 @@
 
 	\startproposition [title={Hint for Exercise 1.14}]
 		\startformula
-			J_m  =  2^m F^{(m)}(0), \ m ∈ ℕ ;  \qquad \text{where} \quad  F(ε) = ∫_H e^{\frac{ε}{2} \abs[x]^2} μ(\d x) , \ ε > 0.
+			J_m  =  2^m F^{(m)}(0), \ m ∈ ℕ ;  \qquad \text{where} \quad  F(ε) = ∫_H e^{\frac{ε}{2} \abs{x}^2} μ(\d x) , \ ε > 0.
 		\stopformula
 	\stopproposition
 	\startproof
 		\startformula \startalign
-			\NC  F(ε) =  \NC  ∫_H e^{\frac{ε}{2} \abs[x]^2} μ(\d x)  \NR
-			\NC  =  \NC  ∫_H ∑_{m = 0}^∞ \frac{1}{m!} \brnd[\frac{ε}{2} {\abs[x]^2}]^m μ(\d x)  \NR
-			\NC  =  \NC  ∑_{m = 0}^∞ \frac{ε^m}{2^m m!}  ∫_H \abs[x]^{2m} μ(\d x)  \qquad  [\text{Monotone convergence theorem}]  \NR
+			\NC  F(ε) =  \NC  ∫_H e^{\frac{ε}{2} \abs{x}^2} μ(\d x)  \NR
+			\NC  =  \NC  ∫_H ∑_{m = 0}^∞ \frac{1}{m!} \brnd{\frac{ε}{2} {\abs{x}^2}}^m μ(\d x)  \NR
+			\NC  =  \NC  ∑_{m = 0}^∞ \frac{ε^m}{2^m m!}  ∫_H \abs{x}^{2m} μ(\d x)  \qquad  [\text{Monotone convergence theorem}]  \NR
 			\NC  =  \NC  ∑_{m = 0}^∞ \frac{J_m}{2^m m!} ε^m  \NR
 		\stopalign \stopformula
 	\stopproof

@@ -7,20 +7,20 @@
 	\startsection [title={\m{σ}-algebras}]
 		\startitemize [1, nowhite, after]
 			\item  \m{𝓘 ⊂ 𝓑 ⊂ \overline{𝓑} = 𝓛 ⊂ 2^ℝ}    % TODO: Add counterexamples
-			\item  \m{\abs[𝓘] = \abs[𝓑] = \abs[ℝ] = ℵ_{1}, \ \abs[\overline{𝓑}] = \abs[2^ℝ] = ℵ_{2}}
+			\item  \m{\abs{𝓘} = \abs{𝓑} = \abs{ℝ} = ℵ_{1}, \ \abs{\overline{𝓑}} = \abs{2^ℝ} = ℵ_{2}}
 		\stopitemize
 	\stopsection
 
 	\startsection [title={Examples}]
 		\startitemize [1, nowhite, after]
-			\item  \m{\brnd[x ↦ \frac{1}{\sqrt{x}} 𝟙_{[0, 1]}(x)] ∈ L^1 ∖ L^2}
-			\item  \m{\brnd[x ↦ \frac{1}{x} 𝟙_{[1, ∞)}(x)] ∈ L^2 ∖ L^1}
+			\item  \m{\brnd{x ↦ \frac{1}{\sqrt{x}} 𝟙_{[0, 1]}(x)} ∈ L^1 ∖ L^2}
+			\item  \m{\brnd{x ↦ \frac{1}{x} 𝟙_{[1, ∞)}(x)} ∈ L^2 ∖ L^1}
 		\stopitemize
 	\stopsection
 
 	\startsection [title={Measurability of \m{\inf, \sup, \liminf, \limsup} TODO}]
 		Let \m{X_n} be a discrete-time stochastic process.
-		Then \m{\bcrl[\inf X_t ≥ c]  =  ⋂_t \bcrl[X_t ≥ c]  }
+		Then \m{\bcrl{\inf X_t ≥ c}  =  ⋂_t \bcrl{X_t ≥ c}  }
 	\stopsection
 
 	\startsection [title={Method of substitution}]
@@ -36,7 +36,7 @@
 			\item  \goto{MSx post}[url(https://math.stackexchange.com/questions/518771)]
 		\stopitemize
 
-		Suppose \m{Z ∼ N(0, 1)}, and denote \m{G(z) = ℙ\bcrl[Z > z]} for \m{z ∈ [0, ∞)}. Then
+		Suppose \m{Z ∼ N(0, 1)}, and denote \m{G(z) = ℙ\bcrl{Z > z}} for \m{z ∈ [0, ∞)}. Then
 		\startformula
 			\frac{z}{z^2 + 1} < \sqrt{2π} e^{-\frac12 z^2} G(z) < \frac1z .
 		\stopformula
@@ -46,7 +46,7 @@
 				G(z)
 				=  ∫_z^∞ \frac{1}{\sqrt{2π}} e^{-\frac12 x^2} \d x
 				≤  \frac{1}{\sqrt{2π} z} ∫_z^∞ e^{-\frac12 x^2} x \d x
-				=  \frac{1}{\sqrt{2π} z} ∫_z^∞ e^{-\frac12 x^2} \d \brnd[\frac12 x^2]
+				=  \frac{1}{\sqrt{2π} z} ∫_z^∞ e^{-\frac12 x^2} \d \brnd{\frac12 x^2}
 				=  \frac{1}{\sqrt{2π} z} e^{-\frac12 z^2} .
 			\stopformula
 		\stopsubsubject
@@ -54,8 +54,8 @@
 		\startsubsubject [title={Lower bound}]
 			In this case, consider the function \m{h(z) = G(z) - \frac{1}{\sqrt{2π}} \frac{z}{z^2 + 1} e^{-\frac12 z^2}}. We shall show that \m{h > 0} on the domain. First we calculate \m{h'(z)}.
 			\startformula  \startalign
-				\NC  h'(z) =  \NC  G'(z) - \frac{1}{\sqrt{2π} (z^2 + 1)^2} \brnd[{\brnd[e^{-\frac12 z^2} + z e^{-\frac12 z^2} (-z)]}(z^2 + 1) - z e^{-\frac12 z^2} (2z)]  \NR
-				\NC  =  \NC  \frac{e^{-\frac12 z^2}}{\sqrt{2π}} - \frac{e^{-\frac12 z^2}}{\sqrt{2π} (z^2 + 1)^2} \brnd[(1 - z^2)(z^2 + 1) - 2 z^2)]  \NR
+				\NC  h'(z) =  \NC  G'(z) - \frac{1}{\sqrt{2π} (z^2 + 1)^2} \brnd{\brnd{e^{-\frac12 z^2} + z e^{-\frac12 z^2} (-z)} (z^2 + 1) - z e^{-\frac12 z^2} (2z)}  \NR
+				\NC  =  \NC  \frac{e^{-\frac12 z^2}}{\sqrt{2π}} - \frac{e^{-\frac12 z^2}}{\sqrt{2π} (z^2 + 1)^2} \brnd{(1 - z^2)(z^2 + 1) - 2 z^2)}  \NR
 				\NC  =  \NC  -\frac{e^{-\frac12 z^2}}{\sqrt{2π} (z^2 + 1)^2} .  \NR
 			\stopalign  \stopformula
 
@@ -76,28 +76,28 @@
 \startchapter [title={Borel--Cantelli lemmas}]
 
 	\starttheorem[title={Borel--Cantelli 1}]
-		Let \m{(E_n) ⊂ ℱ} such that \m{∑ℙ(E_n) < ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 0}.
+		Let \m{(E_n) ⊂ ℱ} such that \m{∑ℙ(E_n) < ∞}. Then \m{ℙ\brnd{E_n \infinitelyoften} = 0}.
 	\stoptheorem
 	\startproof
 		Since \m{∑ℙ(E_n) < ∞}, for any fixed \m{n ∈ ℕ}, we have
 		\startformula
-			ℙ\brnd[E_n \infinitelyoften]  =  ℙ\brnd[⋂_{n} ⋃_{m ≥ n} E_m]  ≤  ℙ\brnd[⋃_{m ≥ n} E_m]  ≤  ∑_{m ≥ n} ℙ(E_n)  →  0 .
+			ℙ\brnd{E_n \infinitelyoften}  =  ℙ\brnd{⋂_{n} ⋃_{m ≥ n} E_m}  ≤  ℙ\brnd{⋃_{m ≥ n} E_m}  ≤  ∑_{m ≥ n} ℙ(E_n)  →  0 .
 		\stopformula
 	\stopproof
 
-	Counterexample of the converse of BC1: Take \m{((0, 1], λ)} as the probability space, and \m{E_n = \brnd[0, \frac{1}{n^2}]}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}, but \m{∑ℙ(E_n) < ∞}.
+	Counterexample of the converse of BC1: Take \m{((0, 1], λ)} as the probability space, and \m{E_n = \brnd{0, \frac{1}{n^2}}}. Then \m{ℙ\brnd{E_n \infinitelyoften} = 1}, but \m{∑ℙ(E_n) < ∞}.
 
 	\starttheorem[title={Borel--Cantelli 2}]
-		Let \m{(E_n) ⊂ ℱ} be (mutually) independent such that \m{∑ℙ(E_n) = ∞}. Then \m{ℙ\brnd[E_n \infinitelyoften] = 1}.
+		Let \m{(E_n) ⊂ ℱ} be (mutually) independent such that \m{∑ℙ(E_n) = ∞}. Then \m{ℙ\brnd{E_n \infinitelyoften} = 1}.
 	\stoptheorem
 	\startproof
-		Since \m{ℙ\brnd[{\brnd[E_n \infinitelyoften]}^∁] = ℙ\brnd[E_n^∁ \eventually]}, it is equivalent to prove that \m{ℙ\brnd[E_n^∁ \eventually] = 0}. Using independence and the fact that \m{1 - x < e^{-x}}, for each fixed \m{n ∈ ℕ}, we have
+		Since \m{ℙ\brnd{\brnd{E_n \infinitelyoften}^∁} = ℙ\brnd{E_n^∁ \eventually}}, it is equivalent to prove that \m{ℙ\brnd{E_n^∁ \eventually} = 0}. Using independence and the fact that \m{1 - x < e^{-x}}, for each fixed \m{n ∈ ℕ}, we have
 		\startformula
-			ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  ∏_{m = n}^N ℙ\brnd[E_n^∁]  =  ∏_{m = n}^N \brnd[1 - ℙ(E_n)]  ≤  ∏_{m = n}^N e^{- ℙ(E_n)}  =  e^{- ∑_{m = n}^N ℙ(E_n)} .
+			ℙ\brnd{⋂_{m = n}^N E_n^∁}  =  ∏_{m = n}^N ℙ\brnd{E_n^∁}  =  ∏_{m = n}^N \brnd{1 - ℙ(E_n)}  ≤  ∏_{m = n}^N e^{- ℙ(E_n)}  =  e^{- ∑_{m = n}^N ℙ(E_n)} .
 		\stopformula
-		Taking \m{N → ∞}, we get \m{ℙ\brnd[⋂_{m ≥ n} E_n^∁] → 0}. Therefore
+		Taking \m{N → ∞}, we get \m{ℙ\brnd{⋂_{m ≥ n} E_n^∁} → 0}. Therefore
 		\startformula
-			ℙ\brnd[E_n^∁ \eventually]  =  ℙ\brnd[⋃_n ⋂_{m ≥ n} E_n^∁]   ≤  ∑_n ℙ\brnd[⋂_{m = n}^N E_n^∁]  =  0 .
+			ℙ\brnd{E_n^∁ \eventually}  =  ℙ\brnd{⋃_n ⋂_{m ≥ n} E_n^∁}   ≤  ∑_n ℙ\brnd{⋂_{m = n}^N E_n^∁}  =  0 .
 		\stopformula
 	\stopproof
 
@@ -151,9 +151,9 @@
 	\startsection[title={In \m{L^2}, conditional expectation is a projection}]
 		Let \m{(Ω, ℱ, ℙ)} be a probability space, \m{𝓖 ⊆ ℱ} be a sub-σ-algebra, and \m{X ∈ L^2(ℱ)} be a random variable. Let \m{π_{L^2(𝓖)}} denote the projection operator onto \m{L^2(𝓖)}. We know that projection operators are self-adjoint. So \m{∀ E ∈ 𝓖},
 		\startformula \startalign[n=3]
-			\NC  ∫_E 𝔼(X ∣ 𝓖) \d ℙ \big|_𝓖  \NC =  ∫_E X \d ℙ  =  ∫ 𝟙_E X \d ℙ  =  \inn[𝟙_E, X]  \NC  [\text{definitions}]  \NR
-			\NC  \NC =  \inn[π_{L^2(𝓖)} 𝟙_E, X]  \NC  [E ∈ 𝓖 ⟹ 𝟙_E ∈ L^2(𝓖)]  \NR
-			\NC  \NC =  \inn[𝟙_E, π_{L^2(𝓖)}^* X]  =  \inn[𝟙_E, π_{L^2(𝓖)} X]  \NC  [\text{self-adjointness}]  \NR
+			\NC  ∫_E 𝔼(X ∣ 𝓖) \d ℙ \big|_𝓖  \NC =  ∫_E X \d ℙ  =  ∫ 𝟙_E X \d ℙ  =  \inn{𝟙_E, X}  \NC  [\text{definitions}]  \NR
+			\NC  \NC =  \inn{π_{L^2(𝓖)} 𝟙_E, X}  \NC  [E ∈ 𝓖 ⟹ 𝟙_E ∈ L^2(𝓖)]  \NR
+			\NC  \NC =  \inn{𝟙_E, π_{L^2(𝓖)}^* X}  =  \inn{𝟙_E, π_{L^2(𝓖)} X}  \NC  [\text{self-adjointness}]  \NR
 			\NC  \NC =  ∫ 𝟙_E π_{L^2(𝓖)} X \d ℙ \big|_𝓖  =  ∫_E π_{L^2(𝓖)} X \d ℙ \big|_𝓖 .  \qquad  \NC  [\text{definitions}]  \NR
 		\stopalign \stopformula
 		Therefore, \m{𝔼(X ∣ 𝓖) = π_{L^2(𝓖)} X} a.s.

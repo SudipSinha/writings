@@ -10,13 +10,13 @@
 		\item  We can only talk of \emph{series} in \emph{commutative groups}, because we need + to be defined.
 		\item  We can only talk of \emph{convergence of series} in \emph{commutative Hausdorff topological groups}.
 		\item  We can only talk of \emph{absolute convergence of series} in \emph{normed commutative Hausdorff topological groups}.
-		\item  This is from \goto{Wikipedia}[url(https://en.wikipedia.org/wiki/Series_(mathematics)#Calculus_and_partial_summation_as_an_operation_on_sequences)]. Let \m{S} be the vector space of sequences. Then the partial summation \m{∑: S → S, (a_n) ↦ \brnd[∑_{j = 1}^n a_j]} is a \emph{linear operator} on \m{S}, whose inverse is the finite difference operator, \m{Δ}. These behave as discrete analogs of integration and differentiation, only for series (functions of a natural number) instead of functions of a real variable. For example, the sequence \m{\brnd[1, 1, 1, …]} has series \m{\brnd[1, 2, 3, …]} as its partial summation, which is analogous to the fact that \m{∫_0^x 1 \,\d t = x}.
+		\item  This is from \goto{Wikipedia}[url(https://en.wikipedia.org/wiki/Series_(mathematics)#Calculus_and_partial_summation_as_an_operation_on_sequences)]. Let \m{S} be the vector space of sequences. Then the partial summation \m{∑: S → S, (a_n) ↦ \brnd{∑_{j = 1}^n a_j}} is a \emph{linear operator} on \m{S}, whose inverse is the finite difference operator, \m{Δ}. These behave as discrete analogs of integration and differentiation, only for series (functions of a natural number) instead of functions of a real variable. For example, the sequence \m{\brnd{1, 1, 1, …}} has series \m{\brnd{1, 2, 3, …}} as its partial summation, which is analogous to the fact that \m{∫_0^x 1 \,\d t = x}.
 		\item  Classification of convergence of series
 		\startitemize [n, nowhite, after]
 			\item  Pointwise or uniform convergence
 			\item  Absolute, unconditional and conditional convergence
 				\startitemize [1, nowhite, after]
-					\item  \emph{Absolute convergence} means \m{∑ \norm[a_n] < ∞}.
+					\item  \emph{Absolute convergence} means \m{∑ \norm{a_n} < ∞}.
 					\item  \emph{Unconditional convergence} means all rearrangements of the series are convergent to the same value. That is, if \m{σ: ℕ → ℕ} is a permutation, then \m{∑_n a_n = ∑_n a_{σ(n)}}.
 
 						In complete spaces, absolute convergence ⟹ unconditional convergence, but the converse is not true in general. In finite dimensional spaces, the converse is true by Riemann rearrangement theorem. But the Dvoretzky--Rogers theorem asserts that every in infinite-dimensional Banach space admits an unconditionally convergent series that is not absolutely convergent. (see \goto{this Wikipedia article}[\url(https://en.wikipedia.org/wiki/Absolute_convergence#Rearrangements_and_unconditional_convergence)])
@@ -59,8 +59,8 @@
 		\starttheorem[title={Taylor}]
 			Let \m{Ω ⊆ ℝ^d} be an open set and \m{f: Ω → ℝ} be an infinitely differentiable function at the point \m{p ∈ Ω}. Then the Taylor series of \m{f} around \m{p} for \m{v ∈ T_p Ω} is given by
 			\startformula
-				T(p + v)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd[{\inn[v, \D_v]}^n f](p) ,
-				\quad \text{ where }  \inn[v, \D_v] = ∑_{j=1}^d v_j \frac{∂}{∂ v_j} .
+				T(p + v)  =  ∑_{n = 0}^∞  \frac{1}{n!} \brnd{{\inn{v, \D_v}}^n f}(p) ,
+				\quad \text{ where }  \inn{v, \D_v} = ∑_{j=1}^d v_j \frac{∂}{∂ v_j} .
 			\stopformula
 		\stoptheorem
 
@@ -72,7 +72,7 @@
 
 		In the differential form, this becomes
 		\startformula
-			\d T(p)  =  ∑_{n = 1}^∞  \frac{1}{n!} \brnd[{\inn[\d v, \D_v]}^n f](p)
+			\d T(p)  =  ∑_{n = 1}^∞  \frac{1}{n!} \brnd{\inn{\d v, \D_v}^n f}(p)
 		\stopformula
 
 		There is another form with multi-indexes. But the above form seems way more natural to me. See more in \goto{this}[url(https://en.wikipedia.org/wiki/Taylor_series\#Taylor_series_in_several_variables)] and \goto{this}[url(https://en.wikipedia.org/wiki/Taylor's_theorem\#Taylor's_theorem_for_multivariate_functions)] Wikipedia articles.

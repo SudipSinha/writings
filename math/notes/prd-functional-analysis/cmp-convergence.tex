@@ -1,0 +1,67 @@
+\startcomponent *
+
+\product prd-functional-analysis
+
+\startchapter[title={Strong, weak and weak* convergence}]
+
+	\emph{Disclaimer}: This section is shamelessly copied from \goto{Christopher Heil's notes}[url(https://people.math.gatech.edu/~heil/handouts/weak.pdf)].
+
+	\startdefinition
+		Let \m{X} be a normed vector space, and \m{x_n, x ∈ X}. We define the following convergences as \m{n → ∞}.
+		\startformula \startalign
+			\NC  \text{(strong)} \qquad  x_n → x  \qquad ⟺ \qquad  \NC  \norm{x_n - x} → 0  \NR
+			\NC  \text{(weak)} \qquad  x_n \xrightarrow{w} x  \qquad ⟺ \qquad  \NC  ∀ϕ ∈ X^*, \quad  \pair{x_n - x, ϕ} → 0  \NR
+		\stopalign \stopformula
+	\stopdefinition
+
+	\startdefinition
+		Let \m{X} be a normed vector space, and \m{ϕ_n, ϕ ∈ X^*}. We define the following convergences as \m{n → ∞}.
+		\startformula \startalign
+			\NC  \text{(strong)} \qquad  ϕ_n → ϕ  \qquad ⟺ \qquad  \NC  \norm{ϕ_n - ϕ} → 0  \NR
+			\NC  \text{(weak)} \qquad  ϕ_n \xrightarrow{w} ϕ  \qquad ⟺ \qquad  \NC  ∀ξ ∈ X^{**}, \quad  \pair{ϕ_n - ϕ, ξ} → 0  \NR
+			\NC  \text{(weak*)} \qquad  ϕ_n \xrightarrow{w^*} ϕ  \qquad ⟺ \qquad  \NC  ∀x ∈ X, \quad  \pair{x, ϕ_n - ϕ} → 0  \NR
+		\stopalign \stopformula
+	\stopdefinition
+
+	\startremark
+		Weak* convergence is simply \emph{pointwise convergence} for the functionals \m{ϕ_n}.
+	\stopremark
+
+	\startproposition [title={strong ⟹ weak ⟹ weak* for convergence}]
+		Suppose \m{ϕ_n, ϕ ∈ X^*}. Then \m{ϕ_n → ϕ  ⟹  ϕ_n \xrightarrow{w} ϕ  ⟹  ϕ_n \xrightarrow{w^*} ϕ}.
+		
+		The second implication reverses if \m{X} is reflexive.
+	\stopproposition
+	\startproof
+		\emph{strong ⟹ weak}: \qquad
+		\m{\pair{x_n - x, ϕ} ≤ \norm{x_n - x} \norm{ϕ} → 0}.
+	
+		\emph{weak ⟹ weak*}: \qquad
+		\m{\pair{x, ϕ_n - ϕ} = \pair{ϕ_n - ϕ, x^{**}} → 0}.
+
+		The claim about the reverse implication is now obvious.
+
+		\emph{Counterexample for converse of the first implication}: Suppose \m{X = ℓ^2(ℕ)}. Then \m{e_n \xrightarrow{w} 0}, but \m{\norm{e_n - 0} = 1 ↛ 0}.
+	\stopproof
+
+	\startproposition
+		In Hilbert spaces, weak convergence plus convergence of norms (\m{\norm{x_n} → \norm{x}}) is equivalent to strong convergence.
+	\stopproposition
+	\startproof
+		\m{\norm{x_n - x}^2 = \inn{x_n - x, x_n - x} = \inn{x_n - x, x_n} - \inn{x_n - x, x} → 0}.
+	\stopproof
+
+	\startproposition
+		Let \m{H} and \m{K} be Hilbert spaces, and let \m{T ∈ B(H, K)} be a compact operator. Show that \m{x_n \xrightarrow{w} x ⟹ T x_n → T x}.
+		
+		Thus, a compact operator maps weakly convergent sequences to strongly convergent sequences.
+	\stopproposition
+	\startproof
+		\emph{Disclaimer}: Stolen from \goto{MSx1142451}[url(https://math.stackexchange.com/questions/1142451/compact-operators-weak-convergence)].
+
+		\m{T x_n \xrightarrow{w} T x} by continuity. Thus if any subsequence has a strong limit, it certainly is \m{T x}. But compactness guarantees every subsequence has a subsequence that converges to something: that something is \m{T x} by uniqueness, and so by our above equivalence with convergence, we have \m{T x_n → T x}.
+	\stopproof
+
+\stopchapter
+
+\stopcomponent

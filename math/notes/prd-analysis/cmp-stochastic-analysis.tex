@@ -56,18 +56,18 @@
 	\dscr{\m{(Ω, ℱ, ℙ)}}  The \emph{probability space}.
 
 	\startitemize [1, nowhite, after]
-		\item  If \m{𝕋 = \bcrl[1], Ξ = ℝ}, then \m{X} is a \emph{random variable}.
-		\item  If \m{𝕋 = \bcrl[1, …, n], Ξ = ℝ}, then \m{X} is a \emph{random vector}.
-		\item  If \m{𝕋 = \bcrl[1], Ξ = ℝ^d}, then \m{X} is a \emph{random vector}.
+		\item  If \m{𝕋 = \bcrl{1}, Ξ = ℝ}, then \m{X} is a \emph{random variable}.
+		\item  If \m{𝕋 = \bcrl{1, …, n}, Ξ = ℝ}, then \m{X} is a \emph{random vector}.
+		\item  If \m{𝕋 = \bcrl{1}, Ξ = ℝ^d}, then \m{X} is a \emph{random vector}.
 		\item  If \m{𝕋 = ℕ, Ξ = ℝ}, then \m{X} is a \emph{one-sided random sequence} or \emph{one-sided discrete-time stochastic process}.
 		\item  If \m{𝕋 = ℤ, Ξ = ℝ}, then \m{X} is a \emph{two-sided random variable} or \emph{two-sided discrete-time stochastic process}.
 		\item  If \m{𝕋 = ℤ^d, Ξ = ℝ}, then \m{X} is a \emph{spatial random variable}.
 		\item  If \m{𝕋 = ℝ, Ξ = ℝ}, then \m{X} is a \emph{continuous-time random variable}.
-		\item  If \m{𝕋 = \mathcal{B}, Ξ = [0, ∞]}, then \m{X} is a \emph{random set function on the reals}.
-		\item  If \m{𝕋 = \mathcal{B} × ℕ, Ξ = [0, ∞]}, then \m{X} is a \emph{one-sided random sequence of set function on the reals}.
-		\item  \emph{Emperical measures.}  Let \m{(Z_n)} be an i.i.d. random sequence and define \m{\hat{ℙ}_n : \mathcal{B} × Ω  \NC  →  𝓟: (B, ω)  ↦  \hat{ℙ}_n(B, ω)  =  \frac{1}{n} ∑_{j = 1}^n 𝟙_B(Z_j(ω))}. Then \m{\hat{ℙ}_n} is a \emph{one-sided random sequence of set function on the reals}, which are in fact \emph{probability measures}. \comment{[\m{𝓟} is the space of probability measures on \m{ℝ}.]}
-		\item  If \m{𝕋 = \mathcal{B}^d, Ξ = [0, ∞]}, then \m{X} is the class of set functions on \m{ℝ^d}. Let \m{𝓜} be the subclass of measures. Then a random set function with realizations in \m{𝓜} is called a \emph{random measure}.
-		\item  If \m{𝕋 = \mathcal{B}^d, \abs[Ξ] < ∞}, then \m{X} is a \emph{point process}.
+		\item  If \m{𝕋 = ℬ, Ξ = [0, ∞]}, then \m{X} is a \emph{random set function on the reals}.
+		\item  If \m{𝕋 = ℬ × ℕ, Ξ = [0, ∞]}, then \m{X} is a \emph{one-sided random sequence of set function on the reals}.
+		\item  \emph{Emperical measures.}  Let \m{(Z_n)} be an i.i.d. random sequence and define \m{\hat{ℙ}_n : ℬ × Ω  \NC  →  𝓟: (B, ω)  ↦  \hat{ℙ}_n(B, ω)  =  \frac{1}{n} ∑_{j = 1}^n 𝟙_B(Z_j(ω))}. Then \m{\hat{ℙ}_n} is a \emph{one-sided random sequence of set function on the reals}, which are in fact \emph{probability measures}. \comment{[\m{𝓟} is the space of probability measures on \m{ℝ}.]}
+		\item  If \m{𝕋 = ℬ^d, Ξ = [0, ∞]}, then \m{X} is the class of set functions on \m{ℝ^d}. Let \m{𝓜} be the subclass of measures. Then a random set function with realizations in \m{𝓜} is called a \emph{random measure}.
+		\item  If \m{𝕋 = ℬ^d, \abs{Ξ} < ∞}, then \m{X} is a \emph{point process}.
 		\item  If \m{𝕋 = [0, ∞), Ξ = ℝ^d < ∞}. A \m{Ξ}-valued random process on \m{𝕋} with paths in \m{C(𝕋)} is a \emph{continuous random process}. E.g. Wiener process.
 	\stopitemize
 
@@ -80,29 +80,32 @@
 
 		A stochastic process \m{A = (A_n)} is called adapted if \m{∀ n ∈ ℕ, A_n ∈ L^0(ℱ_n)}. Let \m{M = (M_n)} be a martingale. Then process \m{\tilde{M} = (\tilde{M}_n)} defined by \m{(A ⋅ M)_n = \tilde{M}_n = ∑_{j = 0}^{n - 1} A_j ΔM_j}, where \m{ΔM_j = M_{j + 1} - M_j}, is called the \emph{martingale transform} of \m{M} by \m{A}.
 
-		Theorem (martingale transform theorem): \m{\tilde{M}} is a martingale.
+		\starttheorem [title={martingale transform theorem}]
+			\m{\tilde{M}} is a martingale.
+		\stoptheorem
+		\startproof
+			\m{𝔼(Δ \tilde{M}_n ∣ ℱ_n)  =  𝔼(A_n ΔM_n ∣ ℱ_n)  =  A_n 𝔼(ΔM_n ∣ ℱ_n)  =  0}.
+		\stopproof
 
-		Proof.
-		\startformula
-			𝔼(Δ \tilde{M}_n ∣ ℱ_n)  =  𝔼(A_n ΔM_n ∣ ℱ_n)  =  A_n 𝔼(ΔM_n ∣ ℱ_n)  =  0 .
-		\stopformula
+		Now, let \m{X_n} be a stochastic process and \m{τ} be a stopping time. Define the stopped process \m{X_τ = ∑_{j = 0}^∞ 𝟙_{\bcrl{τ = j}} X_j} when \m{ℙ(τ < ∞) = 1}.
 
-		Now, let \m{X_n} be a stochastic process and \m{τ} be a stopping time. Define the stopped process \m{X_τ = ∑_{j = 0}^∞ 𝟙_{\bcrl[τ = j]} X_j} when \m{ℙ(τ < ∞) = 1}.
-
-		Theorem (stopping time theorem): Let \m{(M_n)} be a martingale with respect to \m{(ℱ_n)}. Then \m{(M_{n ∧ τ})} is also a martingale with respect to \m{(ℱ_n)}.
-
-		Proof. Without loss of generality, assume \m{M_0 = 0}, otherwise we can translate by \m{M_0} as \m{\tilde{M_n} = M_n - M_0}. Now, the \emph{stake process} \m{A_n = 𝟙_{\bcrl[τ > n]} = 1 - 𝟙_{\bcrl[τ ⩽ n]}} is adapted to \m{(ℱ_n)} and is bounded by \m{n}. Now,
-		\startformula \startalign
-			\NC  (A ⋅ M)_n  \NC =  ∑_{j = 0}^{n - 1} A_j ΔM_j  \NR
-			\NC  \NC =  ∑_{j = 0}^{n - 1} ΔM_j - ∑_{j = 0}^{n - 1} 𝟙_{\bcrl[τ ⩽ j]} \brnd[M_{j + 1} - M_j]  \NR
-			\NC  \NC =  M_n - M_0 - M_n 𝟙_{\bcrl[τ ⩽ n]} + ∑_{j = 0}^{n - 1} \brnd[𝟙_{\bcrl[τ ⩽ j]} M_j - 𝟙_{\bcrl[τ ⩽ {j - 1}]} M_j]  \NR
-			\NC  \NC =  M_n 𝟙_{\bcrl[τ > n]} + ∑_{j = 0}^{n - 1} M_j 𝟙_{\bcrl[τ = j]}   \NR
-			\NC  \NC =  M_n 𝟙_{\bcrl[τ > n]} + ∑_{j = 0}^{n - 1} M_τ 𝟙_{\bcrl[τ = j]}   \NR
-			\NC  \NC =  M_n 𝟙_{\bcrl[τ > n]} + M_τ ∑_{j = 0}^{n - 1} 𝟙_{\bcrl[τ = j]}   \NR
-			\NC  \NC =  M_n 𝟙_{\bcrl[τ > n]} + M_τ 𝟙_{\bcrl[τ ⩽ n]}   \NR
-			\NC  \NC =  M_{n ∧ τ} .  \NR
-		\stopalign \stopformula
-		Therefore, \m{(M_{n ∧ τ})} is a martingale transform of \m{(M_n)}. Since \m{(A_n)} is bounded and adapted, by the martingale transform theorem, \m{(M_{n ∧ τ})} is a martingale.
+		\starttheorem [title={stopping time theorem}]
+			Let \m{(M_n)} be a martingale with respect to \m{(ℱ_n)}. Then \m{(M_{n ∧ τ})} is also a martingale with respect to \m{(ℱ_n)}.
+		\stoptheorem
+		\startproof
+			Without loss of generality, assume \m{M_0 = 0}, otherwise we can translate by \m{M_0} as \m{\tilde{M_n} = M_n - M_0}. Now, the \emph{stake process} \m{A_n = 𝟙_{\bcrl{τ > n}} = 1 - 𝟙_{\bcrl{τ ⩽ n}}} is adapted to \m{(ℱ_n)} and is bounded by \m{n}. Now,
+			\startformula \startalign
+				\NC  (A ⋅ M)_n  \NC =  ∑_{j = 0}^{n - 1} A_j ΔM_j  \NR
+				\NC  \NC =  ∑_{j = 0}^{n - 1} ΔM_j - ∑_{j = 0}^{n - 1} 𝟙_{\bcrl{τ ⩽ j}} \brnd{M_{j + 1} - M_j}  \NR
+				\NC  \NC =  M_n - M_0 - M_n 𝟙_{\bcrl{τ ⩽ n}} + ∑_{j = 0}^{n - 1} \brnd{𝟙_{\bcrl{τ ⩽ j}} M_j - 𝟙_{\bcrl{τ ⩽ {j - 1}}} M_j}  \NR
+				\NC  \NC =  M_n 𝟙_{\bcrl{τ > n}} + ∑_{j = 0}^{n - 1} M_j 𝟙_{\bcrl{τ = j}}   \NR
+				\NC  \NC =  M_n 𝟙_{\bcrl{τ > n}} + ∑_{j = 0}^{n - 1} M_τ 𝟙_{\bcrl{τ = j}}   \NR
+				\NC  \NC =  M_n 𝟙_{\bcrl{τ > n}} + M_τ ∑_{j = 0}^{n - 1} 𝟙_{\bcrl{τ = j}}   \NR
+				\NC  \NC =  M_n 𝟙_{\bcrl{τ > n}} + M_τ 𝟙_{\bcrl{τ ⩽ n}}   \NR
+				\NC  \NC =  M_{n ∧ τ} .  \NR
+			\stopalign \stopformula
+			Therefore, \m{(M_{n ∧ τ})} is a martingale transform of \m{(M_n)}. Since \m{(A_n)} is bounded and adapted, by the martingale transform theorem, \m{(M_{n ∧ τ})} is a martingale.
+		\stopproof
 
 	\stopsection
 
@@ -115,7 +118,7 @@
 		Let \m{s ∈ [0, t]}. Then \m{X_⋅} is a Markov process if any of the following are true:
 		\startitemize[1, nowhite, after]
 			\item  \m{∀ E ∈ ℱ, ℙ(X_t ∈ E ∣ ℱ_s) = ℙ(X_t ∈ E ∣ X_s)}, or
-			\item  \m{∀ E ∈ ℱ, ∀ f ∈ L^0 ∩ \mathcal{B}, 𝔼(f(X_t) ∣ ℱ_s) = 𝔼(f(X_t) ∣ X_s)}.
+			\item  \m{∀ E ∈ ℱ, ∀ f ∈ L^0 ∩ ℬ, 𝔼(f(X_t) ∣ ℱ_s) = 𝔼(f(X_t) ∣ X_s)}.
 		\stopitemize
 	\stopsubject
 
@@ -130,95 +133,95 @@
 
 	Notation:
 
-	In what follows, \m{T = [0, ∞)}, \m{\mathcal{A}} means adapted, \m{\mathcal{B}} means bounded, \m{\mathcal{C}} means continuous, and \m{\norm[⋅]} denotes the \m{L^2}-norm.
+	In what follows, \m{T = [0, ∞)}, \m{𝒜} means adapted, \m{ℬ} means bounded, \m{𝒞} means continuous, and \m{\norm{⋅}} denotes the \m{L^2}-norm.
 
 	Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.
 
-	\startsection [title={Step 1: \m{X ∈ \mathcal{A} ∩ \mathcal{S}} a.s.}]
+	\startsection [title={Step 1: \m{X ∈ 𝒜 ∩ 𝒮} a.s.}]
 
 		Let \m{X(t, ω) = ∑_{j ≥ 0} ξ_j(ω) 𝟙_{[t_j, t_{j+1})}(t)}, where \m{ξ_j ∈ L^0(ℱ_{t_j})}.
 
 	\stopsection
 
-	\startsection [title={Step 2: \m{X ∈ \mathcal{A} ∩ \mathcal{B} ∩ \mathcal{C}} a.s.}]
+	\startsection [title={Step 2: \m{X ∈ 𝒜 ∩ ℬ ∩ 𝒞} a.s.}]
 
-		Define \m{X_n(t, ω) = X\brnd[\frac{\floor[nt]}{n}, ω], \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ \mathcal{A} ∩ \mathcal{S}}, and since \m{X ∈ \mathcal{C}}, \m{\abs[X_n(t, ω) - X(t, ω)] → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs[X_n(t, ω) - X(t, ω)] < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs[X_n(t, ω) - X(t, ω)]^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm[X_n - X] → 0}.
+		Define \m{X_n(t, ω) = X\brnd{\frac{\floor{nt}}{n}, ω}, \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ 𝒜 ∩ 𝒮}, and since \m{X ∈ 𝒞}, \m{\abs{X_n(t, ω) - X(t, ω)} → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs{X_n(t, ω) - X(t, ω)} < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs{X_n(t, ω) - X(t, ω)}^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm{X_n - X} → 0}.
 
-		Therefore, \m{(X_n)} is Cauchy in \m{L^2(T × Ω)}, that is, \m{\norm[X_n - X_m] → 0}. Now, by linearity and Itô isometry for the Itô integral for simple processes, \m{\norm[𝓘(X_n) - 𝓘(X_m)] = \norm[𝓘(X_n - X_m)] = \norm[X_n - X_m] → 0}. Therefore, for \m{t ∈ T} fixed, \m{(𝓘(X_n))} is Cauchy in \m{L^2(Ω)}. Since \m{L^2(Ω)} is complete, the sequence converges. Denote the limit by \m{𝓘(X)}, that is, \m{\norm[𝓘(X_n) - 𝓘(X)] → 0}.
-
-	\stopsection
-
-	\startsection [title={Step 3: \m{X ∈ \mathcal{A} ∩ \mathcal{B} ∩ L^0(T × Ω)}}]
+		Therefore, \m{(X_n)} is Cauchy in \m{L^2(T × Ω)}, that is, \m{\norm{X_n - X_m} → 0}. Now, by linearity and Itô isometry for the Itô integral for simple processes, \m{\norm{ℐ(X_n) - ℐ(X_m)} = \norm{ℐ(X_n - X_m)} = \norm{X_n - X_m} → 0}. Therefore, for \m{t ∈ T} fixed, \m{(ℐ(X_n))} is Cauchy in \m{L^2(Ω)}. Since \m{L^2(Ω)} is complete, the sequence converges. Denote the limit by \m{ℐ(X)}, that is, \m{\norm{ℐ(X_n) - ℐ(X)} → 0}.
 
 	\stopsection
 
-	\startsection [title={Step 4: \m{X ∈ \mathcal{A} ∩ L^2(T × Ω)}}]
+	\startsection [title={Step 3: \m{X ∈ 𝒜 ∩ ℬ ∩ L^0(T × Ω)}}]
 
 	\stopsection
 
-	\startsection [title={Step 5: \m{X ∈ \mathcal{A} ∩ \bcrl[X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞] a.s.}}]
+	\startsection [title={Step 4: \m{X ∈ 𝒜 ∩ L^2(T × Ω)}}]
+
+	\stopsection
+
+	\startsection [title={Step 5: \m{X ∈ 𝒜 ∩ \bcrl{X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞} a.s.}}]
 
 	\stopsection
 
 	\startsection [title={Properties of the Itô integral}]
 
-		In what follows, assume the following. Let \m{X, Y ∈ \mathcal{A} ∩ L^2(T × Ω); (X_n), (Y_n) ⊂ \mathcal{A} ∩ \mathcal{S}} such that \m{\norm[X_n - X] → 0} and \m{\norm[Y_n - Y] → 0}. Let \m{z ∈ ℂ}.
+		In what follows, assume the following. Let \m{X, Y ∈ 𝒜 ∩ L^2(T × Ω); (X_n), (Y_n) ⊂ 𝒜 ∩ 𝒮} such that \m{\norm{X_n - X} → 0} and \m{\norm{Y_n - Y} → 0}. Let \m{z ∈ ℂ}.
 
-		\startsubsection [title={Linearity: \m{\norm[z 𝓘(X) + 𝓘(Y) - 𝓘(zX+Y)] = 0}}]
-			First, note that \m{\norm[(z X_n + Y_n) - (z X + Y)] ≤ \abs[z] \norm[X_n - X] + \norm[Y_n - Y] → 0}. Now, by the linearity of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)}, we have
+		\startsubsection [title={Linearity: \m{\norm{z ℐ(X) + ℐ(Y) - ℐ(zX+Y)} = 0}}]
+			First, note that \m{\norm{(z X_n + Y_n) - (z X + Y)} ≤ \abs{z} \norm{X_n - X} + \norm{Y_n - Y} → 0}. Now, by the linearity of the integral \m{ℐ:𝒜 ∩ 𝒮 → L^2(Ω)}, we have
 			\startformula \startalign[align={left}]
-				\NC  \norm[z 𝓘(X) + 𝓘(Y) - 𝓘(z X + Y)]  \NR
-				\NC  =  \norm[z 𝓘(X) + 𝓘(Y) - z 𝓘(X_n) - 𝓘(Y_n) + 𝓘(z X_n + Y_n) - 𝓘(z X + Y)]  \NR
-				\NC  ≤  \abs[z] \norm[𝓘(X) - 𝓘(X_n)] + \norm[𝓘(Y) - 𝓘(Y_n)] + \norm[𝓘(z X_n + Y_n) - 𝓘(z X + Y)]  →  0 .
+				\NC  \norm{z ℐ(X) + ℐ(Y) - ℐ(z X + Y)}  \NR
+				\NC  =  \norm{z ℐ(X) + ℐ(Y) - z ℐ(X_n) - ℐ(Y_n) + ℐ(z X_n + Y_n) - ℐ(z X + Y)}  \NR
+				\NC  ≤  \abs{z} \norm{ℐ(X) - ℐ(X_n)} + \norm{ℐ(Y) - ℐ(Y_n)} + \norm{ℐ(z X_n + Y_n) - ℐ(z X + Y)}  →  0 .
 			\stopalign \stopformula
 		\stopsubsection
 
-		\startsubsection [title={Itô isometry: \m{\norm[𝓘(X)] = \norm[X]}}]
-			Using the isometry of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)}, we have
+		\startsubsection [title={Itô isometry: \m{\norm{ℐ(X)} = \norm{X}}}]
+			Using the isometry of the integral \m{ℐ:𝒜 ∩ 𝒮 → L^2(Ω)}, we have
 			\startformula \startalign[align={left,left}]
-				\NC  \norm[𝓘(X)]  \NC  ≤  \norm[𝓘(X) - 𝓘(X_n)] + \norm[𝓘(X_n)]  \NR
-				\NC  \NC  =  \norm[𝓘(X) - 𝓘(X_n)] + \norm[X_n]  \NR
-				\NC  \NC  =  \norm[𝓘(X) - 𝓘(X_n)] + \norm[X_n - X] + \norm[X]  →  \norm[X] .
+				\NC  \norm{ℐ(X)}  \NC  ≤  \norm{ℐ(X) - ℐ(X_n)} + \norm{ℐ(X_n)}  \NR
+				\NC  \NC  =  \norm{ℐ(X) - ℐ(X_n)} + \norm{X_n}  \NR
+				\NC  \NC  =  \norm{ℐ(X) - ℐ(X_n)} + \norm{X_n - X} + \norm{X}  →  \norm{X} .
 			\stopalign \stopformula
 			Note that the \quote{Itô isometry} is actually a unitary transformation.
 		\stopsubsection
 
-		\startsubsection [title={Martingale property: \m{𝔼\brnd[𝓘_t(X) ∣ ℱ_s] = 𝓘_s(X)} a.s.}]
-			The martingale property of the integral \m{𝓘:\mathcal{A} ∩ \mathcal{S} → L^2(Ω)} gives \m{𝔼\brnd[𝓘_t(X_n) - 𝓘_s(X_n) ∣ ℱ_s] = 0}. Using this and the unitariness of the Itô isometry, we get
+		\startsubsection [title={Martingale property: \m{𝔼\brnd{ℐ_t(X) ∣ ℱ_s} = ℐ_s(X)} a.s.}]
+			The martingale property of the integral \m{ℐ:𝒜 ∩ 𝒮 → L^2(Ω)} gives \m{𝔼\brnd{ℐ_t(X_n) - ℐ_s(X_n) ∣ ℱ_s} = 0}. Using this and the unitariness of the Itô isometry, we get
 			\startformula \startalign[align={left,left}]
-				\NC  \norm[𝔼{\brnd[𝓘_t(X) - 𝓘_s(X) ∣ ℱ_s]}]^2  \NR
-				\NC  =  𝔼\abs[𝔼{\brnd[𝓘_t(X) - 𝓘_t(X_n) + 𝓘_s(X_n) - 𝓘_s(X) ∣ ℱ_s]} + 𝔼{\brnd[𝓘_t(X_n) - 𝓘_s(X_n) ∣ ℱ_s]}]^2  \NR
-				\NC  =  𝔼\abs[𝔼{\brnd[𝓘_t(X) - 𝓘_t(X_n) + 𝓘_s(X_n) - 𝓘_s(X) ∣ ℱ_s]} + 0]^2  \NR
-				\NC  ≤  𝔼𝔼\brnd[{\abs[𝓘_t(X) - 𝓘_t(X_n) + 𝓘_s(X_n) - 𝓘_s(X)]}^2 ∣ ℱ_s]  \NR
-				\NC  =  𝔼\abs[𝓘_t(X) - 𝓘_t(X_n) + 𝓘_s(X_n) - 𝓘_s(X)]^2  \NR
-				\NC  =  \norm[𝓘_t(X - X_n) + 𝓘_s(X_n - X)]^2  \NR
-				\NC  ≤  2 \brnd[{\norm[𝓘_t(X - X_n)]}^2 + {\norm[𝓘_s(X_n - X)]}^2]  \qquad  \bsqr[{\norm[a + b]^2 ≤ 2\brnd[{\norm[a]^2 + \norm[b]^2}]}]  \NR
-				\NC  =  2 \brnd[{\norm[X - X_n]}^2 + {\norm[X_n - X]}^2]  =  4 \norm[X_n - X]^2  →  0 .
+				\NC  \norm{𝔼{\brnd{ℐ_t(X) - ℐ_s(X) ∣ ℱ_s}}}^2  \NR
+				\NC  =  𝔼\abs{𝔼{\brnd{ℐ_t(X) - ℐ_t(X_n) + ℐ_s(X_n) - ℐ_s(X) ∣ ℱ_s}} + 𝔼{\brnd{ℐ_t(X_n) - ℐ_s(X_n) ∣ ℱ_s}}}^2  \NR
+				\NC  =  𝔼\abs{𝔼{\brnd{ℐ_t(X) - ℐ_t(X_n) + ℐ_s(X_n) - ℐ_s(X) ∣ ℱ_s}} + 0}^2  \NR
+				\NC  ≤  𝔼𝔼\brnd{\abs{ℐ_t(X) - ℐ_t(X_n) + ℐ_s(X_n) - ℐ_s(X)}^2 ∣ ℱ_s}  \NR
+				\NC  =  𝔼\abs{ℐ_t(X) - ℐ_t(X_n) + ℐ_s(X_n) - ℐ_s(X)}^2  \NR
+				\NC  =  \norm{ℐ_t(X - X_n) + ℐ_s(X_n - X)}^2  \NR
+				\NC  ≤  2 \brnd{\norm{ℐ_t(X - X_n)}^2 + \norm{ℐ_s(X_n - X)}^2}  \qquad  \bsqr{\norm{a + b}^2 ≤ 2 \brnd{\norm{a}^2 + \norm{b}^2}}  \NR
+				\NC  =  2 \brnd{\norm{X - X_n}^2 + \norm{X_n - X}^2}  =  4 \norm{X_n - X}^2  →  0 .
 			\stopalign \stopformula
 		\stopsubsection
 
 	\stopsection
 
-	% In what follows, \m{T = [0, t], \ t ∈ [0, ∞)}, \m{X: T × Ω → ℝ}, and \m{\mathcal{S}} represent the class of simple processes.
+	% In what follows, \m{T = [0, t], \ t ∈ [0, ∞)}, \m{X: T × Ω → ℝ}, and \m{𝒮} represent the class of simple processes.
 
-	% \startsection [title={Approximation of \m{\mathcal{S} ∋ X_n → X ∈ L^2(T × Ω)}}]
-	% 	\startsubsection [title={Step 1: \m{\mathcal{S} ∋ X_n → X ∈ C ∩ B}}]
+	% \startsection [title={Approximation of \m{𝒮 ∋ X_n → X ∈ L^2(T × Ω)}}]
+	% 	\startsubsection [title={Step 1: \m{𝒮 ∋ X_n → X ∈ C ∩ B}}]
 	% 		Suppose \m{X} is a progressive, adapted, \emph{bounded on \m{I}} \m{t}-a.s., and has \emph{continuous sample paths} \m{t}-a.s. Then there exist a sequence of bounded simple processes \m{(X_n)} such that \m{X_n → X} in \m{L^2(T × Ω)}.
 
 	% 		Proof.
 
-	% 		Let \m{(Δ_n)} be a sequence of progressively finer partitions of \m{I} such that \m{Δ_n = \bcrl[t_0, t_1 …, t_n]; t_0 < t_1 < … < t_n}, and \m{\norm[Δ_n] → 0} as \m{n → ∞}. Define the sequence of simple processes \m{X_n(t, ω) = ∑_{j = 0}^{n - 1} X(t_j, ω) 𝟙_{\intco[t_j, t_{j + 1}]}(t)}. Then, we claim that \m{X_n → X} in \m{L^2(T × Ω)}.
+	% 		Let \m{(Δ_n)} be a sequence of progressively finer partitions of \m{I} such that \m{Δ_n = \bcrl{t_0, t_1 …, t_n]; t_0 < t_1 < … < t_n}, and \m{\norm{Δ_n] → 0} as \m{n → ∞}. Define the sequence of simple processes \m{X_n(t, ω) = ∑_{j = 0}^{n - 1} X(t_j, ω) 𝟙_{\intco[t_j, t_{j + 1}]}(t)}. Then, we claim that \m{X_n → X} in \m{L^2(T × Ω)}.
 
-	% 		Firstly fix \m{ω ∈ Ω}. By the \emph{continuity of paths} of \m{X}, \m{∀ ϵ > 0, ∃ δ > 0} such that whenever \m{\abs[s - t] < δ}, we have \m{\abs[X(s, ω) - X(t, ω)] < ϵ}. Therefore, for \m{\norm[Δ_n] < δ}, we have
+	% 		Firstly fix \m{ω ∈ Ω}. By the \emph{continuity of paths} of \m{X}, \m{∀ ϵ > 0, ∃ δ > 0} such that whenever \m{\abs{s - t] < δ}, we have \m{\abs{X(s, ω) - X(t, ω)] < ϵ}. Therefore, for \m{\norm{Δ_n] < δ}, we have
 	% 		\startformula
-	% 			\abs[X_n(t, ω) - X(t, ω)]
-	% 				≤ ∑_{j = 0}^{n - 1} \abs[X(t_j, ω) - X(t, ω)] 𝟙_{\intco[t_j, t_{j + 1}]}(t)
+	% 			\abs{X_n(t, ω) - X(t, ω)]
+	% 				≤ ∑_{j = 0}^{n - 1} \abs{X(t_j, ω) - X(t, ω)] 𝟙_{\intco[t_j, t_{j + 1}]}(t)
 	% 				< ∑_{j = 0}^{n - 1} ϵ 𝟙_{\intco[t_j, t_{j + 1}]}(t)
 	% 				= ϵ .
 	% 		\stopformula
-	% 		Therefore, \m{∀ t ∈ I}, \m{\abs[X_n(t, ω) - X(t, ω)] → 0}, and so \m{\abs[X_n(t, ω) - X(t, ω)]^2 → 0}. Moreover, since the sample path \m{X(⋅, ω)} is \emph{bounded}, we have \m{\abs[X_n(t, ω) - X(t, ω)]^2 ⩽ 4 \norm[X(⋅, ω)]_{L^∞(I)}^2 < ∞}. Therefore by the bounded convergence theorem, \m{∫_0^1 \abs[X_n(t, ω) - X(t, ω)]^2 \d t → 0}.
+	% 		Therefore, \m{∀ t ∈ I}, \m{\abs{X_n(t, ω) - X(t, ω)] → 0}, and so \m{\abs{X_n(t, ω) - X(t, ω)]^2 → 0}. Moreover, since the sample path \m{X(⋅, ω)} is \emph{bounded}, we have \m{\abs{X_n(t, ω) - X(t, ω)]^2 ⩽ 4 \norm{X(⋅, ω)]_{L^∞(I)}^2 < ∞}. Therefore by the bounded convergence theorem, \m{∫_0^1 \abs{X_n(t, ω) - X(t, ω)]^2 \d t → 0}.
 
-	% 		Now varying \m{ω} and taking expectation, we get \m{𝔼\brnd[∫_0^1 {\abs[X_n(t, ω) - X(t, ω)]}^2 \d t] → 0}. In other words, \m{\norm[X_n - X]_{L^2(T × Ω)} → 0}.
+	% 		Now varying \m{ω} and taking expectation, we get \m{𝔼\brnd{∫_0^1 {\abs{X_n(t, ω) - X(t, ω)]}^2 \d t] → 0}. In other words, \m{\norm{X_n - X]_{L^2(T × Ω)} → 0}.
 	% 	\stopsubsection
 	% 	\startsubsection [title={Step 2: \m{C ∩ B ∋ X_n → X ∈ B}}]
 
@@ -247,19 +250,19 @@
 			=  \d f(X_t)
 			=  f'(X_t) \d A_t
 			 + f'(X_t) \d M_t
-			 + \frac12 f''(X_t) \d \inn[M_t, M_t],
+			 + \frac12 f''(X_t) \d \inn{M_t, M_t},
 		\stopformula
-		where we use the rule \m{\d \inn[B^{(j)}, B^{(j)}]_t = \brnd[\d B_t^{(j)}]^2 = \d t}, everything else being 0.
+		where we use the rule \m{\d \inn{B^{(j)}, B^{(j)}}_t = \brnd{\d B_t^{(j)}}^2 = \d t}, everything else being 0.
 
 		Alternatively, as from \cite[Kuo2006], we have the following.
 
 		Let \m{X_t= (X_t^{(1)}, \dots, X_t^{(d)})} be a \m{d}-dimensional process and \m{f(t, x)} be a functional of \m{(t, X_t)}. Then the Itô formula becomes
 		\startformula
-			\d f(t, X_t)  =  \brnd[{\inn[\d t, \D_t]} f](t, X_t)
-				+ \brnd[{\inn[\d x, \D_x]} f](t, X_t)
-				+ \frac12 \brnd[{\inn[\d x, \D_x]}^2 f](t, X_t) ,
+			\d f(t, X_t)  =  \brnd{\inn{\d t, \D_t} f}(t, X_t)
+				+ \brnd{\inn{\d x, \D_x} f}(t, X_t)
+				+ \frac12 \brnd{\inn{\d x, \D_x}^2 f}(t, X_t) ,
 		\stopformula
-		or in short, \m{\d f  =  \brnd[{\inn[\d t, \D_t]}  +  {\inn[\d x, \D_x]}  +  \frac12 {\inn[\d x, \D_x]}^2] f}.
+		or in short, \m{\d f  =  \brnd{\inn{\d t, \D_t}  +  \inn{\d x, \D_x}  +  \frac12 \inn{\d x, \D_x}^2} f}.
 
 	\stopsection
 
@@ -274,27 +277,27 @@
 
 \startchapter [title={Examples}]
 
-	\startsection [title={Find \m{𝔼\brnd[∫_0^1 B_t^2 \d t]^2}.}]
+	\startsection [title={Find \m{𝔼\brnd{∫_0^1 B_t^2 \d t}^2}.}]
 
 		By Fubini's theorem,
 		\startformula
-			𝔼\brnd[∫_0^1 B_t^2 \d t]^2  \NC  =  𝔼\brnd[∫_0^1 B_t^2 \d t ∫_0^1 B_s^2 \d s]  =  𝔼\brnd[∫_0^1 ∫_0^1 B_t^2 B_s^2 \d s \d t]  =  ∫_0^1 ∫_0^1 𝔼(B_t^2 B_s^2) \d s \d t .
+			𝔼\brnd{∫_0^1 B_t^2 \d t}^2  \NC  =  𝔼\brnd{∫_0^1 B_t^2 \d t ∫_0^1 B_s^2 \d s}  =  𝔼\brnd{∫_0^1 ∫_0^1 B_t^2 B_s^2 \d s \d t}  =  ∫_0^1 ∫_0^1 𝔼(B_t^2 B_s^2) \d s \d t .
 		\stopformula
 		\startformula \startalign[n=3, align={left, right, left}]
 			\NC  \text{Now, } ∀s ∈ [0, t],  \NC  𝔼(B_t^2 B_s^2)  \NC  =  𝔼(𝔼(B_t^2 B_s^2 ∣ ℱ_s))  =  𝔼(B_s^2 𝔼((B_t^2 - t) + t ∣ ℱ_s))  \NR
 			\NC  \NC  \NC  =  𝔼(B_s^2 ((B_s^2 - s) + t))  =  𝔼(B_s^2 ((B_s^2 - s) + t))  \NR
 			\NC  \NC  \NC  =  𝔼(B_s^4 - s B_s^2 + t B_s^2)  =  3s^2 - s^2 + ts  =  2s^2 + ts .  \NR
-			\NC  \text{So }  \NC  𝔼\brnd[∫_0^1 B_t^2 \d t]^2  \NC  =  2 ∫_0^1 ∫_0^t (2s^2 + ts) \d s \d t  =  \frac{7}{9} .  \NR
+			\NC  \text{So }  \NC  𝔼\brnd{∫_0^1 B_t^2 \d t}^2  \NC  =  2 ∫_0^1 ∫_0^t (2s^2 + ts) \d s \d t  =  \frac{7}{9} .  \NR
 		\stopalign \stopformula
 
 	\stopsection
 
-	\startsection [title={Find \m{𝕍\brnd[∫_0^1 t^2 B_t \d t]}.}]
+	\startsection [title={Find \m{𝕍\brnd{∫_0^1 t^2 B_t \d t}}.}]
 
-		By Fubini's theorem, \m{𝔼\brnd[∫_0^1 t^2 B_t \d t]  =  ∫_0^1 t^2 𝔼B_t \d t  =  0}. So by Fubini's theorem (again),
+		By Fubini's theorem, \m{𝔼\brnd{∫_0^1 t^2 B_t \d t}  =  ∫_0^1 t^2 𝔼B_t \d t  =  0}. So by Fubini's theorem (again),
 		\startformula \startalign[align={left, left}]
-			\NC  𝕍\brnd[∫_0^1 t^2 B_t \d t]  \NC  =  𝔼\brnd[∫_0^1 t^2 B_t \d t]^2  =  𝔼\brnd[∫_0^1 t^2 B_t \d t ∫_0^1 s^2 B_s \d s]  \NR
-			\NC  \NC  =  𝔼\brnd[∫_0^1 ∫_0^1 t^2 s^2 B_t B_s \d s \d t]  =  ∫_0^1 ∫_0^1 t^2 s^2 𝔼(B_t B_s) \d s \d t  \NR
+			\NC  𝕍 \brnd{∫_0^1 t^2 B_t \d t}  \NC  =  𝔼 \brnd{∫_0^1 t^2 B_t \d t}^2  =  𝔼 \brnd{∫_0^1 t^2 B_t \d t ∫_0^1 s^2 B_s \d s}  \NR
+			\NC  \NC  =  𝔼\brnd{∫_0^1 ∫_0^1 t^2 s^2 B_t B_s \d s \d t}  =  ∫_0^1 ∫_0^1 t^2 s^2 𝔼(B_t B_s) \d s \d t  \NR
 			\NC  \NC  =  ∫_0^1 ∫_0^1 t^2 s^2 (t ∧ s) \d s \d t  =  2 ∫_0^1 ∫_0^t t^2 s^2 s \d s \d t  =  \frac{1}{14} .  \NR
 		\stopalign \stopformula
 
@@ -303,7 +306,7 @@
 	\startsection [title={Calculate \m{∫_0^T e^{B_t^2} \d B_t}.}]
 		Let \m{f(x) = ∫_0^x e^{t^2} \d t}. Then \m{f'(x) = e^{x^2}} and \m{f''(x) = 2 x e^{x^2}}.
 
-		Now, using the Itô formula, we get \m{\d \brnd[∫_0^x e^{t^2} \d t] = e^{B_t^2} \d B_t + B_t e^{B_t^2} \d t}, which gives us \m{∫_0^T e^{B_t^2} \d B_t =  ∫_0^{B_T} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
+		Now, using the Itô formula, we get \m{\d \brnd{∫_0^x e^{t^2} \d t} = e^{B_t^2} \d B_t + B_t e^{B_t^2} \d t}, which gives us \m{∫_0^T e^{B_t^2} \d B_t =  ∫_0^{B_T} e^{t^2} \d t - ∫_0^T B_t e^{B_t^2} \d t}.
 	\stopsection
 
 \stopchapter
