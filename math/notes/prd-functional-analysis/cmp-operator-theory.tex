@@ -4,14 +4,17 @@
 
 \startchapter [title={Elementary ideas}]
 
+	A great source is \goto{Trace class operators and Hilbert-Schmidt operators by Jordan Bell}[url(https://individual.utoronto.ca/jordanbell/notes/traceclass.pdf)].
+
 	\startsection [title={Intuition}]
+		On a separable Hilbert space, we have
 		\startitemize [4, joinedup]
 			
 			\item  \m{T ∈ ℬ^∞ ⟺ λ ∈ ℓ^∞} (bounded)
 
 				\good{Example \m{I: ℓ^2 → ℓ^2: e_n ↦ e_n}.}
 			
-			\item  \m{T ∈ 𝒦 ⟺ λ ∈ c_0}  (compact)
+			\item  \m{T ∈ ℬ_0 ⟺ λ ∈ c_0}  (compact)
 
 				\good{Example \m{T: ℓ^2 → ℓ^2: e_n ↦ \frac{1}{\sqrt{n}} e_n}.}
 			
@@ -23,28 +26,32 @@
 
 				\good{Example \m{T: ℓ^2 → ℓ^2: e_n ↦ \frac{1}{n^2} e_n}.}
 			
-			\item  \m{T ∈ 𝒟 ⟺ λ ∈ c_{00}}  (degenerate)
+			\item  \m{T ∈ ℬ_{00} ⟺ λ ∈ c_{00}}  (degenerate or finite rank)
 
 				\good{Example \m{T: ℓ^2 → ℓ^2: e_n ↦ α_n e_n \m{𝟙_{[N]}(n)}} for \m{α_n ∈ ℂ} and \m{N ∈ ℕ}.}
 		\stopitemize
 	\stopsection
 
+	\startremark
+		Since the dual of \m{c_0} is \m{ℓ^1} and the dual of \m{ℓ^1} is \m{ℓ^∞}, we have \m{ℬ_0^* = ℬ^1} and \m{(ℬ^1)^* = ℬ^∞}. Similarly, \m{(ℬ^2)^* = ℬ^2}.
+	\stopremark
+
 	\starttheorem [title={Operator inclusions}]
-		\m{𝒟 ⊂ ℬ^1 ⊂ ℬ^2 ⊂ 𝒦 ⊂ ℬ^∞}
+		\m{ℬ_{00} ⊂ ℬ^1 ⊂ ℬ^2 ⊂ ℬ_0 ⊂ ℬ^∞}
 	\stoptheorem
 	\startproof
 		\startitemize [4]
 			
-			\item  \m{𝒟 ⊂ ℬ^1}  \qquad
+			\item  \m{ℬ_{00} ⊂ ℬ^1}  \qquad
 				Trivial
 
 			\item  \m{ℬ^1 ⊂ ℬ^2}  \qquad
 
 				
-			\item  \m{ℬ^2 ⊂ 𝒦}  \qquad
+			\item  \m{ℬ^2 ⊂ ℬ_0}  \qquad
 
 				
-			\item  \m{𝒦 ⊂ ℬ^∞}  \qquad
+			\item  \m{ℬ_0 ⊂ ℬ^∞}  \qquad
 				(\cite[authoryear][BMC2009], Proposition 4.6) If \m{T} is unbounded, we can find a sequence of unit vectors \m{(e_n)} such that \m{\norm{T e_n} ↗ ∞}. So \m{T e_n} cannot have a convergent subsequence, for if \m{T e_n → x}, then \m{\norm{T e_n} → \norm{x}}.
 				
 		\stopitemize

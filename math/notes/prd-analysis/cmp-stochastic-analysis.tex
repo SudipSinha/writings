@@ -5,7 +5,7 @@
 
 \startchapter [title={Brownian motion}]
 	
-	In the following, let
+	In the following, let \m{i ∈ [n]} for \m{n ∈ ℕ}, and
 	\startitemize [5, joinedup]
 		\item  \m{Δ_i t = t_i - t_{i-1}} with \m{Δ_1 t = t_1},
 		\item  \m{Δ_i x = x_i - x_{i-1}}, with  and \m{Δ_1 x = x_1},
@@ -18,21 +18,41 @@
 			\item[bm-increment]  \m{X_t} is a stochastic process having independent Gaussian increments.
 			\item[bm-marginal]  \m{X_t} is a stochastic process with marginal distributions given by
 				\startformula
-					μ_{t_1, …, t_n}(A) = \frac{1}{(2π)^{\frac{n}{2}} ∏ Δ_i t} ∫_A \exp \brnd{-\frac12 ∑ \frac{(Δ_i x)^2}{Δ_i t}} ∏ \d x_i
+					μ_{t_1, …, t_n}(A) = \frac{1}{\sqrt{(2π)^n ∏ Δ_i t}} ∫_A \exp \brnd{-\frac12 ∑ \frac{(Δ_i x)^2}{Δ_i t}} ∏ \d x_i
 				\stopformula
 				for any \m{0 < t_1 < ⋯ < t_n} and \m{n ∈ ℕ}.
 			\item[bm-Fourier]  \m{X_t} is a stochastic process such that for any \m{0 < t_1 < ⋯ < t_n} and \m{λ_1, ⋯, λ_n ∈ ℝ},
 				\startformula
-					𝔼 \exp \brnd{i ∑ λ_i Δ_i X_i} = \exp\brnd{-\frac12 ∑ λ_i^2 Δ_i t} .
+					𝔼 \exp \brnd{i ∑ λ_i Δ_i X} = \exp\brnd{-\frac12 ∑ λ_i^2 Δ_i t} .
 				\stopformula
 		\stopitemize
 	\stoptheorem
 
 	\startproof
+		Firstly, let \m{Π = \bcrl{(-∞, c_1] × ⋯ × (-∞, c_n]: c_i ∈ ℝ, n ∈ ℕ}}, and note that \m{Π} is a π-system that generates the Borel sigma algebra. So it is enough to show the results for an arbitrary set in \m{Π}. Moreover, the idea of the proof is the same for \m{n ≥ 2}, so we shall consider \m{n = 2}. Therefore, \in[bm-marginal] reduces to
+		\startformula
+			μ_{t_1, t_2}((-∞, c_1] × (-∞, c_2]) = \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{(x_2 - x_1)^2}{t_2 - t_1}}}  \d x_2 \d x_1 ,
+		\stopformula
+		and \in[bm-Fourier] reduces to
+		\startformula
+			𝔼 e^{i (λ_1 X_{t_1} + λ_2 (X_{t_2} - X_{t_1}))} = e^{-\frac12 (λ_1^2 t_1 + λ_2^2 (t_2 - t_1))} .
+		\stopformula
+		Now we start with the proof.
 		\startitemize [i]
 			\item  \in[bm-increment] ⟹ \in[bm-marginal]
+				\startformula  \startalign[align={left, left}]
+					\NC  μ_{t_1, t_2}((-∞, c_1] × (-∞, c_2])  \NR
+					\NC  =  ℙ \bcrl{X_{t_1} ≤ c_1, X_{t_2} ≤ c_2}  \NR
+					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} ∈ \d x_2 ∣ X_{t_1} = x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \NR
+					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} - X_{t_1} ∈ \d x_2 - x_1 ∣ X_{t_1} = x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \NR
+					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} - X_{t_1} ∈ \d x_2 - x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \qquad  \NC  \comment{[\text{independent incr}]}  \NR
+					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  \frac{1}{\sqrt{(2π) (t_2 - t_1)}} e^{-\frac12 \frac{(x_2 - x_1)^2}{t_2 - t_1}}  \d x_2  \frac{1}{\sqrt{(2π) t_1}} e^{-\frac12 \frac{x_1^2}{t_1}}  \d x_1  \qquad  \NC  \comment{[\text{Gaussian incr}]}  \NR
+					\NC  =  \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{(x_2 - x_1)^2}{t_2 - t_1}}} \d x_2 \d x_1 .  \NR
+				\stopalign  \stopformula
 
-				TODO
+			\item  \in[bm-marginal] ⟹ \in[bm-Fourier]
+			\item  \in[bm-Fourier] ⟹ \in[bm-increment]
+
 		\stopitemize
 	\stopproof
 \stopchapter
