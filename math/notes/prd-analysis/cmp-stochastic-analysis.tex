@@ -23,7 +23,7 @@
 				for any \m{0 < t_1 < ⋯ < t_n} and \m{n ∈ ℕ}.
 			\item[bm-Fourier]  \m{X_t} is a stochastic process such that for any \m{0 < t_1 < ⋯ < t_n} and \m{λ_1, ⋯, λ_n ∈ ℝ},
 				\startformula
-					𝔼 \exp \brnd{i ∑ λ_i Δ_i X} = \exp\brnd{-\frac12 ∑ λ_i^2 Δ_i t} .
+					𝔼 \exp \brnd{𝚤 ∑ λ_i Δ_i X} = \exp\brnd{-\frac12 ∑ λ_i^2 Δ_i t} .
 				\stopformula
 		\stopitemize
 	\stoptheorem
@@ -31,11 +31,11 @@
 	\startproof
 		Firstly, let \m{Π = \bcrl{(-∞, c_1] × ⋯ × (-∞, c_n]: c_i ∈ ℝ, n ∈ ℕ}}, and note that \m{Π} is a π-system that generates the Borel sigma algebra. So it is enough to show the results for an arbitrary set in \m{Π}. Moreover, the idea of the proof is the same for \m{n ≥ 2}, so we shall consider \m{n = 2}. Therefore, \in[bm-marginal] reduces to
 		\startformula
-			μ_{t_1, t_2}((-∞, c_1] × (-∞, c_2]) = \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{(x_2 - x_1)^2}{t_2 - t_1}}}  \d x_2 \d x_1 ,
+			μ_{t_1, t_2}((-∞, c_1] × (-∞, c_2]) = \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{\brnd{x_2 - x_1}^2}{t_2 - t_1}}}  \d x_2 \d x_1 ,
 		\stopformula
 		and \in[bm-Fourier] reduces to
 		\startformula
-			𝔼 e^{i (λ_1 X_{t_1} + λ_2 (X_{t_2} - X_{t_1}))} = e^{-\frac12 (λ_1^2 t_1 + λ_2^2 (t_2 - t_1))} .
+			𝔼 e^{𝚤 (λ_1 X_{t_1} + λ_2 (X_{t_2} - X_{t_1}))} = e^{-\frac12 (λ_1^2 t_1 + λ_2^2 (t_2 - t_1))} .
 		\stopformula
 		Now we start with the proof.
 		\startitemize [i]
@@ -46,11 +46,28 @@
 					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} ∈ \d x_2 ∣ X_{t_1} = x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \NR
 					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} - X_{t_1} ∈ \d x_2 - x_1 ∣ X_{t_1} = x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \NR
 					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  ℙ \bcrl{X_{t_2} - X_{t_1} ∈ \d x_2 - x_1}  ℙ \bcrl{X_{t_1} ∈ \d x_1}  \qquad  \NC  \comment{[\text{independent incr}]}  \NR
-					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  \frac{1}{\sqrt{(2π) (t_2 - t_1)}} e^{-\frac12 \frac{(x_2 - x_1)^2}{t_2 - t_1}}  \d x_2  \frac{1}{\sqrt{(2π) t_1}} e^{-\frac12 \frac{x_1^2}{t_1}}  \d x_1  \qquad  \NC  \comment{[\text{Gaussian incr}]}  \NR
-					\NC  =  \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{(x_2 - x_1)^2}{t_2 - t_1}}} \d x_2 \d x_1 .  \NR
+					\NC  =  ∫_{-∞}^{c_1} ∫_{-∞}^{c_2}  \frac{1}{\sqrt{(2π) (t_2 - t_1)}} e^{-\frac12 \frac{\brnd{x_2 - x_1}^2}{t_2 - t_1}}  \d x_2  \frac{1}{\sqrt{(2π) t_1}} e^{-\frac12 \frac{x_1^2}{t_1}}  \d x_1  \qquad  \NC  \comment{[\text{Gaussian incr}]}  \NR
+					\NC  =  \frac{1}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} ∫_{-∞}^{c_1} ∫_{-∞}^{c_2} e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{\brnd{x_2 - x_1}^2}{t_2 - t_1}}} \d x_2 \d x_1 .  \NR
 				\stopalign  \stopformula
 
 			\item  \in[bm-marginal] ⟹ \in[bm-Fourier]
+				
+				First, we recall the characteristic function of \m{X ∼ 𝒩(0, t)} as \m{𝔼e^{𝚤 λ X} = e^{-\frac12 λ^2 t}}.
+				Secondly, note that
+				\startformula
+					𝔼 e^{𝚤 (λ_1 X_{t_1} + λ_2 (X_{t_2} - X_{t_1}))}
+					=  ∫_ℝ ∫_ℝ  e^{𝚤 (λ_1 x_1 + λ_2 (x_2 - x_1))}  \frac{e^{-\frac12 \brnd{\frac{x_1^2}{t_1} + \frac{\brnd{x_2 - x_1}^2}{t_2 - t_1}}}}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}} \d x_2 \d x_1 .
+				\stopformula
+				Now, using the change of variables \m{y_1 = x_1, y_2 = x_2 - x_1}, we have \m{\d y_1 = \d x_1} and \m{\d y_2 = \d x_2 - \d x_1}, so \m{\d x_2 \d x_1 = (\d y_2 + \d y_1) \d y_1 = \d y_2 \d y_1}. Therefore,
+				\startformula  \startalign[align={left, left}]
+					\NC  𝔼 e^{𝚤 (λ_1 X_{t_1} + λ_2 (X_{t_2} - X_{t_1}))}  \NR
+					\NC  =  ∫_ℝ ∫_ℝ  e^{𝚤 (λ_1 y_1 + λ_2 y_2)}  \frac{e^{-\frac12 \brnd{\frac{y_1^2}{t_1} + \frac{y_2^2}{t_2 - t_1}}}}{\sqrt{(2π)^2 t_1 (t_2 - t_1)}}  \d y_2 \d y_1  \NR
+					\NC  =  \brnd{∫_ℝ  e^{𝚤 λ_1 y_1}  \frac{e^{-\frac12 \frac{y_1^2}{   t_1   }}}{\sqrt{(2π)     t_1    }}  \d y_1}
+					        \brnd{∫_ℝ  e^{𝚤 λ_2 y_2}  \frac{e^{-\frac12 \frac{y_2^2}{t_2 - t_1}}}{\sqrt{(2π) (t_2 - t_1)}}  \d y_2}  \NR
+					\NC  =  \brnd{e^{-\frac12 λ_1^2 t_1}} \brnd{e^{-\frac12 λ_2^2 (t_2 - t_1)}}  \quad
+					     =  \quad  e^{-\frac12 (λ_1^2 t_1 + λ_2^2 (t_2 - t_1))}  .  \NR
+				\stopalign  \stopformula
+
 			\item  \in[bm-Fourier] ⟹ \in[bm-increment]
 
 		\stopitemize
@@ -150,38 +167,52 @@
 
 
 \startchapter [title={Itô calculus}, reference=sub:Itô]
+	
+	\startremark [title={Wiener integral}]
+		The term \emph{Wiener integral} may be used to refer to either of the following two unrelated concepts
+		\startitemize [i, joinedup]
+			\item  Lebesgue integral w.r.t. the Wiener measure
+			\item  Stochastic integral when the integrand is deterministic
+		\stopitemize
+	\stopremark
 
-	Notation:
 
-	In what follows, \m{T = [0, ∞)}, \m{𝒜} means adapted, \m{ℬ} means bounded, \m{𝒞} means continuous, and \m{\norm{⋅}} denotes the \m{L^2}-norm.
+	\startremark [title={Notations}]
+		In what follows, \m{T = [0, ∞)}, \m{𝒜} means adapted, \m{ℬ} means bounded, \m{𝒞} means continuous, and \m{\norm{⋅}} denotes the \m{L^2}-norm.
 
-	Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.
+		Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.		
+	\stopremark
 
-	\startsection [title={Step 1: \m{X ∈ 𝒜 ∩ 𝒮} a.s.}]
 
-		Let \m{X(t, ω) = ∑_{j ≥ 0} ξ_j(ω) 𝟙_{[t_j, t_{j+1})}(t)}, where \m{ξ_j ∈ L^0(ℱ_{t_j})}.
+	\startsection [title={Definition of the Itô integral}]
 
+		\startsubsection [title={Step 1: \m{X ∈ 𝒜 ∩ 𝒮} a.s.}]
+
+			Let \m{X(t, ω) = ∑_{j ≥ 0} ξ_j(ω) 𝟙_{[t_j, t_{j+1})}(t)}, where \m{ξ_j ∈ L^0(ℱ_{t_j})}.
+
+		\stopsubsection
+
+		\startsubsection [title={Step 2: \m{X ∈ 𝒜 ∩ ℬ ∩ 𝒞} a.s.}]
+
+			Define \m{X_n(t, ω) = X\brnd{\frac{\floor{nt}}{n}, ω}, \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ 𝒜 ∩ 𝒮}, and since \m{X ∈ 𝒞}, \m{\abs{X_n(t, ω) - X(t, ω)} → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs{X_n(t, ω) - X(t, ω)} < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs{X_n(t, ω) - X(t, ω)}^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm{X_n - X} → 0}.
+
+			Therefore, \m{(X_n)} is Cauchy in \m{L^2(T × Ω)}, that is, \m{\norm{X_n - X_m} → 0}. Now, by linearity and Itô isometry for the Itô integral for simple processes, \m{\norm{ℐ(X_n) - ℐ(X_m)} = \norm{ℐ(X_n - X_m)} = \norm{X_n - X_m} → 0}. Therefore, for \m{t ∈ T} fixed, \m{(ℐ(X_n))} is Cauchy in \m{L^2(Ω)}. Since \m{L^2(Ω)} is complete, the sequence converges. Denote the limit by \m{ℐ(X)}, that is, \m{\norm{ℐ(X_n) - ℐ(X)} → 0}.
+
+		\stopsubsection
+
+		\startsubsection [title={Step 3: \m{X ∈ 𝒜 ∩ ℬ ∩ L^0(T × Ω)}}]
+
+		\stopsubsection
+
+		\startsubsection [title={Step 4: \m{X ∈ 𝒜 ∩ L^2(T × Ω)}}]
+
+		\stopsubsection
+
+		\startsubsection [title={Step 5: \m{X ∈ 𝒜 ∩ \bcrl{X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞} a.s.}}]
+
+		\stopsubsection
 	\stopsection
 
-	\startsection [title={Step 2: \m{X ∈ 𝒜 ∩ ℬ ∩ 𝒞} a.s.}]
-
-		Define \m{X_n(t, ω) = X\brnd{\frac{\floor{nt}}{n}, ω}, \ n ∈ ℕ}. Note that \m{∀n, X_n ∈ 𝒜 ∩ 𝒮}, and since \m{X ∈ 𝒞}, \m{\abs{X_n(t, ω) - X(t, ω)} → 0} (pointwise convergence) \m{(t, ω)}-a.s. Then \m{∀ ε > 0}, there exists a sufficiently large \m{n ∈ ℕ} such that \m{\abs{X_n(t, ω) - X(t, ω)} < ε < ∞} (bounded) \m{(t, ω)}-a.s, so \m{\abs{X_n(t, ω) - X(t, ω)}^2 < ε^2 < ∞} \m{(t, ω)}-a.s. Therefore, by the bounded convergence theorem, \m{\norm{X_n - X} → 0}.
-
-		Therefore, \m{(X_n)} is Cauchy in \m{L^2(T × Ω)}, that is, \m{\norm{X_n - X_m} → 0}. Now, by linearity and Itô isometry for the Itô integral for simple processes, \m{\norm{ℐ(X_n) - ℐ(X_m)} = \norm{ℐ(X_n - X_m)} = \norm{X_n - X_m} → 0}. Therefore, for \m{t ∈ T} fixed, \m{(ℐ(X_n))} is Cauchy in \m{L^2(Ω)}. Since \m{L^2(Ω)} is complete, the sequence converges. Denote the limit by \m{ℐ(X)}, that is, \m{\norm{ℐ(X_n) - ℐ(X)} → 0}.
-
-	\stopsection
-
-	\startsection [title={Step 3: \m{X ∈ 𝒜 ∩ ℬ ∩ L^0(T × Ω)}}]
-
-	\stopsection
-
-	\startsection [title={Step 4: \m{X ∈ 𝒜 ∩ L^2(T × Ω)}}]
-
-	\stopsection
-
-	\startsection [title={Step 5: \m{X ∈ 𝒜 ∩ \bcrl{X ∈ ℂ^{T × Ω} : ∀ t ≥ 0, ∫_0^t X(s, ⋅) \d s < ∞} a.s.}}]
-
-	\stopsection
 
 	\startsection [title={Properties of the Itô integral}]
 
