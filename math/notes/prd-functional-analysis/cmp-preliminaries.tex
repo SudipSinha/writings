@@ -1,0 +1,145 @@
+\startcomponent *
+
+\product prd-functional-analysis
+
+
+\startchapter [title={Relationships between structures}]
+	
+	Let \m{X} be a set.
+	\startdefinition
+		\startitemize [m]
+
+			\item[dfn:topology-base]  A \emph{basis} of a topology is is a collection \m{ℬ} of subsets of \m{X} satisfying the following properties:
+				\startitemize [i, joinedup]
+					\item[topology-basis:cover]  (cover)  The base elements cover \m{X}.
+					\item[topology-basis:intersection]  (intersection)  For every \m{B_1, B_2 ∈ ℬ}, if \m{x ∈B_1 ∩ B_2}, then there is a \m{B_x ∈ ℬ} such that \m{x ∈ B_x ⊆ B_1 ∩ B_2}.
+				\stopitemize
+
+			\item[dfn:metric]  A \emph{metric} is a function \m{d(⋅, ⋅): X × X → [0, ∞)} such that for all vectors \m{x, y, z ∈ X}, we have
+				\startitemize [i, joinedup]
+					\item[metric:identity-of-indiscernibles]  (identity of indiscernibles)  \m{d(x, y) = 0} iff \m{x = y}.
+					\item[metric:symmetry]  (symmetry)  \m{d(x, y) = d(y, x)}.
+					\item[metric:triangle-inequality]  (triangle inequality)  \m{d(x, z) ≤ d(x, y) + d(y, z)}.
+				\stopitemize
+
+			\item[dfn:norm]  A \emph{norm} is a function \m{\norm{⋅}: X → [0, ∞)} such that for all vectors \m{x, y ∈ X} and scalar \m{α ∈ ℂ}, we have
+				\startitemize [i, joinedup]
+					\item[norm:identity-of-indiscernibles]  (identity of indiscernibles)  \m{\norm{x} = 0} iff \m{x = 0}.
+					\item[norm:scaling]  (scaling)  \m{\norm{α x} = \abs{α} \norm{x}}.
+					\item[norm:triangle-inequality]  (triangle inequality)  \m{\norm{x + y} ≤ \norm{x} + \norm{y}}.
+				\stopitemize
+
+			\item[dfn:inner-product]  An \emph{inner product} is a function \m{\inn{⋅, ⋅}: X × X → ℂ} such that for all vectors \m{x, y, z ∈ X} and scalar \m{α ∈ ℂ}, and  we have
+				\startitemize [i, joinedup]
+					\item[inner-product:positive-definiteness]  (positive-definiteness)  \m{\inn{x, x} ≥ 0} and \m{\inn{x, x} = 0} iff \m{x = 0}.
+					\item[inner-product:Hermitian]  (conjugate symmetry a.k.a. Hermitian)  \m{\inn{x, y} = \conj{\inn{y, x}}}.
+					\item[inner-product:sesquilinearity]  (sesquilinearity)  \m{\inn{α x + y, z} = α \inn{x, z} + \inn{y, z}}.
+				\stopitemize
+		\stopitemize
+	\stopdefinition
+	
+	\startproposition
+		Inner product ⟹ norm ⟹ metric ⟹ topology.
+	\stopproposition
+	\startproof
+		\startitemize [A]
+			
+			\item  \emph{inner product ⟹ norm}. Define the norm as \m{\norm{⋅} = \sqrt{\inn{⋅, ⋅}}}.
+				\startitemize [i, joinedup]
+					\item  \m{\norm{x} = 0  ⟺  \norm{x}^2 = 0  ⟺  \inn{x, x} = 0  ⟺  x = 0} using \in[dfn:inner-product].\in[inner-product:positive-definiteness].
+					\item  \m{\norm{α x}^2  =  \inn{α x, α x}  =  \inn{\conj{α} α x, x}  =  \conj{α} α \inn{x, x} = \abs{α}^2 \norm{x}^2} using \in[dfn:inner-product].\in[inner-product:Hermitian] and \in[dfn:inner-product].\in[inner-product:sesquilinearity].
+					\item  
+						\startformula \startalign[n=3]
+							\NC  \norm{x + y}^2  =  \NC  \inn{x + y, x + y}  \NR
+							\NC  =  \NC  \inn{x, x} + \inn{x, y} + \inn{y, x} + \inn{y, y}  \qquad  \NC  [\text{\in[dfn:inner-product].\in[inner-product:sesquilinearity]}]  \NR
+							\NC  =  \NC  \norm{x}^2 + \inn{x, y} + \conj{\inn{x, y}} + \norm{y}^2  \NC  [\text{\in[dfn:inner-product].\in[inner-product:Hermitian]}]  \NR
+							\NC  =  \NC  \norm{x}^2 + 2 ℜ \inn{x, y} + \norm{y}^2  \NR
+							\NC  ≤  \NC  \norm{x}^2 + 2 \abs{\inn{x, y}} + \norm{y}^2  \NR
+							\NC  ≤  \NC  \norm{x}^2 + 2 \norm{x} \norm{y} + \norm{y}^2  \NC  [\text{\in[ineq:Cauchy–Schwarz]}]  \NR
+							\NC  =  \NC  \brnd{\norm{x} + \norm{y}}^2 .  \NR
+						\stopalign \stopformula
+				\stopitemize
+
+			\item  \emph{norm ⟹ metric}. Define the metric as \m{d(x, y) = \norm{x - y}}.
+				\startitemize [i, joinedup]
+					\item  \m{d(x, y) = 0  ⟺  \norm{x - y} = 0  ⟺  x - y = 0  ⟺  x = y} using \in[dfn:norm].\in[norm:identity-of-indiscernibles].
+					\item  \m{d(x, y) = \norm{x - y} = \norm{- (y - x)} = \abs{-1} \norm{y - x} = d(y, x)}  using \in[dfn:norm].\in[norm:scaling].
+					\item  \m{d(x, z) = \norm{x - z} = \norm{(x - y) + (y - z)} ≤ \norm{x - y} + \norm{y - z} = d(x, y) + d(y, z)} using \in[dfn:norm].\in[norm:triangle-inequality].
+				\stopitemize
+
+			\item  \emph{metric ⟹ topology}. Define the basis of the topology as open balls of the form
+				\startformula
+					D_r(x_0) = \bcrl{x ∈ X ∣ d(x, x_0) < r}, \qquad x_0 ∈ X, r > 0 .
+				\stopformula
+				That is, \m{𝒯 = τ(ℬ)}, where \m{ℬ = \bcrl{D_r(x_0) ∣ x_0 ∈ X, r > 0}}.
+				
+				All we have to do is show that \m{ℬ} is a basis. The cover is obvious. Note that for any \m{B_1, B_2 ∈ ℬ}, we can write \m{B_1 = D_{r_1}(x_1), B_2 = D_{r_2}(x_2)}. Suppose \m{x ∈ B_1 ∩ B_2}. Then \m{x ∈ D_r(x) ⊆ D_{r_1}(x_1) ∩ D_{r_2}(x_2)} if \m{r ≤ \min\bcrl{r_1 - d(x, x_1), r_2 - d(x, x_2)}}, and we are done.
+
+				The topology induced by the metric is called the \emph{metric topology}.
+		\stopitemize
+	\stopproof
+\stopchapter
+
+\startchapter [title={Strong, weak and weak* convergence}]
+
+	\emph{Disclaimer}: This section is shamelessly copied from \goto{Christopher Heil's notes}[url(https://people.math.gatech.edu/~heil/handouts/weak.pdf)].
+
+	\startdefinition
+		Let \m{X} be a normed vector space, and \m{x_n, x ∈ X}. We define the following convergences as \m{n → ∞}.
+		\startformula \startalign
+			\NC  \text{(strong)} \qquad  x_n → x  \qquad ⟺ \qquad  \NC  \norm{x_n - x} → 0  \NR
+			\NC  \text{(weak)} \qquad  x_n \xrightarrow{w} x  \qquad ⟺ \qquad  \NC  ∀ϕ ∈ X^*, \quad  \pair{x_n - x, ϕ} → 0  \NR
+		\stopalign \stopformula
+	\stopdefinition
+
+	\startdefinition
+		Let \m{X} be a normed vector space, and \m{ϕ_n, ϕ ∈ X^*}. We define the following convergences as \m{n → ∞}.
+		\startformula \startalign
+			\NC  \text{(strong)} \qquad  ϕ_n → ϕ  \qquad ⟺ \qquad  \NC  \norm{ϕ_n - ϕ} → 0  \NR
+			\NC  \text{(weak)} \qquad  ϕ_n \xrightarrow{w} ϕ  \qquad ⟺ \qquad  \NC  ∀ξ ∈ X^{**}, \quad  \pair{ϕ_n - ϕ, ξ} → 0  \NR
+			\NC  \text{(weak*)} \qquad  ϕ_n \xrightarrow{w^*} ϕ  \qquad ⟺ \qquad  \NC  ∀x ∈ X, \quad  \pair{x, ϕ_n - ϕ} → 0  \NR
+		\stopalign \stopformula
+	\stopdefinition
+
+	\startremark
+		Weak* convergence is simply \emph{pointwise convergence} for the functionals \m{ϕ_n}.
+	\stopremark
+
+	\startproposition [title={strong ⟹ weak ⟹ weak* for convergence}]
+		Suppose \m{ϕ_n, ϕ ∈ X^*}. Then \m{ϕ_n → ϕ  ⟹  ϕ_n \xrightarrow{w} ϕ  ⟹  ϕ_n \xrightarrow{w^*} ϕ}.
+		
+		The second implication reverses if \m{X} is reflexive.
+	\stopproposition
+	\startproof
+		\emph{strong ⟹ weak}: \qquad
+		\m{\pair{x_n - x, ϕ} ≤ \norm{x_n - x} \norm{ϕ} → 0}.
+	
+		\emph{weak ⟹ weak*}: \qquad
+		\m{\pair{x, ϕ_n - ϕ} = \pair{ϕ_n - ϕ, x^{**}} → 0}.
+
+		The claim about the reverse implication is now obvious.
+
+		\emph{Counterexample for converse of the first implication}: Suppose \m{X = ℓ^2(ℕ)}. Then \m{e_n \xrightarrow{w} 0}, but \m{\norm{e_n - 0} = 1 ↛ 0}.
+	\stopproof
+
+	\startproposition
+		In Hilbert spaces, weak convergence plus convergence of norms (\m{\norm{x_n} → \norm{x}}) is equivalent to strong convergence.
+	\stopproposition
+	\startproof
+		\m{\norm{x_n - x}^2 = \inn{x_n - x, x_n - x} = \inn{x_n - x, x_n} - \inn{x_n - x, x} → 0}.
+	\stopproof
+
+	\startproposition
+		Let \m{H} and \m{K} be Hilbert spaces, and let \m{T ∈ B(H, K)} be a compact operator. Show that \m{x_n \xrightarrow{w} x ⟹ T x_n → T x}.
+		
+		Thus, a compact operator maps weakly convergent sequences to strongly convergent sequences.
+	\stopproposition
+	\startproof
+		\emph{Disclaimer}: Stolen from \goto{MSx1142451}[url(https://math.stackexchange.com/questions/1142451/compact-operators-weak-convergence)].
+
+		\m{T x_n \xrightarrow{w} T x} by continuity. Thus if any subsequence has a strong limit, it certainly is \m{T x}. But compactness guarantees every subsequence has a subsequence that converges to something: that something is \m{T x} by uniqueness, and so by our above equivalence with convergence, we have \m{T x_n → T x}.
+	\stopproof
+
+\stopchapter
+
+\stopcomponent

@@ -41,4 +41,6 @@
       *  `Base16 Color Schemes`
    *  `Settings - Syntax Specific` for `Markdown`: `"tab_size": 3`
 
-*  [`ConTeXt LMTK`](https://wiki.contextgarden.net/ConTeXt_LMTX): 'tikz' did not work for me, so sticking to `Mark IV`
+*  `Visual Studio Code`
+   *  Install from [here](https://code.visualstudio.com/docs/setup/linux). The Snap package did not work for me. Install from `.deb` worked.
+.*  [`ConTeXt LMTK`](https://wiki.contextgarden.net/ConTeXt_LMTX): 'tikz' did not work for me, so sticking to `Mark IV`

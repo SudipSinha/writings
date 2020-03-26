@@ -1,0 +1,53 @@
+\startcomponent *
+
+\product prd-functional-analysis
+
+
+\startchapter [title={Basics}]
+	
+	In what follows, \m{\brnd{H, \inn{⋅, ⋅}}} is a Hilbert space, and we write \m{x ⟂ y} iff \m{\inn{x, y} = 0}.
+
+	\starttheorem [title={Pythagorean}, reference=thm:Pythagorean]
+		If \m{x, y ∈ H} and \m{x ⟂ y}, then \m{\norm{x + y}^2 = \norm{x}^2 + \norm{y}^2}.
+	\stoptheorem
+	\startproof
+		\startformula  \startalign
+			\NC  \norm{x + y}^2  =  \NC  \inn{x + y, x + y}  \NR
+			\NC  =  \NC  \inn{x, x} + \inn{x, y} + \inn{y, x} + \inn{y, y}  \NR
+			\NC  =  \NC  \norm{x}^2 + \norm{y}^2.  \NR
+		\stopalign  \stopformula
+	\stopproof
+
+	\starttheorem [title={Cauchy–Schwarz inequality}, reference=ineq:Cauchy–Schwarz]
+		If \m{x, y ∈ H}, then \m{\abs{\inn{x, y}} ≤ \norm{x} \norm{y}}.
+	\stoptheorem
+	\startproof [title={norm expansion}]
+		Note that \m{0 ≤ \norm{x - λ y}^2 = \norm{x}^2 - 2 ℜ\brnd{\conj{λ} \inn{x, y}} + \abs{λ}^2 \norm{y}^2}, so if we take \m{λ = \frac{\inn{x, y}}{\norm{y}^2}}, we get \m{0 ≤ \norm{x}^2 - \frac{\abs{\inn{x, y}}^2}{\norm{y}^2}}, which gives us the required result.
+	\stopproof
+	\startproof [title={projection}]
+		Note that we can write \m{x = x_∥ + x_⟂}, where \m{x_∥} is the component of \m{x} in the direction of \m{y} and \m{x_⟂} is the component of \m{x} in the direction perpendicular to \m{y}. Explicitly, \m{x_∥ = \inn{x, \hat{y}} \hat{y} = \inn{x, y} \frac{y}{\norm{y}^2}}. Using the Pythagorean theorem (\in[thm:Pythagorean]), we get
+		\startformula
+			\norm{x}^2  =  \norm{x_∥}^2 + \norm{x_⟂}^2  ≥  \norm{x_∥}^2  =  \frac{\abs{\inn{x, y}}^2}{\norm{y}^2}.
+		\stopformula
+	\stopproof
+
+	\starttheorem [title={Riesz–Fischer}]
+		\m{L^p(X, μ)} is complete for \m{p ∈ [0, ∞]}.
+	\stoptheorem
+	\startproof
+		Let \m{\brnd{f_n}} be a Cauchy sequence in \m{L^p}. We have to show that there exists \m{f ∈ L^p} such that \m{f_n → f} in \m{L^p}.
+
+		Since \m{\brnd{f_n}} is Cauchy, for every \m{ε > 0}, there exists \m{N ∈ ℕ} such that for every \m{n,m > N}, we have \m{\norm{f_n - f_m}_p < ε}. Therefore, there exists a subsequence \m{\brnd{f_{n_k}}} such that \m{\norm{f_{n_{k+1}} - f_{n_k}}_p < 2^{-(k + 1)}} for every \m{k ∈ ℕ_0}, where we adopt the convention that \m{f_{n_0} ≡ 0}. Note that \m{f_{n_k} = ∑_{j = 0}^{k - 1} \brnd{f_{n_{j+1}} - f_{n_j}}} for each \m{k ∈ ℕ}.
+
+		Define \m{f = ∑_{j = 0}^∞ \brnd{f_{n_{j+1}} - f_{n_j}}}. Clearly, \m{f_{n_k} → f} pointwise. Moreover, if \m{g = ∑_{j = 0}^∞ \abs{f_{n_{j+1}} - f_{n_j}}}, then \m{\abs{f_{n_k}} ≤ g} and \m{\norm{g}_p ≤ ∑_{j = 0}^∞ \norm{f_{n_{j+1}} - f_{n_j}}_p ≤ 1} using the triangle inequality. Therefore, by Lebesgue's dominated convergence theorem, \m{f_{n_k} → f} in \m{L^p}.
+
+		Similar to \m{g}, we get \m{\norm{f}_p ≤ 1}, showing \m{f ∈ L^p}. All that is left to show is that \m{f_n → f} in \m{L^p}. Using the fact that the sequence is Cauchy, we get
+		\startformula
+			\norm{f_n - f}_p ≤ \norm{f_n - f_{n_k}}_p + \norm{f_{n_k} - f}_p → 0 \text{ as } n → ∞ .
+		\stopformula
+	\stopproof
+
+
+\stopchapter
+
+\stopcomponent
