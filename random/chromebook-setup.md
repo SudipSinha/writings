@@ -11,6 +11,11 @@
    chsh -s $(which zsh)
    ```
 *  `snapd` did not work for me
+*  `docker`: the official instructions [here](https://docs.docker.com/install/linux/docker-ce/ubuntu/) gave me the error
+  ```sh
+  E: The repository 'https://download.docker.com/linux/ubuntu buster Release' does not have a Release file.
+  N: Updating from such a repository cannot be done securely, and is therefore disabled by default.
+  ```
 *  Editor: [`micro`](https://micro-editor.github.io/)
    *  Install using `curl https://getmic.ro | zsh`. _(`snap install micro --classic` did not work for me.)_
    *  Open `micro`, type `Ctrl+E`, and type `set colorscheme simple`
@@ -40,7 +45,6 @@
       *  `A File Icon`
       *  `Base16 Color Schemes`
    *  `Settings - Syntax Specific` for `Markdown`: `"tab_size": 3`
-
 *  `Visual Studio Code`
    *  Install from [here](https://code.visualstudio.com/docs/setup/linux). The Snap package did not work for me. Install from `.deb` worked.
 .*  [`ConTeXt LMTK`](https://wiki.contextgarden.net/ConTeXt_LMTX): 'tikz' did not work for me, so sticking to `Mark IV`
