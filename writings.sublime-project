@@ -1,27 +1,51 @@
 {
 	"folders":
 	[
-		// {
-		// 	"path": "."
-		// },
 		{
 			"path": "math",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.tuc",
+				"*.pgf",
+				"*~*"
+			],
+			"folder_exclude_patterns":
+			[
+				"*-export"
+			],
 		},
 		{
 			"path": "teaching",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.tuc",
+				"*.pgf",
+				"*~*"
+			],
+			"folder_exclude_patterns":
+			[
+				"*-export"
+			],
 		},
 		{
 			"path": "resume",
-			"file_exclude_patterns": ["*.log", "*.tuc", "*.pgf", "*~*"],
-			"folder_exclude_patterns": ["*-export"]
+			"file_exclude_patterns":
+			[
+				"*.log",
+				"*.tuc",
+				"*.pgf",
+				"*~*"
+			],
+			"folder_exclude_patterns":
+			[
+				"*-export"
+			],
 		},
 		{
 			"path": "random"
-		},
+		}
 	],
 	"settings":
 	{

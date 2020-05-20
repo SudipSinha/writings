@@ -7,6 +7,9 @@
 \version [\getvariable{document}{version}]
 
 % NOTE: export cannot deal with 'part's as of 2019-04-05
+% The math also needs a typesetting library. See the following:
+% https://tex.stackexchange.com/questions/545014/
+% https://tex.stackexchange.com/questions/43052/
 % \setupbackend [export=yes]    % export to other formats
 
 \setupcolors [state=start]       % otherwise you get greyscale
@@ -98,13 +101,13 @@
 \setupcombinedlist [content] [list={part, chapter, section, exercises}]
 
 % Bibliography (https://www.contextgarden.net/Bibliography_mkiv)
-\usebtxdataset[../bibliographies/default.bib]
-\usebtxdataset[../bibliographies/logic.bib]
-\usebtxdataset[../bibliographies/number-theory.bib]
-\usebtxdataset[../bibliographies/combinatorics.bib]
+\usebtxdataset[../bibliographies/stochastics.bib]
 \usebtxdataset[../bibliographies/Itô.bib]
 \usebtxdataset[../bibliographies/Kuo-integral.bib]
 \usebtxdataset[../bibliographies/large-deviations.bib]
+\usebtxdataset[../bibliographies/combinatorics.bib]
+\usebtxdataset[../bibliographies/number-theory.bib]
+\usebtxdataset[../bibliographies/logic.bib]
 \usebtxdefinitions[apa]    % apa or aps
 % Use \cite[short][#key] to get XXX19 type citations
 

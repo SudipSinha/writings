@@ -1,5 +1,5 @@
 # Sublime Text workspace files
-writings.sublime-workspace
+*.sublime-workspace
 
 # ConTeXt
 *.log

@@ -4,7 +4,7 @@
 
 
 \startchapter [title={Brownian motion}]
-	
+
 	In the following, let \m{i ∈ [n]} for \m{n ∈ ℕ}, and
 	\startitemize [5, joinedup]
 		\item  \m{Δ_i t = t_i - t_{i-1}} with \m{Δ_1 t = t_1},
@@ -51,7 +51,6 @@
 				\stopalign  \stopformula
 
 			\item  \in[bm-marginal] ⟹ \in[bm-Fourier]
-				
 				First, we recall the characteristic function of \m{X ∼ 𝒩(0, t)} as \m{𝔼e^{𝚤 λ X} = e^{-\frac12 λ^2 t}}.
 				Secondly, note that
 				\startformula
@@ -149,6 +148,42 @@
 \stopchapter
 
 
+\startchapter [title={Markov chains}]
+
+	\startsection [title={First Step Analysis}]
+		First-step analysis is a general strategy for solving many Markov chain problems by conditioning on the first step of the Markov chain.
+
+		We understand this from the first example of \cite[Steele2001]. We will derive a recursive relationship of the probability of a gambler winning before he goes bankrupt. The setting is as follows.
+
+		A gambler starts with a principal of \m{0}, and he can borrow a maximum of \m{b}. He stops playing if his net value is \m{a} at any point of time. At each instant \m{i}, his wealth \m{S_i} either increases or decreases by one amount depending on the output of the Bernoulli random variable \m{X_i} with \quote{up} probability \m{p}. This gives rise to the finite state space \m{𝒮 = \bcrl{-b, -b + 1, …, a - 1, a}}. Note that \m{(S_n)} is a time-homogeneous Markov chain on \m{𝒮} with transition probabilities as follows:
+		\startitemize [n, joinedup]
+			\item  \m{P_{-b, j} = P_{a, j} = 0} (absorbing barriers),
+			\item  \m{P_{i, i + 1} = p} and \m{P_{i, i - 1} = q} with \m{q = 1 - p}, and
+			\item  \m{P_{i, j} = 0} in all other cases.
+		\stopitemize
+
+		Let \m{τ} be the first exit time, and \m{f(k) = ℙ\bcrl{S_τ = A ∣ S_0 = k} = ℙ_{\bcrl{S_0 = k}} \bcrl{S_τ = A}} for \m{k ∈ 𝒮}. Our goal in this setting is to obtain a recursive relation for \m{f}. Now,
+		\startformula
+			\bcrl{S_τ = A}  =  \bcrl{S_τ = A} ∩ Ω  =  \bcrl{S_τ = A} ∩ ⨆_{l ∈ 𝒮} \bcrl{S_1 = l}  =  ⨆_{l ∈ 𝒮} \bcrl{S_τ = A} ∩ \bcrl{S_1 = l} .
+		\stopformula
+		Finally,
+		\startformula \startalign[n=3]
+			\NC  f(k)  \NC =  ℙ_{\bcrl{S_0 = k}} \bcrl{S_τ = A}  \NR
+			\NC  \NC =  ∑_{l ∈ 𝒮} ℙ_{\bcrl{S_0 = k}} \brnd{\bcrl{S_τ = A} ∩ \bcrl{S_1 = l}}  \NR
+			\NC  \NC =  ∑_{l ∈ 𝒮} ℙ_{\bcrl{S_0 = k}} \bcrl{S_τ = A ∣ S_1 = l} ℙ_{\bcrl{S_0 = k}} \bcrl{S_1 = l}  \NR
+			\NC  \NC =  ∑_{l ∈ 𝒮} ℙ_{\bcrl{S_1 = l}} \bcrl{S_τ = A} P_{k, l}  \qquad  \NC  [\text{Markov property}]  \NR
+			\NC  \NC =  ∑_{l ∈ 𝒮} P_{k, l} f(l)  .  \NC  [\text{time-homogenity}]  \NR
+		\stopalign \stopformula
+
+		Since \m{P_{k, l} = 0} for all \m{l} except for \m{k ± 1}, we get
+		\startformula
+			f(k) = f(k + 1) p + f(k - 1) q .
+		\stopformula
+
+	\stopsection
+\stopchapter
+
+
 \startchapter[title={Markov processes}, reference=sub:Markov]
 
 	\startsubject[title={Equivalent definitions}]
@@ -162,12 +197,11 @@
 	\startsubject[title={Martingale vs Markov}]
 		See \goto{djalil.chafai.net}[url(http://djalil.chafai.net/blog/2012/01/20/martingales-which-are-not-markov-chains/)] and \goto{MathSx:763645}[url(https://math.stackexchange.com/questions/763645)].
 	\stopsubject
-
 \stopchapter
 
 
 \startchapter [title={Itô calculus}, reference=sub:Itô]
-	
+
 	\startremark [title={Wiener integral}]
 		The term \emph{Wiener integral} may be used to refer to either of the following two unrelated concepts
 		\startitemize [i, joinedup]
@@ -180,7 +214,7 @@
 	\startremark [title={Notations}]
 		In what follows, \m{T = [0, ∞)}, \m{𝒜} means adapted, \m{ℬ} means bounded, \m{𝒞} means continuous, and \m{\norm{⋅}} denotes the \m{L^2}-norm.
 
-		Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.		
+		Let \m{(Ω, ℱ, 𝔽 = (ℱ_t), ℙ)} be a filtered probability space, \m{W:T × Ω → ℂ} be a \m{𝔽}-adapted Wiener martingale, and \m{X: T × Ω → ℂ} be a stochastic process.
 	\stopremark
 
 
